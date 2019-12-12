@@ -696,7 +696,7 @@ namespace EthozCapital.Controllers
 					newDoc.ReplaceText("crmtb_client_contact_det.cd_typ_val_office", ModelData.strContactMobile == null ? "" : ModelData.strContactMobile);
 				}
 				newDoc.ReplaceText("crmtb_client_contact_det.cd_typ_val_fax", ModelData.strContactFax == null ? "" : ModelData.strContactFax);
-				newDoc.ReplaceText("crmtb_client_contact_mas_cm_title", (ModelData.ClientContactMacDetails.cm_title == null ? "" : ModelData.ClientContactMacDetails.cm_title) + " " + (ModelData.ClientContactMacDetails.cm_full_nam == null ? "" : ModelData.ClientContactMacDetails.cm_full_nam));
+				newDoc.ReplaceText("crmtb_client_contact_mas_cm_title", (ModelData.ClientContactMacDetails.cm_title == null ? "" : ModelData.ClientContactMacDetails.cm_title+" ")+(ModelData.ClientContactMacDetails.cm_full_nam == null ? "" : ModelData.ClientContactMacDetails.cm_full_nam));
 
 				#region Letter Of Offer Checked logic
 				if (ModelData.IsLetterOfOfferChecked)
