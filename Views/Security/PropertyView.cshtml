@@ -1,0 +1,26 @@
+﻿@model EthozCapital.Models.ViewModels.SecurityPropertyViewModel
+<br />
+<br />
+<br />
+@if (ViewData["Message"] != null)
+{
+    <h2>Invalid Page</h2>
+    @ViewData["Message"]
+}
+else
+{
+    <div style="margin-left: 0px; overflow: auto">
+        <h2>View Mortgage - Property Master</h2>
+    </div>
+    { Html.RenderAction("GetPropertyDetails", new { IsView = true }); }
+    @section Styles
+        {
+        <link href="~/CustomCss/Security/security-property-view.css" rel="stylesheet" />
+        <link href="~/Content/common.css" rel="stylesheet" />
+    }
+    @section HeaderScripts
+      {
+        <script src="~/CustomScript/Security/Customer_Mortgagor.js"></script>
+    }
+}
+

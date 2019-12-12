@@ -1,0 +1,207 @@
+﻿@model EthozCapital.Models.ViewModels.SecFinInstrumentModel
+
+<form id="mainForm" method="post">
+    <div class="tab-content">
+        <div class="tab-pane active in" id="nav-tab2-1">
+            <h3 class="m-t-10"></h3>
+            <fieldset>
+                <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Main</legend>
+                <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#main">
+                    <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                    <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                </legend>
+                <div id="selectionbox" class="selectionbox ">
+                    <div id="main" class="collapse in">
+                        <div class="row collapse in">
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <div>
+                                        <label>Security System ID :</label>
+                                        @Html.TextBoxFor(model => model.Id, "", new { @class = "form-control", @id = "Id", @placeholder = "Security System ID", @style = "display:inline", @disabled = "disabled" })
+                                        <i></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <div>
+                                        <label>Financial Instrument Type *</label>
+                                        @Html.DropDownListFor(model => model.FinancialInstrumentType, ViewBag.FinancialInstruments as SelectList, "--Select--", new { @class = "form-control FinancialInstrumentType required", @id = "FinancialInstrumentType", @style = "font-size:14px;" })
+                                        <i></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <div>
+                                        <label>Amount *</label>
+                                        @Html.TextBoxFor(model => model.Amount, "", new { @class = "form-control money Amount required", @id = "txtAmount", @placeholder = "Security System ID", @style = "text-align:right;font-size:14px;", @maxlength = "20", @autocomplete = "off" })
+                                        <i></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="tab-pane active in" id="nav-tab2-1">
+            <h3 class="m-t-10"></h3>
+            <fieldset>
+                <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Security/ Financial Instrument Details</legend>
+                <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#SecurityFinancialInstruments">
+                    <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                    <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                </legend>
+                <div id="selectionbox" class="selectionbox">
+                    <div id="SecurityFinancialInstruments" class="collapse in">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <label>Document Number</label>
+                                    @Html.TextBoxFor(model => model.SecurityorFinancialInstrumentDetails.DocumentNumber, "", new { @class = "form-control DocumentNumber", @id = "txtDocumentNumber", @placeholder = "Document Number", @style = "text-align:left;font-size:14px;", @maxlength = "20", @autocomplete = "off" })
+                                    <i></i>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <label>Bank Name/ Financial Company</label>
+                                    @Html.TextBoxFor(model => model.SecurityorFinancialInstrumentDetails.BankNameorFinancialCompany, "", new { @class = "form-control BankName_FinancialCompany", @id = "txtBankNameFinancialCompany", @placeholder = "Bank Name/ Financial Company", @style = "text-align:left;font-size:14px;", @maxlength = "50", @autocomplete = "off" })
+                                    <i></i>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <label>Charge Date</label>
+                                    @Html.TextBoxFor(model => model.SecurityorFinancialInstrumentDetails.ChargeDate, "", new { @class = "form-control chargeDate", @id = "txtChargeDate", @placeholder = "Charge Date", @style = "font-size:14px; background-color:white;", @autocomplete = "off", @readonly = "readonly" })
+                                    <i></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        @{Html.RenderPartial("_Customer", Model.CustomerToAccess);}
+
+        <div class="tab-pane active in" id="nav-tab2-1">
+            <h3 class="m-t-10"></h3>
+            <fieldset>
+                <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Creation & Modification Info </legend>
+
+                <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#creationInfoBox">
+                    <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                    <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                </legend>
+
+                <div id="creationInfoBox" class="mortgagorList collapse in">
+                    <div class="row">
+                        <div class="col-md-4" id="dtpCreatedDateDiv">
+                            <div class="form-group block1">
+                                <label>Created Date </label>
+                                @Html.TextBoxFor(model => model.CreatedDate, new { id = "dtpCreatedDate", @class = "form-control", @disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="col-md-4" id="cdreatedBy">
+                            <div class="form-group block1">
+                                <label>Created by </label>
+                                @Html.TextBoxFor(model => model.CreatedBy, new { @class = "form-control", @disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group block1">
+                                <label>Last Updated Date </label>
+                                @Html.TextBoxFor(model => model.UpdatedDate, new { id = "dtpUpdatedDate", @class = "form-control", @disabled = "disabled" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4" id="UpdatedBy">
+                            <div class="form-group block1">
+                                <label>Last Updated By </label>
+                                @Html.TextBoxFor(model => model.UpdatedBy, new { @class = "form-control", @disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="col-md-4" id="status">
+                            <div class="form-group block1">
+                                <label>Status </label>
+                                @Html.DropDownListFor(model => model.Status, ViewBag.StatusList as SelectList, "--Select--", new { @class = "form-control Property_Level_2", @id = "Status", @readonly = "readonly", @tabindex = "2", @style = "font-size:14px;" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="tab-pane active in" id="nav-tab2-1">
+            <h3 class="m-t-10"></h3>
+            <fieldset>
+                <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Contract Related</legend>
+                <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#contractRelated">
+                    <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                    <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                </legend>
+                <!-- begin row -->
+                <div id="contractRelated" class="collapse in">
+                    @{Html.RenderPartial("_SecurityContractsListView", Model.ContractDetails);}
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</form>
+
+<div class="col-md-10 margin-bottom-25">
+    <div class="nav navbar-nav navbar-left">
+        <div class="row">
+            @if (!ViewBag.Viewable)
+            {
+                <button type="button" id="SaveSecFinInstruments" onclick="SaveNewSecFinInstruments('@Url.Action("GetSecuritiesOrFinancialInstruments","Security", new { SecurityId=Model.Id ,IsView=false})')" class="btn">Save</button>
+                <button type="button" class="btn" id="DischargeOrCancel" onclick="UpdateStatus('@Url.Action("GetSecuritiesOrFinancialInstruments","Security", new { SecurityId=Model.Id ,IsView=false})')">Discharge/ Cancel</button>
+                <button type="button" class="btn" id="ResetEdit" onclick="ResetView('@Url.Action("GetSecuritiesOrFinancialInstruments","Security", new { SecurityId=Model.Id ,IsView=false})')">Reset</button>
+                <button type="button" class="btn deleting" onclick="onViewClick('@Url.Action("SecurityMasterModification", "Security", new { CTGroupCode = DBNull.Value, SubConGroupCode = DBNull.Value, SubMenuId =  @HttpContext.Current.Session["SubMenuIdEdit"] }, Request.Url.Scheme)')">Back</button>
+            }
+            else
+            {
+                <button type="button" class="btn deleting" onclick="onViewClick('@Url.Action("SecurityMasterEnquiry", "Security", new { CTGroupCode = DBNull.Value, SubConGroupCode = DBNull.Value, SubMenuId =  @HttpContext.Current.Session["SubMenuId"] }, Request.Url.Scheme)')">Back</button>
+            }
+        </div>
+    </div>
+</div>
+<script src="~/CustomScript/Security/securitiesOrFinancial-master.js"></script>
+<script src="~/CustomScript/Security/Customer.js"></script>
+<script>
+    $(document).ready(function () {
+        if ('@Html.Raw(@Model)' != null) {
+            if ('@Html.Raw(ViewBag.Viewable)' == 'True') {
+                $("#mainForm input,textarea,select").prop("disabled", true);
+                $(".chargeDate").css("background-color", "#eee");
+                $(".input-sm").removeAttr("disabled");
+            }
+            else {
+                if ('@Html.Raw(@Model.Status)' != 'O') {
+                    $("#mainForm input,textarea,select").prop("disabled", true);
+                    swal(swalGlobal.SwalTitle_Warning, "Security item already discharged/cancelled, modification is not allowed.", swalGlobal.SwalType_Warning);
+                    $("#SaveSecFinInstruments").prop("disabled", true);
+                    $("#DischargeOrCancel").prop("disabled", true);
+                    $("#ResetEdit").prop("disabled", true);
+                    $("#btnCustomerToAccessList").css('display', 'none');
+                    $(".btnAction").prop("disabled", true);
+                    $(".chargeDate").css("background-color", "#eee");
+                    $(".input-sm").removeAttr("disabled");
+                    $("body").css("overflow", "auto");
+                }
+                else {
+                    $("#Id").prop("disabled", true);
+                }
+            }
+        }
+        else {
+            swal(swalGlobal.SwalTitle_Error, "No record found!", swalGlobal.SwalType_Error);
+        }
+    if ('@Html.Raw(@Model.Id)' != null) {
+            SetNavigationforSecurity();
+        }
+    });
+</script>

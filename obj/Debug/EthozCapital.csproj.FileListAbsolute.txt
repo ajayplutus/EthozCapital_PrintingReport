@@ -1,0 +1,196 @@
+E:\Freelancer\EthozCapital\bin\EthozCapital.dll.config
+E:\Freelancer\EthozCapital\bin\EthozCapital.dll
+E:\Freelancer\EthozCapital\bin\EthozCapital.pdb
+E:\Freelancer\EthozCapital\obj\Debug\EthozCapital.dll
+E:\Freelancer\EthozCapital\obj\Debug\EthozCapital.pdb
+E:\Freelancer\EthozCapitalSVN\bin\EthozCapital.dll.config
+E:\Freelancer\EthozCapitalSVN\bin\EthozCapital.dll
+E:\Freelancer\EthozCapitalSVN\bin\EthozCapital.pdb
+E:\Freelancer\EthozCapitalSVN\bin\System.Net.Http.Formatting.dll
+E:\Freelancer\EthozCapitalSVN\bin\System.Web.Http.dll
+E:\Freelancer\EthozCapitalSVN\bin\System.Web.Http.WebHost.dll
+E:\Freelancer\EthozCapitalSVN\bin\System.Net.Http.Formatting.xml
+E:\Freelancer\EthozCapitalSVN\bin\System.Web.Http.xml
+E:\Freelancer\EthozCapitalSVN\bin\System.Web.Http.WebHost.xml
+E:\Freelancer\EthozCapitalSVN\obj\Debug\EthozCapital.dll
+E:\Freelancer\EthozCapitalSVN\obj\Debug\EthozCapital.pdb
+E:\Freelancer\EthozCapitalSVN\obj\Debug\EthozCapital.csprojResolveAssemblyReference.cache
+E:\Freelancer\EthozCapital_Merging\bin\bin\Newtonsoft.Json.dll
+E:\Freelancer\EthozCapital_Merging\bin\bin\System.Net.Http.Formatting.dll
+E:\Freelancer\EthozCapital_Merging\bin\EthozCapital.dll.config
+E:\Freelancer\EthozCapital_Merging\bin\EthozCapital.dll
+E:\Freelancer\EthozCapital_Merging\bin\EthozCapital.pdb
+E:\Freelancer\EthozCapital_Merging\obj\Debug\EthozCapital.dll
+E:\Freelancer\EthozCapital_Merging\obj\Debug\EthozCapital.pdb
+E:\Freelancer\EthozCapital_Merging\obj\Debug\EthozCapital.csprojResolveAssemblyReference.cache
+E:\Freelancer\EthozCapital_LEFS\bin\bin\Newtonsoft.Json.dll
+E:\Freelancer\EthozCapital_LEFS\bin\bin\System.Net.Http.Formatting.dll
+E:\Freelancer\EthozCapital_LEFS\bin\EthozCapital.dll.config
+E:\Freelancer\EthozCapital_LEFS\bin\EthozCapital.dll
+E:\Freelancer\EthozCapital_LEFS\bin\EthozCapital.pdb
+E:\Freelancer\EthozCapital_LEFS\obj\Debug\EthozCapital.csprojResolveAssemblyReference.cache
+E:\Freelancer\EthozCapital_LEFS\obj\Debug\EthozCapital.dll
+E:\Freelancer\EthozCapital_LEFS\obj\Debug\EthozCapital.pdb
+D:\Client\EthozCapital\bin\bin\Newtonsoft.Json.dll
+D:\Client\EthozCapital\bin\bin\System.Net.Http.Formatting.dll
+D:\Client\EthozCapital\bin\EthozCapital.dll.config
+D:\Client\EthozCapital\bin\EthozCapital.dll
+D:\Client\EthozCapital\bin\EthozCapital.pdb
+D:\Client\EthozCapital\obj\Debug\EthozCapital.csproj.CoreCompileInputs.cache
+D:\Client\EthozCapital\obj\Debug\EthozCapital.csproj.CopyComplete
+D:\Client\EthozCapital\obj\Debug\EthozCapital.dll
+D:\Client\EthozCapital\obj\Debug\EthozCapital.pdb
+D:\Client\EthozCapital\obj\Debug\EthozCapital.csprojAssemblyReference.cache
+E:\Freelancer\EthozFL\Ethoz 05062019\EthozCapital\bin\bin\Newtonsoft.Json.dll
+E:\Freelancer\EthozFL\Ethoz 05062019\EthozCapital\bin\bin\System.Net.Http.Formatting.dll
+E:\Freelancer\EthozFL\Ethoz 05062019\EthozCapital\bin\EthozCapital.dll.config
+E:\Freelancer\EthozFL\Ethoz 05062019\EthozCapital\bin\EthozCapital.dll
+E:\Freelancer\EthozFL\Ethoz 05062019\EthozCapital\bin\EthozCapital.pdb
+E:\Freelancer\EthozFL\Ethoz 05062019\EthozCapital\obj\Debug\EthozCapital.csprojResolveAssemblyReference.cache
+E:\Freelancer\EthozFL\Ethoz 05062019\EthozCapital\obj\Debug\EthozCapital.dll
+E:\Freelancer\EthozFL\Ethoz 05062019\EthozCapital\obj\Debug\EthozCapital.pdb
+E:\Freelancer\EthozCapital_SVN\bin\bin\Newtonsoft.Json.dll
+E:\Freelancer\EthozCapital_SVN\bin\bin\System.Net.Http.Formatting.dll
+E:\Freelancer\EthozCapital_SVN\bin\EthozCapital.dll.config
+E:\Freelancer\EthozCapital_SVN\bin\EthozCapital.dll
+E:\Freelancer\EthozCapital_SVN\bin\EthozCapital.pdb
+E:\Freelancer\EthozCapital_SVN\obj\Debug\EthozCapital.csprojResolveAssemblyReference.cache
+E:\Freelancer\EthozCapital_SVN\obj\Debug\EthozCapital.dll
+E:\Freelancer\EthozCapital_SVN\obj\Debug\EthozCapital.pdb
+E:\Freelancer\EthozCapital\bin\bin\Newtonsoft.Json.dll
+E:\Freelancer\EthozCapital\bin\bin\System.Net.Http.Formatting.dll
+E:\Freelancer\EthozCapital\obj\Debug\EthozCapital.csprojResolveAssemblyReference.cache
+E:\Freelancer\EthozCapitalDEV\bin\bin\Newtonsoft.Json.dll
+E:\Freelancer\EthozCapitalDEV\bin\bin\System.Net.Http.Formatting.dll
+E:\Freelancer\EthozCapitalDEV\bin\EthozCapital.dll.config
+E:\Freelancer\EthozCapitalDEV\bin\EthozCapital.dll
+E:\Freelancer\EthozCapitalDEV\bin\EthozCapital.pdb
+E:\Freelancer\EthozCapitalDEV\obj\Debug\EthozCapital.csprojResolveAssemblyReference.cache
+E:\Freelancer\EthozCapitalDEV\obj\Debug\EthozCapital.dll
+E:\Freelancer\EthozCapitalDEV\obj\Debug\EthozCapital.pdb
+C:\Source Code\EthozCapital\EthozCapitalDEV\bin\bin\Newtonsoft.Json.dll
+C:\Source Code\EthozCapital\EthozCapitalDEV\bin\bin\System.Net.Http.Formatting.dll
+C:\Source Code\EthozCapital\EthozCapitalDEV\bin\EthozCapital.dll.config
+C:\Source Code\EthozCapital\EthozCapitalDEV\bin\EthozCapital.dll
+C:\Source Code\EthozCapital\EthozCapitalDEV\bin\EthozCapital.pdb
+C:\Source Code\EthozCapital\EthozCapitalDEV\obj\Debug\EthozCapital.dll
+C:\Source Code\EthozCapital\EthozCapitalDEV\obj\Debug\EthozCapital.pdb
+E:\WorkSpace\Projects\EthozCapital_Dev\EthozCapital Latest\EthozCapital\EthozCapitalDEV\bin\bin\Newtonsoft.Json.dll
+E:\WorkSpace\Projects\EthozCapital_Dev\EthozCapital Latest\EthozCapital\EthozCapitalDEV\bin\bin\System.Net.Http.Formatting.dll
+E:\WorkSpace\Projects\EthozCapital_Dev\EthozCapital Latest\EthozCapital\EthozCapitalDEV\bin\EthozCapital.dll.config
+E:\WorkSpace\Projects\EthozCapital_Dev\EthozCapital Latest\EthozCapital\EthozCapitalDEV\bin\EthozCapital.dll
+E:\WorkSpace\Projects\EthozCapital_Dev\EthozCapital Latest\EthozCapital\EthozCapitalDEV\bin\EthozCapital.pdb
+E:\WorkSpace\Projects\EthozCapital_Dev\EthozCapital Latest\EthozCapital\EthozCapitalDEV\bin\NuGet.Core.dll
+E:\WorkSpace\Projects\EthozCapital_Dev\EthozCapital Latest\EthozCapital\EthozCapitalDEV\obj\Debug\EthozCapital.csprojAssemblyReference.cache
+E:\WorkSpace\Projects\EthozCapital_Dev\EthozCapital Latest\EthozCapital\EthozCapitalDEV\obj\Debug\EthozCapital.csproj.CoreCompileInputs.cache
+E:\WorkSpace\Projects\EthozCapital_Dev\EthozCapital Latest\EthozCapital\EthozCapitalDEV\obj\Debug\EthozCapital.csproj.CopyComplete
+E:\WorkSpace\Projects\EthozCapital_Dev\EthozCapital Latest\EthozCapital\EthozCapitalDEV\obj\Debug\EthozCapital.dll
+E:\WorkSpace\Projects\EthozCapital_Dev\EthozCapital Latest\EthozCapital\EthozCapitalDEV\obj\Debug\EthozCapital.pdb
+E:\WorkSpace\Projects\Ethozcapital_Git\bin\bin\Newtonsoft.Json.dll
+E:\WorkSpace\Projects\Ethozcapital_Git\bin\bin\System.Net.Http.Formatting.dll
+E:\WorkSpace\Projects\Ethozcapital_Git\bin\EthozCapital.dll.config
+E:\WorkSpace\Projects\Ethozcapital_Git\bin\EthozCapital.dll
+E:\WorkSpace\Projects\Ethozcapital_Git\bin\EthozCapital.pdb
+E:\WorkSpace\Projects\Ethozcapital_Git\bin\NuGet.Core.dll
+E:\WorkSpace\Projects\Ethozcapital_Git\obj\Debug\EthozCapital.csprojAssemblyReference.cache
+E:\WorkSpace\Projects\Ethozcapital_Git\obj\Debug\EthozCapital.csproj.CoreCompileInputs.cache
+E:\WorkSpace\Projects\Ethozcapital_Git\obj\Debug\EthozCapital.csproj.CopyComplete
+E:\WorkSpace\Projects\Ethozcapital_Git\obj\Debug\EthozCapital.dll
+E:\WorkSpace\Projects\Ethozcapital_Git\obj\Debug\EthozCapital.pdb
+E:\WorkSpace\Projects\Ethoz_Git\obj\Debug\EthozCapital.csproj.CoreCompileInputs.cache
+E:\WorkSpace\Projects\Ethoz_Git\bin\bin\Newtonsoft.Json.dll
+E:\WorkSpace\Projects\Ethoz_Git\bin\bin\System.Net.Http.Formatting.dll
+E:\WorkSpace\Projects\Ethoz_Git\bin\EthozCapital.dll.config
+E:\WorkSpace\Projects\Ethoz_Git\bin\EthozCapital.dll
+E:\WorkSpace\Projects\Ethoz_Git\bin\EthozCapital.pdb
+E:\WorkSpace\Projects\Ethoz_Git\bin\NuGet.Core.dll
+E:\WorkSpace\Projects\Ethoz_Git\bin\Swashbuckle.Core.dll
+E:\WorkSpace\Projects\Ethoz_Git\bin\System.Net.Http.dll
+E:\WorkSpace\Projects\Ethoz_Git\bin\WebActivatorEx.dll
+E:\WorkSpace\Projects\Ethoz_Git\obj\Debug\EthozCapital.csproj.CopyComplete
+E:\WorkSpace\Projects\Ethoz_Git\obj\Debug\EthozCapital.dll
+E:\WorkSpace\Projects\Ethoz_Git\obj\Debug\EthozCapital.pdb
+C:\Users\JignasaB-Plutus\Desktop\EtozCapital_18_11_2019\obj\Debug\EthozCapital.csprojAssemblyReference.cache
+C:\Users\JignasaB-Plutus\Desktop\EtozCapital_18_11_2019\obj\Debug\EthozCapital.csproj.CoreCompileInputs.cache
+C:\Users\JignasaB-Plutus\Desktop\EtozCapital_18_11_2019\obj\Debug\EthozCapital.dll
+C:\Users\JignasaB-Plutus\Desktop\EtozCapital_18_11_2019\obj\Debug\EthozCapital.pdb
+C:\Users\JignasaB-Plutus\Desktop\EtozCapital_18_11_2019\bin\bin\Newtonsoft.Json.dll
+C:\Users\JignasaB-Plutus\Desktop\EtozCapital_18_11_2019\bin\bin\System.Net.Http.Formatting.dll
+C:\Users\JignasaB-Plutus\Desktop\EtozCapital_18_11_2019\bin\EthozCapital.dll.config
+C:\Users\JignasaB-Plutus\Desktop\EtozCapital_18_11_2019\bin\EthozCapital.dll
+C:\Users\JignasaB-Plutus\Desktop\EtozCapital_18_11_2019\bin\EthozCapital.pdb
+C:\Users\JignasaB-Plutus\Desktop\EtozCapital_18_11_2019\bin\NuGet.Core.dll
+C:\Users\JignasaB-Plutus\Desktop\EtozCapital_18_11_2019\bin\Swashbuckle.Core.dll
+C:\Users\JignasaB-Plutus\Desktop\EtozCapital_18_11_2019\bin\System.Net.Http.dll
+C:\Users\JignasaB-Plutus\Desktop\EtozCapital_18_11_2019\bin\WebActivatorEx.dll
+C:\Users\JignasaB-Plutus\Desktop\EtozCapital_18_11_2019\obj\Debug\EthozCapital.csproj.CopyComplete
+E:\Hardik\Workspace\Projects\Ethoz\EtozCapital_Backup_Jignasa_Payment_Module\EtozCapital_18_11_2019\bin\bin\Newtonsoft.Json.dll
+E:\Hardik\Workspace\Projects\Ethoz\EtozCapital_Backup_Jignasa_Payment_Module\EtozCapital_18_11_2019\bin\bin\System.Net.Http.Formatting.dll
+E:\Hardik\Workspace\Projects\Ethoz\EtozCapital_Backup_Jignasa_Payment_Module\EtozCapital_18_11_2019\bin\EthozCapital.dll.config
+E:\Hardik\Workspace\Projects\Ethoz\EtozCapital_Backup_Jignasa_Payment_Module\EtozCapital_18_11_2019\bin\EthozCapital.dll
+E:\Hardik\Workspace\Projects\Ethoz\EtozCapital_Backup_Jignasa_Payment_Module\EtozCapital_18_11_2019\bin\EthozCapital.pdb
+E:\Hardik\Workspace\Projects\Ethoz\EtozCapital_Backup_Jignasa_Payment_Module\EtozCapital_18_11_2019\bin\NuGet.Core.dll
+E:\Hardik\Workspace\Projects\Ethoz\EtozCapital_Backup_Jignasa_Payment_Module\EtozCapital_18_11_2019\bin\Swashbuckle.Core.dll
+E:\Hardik\Workspace\Projects\Ethoz\EtozCapital_Backup_Jignasa_Payment_Module\EtozCapital_18_11_2019\bin\System.Net.Http.dll
+E:\Hardik\Workspace\Projects\Ethoz\EtozCapital_Backup_Jignasa_Payment_Module\EtozCapital_18_11_2019\bin\WebActivatorEx.dll
+E:\Hardik\Workspace\Projects\Ethoz\EtozCapital_Backup_Jignasa_Payment_Module\EtozCapital_18_11_2019\bin\Xceed.Document.NET.dll
+E:\Hardik\Workspace\Projects\Ethoz\EtozCapital_Backup_Jignasa_Payment_Module\EtozCapital_18_11_2019\bin\Xceed.Words.NET.dll
+E:\Hardik\Workspace\Projects\Ethoz\EtozCapital_Backup_Jignasa_Payment_Module\EtozCapital_18_11_2019\obj\Debug\EthozCapital.csprojAssemblyReference.cache
+E:\Hardik\Workspace\Projects\Ethoz\EtozCapital_Backup_Jignasa_Payment_Module\EtozCapital_18_11_2019\obj\Debug\EthozCapital.csproj.CoreCompileInputs.cache
+E:\Hardik\Workspace\Projects\Ethoz\EtozCapital_Backup_Jignasa_Payment_Module\EtozCapital_18_11_2019\obj\Debug\EthozCapital.csproj.CopyComplete
+E:\Hardik\Workspace\Projects\Ethoz\EtozCapital_Backup_Jignasa_Payment_Module\EtozCapital_18_11_2019\obj\Debug\EthozCapital.dll
+E:\Hardik\Workspace\Projects\Ethoz\EtozCapital_Backup_Jignasa_Payment_Module\EtozCapital_18_11_2019\obj\Debug\EthozCapital.pdb
+E:\Hardik\Workspace\Projects\Ethoz\Backup\EthozCapital_Backup_Report_Module_04_12_2019\EtozCapital_04_12_2019_Printing_Report_Module\bin\bin\Newtonsoft.Json.dll
+E:\Hardik\Workspace\Projects\Ethoz\Backup\EthozCapital_Backup_Report_Module_04_12_2019\EtozCapital_04_12_2019_Printing_Report_Module\bin\bin\System.Net.Http.Formatting.dll
+E:\Hardik\Workspace\Projects\Ethoz\Backup\EthozCapital_Backup_Report_Module_04_12_2019\EtozCapital_04_12_2019_Printing_Report_Module\bin\EthozCapital.dll.config
+E:\Hardik\Workspace\Projects\Ethoz\Backup\EthozCapital_Backup_Report_Module_04_12_2019\EtozCapital_04_12_2019_Printing_Report_Module\bin\EthozCapital.dll
+E:\Hardik\Workspace\Projects\Ethoz\Backup\EthozCapital_Backup_Report_Module_04_12_2019\EtozCapital_04_12_2019_Printing_Report_Module\bin\EthozCapital.pdb
+E:\Hardik\Workspace\Projects\Ethoz\Backup\EthozCapital_Backup_Report_Module_04_12_2019\EtozCapital_04_12_2019_Printing_Report_Module\bin\NuGet.Core.dll
+E:\Hardik\Workspace\Projects\Ethoz\Backup\EthozCapital_Backup_Report_Module_04_12_2019\EtozCapital_04_12_2019_Printing_Report_Module\bin\Swashbuckle.Core.dll
+E:\Hardik\Workspace\Projects\Ethoz\Backup\EthozCapital_Backup_Report_Module_04_12_2019\EtozCapital_04_12_2019_Printing_Report_Module\bin\System.Net.Http.dll
+E:\Hardik\Workspace\Projects\Ethoz\Backup\EthozCapital_Backup_Report_Module_04_12_2019\EtozCapital_04_12_2019_Printing_Report_Module\bin\WebActivatorEx.dll
+E:\Hardik\Workspace\Projects\Ethoz\Backup\EthozCapital_Backup_Report_Module_04_12_2019\EtozCapital_04_12_2019_Printing_Report_Module\bin\Xceed.Document.NET.dll
+E:\Hardik\Workspace\Projects\Ethoz\Backup\EthozCapital_Backup_Report_Module_04_12_2019\EtozCapital_04_12_2019_Printing_Report_Module\bin\Xceed.Words.NET.dll
+E:\Hardik\Workspace\Projects\Ethoz\Backup\EthozCapital_Backup_Report_Module_04_12_2019\EtozCapital_04_12_2019_Printing_Report_Module\obj\Debug\EthozCapital.csprojResolveAssemblyReference.cache
+E:\Hardik\Workspace\Projects\Ethoz\Backup\EthozCapital_Backup_Report_Module_04_12_2019\EtozCapital_04_12_2019_Printing_Report_Module\obj\Debug\EthozCapital.csproj.CoreCompileInputs.cache
+E:\Hardik\Workspace\Projects\Ethoz\Backup\EthozCapital_Backup_Report_Module_04_12_2019\EtozCapital_04_12_2019_Printing_Report_Module\obj\Debug\EthozCapital.csproj.CopyComplete
+E:\Hardik\Workspace\Projects\Ethoz\Backup\EthozCapital_Backup_Report_Module_04_12_2019\EtozCapital_04_12_2019_Printing_Report_Module\obj\Debug\EthozCapital.dll
+E:\Hardik\Workspace\Projects\Ethoz\Backup\EthozCapital_Backup_Report_Module_04_12_2019\EtozCapital_04_12_2019_Printing_Report_Module\obj\Debug\EthozCapital.pdb
+E:\Hardik\Workspace\Projects\Ethoz\Backup\Report_Module_04_12_2019\EtozCapital\bin\bin\Newtonsoft.Json.dll
+E:\Hardik\Workspace\Projects\Ethoz\Backup\Report_Module_04_12_2019\EtozCapital\bin\bin\System.Net.Http.Formatting.dll
+E:\Hardik\Workspace\Projects\Ethoz\Backup\Report_Module_04_12_2019\EtozCapital\bin\EthozCapital.dll.config
+E:\Hardik\Workspace\Projects\Ethoz\Backup\Report_Module_04_12_2019\EtozCapital\bin\EthozCapital.dll
+E:\Hardik\Workspace\Projects\Ethoz\Backup\Report_Module_04_12_2019\EtozCapital\bin\EthozCapital.pdb
+E:\Hardik\Workspace\Projects\Ethoz\Backup\Report_Module_04_12_2019\EtozCapital\bin\EthozCapital.API.dll
+E:\Hardik\Workspace\Projects\Ethoz\Backup\Report_Module_04_12_2019\EtozCapital\bin\NuGet.Core.dll
+E:\Hardik\Workspace\Projects\Ethoz\Backup\Report_Module_04_12_2019\EtozCapital\bin\Swashbuckle.Core.dll
+E:\Hardik\Workspace\Projects\Ethoz\Backup\Report_Module_04_12_2019\EtozCapital\bin\System.Net.Http.dll
+E:\Hardik\Workspace\Projects\Ethoz\Backup\Report_Module_04_12_2019\EtozCapital\bin\WebActivatorEx.dll
+E:\Hardik\Workspace\Projects\Ethoz\Backup\Report_Module_04_12_2019\EtozCapital\bin\Xceed.Document.NET.dll
+E:\Hardik\Workspace\Projects\Ethoz\Backup\Report_Module_04_12_2019\EtozCapital\bin\Xceed.Words.NET.dll
+E:\Hardik\Workspace\Projects\Ethoz\Backup\Report_Module_04_12_2019\EtozCapital\bin\EthozCapital.API.pdb
+E:\Hardik\Workspace\Projects\Ethoz\Backup\Report_Module_04_12_2019\EtozCapital\bin\EthozCapital.API.dll.config
+E:\Hardik\Workspace\Projects\Ethoz\Backup\Report_Module_04_12_2019\EtozCapital\obj\Debug\EthozCapital.csprojAssemblyReference.cache
+E:\Hardik\Workspace\Projects\Ethoz\Backup\Report_Module_04_12_2019\EtozCapital\obj\Debug\EthozCapital.csproj.CoreCompileInputs.cache
+E:\Hardik\Workspace\Projects\Ethoz\Backup\Report_Module_04_12_2019\EtozCapital\obj\Debug\EthozCapital.csproj.CopyComplete
+E:\Hardik\Workspace\Projects\Ethoz\Backup\Report_Module_04_12_2019\EtozCapital\obj\Debug\EthozCapital.dll
+E:\Hardik\Workspace\Projects\Ethoz\Backup\Report_Module_04_12_2019\EtozCapital\obj\Debug\EthozCapital.pdb
+E:\Hardik\Workspace\Projects\Ethoz\Ethoz_2019_10_01_PrintingReport\bin\bin\Newtonsoft.Json.dll
+E:\Hardik\Workspace\Projects\Ethoz\Ethoz_2019_10_01_PrintingReport\bin\bin\System.Net.Http.Formatting.dll
+E:\Hardik\Workspace\Projects\Ethoz\Ethoz_2019_10_01_PrintingReport\bin\EthozCapital.dll.config
+E:\Hardik\Workspace\Projects\Ethoz\Ethoz_2019_10_01_PrintingReport\bin\EthozCapital.dll
+E:\Hardik\Workspace\Projects\Ethoz\Ethoz_2019_10_01_PrintingReport\bin\EthozCapital.pdb
+E:\Hardik\Workspace\Projects\Ethoz\Ethoz_2019_10_01_PrintingReport\bin\EthozCapital.API.dll
+E:\Hardik\Workspace\Projects\Ethoz\Ethoz_2019_10_01_PrintingReport\bin\NuGet.Core.dll
+E:\Hardik\Workspace\Projects\Ethoz\Ethoz_2019_10_01_PrintingReport\bin\Swashbuckle.Core.dll
+E:\Hardik\Workspace\Projects\Ethoz\Ethoz_2019_10_01_PrintingReport\bin\System.Net.Http.dll
+E:\Hardik\Workspace\Projects\Ethoz\Ethoz_2019_10_01_PrintingReport\bin\WebActivatorEx.dll
+E:\Hardik\Workspace\Projects\Ethoz\Ethoz_2019_10_01_PrintingReport\bin\Xceed.Document.NET.dll
+E:\Hardik\Workspace\Projects\Ethoz\Ethoz_2019_10_01_PrintingReport\bin\Xceed.Words.NET.dll
+E:\Hardik\Workspace\Projects\Ethoz\Ethoz_2019_10_01_PrintingReport\bin\EthozCapital.API.pdb
+E:\Hardik\Workspace\Projects\Ethoz\Ethoz_2019_10_01_PrintingReport\bin\EthozCapital.API.dll.config
+E:\Hardik\Workspace\Projects\Ethoz\Ethoz_2019_10_01_PrintingReport\obj\Debug\EthozCapital.csprojAssemblyReference.cache
+E:\Hardik\Workspace\Projects\Ethoz\Ethoz_2019_10_01_PrintingReport\obj\Debug\EthozCapital.csproj.CoreCompileInputs.cache
+E:\Hardik\Workspace\Projects\Ethoz\Ethoz_2019_10_01_PrintingReport\obj\Debug\EthozCapital.csproj.CopyComplete
+E:\Hardik\Workspace\Projects\Ethoz\Ethoz_2019_10_01_PrintingReport\obj\Debug\EthozCapital.dll
+E:\Hardik\Workspace\Projects\Ethoz\Ethoz_2019_10_01_PrintingReport\obj\Debug\EthozCapital.pdb

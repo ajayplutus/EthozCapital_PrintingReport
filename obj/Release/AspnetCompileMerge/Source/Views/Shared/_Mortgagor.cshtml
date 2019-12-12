@@ -1,0 +1,88 @@
+﻿@model List<EthozCapital.Models.ViewModels.MortgagorModel>
+@{
+    var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+    ViewBag.Title = "Home Page";
+}
+<div class="tab-pane active in" id="nav-tab2-1">
+    <h3 class="m-t-10"></h3>
+    <fieldset>
+        <legend class="pull-left col-md-10 col-sm-8 col-xs-8">List of Mortgagor </legend>
+        <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#mortgatorDetails">
+            <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+            <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+        </legend>
+        @if (ViewData["IsNew"] != null)
+        {
+            <legend class="btn pull-right col-md-1 col-xs-3 text-center" id="btnAddMortgagorList" style="margin-right:5px;"><i class="fa fa-plus"></i>Add</legend>
+            <div id="mortgatorDetails" class="tbl_wrapper mortgagorList collapse in">
+                <table id="tblMortgagorList" class="table table-bordered dataTable table-hover">
+                    <thead>
+                        <tr>
+                            <th autowrap style="min-width:65px;">Action</th>
+                            <th autowrap style="max-width:140px;">Individual/Corporate *</th>
+                            <th autowrap>Mortgagor *</th>
+                            <th autowrap>Main/ Secondary *</th>
+                            <th autowrap>NRIC/ FIN/ PASSPORT</th>
+                            <th autowrap>ROC/ UEN</th>
+                            <th autowrap>Address *</th>
+                            <th autowrap>Department *</th>
+                            <th autowrap>Contact Person *</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            if (ViewBag.Viewable == false)
+            {
+                <legend class="btn pull-right col-md-1 col-xs-3 text-center" id="btnAddMortgagorList" style="margin-right:5px;"><i class="fa fa-plus"></i>Add</legend>
+            }
+            <div id="mortgatorDetails" class="tbl_wrapper mortgagorList collapse in">
+                <table id="tblMortgagorList" class="table table-bordered dataTable table-hover">
+                    <thead>
+                        <tr>
+                            <th autowrap style="min-width:65px;">Action</th>
+                            <th autowrap style="max-width:140px;">Individual/Corporate</th>
+                            <th autowrap>Mortgagor</th>
+                            <th autowrap>Main/ Secondary</th>
+                            <th autowrap>NRIC/ FIN/ PASSPORT</th>
+                            <th autowrap>ROC/ UEN</th>
+                            <th autowrap>Address</th>
+                            <th autowrap>Department</th>
+                            <th autowrap>Contact Person</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        }
+    </fieldset>
+</div>
+
+<script>
+    $(document).ready(function () {
+        tblMortgagorList = $("#tblMortgagorList").DataTable({
+            "paging": false,
+            "info": false,
+            "searching": false,
+            "language": {
+                "zeroRecords": "No Data Available.",
+                "infoEmpty": "No Data Available."
+            },
+            "dom": '<"top"i>rt<"bottom"flp><"clear">'
+        });
+        if ('@Html.Raw(ViewData["IsNew"])' == '') {
+            initializeNewRowUpdate(@Html.Raw(@serializer.Serialize(@Model)));
+            if ('@Html.Raw(ViewBag.Viewable)' == 'True') {
+                console.info('View Eidt', '@Html.Raw(ViewBag.Viewable)');
+                IsEditView = true;
+                $('#tblMortgagorList tr').click(function () { return false; });
+                $('#tblMortgagorList tr').off('click');
+                $('#tblMortgagorList tr').prop('disabled', 'disabled')
+            }
+        }
+        });
+</script>

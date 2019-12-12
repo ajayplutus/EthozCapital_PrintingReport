@@ -1,0 +1,77 @@
+﻿@using EthozCapital.CustomLibraries;
+@{
+    var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+    ViewBag.Title = "Home Page";
+}
+<div class="tab-pane active in" id="nav-tab2-1">
+    <fieldset>
+        <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Select Customer To Access </legend>
+
+        <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#CustomerToAccessList">
+            <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+            <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+        </legend>
+        @if (ViewData["IsNew"] != null)
+        {
+            <legend class="btn pull-right col-md-1 col-xs-3 text-center" id="btnCustomerToAccessList" style="margin-right:5px;"><i class="fa fa-plus" style="padding-right:10px;"></i>Add</legend>
+            <div id="CustomerToAccessList" class="tbl_wrapper mortgagorList collapse in">
+                <table id="tblCustomerToAccessList" class="table table-bordered dataTable table-hover">
+                    <thead>
+                        <tr>
+                            <th autowrap style="text-align:center;">Action</th>
+                            <th autowrap style="text-align:center;">Individual/Corporate *</th>
+                            <th autowrap style="text-align:center;">Customer *</th>
+							<th autowrap style="text-align:center;">NRIC/ FIN/ PASSPORT</th>
+                        	<th autowrap style="text-align:center;">ROC/ UEN</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            if (ViewBag.Viewable == false)
+            {
+                <legend class="btn pull-right col-md-1 col-xs-3 text-center" id="btnCustomerToAccessList" style="margin-right:5px;"><i class="fa fa-plus" style="padding-right:10px;"></i>Add</legend>
+            }
+            <div id="CustomerToAccessList" class="tbl_wrapper mortgagorList collapse in">
+                <table id="tblCustomerToAccessList" class="table table-bordered dataTable table-hover">
+                    <thead>
+                        <tr>
+                            <th autowrap style="text-align:center;">Action</th>
+                            <th autowrap style="text-align:center;">Individual/Corporate *</th>
+                            <th autowrap style="text-align:center;">Customer *</th>
+                        <th autowrap style="text-align:center;">NRIC/ FIN/ PASSPORT</th>
+                        <th autowrap style="text-align:center;">ROC/ UEN</th>
+
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        }
+
+    </fieldset>
+</div>
+
+<script>
+    $(document).ready(function () {
+        tblCustomerToAccessList = $("#tblCustomerToAccessList").DataTable({
+            "paging": false,
+            "info": false,
+            "searching": false,
+            "language": {
+                "zeroRecords": "No Data Available.",
+                "infoEmpty": "No Data Available."
+            },
+            "dom": '<"top"i>rt<"bottom"flp><"clear">'
+        });
+        if ('@Html.Raw(ViewData["IsNew"])' == '') {
+            initializeCustomerToAccessListUpdate(@Html.Raw(@serializer.Serialize(@Model)));
+            if ('@Html.Raw(ViewBag.Viewable)' == 'True') {
+                $('#tblCustomerToAccessList tr').prop('disabled', 'disabled')
+            }
+        }
+        });
+</script>

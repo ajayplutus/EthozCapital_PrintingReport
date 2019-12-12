@@ -1,0 +1,89 @@
+﻿<br />
+<br />
+<br />
+@if (ViewData["Message"] != null)
+{
+    <h2>Invalid Page</h2>
+    @ViewData["Message"]
+}
+else
+{
+    <script src="~/CustomScript/LEFSInterestCode/interestCode.module.js" asp-append-version="true"></script>
+
+    <div class="new-header-title">
+        <h2>LEFS Interest Code - Search (View / Update / Deactivate)</h2>
+    </div>
+    <body>
+        <div class="panel panel-default panel-with-tabs" data-sortable-id="ui-unlimited-tabs-2" style="overflow:auto">
+            <link href="~/CustomCss/LEFSInterestCode/interestCode.css" rel="stylesheet" />
+            @{Html.RenderAction("_LEFSInterestCodeSearchView", new { viewType = "ViewAndUpdate" });}
+
+            <div id="divSearchResult" class="margin-15">
+                @{Html.RenderAction("LEFSInterestCodeListView", new { Status = "O", viewType = "ViewAndUpdate" });}
+            </div>
+
+        </div>
+        <div class="modal fade" id="InterestCodeDeactivatePopup" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form class="fade in" id="frmInterestCodeDeactivate">
+                            <div class="modal-body">
+                                <div class="form-group block1">
+                                    <label>Description *</label>
+                                    <input type="hidden" id="hdnInterestCodeId" />
+                                    @Html.TextArea("DeactivateReson", new { id = "DeactivateReson", @class = "form-control required", @placeholder = "Description", @style = "display:inline", @required = "required", @maxlength = 100 })
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="btnInterestCodeDeactivate" class="btn">Deactivate</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="InterestCodeActivatePopup" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form class="fade in" id="frmInterestCodeActivate">
+                            <div class="modal-body">
+                                <div class="form-group block1">
+                                    <label>Description *</label>
+                                    <input type="hidden" id="hdnInterestCodeIds" />
+                                    @Html.TextArea("ActivateReson", new { id = "ActivateReson", @class = "form-control required", @placeholder = "Description", @style = "display:inline", @required = "required", @maxlength = 100 })
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="btnInterestCodeActivate" class="btn">Activate</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="javascript:;" class="btn btn-icon btn-circle btn-primary btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.13.4/jquery.mask.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                //inittblInterestCodeList();
+                formInterestCodeDeactivate();
+                formInterestCodeActivate();
+                interestCodeDeactivateClick();
+                interestCodeActivateClick();
+            });
+        </script>
+    </body>
+}
+
+
+
+
+
+
+

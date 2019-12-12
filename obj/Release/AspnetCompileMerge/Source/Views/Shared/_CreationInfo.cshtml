@@ -1,0 +1,53 @@
+﻿@model EthozCapital.Models.ViewModels.CreatedInfoModel
+@using EthozCapital.CustomLibraries;
+
+<div class="tab-pane active in" id="nav-tab2-1">
+    <h3 class="m-t-10"></h3>
+    <fieldset>
+        <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Creation & Modification Info </legend>
+
+        <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#creationInfoBox">
+            <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+            <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+        </legend>
+
+        @*<legend class="btn pull-right col-md-2 col-xs-3 text-center" id="btnCustomerToAccessList" style="margin-right:5px;"><i class="fa fa-plus" style="padding-right:10px;"></i>Add</legend>*@
+
+        <div id="creationInfoBox" class="tbl_wrapper mortgagorList collapse in">
+            <div class="row">
+                <div class="col-md-4" id="dtpCreatedDate">
+                    <div class="form-group block1">
+                        <label>Created Date </label>
+                        @Html.TextBoxFor(Model => Model.CreatedDate, new { id = "dtpCreatedDate", @class = "form-control", @disabled = "disabled" })
+                    </div>
+                </div>
+                <div class="col-md-4" id="cdreatedBy">
+                    <div class="form-group block1">
+                        <label>Created by </label>
+                        @Html.TextBoxFor(Model => Model.CreatedBy, new { @class = "form-control", @disabled = "disabled" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group block1">
+                        <label>Last Updated Date </label>
+                        @Html.TextBoxFor(model => model.UpdatedDate, new { id = "dtpUpdatedDate", @class = "form-control", @disabled = "disabled" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" id="UpdatedBy">
+                    <div class="form-group block1">
+                        <label>Last Updated By </label>
+                        @Html.TextBoxFor(Model => Model.UpdatedBy, new { @class = "form-control", @disabled = "disabled" })
+                    </div>
+                </div>
+                <div class="col-md-4" id="status">
+                    <div class="form-group block1">
+                        <label>Status </label>
+                        @Html.DropDownListFor(Model => Model.Status, ViewBag.Status as SelectList, "--Select--", new { @class = "form-control Property_Level_2", @id = "Status", @readonly = "readonly", @tabindex = "2", @style = "font-size:14px;" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</div>

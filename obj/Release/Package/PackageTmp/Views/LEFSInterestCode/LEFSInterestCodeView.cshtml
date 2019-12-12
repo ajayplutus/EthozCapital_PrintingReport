@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "LEFSInterestCode-View";
+}
+@if (ViewData["Message"] != null)
+{
+    <h2>Invalid Page</h2>
+    @ViewData["Message"]
+}
+else
+{
+    <script src="~/CustomScript/LEFSInterestCode/interestCode.module.js" asp-append-version="true"></script>
+    <div class="view-header-title">
+        <h2>LEFS Interest Code - Search (View)</h2>
+    </div>
+    <body>
+        <div class="panel panel-default panel-with-tabs" data-sortable-id="ui-unlimited-tabs-2" style="overflow:auto">
+            <link href="~/CustomCss/LEFSInterestCode/interestCode.css" rel="stylesheet" />
+            @{Html.RenderAction("_LEFSInterestCodeSearchView", new { viewType = "View" });}
+
+            <div id="divSearchResult" class="margin-15">
+                @{Html.RenderAction("LEFSInterestCodeListView", new { Status = "O", viewType = "View" });}
+            </div>
+
+        </div>
+        <a href="javascript:;" class="btn btn-icon btn-circle btn-primary btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+    </body>
+}
+
+
+
+

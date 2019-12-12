@@ -1,0 +1,65 @@
+﻿@model EthozCapital.Models.ViewModels.PendingApprovalViewModel
+
+<div id="divPendingApprovalList" class="collapse in col-md-12 col-sm-10 col-xs-10">
+    <table id="tblSpotterDetails" class="display table table-bordered dataTable table-hover tblspotter" cellspacing="0">
+        <thead>
+            <tr>
+                <th>S/N</th>
+                <th>Type</th>
+                <th class="tbl-w-95">Batch No.</th>
+                <th class="tbl-w-150">Amount</th>
+                <th class="tbl-w-150">Submitted On</th>
+                <th class="tbl-w-150">Submitted By</th>
+                @if (Model.ApprovalPage == "IsHistory")
+                {
+                    <th class="tbl-w-150">Approved On</th>
+                    <th class="tbl-w-150">Approved By</th>
+                    <th class="tbl-w-150">Rejected On</th>
+                    <th class="tbl-w-150">Rejected By</th>
+                }
+                <th class="tbl-w-100"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.PendingApproval)
+            {
+                <tr>
+                    <td class="align-center">@item.SrNo</td>
+                    <td>@item.Type</td>
+                    <td>@item.BatchNo</td>
+                    <td>$<span class="float-right">@item.Amount.ToString("#,##0.00")</span></td>
+                    <td>@item.SubmittedDate</td>
+                    <td>@item.SubmittedBy</td>
+                    @if (Model.ApprovalPage == "IsHistory")
+                    {
+                        <td>@item.ApprovedDate</td>
+                        <td>@item.ApprovedBy</td>
+                        <td>@item.RejectedDate</td>
+                        <td>@item.RejectedBy</td>
+                    }
+                    @if (Model.ApprovalPage == "IsReassign")
+                    {
+                        <td class="align-center"><a onclick="onReassignClick('@item.ApprovalProcessDetailID','@item.PreparationDate','@item.BatchNo',this)">Reassign</a></td>
+                    }
+                    @if (Model.ApprovalPage == "IsHistory")
+                    {
+                        <td class="align-center"><a onclick="onDetailClick('@item.CompositeKey1','@item.CompositeKey2','@item.ApprovalProcessDetailID','@item.ApprovalHeaderID','@item.ApprovalProcessID','D',this)">Detail</a></td>
+                    }
+                    @if (Model.ApprovalPage == "IsPending")
+                    {
+                        <td class="align-center"><a onclick="onDetailClick('@item.CompositeKey1','@item.CompositeKey2','@item.ApprovalProcessDetailID','@item.ApprovalHeaderID','@item.ApprovalProcessID','P',this)">Detail</a></td>
+                    }
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+<script>
+    $(document).ready(function () {
+        if ('@Html.Raw(ViewData["NoPendingApproval"])' != '') {
+            swal(swalGlobal.SwalTitle_Error, '@Html.Raw(ViewData["NoPendingApproval"])', swalGlobal.SwalType_Error);
+        }
+    });
+</script>

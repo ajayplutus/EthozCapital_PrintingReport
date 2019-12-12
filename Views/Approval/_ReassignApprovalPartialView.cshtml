@@ -1,0 +1,100 @@
+﻿
+@model EthozCapital.Models.ViewModels.ApprovalSpotterDetails
+
+<div id="divReassignApprovalDetails" class="collapse in">
+    <form class="form-rejection" id="frmReassignApprovalReasonPopUp">
+        @Html.HiddenFor(m => m.ApprovalProcessDetailID)
+        <div class="col-md-12">
+            <div class="form-group block1 domElemHistory">
+                <label class="elipsetxt" title="Spotter Ref Number" style="float:left;">Spotter Ref Number :</label>
+                @Html.TextBoxFor(m => m.SpotterSummary.SpotterRefNumber, new { @class = "form-control spotterRefNum", @readonly = "readonly", @placeholder = "Spotter Ref Number", @style = "display:inline;background-color:white;" })
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group block1 domElemHistory">
+                <label class="elipsetxt" title="Preparation Date" style="float:left;">Preparation Date :</label>
+                @Html.TextBoxFor(m => m.SpotterSummary.PreparationDate, new { @class = "form-control spotterRefNum", @readonly = "readonly", @placeholder = "", @style = "display:inline;background-color:white;" })
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div id="divSummary" class="collapse in col-md-6 col-sm-6 col-xs-6">
+                    <table id="tblSummary" class="display table table-bordered dataTable table-hover tblspotter" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th class="tbl-w-95">Record</th>
+                                <th class="tbl-w-150">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="align-center">
+                                    @Model.OutstandingFee.Count
+                                </td>
+                                <td>
+                                    $<span class="float-right txtAmount">@Model.SpotterSummary.Amount</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div id="divContracDetails" class="collapse in col-md-12 col-sm-12 col-xs-12">
+                    <table id="tblContracDetails" class="display table table-bordered dataTable table-hover tblspotter" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th class="tbl-w-150">Name</th>
+                                <th class="tbl-w-100">Contract No.</th>
+                                <th class="tbl-w-95">Amount</th>
+                                <th style="display:none">Rollover Number</th>
+                                <th style="display:none">Item Number</th>
+                                <th style="display:none">SpotterDetailId</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{int i = 0;}
+                            @foreach (var item in Model.OutstandingFee)
+                            {
+                                <tr>
+                                    <td>
+                                        <span class="referralName">@item.ReferralName</span>
+                                    </td>
+                                    <td>
+                                        <span class="contractNumber"> @item.ContractNumber</span>
+                                    </td>
+                                    <td>
+                                        $<span class="float-right contractAmount"> @item.SpotterAmt</span>
+                                    </td>
+                                    <td style="display:none"><span class="rolloverNumber">@item.RolloverNumber</span></td>
+                                    <td style="display:none"><span class="itemNumber">@item.ItemNumber</span></td>
+                                    <td style="display:none"><span class="spotterDetailId">@item.SpotterDetailId</span></td>
+                                </tr>
+                                i++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group block1">
+                <label class="elipsetxt" title="Approving Officer" style="float:left;">Approving Officer :</label>
+                @Html.DropDownListFor(m => m.ApprovingOfficerList, Model.ApprovingOfficerList, "--Select--", new { @class = "form-control required", @id = "reAssignTo", @tabindex = "2", @style = "font-size:14px;" })
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group block1">
+                <label class="elipsetxt" title="Reassign Reason" style="float:left;">Reassign Reason :</label>
+                @Html.TextBox("ReassignReason", null, new { @id = "txtReassignReason", @class = "form-control required", @placeholder = "", @style = "display:inline;background-color:white;" })
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group block1" style="margin-top:22px; float:right">
+                <button type="button" id="Approve" class="btn" onclick="onReassignApproval('@Model.ApprovalProcessDetailID');">Reassign</button>
+            </div>
+        </div>
+    </form>
+</div>

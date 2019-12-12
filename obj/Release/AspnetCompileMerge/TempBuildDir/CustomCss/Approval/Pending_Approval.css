@@ -1,0 +1,106 @@
+﻿#modalDialog {
+    width: 600px !important;
+    min-height: 0px;
+    max-height: 500px !important;
+    height: auto;
+}
+
+#RejectApprovalReasonPopUp {
+    width: 300px !important;
+    min-height: 0px;
+    max-height: 200px !important;
+    height: auto;
+}
+
+.ui-dialog {
+    position: fixed !important;
+}
+
+a,
+a label {
+    cursor: pointer;
+}
+
+.ui-widget.ui-widget-content {
+    height: auto !important;
+    max-height: 437px !important;
+    /*width: 600px !important;*/
+    margin: auto !important;
+    overflow-y: hidden;
+}
+#ReassignApprovalPopUp, #modalDialog {
+    overflow-y: auto;
+    max-height: 400px !important;
+}
+
+.cls-btn-search {
+    margin-top: 22px;
+}
+
+/*.ui-dialog {
+    z-index: 1020 !important
+}*/
+.showSweetAlert {
+    z-index: 99999999 !important;
+}
+
+/*#RejectApprovalReasonPopUp {
+    z-index: 99999999 !important;
+}*/
+
+.tblspotter th, .tblspotter button.deleting {
+    background-color: #004092 !important;
+    color: white !important;
+}
+
+.readonly-date-bg {
+    background-color: white !important;
+}
+
+.readonly-date-bg-disable {
+    background-color: #eee !important;
+}
+
+.alert-danger {
+    color: #b94a48 !important;
+    background-color: #f2dede !important;
+    border-color: #eed3d7;
+    opacity: 1 !important;
+}
+
+.tbl-w-150 {
+    width: 150px !important;
+}
+
+.tbl-w-300 {
+    width: 300px !important;
+}
+
+.tbl-w-50 {
+    width: 50px !important;
+}
+
+.tbl-w-100 {
+    width: 100px !important;
+}
+
+.tbl-w-95 {
+    width: 95px !important;
+}
+
+.ModalWindowDisplayMeOnTop {
+    z-index: 1020 !important;
+    top:0 !important;
+    right:0 !important;
+    bottom:0 !important;
+    left:0 !important;
+}
+/*.ui-widget-overlay{
+    z-index:9999 !important;
+}*/
+.ReasonModalWindowDisplayMeOnTop {
+    z-index: 9999 !important
+}
+/*.ui-widget-overlay.custom-overlay {
+    z-index: 1040;
+}*/

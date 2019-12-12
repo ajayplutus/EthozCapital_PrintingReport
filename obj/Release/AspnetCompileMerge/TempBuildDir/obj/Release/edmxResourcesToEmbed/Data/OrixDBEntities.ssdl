@@ -1,0 +1,580 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OrixDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="cfstb_asset_brand_mas">
+    <Key>
+      <PropertyRef Name="cfs_brand_code" />
+    </Key>
+    <Property Name="cfs_brand_code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="cfs_brand_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="cfs_brand_sta_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="cfs_brand_sta_who" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="cfs_brand_sta_dat" Type="datetime" Nullable="false" />
+    <Property Name="cfs_brand_vehicle_ind" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="cfstb_asset_model_chd">
+    <Key>
+      <PropertyRef Name="cfs_chd_code" />
+    </Key>
+    <Property Name="cfs_chd_code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="cfs_chd_model_code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="cfs_chd_brand_code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="cfs_chd_model_sta_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="cfs_chd_model_sta_who" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="cfs_chd_model_sta_dat" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cfstb_asset_model_mas">
+    <Key>
+      <PropertyRef Name="cfs_model_code" />
+    </Key>
+    <Property Name="cfs_model_code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="cfs_model_name" Type="char" MaxLength="60" Nullable="false" />
+    <Property Name="cfs_model_sta_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="cfs_model_sta_who" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="cfs_model_sta_dat" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="crmtb_alert_bu_matrix">
+    <Key>
+      <PropertyRef Name="bm_unit_cod" />
+      <PropertyRef Name="bm_trans_cod" />
+    </Key>
+    <Property Name="bm_unit_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="bm_trans_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="bm_sta_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="bm_sta_who" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="bm_sta_dat" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="crmtb_client_address_mas">
+    <Key>
+      <PropertyRef Name="am_add_cod" />
+    </Key>
+    <Property Name="am_add_cod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="am_ref_typ" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="am_ref_cod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="am_blk_typ" Type="varchar" MaxLength="5" />
+    <Property Name="am_blk_num" Type="varchar" MaxLength="10" />
+    <Property Name="am_floor_num" Type="varchar" MaxLength="3" />
+    <Property Name="am_unit_num" Type="varchar" MaxLength="15" />
+    <Property Name="am_street_nam" Type="varchar(max)" />
+    <Property Name="am_build_nam" Type="varchar(max)" />
+    <Property Name="am_postal_cod" Type="varchar" MaxLength="20" />
+    <Property Name="am_country_cod" Type="varchar" MaxLength="5" />
+    <Property Name="am_area_cod" Type="varchar" MaxLength="5" />
+    <Property Name="am_add_ind" Type="varchar" MaxLength="1" />
+    <Property Name="am_bill_ind" Type="varchar" MaxLength="1" />
+    <Property Name="am_created_by" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="am_created_dat" Type="datetime" Nullable="false" />
+    <Property Name="am_sta_ind" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="am_sta_who" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="am_sta_dat" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="crmtb_client_alert_mas">
+    <Key>
+      <PropertyRef Name="am_client_cod" />
+      <PropertyRef Name="am_unit_cod" />
+    </Key>
+    <Property Name="am_client_cod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="am_unit_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="am_alert_cat" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="am_alert_rsn" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="am_eff_dat" Type="datetime" Nullable="false" />
+    <Property Name="am_rem_ark" Type="varchar(max)" />
+    <Property Name="am_sta_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="am_sta_who" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="am_sta_dat" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="crmtb_client_alert_waive_mas">
+    <Key>
+      <PropertyRef Name="wm_rec_num" />
+    </Key>
+    <Property Name="wm_rec_num" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wm_client_cod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="wm_unit_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="wm_itm_num" Type="int" Nullable="false" />
+    <Property Name="wm_waive_frm" Type="datetime" Nullable="false" />
+    <Property Name="wm_waive_to" Type="datetime" Nullable="false" />
+    <Property Name="wm_waive_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="wm_sta_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="wm_sta_who" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="wm_sta_dat" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="crmtb_client_contact_det">
+    <Key>
+      <PropertyRef Name="cd_con_cod" />
+      <PropertyRef Name="cd_itm_num" />
+    </Key>
+    <Property Name="cd_con_cod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="cd_itm_num" Type="int" Nullable="false" />
+    <Property Name="cd_typ_cod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="cd_country_cod" Type="varchar" MaxLength="5" />
+    <Property Name="cd_area_cod" Type="varchar" MaxLength="10" />
+    <Property Name="cd_typ_val" Type="varchar(max)" />
+    <Property Name="cd_created_by" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="cd_created_dat" Type="datetime" Nullable="false" />
+    <Property Name="cd_sta_ind" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="cd_sta_who" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="cd_sta_dat" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="crmtb_client_contact_mas">
+    <Key>
+      <PropertyRef Name="cm_con_cod" />
+    </Key>
+    <Property Name="cm_con_cod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="cm_ref_typ" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="cm_ref_cod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="cm_con_typ" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="cm_title" Type="varchar" MaxLength="5" />
+    <Property Name="cm_full_nam" Type="varchar(max)" />
+    <Property Name="cm_sur_nam" Type="varchar(max)" />
+    <Property Name="cm_first_nam" Type="varchar(max)" />
+    <Property Name="cm_con_gender" Type="char" MaxLength="1" />
+    <Property Name="cm_con_nric" Type="varchar" MaxLength="20" />
+    <Property Name="cm_con_design" Type="varchar(max)" />
+    <Property Name="cm_grp_cod" Type="varchar" MaxLength="5" />
+    <Property Name="cm_created_by" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="cm_created_dat" Type="datetime" Nullable="false" />
+    <Property Name="cm_sta_ind" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="cm_sta_who" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="cm_sta_dat" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="crmtb_client_contact_purpose">
+    <Key>
+      <PropertyRef Name="cp_con_cod" />
+      <PropertyRef Name="cp_con_purpose_cod" />
+    </Key>
+    <Property Name="cp_con_cod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="cp_con_purpose_cod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="cp_remark" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="cp_created_by" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cp_created_dat" Type="datetime" Nullable="false" />
+    <Property Name="cp_sta_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="cp_sta_who" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cp_sta_dat" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="crmtb_client_dept">
+    <Key>
+      <PropertyRef Name="cd_ref_num" />
+    </Key>
+    <Property Name="cd_ref_num" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="cd_add_cod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="cd_dept_cod" Type="varchar" MaxLength="5" />
+    <Property Name="cd_grp_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="cd_dept_desc" Type="varchar(max)" />
+    <Property Name="cd_einv_ind" Type="varchar" MaxLength="1" />
+    <Property Name="cd_created_by" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="cd_created_dat" Type="datetime" Nullable="false" />
+    <Property Name="cd_sta_ind" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="cd_sta_who" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="cd_sta_dat" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="crmtb_client_entity_profile">
+    <Key>
+      <PropertyRef Name="ep_client_cod" />
+      <PropertyRef Name="ep_entity_cod" />
+      <PropertyRef Name="ep_profiletype_cod" />
+    </Key>
+    <Property Name="ep_client_cod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ep_entity_cod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ep_profiletype_cod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ep_remark" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ep_created_by" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ep_created_dat" Type="datetime" Nullable="false" />
+    <Property Name="ep_sta_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="ep_sta_who" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ep_sta_dat" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="crmtb_client_id_mas">
+    <Key>
+      <PropertyRef Name="im_client_cod" />
+      <PropertyRef Name="im_id_typ" />
+    </Key>
+    <Property Name="im_client_cod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="im_id_typ" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="im_id_num" Type="varchar" MaxLength="50" />
+    <Property Name="im_created_by" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="im_created_dat" Type="datetime" Nullable="false" />
+    <Property Name="im_sta_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="im_sta_who" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="im_sta_dat" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="crmtb_client_mas">
+    <Key>
+      <PropertyRef Name="cm_client_cod" />
+    </Key>
+    <Property Name="cm_client_cod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="cm_client_nam" Type="varchar(max)" Nullable="false" />
+    <Property Name="cm_typ_cod" Type="varchar" MaxLength="10" />
+    <Property Name="cm_client_rate" Type="varchar" MaxLength="5" />
+    <Property Name="cm_spl_sta" Type="varchar" MaxLength="1" />
+    <Property Name="cm_rem_ark" Type="varchar(max)" />
+    <Property Name="cm_client_his" Type="varchar(max)" />
+    <Property Name="cm_created_by" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="cm_created_dat" Type="datetime" Nullable="false" />
+    <Property Name="cm_sta_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="cm_sta_who" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="cm_sta_dat" Type="datetime" Nullable="false" />
+    <Property Name="cm_sou_cod" Type="varchar" MaxLength="5" />
+    <Property Name="cm_gl_typ_cod" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="crmtb_para_meter">
+    <Key>
+      <PropertyRef Name="pm_par_cod" />
+      <PropertyRef Name="pm_grp_cod" />
+    </Key>
+    <Property Name="pm_par_cod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="pm_grp_cod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="pm_sub_cod" Type="varchar" MaxLength="10" />
+    <Property Name="pm_par_desc" Type="varchar(max)" Nullable="false" />
+    <Property Name="pm_sht_desc" Type="varchar(max)" />
+    <Property Name="pm_ord_ind" Type="int" />
+    <Property Name="pm_add_info" Type="varchar(max)" />
+    <Property Name="pm_add_desc" Type="varchar(max)" />
+    <Property Name="pm_created_by" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="pm_created_dat" Type="datetime" Nullable="false" />
+    <Property Name="pm_sta_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="pm_sta_who" Type="varchar(max)" Nullable="false" />
+    <Property Name="pm_sta_dat" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="gentb_car_mas">
+    <Key>
+      <PropertyRef Name="cm_car_cod" />
+    </Key>
+    <Property Name="cm_car_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="cm_car_mak" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="cm_car_mod" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="cm_car_cap" Type="varchar" MaxLength="5" />
+    <Property Name="cm_car_cls" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="cm_car_typ_old" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="cm_act_cap" Type="varchar" MaxLength="5" />
+    <Property Name="cm_sta_who" Type="varchar" MaxLength="10" />
+    <Property Name="cm_sta_dat" Type="datetime" />
+    <Property Name="cm_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="cm_mod_cod" Type="char" MaxLength="20" />
+    <Property Name="cm_fac_lif" Type="char" MaxLength="10" />
+    <Property Name="cm_pkg_age" Type="char" MaxLength="20" />
+    <Property Name="cm_dor_typ" Type="char" MaxLength="15" />
+    <Property Name="cm_sea_ter" Type="int" />
+    <Property Name="cm_tur_bo" Type="char" MaxLength="16" />
+    <Property Name="cm_whl_bed" Type="char" MaxLength="20" />
+    <Property Name="cm_mat_erial" Type="char" MaxLength="10" />
+    <Property Name="cm_car_fuel" Type="char" MaxLength="12" />
+    <Property Name="cm_pla_te" Type="char" MaxLength="2" />
+    <Property Name="cm_tra_mission" Type="char" MaxLength="1" />
+    <Property Name="cm_car_typ" Type="varchar" MaxLength="90" />
+    <Property Name="cm_opr_ind" Type="char" MaxLength="1" />
+    <Property Name="cm_veh_typ" Type="char" MaxLength="5" />
+    <Property Name="cm_laden_weigh" Type="float" />
+    <Property Name="cm_axles" Type="float" />
+    <Property Name="cm_len_gth" Type="int" />
+    <Property Name="cm_ext_ion" Type="varchar" MaxLength="50" />
+    <Property Name="cm_ton_age" Type="float" />
+    <Property Name="cm_eff_frm" Type="datetime" />
+  </EntityType>
+  <EntityType Name="gentb_country_mas">
+    <Key>
+      <PropertyRef Name="cm_country_cod" />
+    </Key>
+    <Property Name="cm_country_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="cm_country_nam" Type="varchar(max)" Nullable="false" />
+    <Property Name="cm_sht_nam" Type="varchar" MaxLength="5" />
+    <Property Name="cm_nationality" Type="varchar(max)" Nullable="false" />
+    <Property Name="cm_idd_cod" Type="varchar" MaxLength="10" />
+    <Property Name="cm_cur_des" Type="varchar" MaxLength="100" />
+    <Property Name="cm_cur_cod" Type="varchar" MaxLength="5" />
+    <Property Name="cm_cur_sign" Type="varchar" MaxLength="5" />
+    <Property Name="cm_created_by" Type="varchar(max)" Nullable="false" />
+    <Property Name="cm_created_dat" Type="datetime" Nullable="false" />
+    <Property Name="cm_sta_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="cm_sta_who" Type="varchar(max)" Nullable="false" />
+    <Property Name="cm_sta_dat" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Orix_DB_Dev.dbo.gentb_gen_gd' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="gentb_gen_gd">
+    <Key>
+      <PropertyRef Name="recordno" />
+    </Key>
+    <Property Name="gd_grp_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="gd_gen_cod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="gd_gen_des" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="gd_att_cd1" Type="varchar" MaxLength="5" />
+    <Property Name="gd_att_cd2" Type="varchar" MaxLength="250" />
+    <Property Name="gd_ind_001" Type="char" MaxLength="1" />
+    <Property Name="gd_ind_002" Type="char" MaxLength="1" />
+    <Property Name="gd_att_cd3" Type="varchar" MaxLength="15" />
+    <Property Name="gd_date" Type="datetime" />
+    <Property Name="recordno" Type="numeric" Precision="20" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="hr_emp_mas">
+    <Key>
+      <PropertyRef Name="em_emp_cod" />
+    </Key>
+    <Property Name="em_emp_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="em_emp_nam" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="em_alias" Type="varchar" MaxLength="50" />
+    <Property Name="em_birth_dat" Type="datetime" Nullable="false" />
+    <Property Name="em_sex" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="em_nation" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="em_race" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="em_mar_sta" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="em_nric_pp" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="em_inc_tax" Type="varchar" MaxLength="15" />
+    <Property Name="em_wrk_per" Type="varchar" MaxLength="20" />
+    <Property Name="em_hom_pho" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="em_oth_con" Type="varchar" MaxLength="20" />
+    <Property Name="em_loc_add" Type="varchar(max)" />
+    <Property Name="em_zip_cod" Type="char" MaxLength="6" />
+    <Property Name="em_oth_add" Type="varchar" MaxLength="60" />
+    <Property Name="em_spo_nam" Type="varchar" MaxLength="50" />
+    <Property Name="em_spo_pho" Type="varchar" MaxLength="20" />
+    <Property Name="em_job_des" Type="varchar" MaxLength="100" />
+    <Property Name="em_subsidiary" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="em_dept" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="em_emp_sta" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="em_joi_dat" Type="datetime" Nullable="false" />
+    <Property Name="em_cfm_dat" Type="datetime" />
+    <Property Name="em_rsg_dat" Type="datetime" />
+    <Property Name="em_con_ind" Type="char" MaxLength="1" />
+    <Property Name="em_sat_grp" Type="char" MaxLength="1" />
+    <Property Name="em_pro_dat" Type="datetime" />
+    <Property Name="em_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="em_sta_dat" Type="datetime" Nullable="false" />
+    <Property Name="em_sta_who" Type="varchar(max)" Nullable="false" />
+    <Property Name="em_emp_typ" Type="char" MaxLength="1" />
+    <Property Name="em_div" Type="char" MaxLength="2" />
+    <Property Name="em_cpf" Type="char" MaxLength="1" />
+    <Property Name="em_con_tri" Type="char" MaxLength="1" />
+    <Property Name="em_pr_sts" Type="char" MaxLength="1" />
+    <Property Name="em_pr_dat" Type="char" MaxLength="7" />
+    <Property Name="em_contri_amt" Type="money" />
+    <Property Name="em_nt_id" Type="varchar" MaxLength="20" />
+    <Property Name="em_sybase_id" Type="varchar" MaxLength="20" />
+    <Property Name="em_exchg_id" Type="varchar" MaxLength="20" />
+    <Property Name="em_smtp_id" Type="varchar" MaxLength="50" />
+    <Property Name="em_exchg_gid" Type="varchar" MaxLength="20" />
+    <Property Name="em_smtp_gid" Type="varchar" MaxLength="50" />
+    <Property Name="em_lea_cat" Type="char" MaxLength="1" />
+    <Property Name="em_emp_flg" Type="char" MaxLength="1" />
+    <Property Name="em_sat_date" Type="datetime" />
+    <Property Name="em_acc_lvl" Type="int" />
+    <Property Name="em_app_officer" Type="varchar" MaxLength="50" />
+    <Property Name="em_alt_officer" Type="varchar" MaxLength="50" />
+    <Property Name="em_sht_name" Type="varchar" MaxLength="50" />
+    <Property Name="em_oth_approval" Type="varchar" MaxLength="50" />
+    <Property Name="em_ot_category" Type="varchar" MaxLength="5" />
+    <Property Name="em_did" Type="varchar" MaxLength="20" />
+    <Property Name="em_job_alt" Type="varchar" MaxLength="50" />
+    <Property Name="em_dob_child" Type="datetime" />
+    <Property Name="em_staff_status" Type="char" MaxLength="1" />
+    <Property Name="em_thumb_id" Type="varchar(max)" />
+  </EntityType>
+  <Association Name="fk_cfstb_model_chd_1">
+    <End Role="cfstb_asset_model_mas" Type="Self.cfstb_asset_model_mas" Multiplicity="1" />
+    <End Role="cfstb_asset_model_chd" Type="Self.cfstb_asset_model_chd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cfstb_asset_model_mas">
+        <PropertyRef Name="cfs_model_code" />
+      </Principal>
+      <Dependent Role="cfstb_asset_model_chd">
+        <PropertyRef Name="cfs_chd_model_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cfstb_model_chd_2">
+    <End Role="cfstb_asset_brand_mas" Type="Self.cfstb_asset_brand_mas" Multiplicity="1" />
+    <End Role="cfstb_asset_model_chd" Type="Self.cfstb_asset_model_chd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cfstb_asset_brand_mas">
+        <PropertyRef Name="cfs_brand_code" />
+      </Principal>
+      <Dependent Role="cfstb_asset_model_chd">
+        <PropertyRef Name="cfs_chd_brand_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_crmtb_client _dept">
+    <End Role="crmtb_client_address_mas" Type="Self.crmtb_client_address_mas" Multiplicity="1" />
+    <End Role="crmtb_client_dept" Type="Self.crmtb_client_dept" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="crmtb_client_address_mas">
+        <PropertyRef Name="am_add_cod" />
+      </Principal>
+      <Dependent Role="crmtb_client_dept">
+        <PropertyRef Name="cd_add_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_crmtb_client_address_mas">
+    <End Role="crmtb_client_mas" Type="Self.crmtb_client_mas" Multiplicity="1" />
+    <End Role="crmtb_client_address_mas" Type="Self.crmtb_client_address_mas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="crmtb_client_mas">
+        <PropertyRef Name="cm_client_cod" />
+      </Principal>
+      <Dependent Role="crmtb_client_address_mas">
+        <PropertyRef Name="am_ref_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_crmtb_client_address_mas_am_country_cod">
+    <End Role="gentb_country_mas" Type="Self.gentb_country_mas" Multiplicity="0..1" />
+    <End Role="crmtb_client_address_mas" Type="Self.crmtb_client_address_mas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gentb_country_mas">
+        <PropertyRef Name="cm_country_cod" />
+      </Principal>
+      <Dependent Role="crmtb_client_address_mas">
+        <PropertyRef Name="am_country_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_crmtb_client_alert_mas">
+    <End Role="crmtb_client_mas" Type="Self.crmtb_client_mas" Multiplicity="1" />
+    <End Role="crmtb_client_alert_mas" Type="Self.crmtb_client_alert_mas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="crmtb_client_mas">
+        <PropertyRef Name="cm_client_cod" />
+      </Principal>
+      <Dependent Role="crmtb_client_alert_mas">
+        <PropertyRef Name="am_client_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_crmtb_client_contact_det">
+    <End Role="crmtb_client_contact_mas" Type="Self.crmtb_client_contact_mas" Multiplicity="1" />
+    <End Role="crmtb_client_contact_det" Type="Self.crmtb_client_contact_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="crmtb_client_contact_mas">
+        <PropertyRef Name="cm_con_cod" />
+      </Principal>
+      <Dependent Role="crmtb_client_contact_det">
+        <PropertyRef Name="cd_con_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_crmtb_client_contact_mas">
+    <End Role="crmtb_client_dept" Type="Self.crmtb_client_dept" Multiplicity="1" />
+    <End Role="crmtb_client_contact_mas" Type="Self.crmtb_client_contact_mas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="crmtb_client_dept">
+        <PropertyRef Name="cd_ref_num" />
+      </Principal>
+      <Dependent Role="crmtb_client_contact_mas">
+        <PropertyRef Name="cm_ref_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_crmtb_client_contact_purpose">
+    <End Role="crmtb_client_contact_mas" Type="Self.crmtb_client_contact_mas" Multiplicity="1" />
+    <End Role="crmtb_client_contact_purpose" Type="Self.crmtb_client_contact_purpose" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="crmtb_client_contact_mas">
+        <PropertyRef Name="cm_con_cod" />
+      </Principal>
+      <Dependent Role="crmtb_client_contact_purpose">
+        <PropertyRef Name="cp_con_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_crmtb_client_entity_profile">
+    <End Role="crmtb_client_mas" Type="Self.crmtb_client_mas" Multiplicity="1" />
+    <End Role="crmtb_client_entity_profile" Type="Self.crmtb_client_entity_profile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="crmtb_client_mas">
+        <PropertyRef Name="cm_client_cod" />
+      </Principal>
+      <Dependent Role="crmtb_client_entity_profile">
+        <PropertyRef Name="ep_client_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_crmtb_client_id_mas">
+    <End Role="crmtb_client_mas" Type="Self.crmtb_client_mas" Multiplicity="1" />
+    <End Role="crmtb_client_id_mas" Type="Self.crmtb_client_id_mas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="crmtb_client_mas">
+        <PropertyRef Name="cm_client_cod" />
+      </Principal>
+      <Dependent Role="crmtb_client_id_mas">
+        <PropertyRef Name="im_client_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OrixDBModelStoreContainer">
+    <EntitySet Name="cfstb_asset_brand_mas" EntityType="Self.cfstb_asset_brand_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cfstb_asset_model_chd" EntityType="Self.cfstb_asset_model_chd" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cfstb_asset_model_mas" EntityType="Self.cfstb_asset_model_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="crmtb_alert_bu_matrix" EntityType="Self.crmtb_alert_bu_matrix" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="crmtb_client_address_mas" EntityType="Self.crmtb_client_address_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="crmtb_client_alert_mas" EntityType="Self.crmtb_client_alert_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="crmtb_client_alert_waive_mas" EntityType="Self.crmtb_client_alert_waive_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="crmtb_client_contact_det" EntityType="Self.crmtb_client_contact_det" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="crmtb_client_contact_mas" EntityType="Self.crmtb_client_contact_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="crmtb_client_contact_purpose" EntityType="Self.crmtb_client_contact_purpose" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="crmtb_client_dept" EntityType="Self.crmtb_client_dept" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="crmtb_client_entity_profile" EntityType="Self.crmtb_client_entity_profile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="crmtb_client_id_mas" EntityType="Self.crmtb_client_id_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="crmtb_client_mas" EntityType="Self.crmtb_client_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="crmtb_para_meter" EntityType="Self.crmtb_para_meter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gentb_car_mas" EntityType="Self.gentb_car_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gentb_country_mas" EntityType="Self.gentb_country_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hr_emp_mas" EntityType="Self.hr_emp_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gentb_gen_gd" EntityType="Self.gentb_gen_gd" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [gentb_gen_gd].[gd_grp_cod] AS [gd_grp_cod], 
+    [gentb_gen_gd].[gd_gen_cod] AS [gd_gen_cod], 
+    [gentb_gen_gd].[gd_gen_des] AS [gd_gen_des], 
+    [gentb_gen_gd].[gd_att_cd1] AS [gd_att_cd1], 
+    [gentb_gen_gd].[gd_att_cd2] AS [gd_att_cd2], 
+    [gentb_gen_gd].[gd_ind_001] AS [gd_ind_001], 
+    [gentb_gen_gd].[gd_ind_002] AS [gd_ind_002], 
+    [gentb_gen_gd].[gd_att_cd3] AS [gd_att_cd3], 
+    [gentb_gen_gd].[gd_date] AS [gd_date], 
+    [gentb_gen_gd].[recordno] AS [recordno]
+    FROM [dbo].[gentb_gen_gd] AS [gentb_gen_gd]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="fk_cfstb_model_chd_1" Association="Self.fk_cfstb_model_chd_1">
+      <End Role="cfstb_asset_model_mas" EntitySet="cfstb_asset_model_mas" />
+      <End Role="cfstb_asset_model_chd" EntitySet="cfstb_asset_model_chd" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cfstb_model_chd_2" Association="Self.fk_cfstb_model_chd_2">
+      <End Role="cfstb_asset_brand_mas" EntitySet="cfstb_asset_brand_mas" />
+      <End Role="cfstb_asset_model_chd" EntitySet="cfstb_asset_model_chd" />
+    </AssociationSet>
+    <AssociationSet Name="FK_crmtb_client _dept" Association="Self.FK_crmtb_client _dept">
+      <End Role="crmtb_client_address_mas" EntitySet="crmtb_client_address_mas" />
+      <End Role="crmtb_client_dept" EntitySet="crmtb_client_dept" />
+    </AssociationSet>
+    <AssociationSet Name="FK_crmtb_client_address_mas" Association="Self.FK_crmtb_client_address_mas">
+      <End Role="crmtb_client_mas" EntitySet="crmtb_client_mas" />
+      <End Role="crmtb_client_address_mas" EntitySet="crmtb_client_address_mas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_crmtb_client_address_mas_am_country_cod" Association="Self.FK_crmtb_client_address_mas_am_country_cod">
+      <End Role="gentb_country_mas" EntitySet="gentb_country_mas" />
+      <End Role="crmtb_client_address_mas" EntitySet="crmtb_client_address_mas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_crmtb_client_alert_mas" Association="Self.FK_crmtb_client_alert_mas">
+      <End Role="crmtb_client_mas" EntitySet="crmtb_client_mas" />
+      <End Role="crmtb_client_alert_mas" EntitySet="crmtb_client_alert_mas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_crmtb_client_contact_det" Association="Self.FK_crmtb_client_contact_det">
+      <End Role="crmtb_client_contact_mas" EntitySet="crmtb_client_contact_mas" />
+      <End Role="crmtb_client_contact_det" EntitySet="crmtb_client_contact_det" />
+    </AssociationSet>
+    <AssociationSet Name="FK_crmtb_client_contact_mas" Association="Self.FK_crmtb_client_contact_mas">
+      <End Role="crmtb_client_dept" EntitySet="crmtb_client_dept" />
+      <End Role="crmtb_client_contact_mas" EntitySet="crmtb_client_contact_mas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_crmtb_client_contact_purpose" Association="Self.FK_crmtb_client_contact_purpose">
+      <End Role="crmtb_client_contact_mas" EntitySet="crmtb_client_contact_mas" />
+      <End Role="crmtb_client_contact_purpose" EntitySet="crmtb_client_contact_purpose" />
+    </AssociationSet>
+    <AssociationSet Name="FK_crmtb_client_entity_profile" Association="Self.FK_crmtb_client_entity_profile">
+      <End Role="crmtb_client_mas" EntitySet="crmtb_client_mas" />
+      <End Role="crmtb_client_entity_profile" EntitySet="crmtb_client_entity_profile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_crmtb_client_id_mas" Association="Self.FK_crmtb_client_id_mas">
+      <End Role="crmtb_client_mas" EntitySet="crmtb_client_mas" />
+      <End Role="crmtb_client_id_mas" EntitySet="crmtb_client_id_mas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

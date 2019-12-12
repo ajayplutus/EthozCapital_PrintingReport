@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4f5e142f15274b7fa99fb198fdf87d8a" Name="Diagram1" ZoomLevel="102">
+        <EntityTypeShape EntityType="OrixDBModel.cfstb_asset_brand_mas" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrixDBModel.cfstb_asset_model_chd" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrixDBModel.cfstb_asset_model_mas" Width="1.5" PointX="5.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrixDBModel.crmtb_alert_bu_matrix" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrixDBModel.crmtb_client_alert_mas" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrixDBModel.crmtb_client_alert_waive_mas" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrixDBModel.crmtb_client_entity_profile" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrixDBModel.crmtb_client_mas" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrixDBModel.crmtb_para_meter" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrixDBModel.gentb_car_mas" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrixDBModel.gentb_gen_gd" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="OrixDBModel.fk_cfstb_model_chd_2" ManuallyRouted="false" />
+        <AssociationConnector Association="OrixDBModel.fk_cfstb_model_chd_1" ManuallyRouted="false" />
+        <AssociationConnector Association="OrixDBModel.FK_crmtb_client_alert_mas" ManuallyRouted="false" />
+        <AssociationConnector Association="OrixDBModel.FK_crmtb_client_entity_profile" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="OrixDBModel.crmtb_client_id_mas" Width="1.5" PointX="3" PointY="17.125" />
+        <AssociationConnector Association="OrixDBModel.FK_crmtb_client_id_mas" />
+        <EntityTypeShape EntityType="OrixDBModel.crmtb_client_address_mas" Width="1.5" PointX="3" PointY="21.125" />
+        <AssociationConnector Association="OrixDBModel.FK_crmtb_client_address_mas" />
+        <EntityTypeShape EntityType="OrixDBModel.gentb_country_mas" Width="1.5" PointX="10.375" PointY="1" />
+        <AssociationConnector Association="OrixDBModel.FK_crmtb_client_address_mas_am_country_cod" />
+        <EntityTypeShape EntityType="OrixDBModel.crmtb_client_dept" Width="1.5" PointX="5.25" PointY="22.125" />
+        <AssociationConnector Association="OrixDBModel.FK_crmtb_client__dept" />
+        <EntityTypeShape EntityType="OrixDBModel.crmtb_client_contact_mas" Width="1.5" PointX="7.5" PointY="21.625" />
+        <AssociationConnector Association="OrixDBModel.FK_crmtb_client_contact_mas" />
+        <EntityTypeShape EntityType="OrixDBModel.crmtb_client_contact_purpose" Width="1.5" PointX="9.75" PointY="22.625" />
+        <AssociationConnector Association="OrixDBModel.FK_crmtb_client_contact_purpose" />
+        <EntityTypeShape EntityType="OrixDBModel.hr_emp_mas" Width="1.5" PointX="6.625" PointY="11" />
+        <EntityTypeShape EntityType="OrixDBModel.crmtb_client_contact_det" Width="1.5" PointX="9.75" PointY="26.375" />
+        <AssociationConnector Association="OrixDBModel.FK_crmtb_client_contact_det" />                
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

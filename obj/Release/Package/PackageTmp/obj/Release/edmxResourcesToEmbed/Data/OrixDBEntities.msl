@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OrixDBModelStoreContainer" CdmEntityContainer="OrixDBEntities">
+    <EntitySetMapping Name="cfstb_asset_brand_mas">
+      <EntityTypeMapping TypeName="OrixDBModel.cfstb_asset_brand_mas">
+        <MappingFragment StoreEntitySet="cfstb_asset_brand_mas">
+          <ScalarProperty Name="cfs_brand_code" ColumnName="cfs_brand_code" />
+          <ScalarProperty Name="cfs_brand_name" ColumnName="cfs_brand_name" />
+          <ScalarProperty Name="cfs_brand_sta_ind" ColumnName="cfs_brand_sta_ind" />
+          <ScalarProperty Name="cfs_brand_sta_who" ColumnName="cfs_brand_sta_who" />
+          <ScalarProperty Name="cfs_brand_sta_dat" ColumnName="cfs_brand_sta_dat" />
+          <ScalarProperty Name="cfs_brand_vehicle_ind" ColumnName="cfs_brand_vehicle_ind" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cfstb_asset_model_chd">
+      <EntityTypeMapping TypeName="OrixDBModel.cfstb_asset_model_chd">
+        <MappingFragment StoreEntitySet="cfstb_asset_model_chd">
+          <ScalarProperty Name="cfs_chd_code" ColumnName="cfs_chd_code" />
+          <ScalarProperty Name="cfs_chd_model_code" ColumnName="cfs_chd_model_code" />
+          <ScalarProperty Name="cfs_chd_brand_code" ColumnName="cfs_chd_brand_code" />
+          <ScalarProperty Name="cfs_chd_model_sta_ind" ColumnName="cfs_chd_model_sta_ind" />
+          <ScalarProperty Name="cfs_chd_model_sta_who" ColumnName="cfs_chd_model_sta_who" />
+          <ScalarProperty Name="cfs_chd_model_sta_dat" ColumnName="cfs_chd_model_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cfstb_asset_model_mas">
+      <EntityTypeMapping TypeName="OrixDBModel.cfstb_asset_model_mas">
+        <MappingFragment StoreEntitySet="cfstb_asset_model_mas">
+          <ScalarProperty Name="cfs_model_code" ColumnName="cfs_model_code" />
+          <ScalarProperty Name="cfs_model_name" ColumnName="cfs_model_name" />
+          <ScalarProperty Name="cfs_model_sta_ind" ColumnName="cfs_model_sta_ind" />
+          <ScalarProperty Name="cfs_model_sta_who" ColumnName="cfs_model_sta_who" />
+          <ScalarProperty Name="cfs_model_sta_dat" ColumnName="cfs_model_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crmtb_alert_bu_matrix">
+      <EntityTypeMapping TypeName="OrixDBModel.crmtb_alert_bu_matrix">
+        <MappingFragment StoreEntitySet="crmtb_alert_bu_matrix">
+          <ScalarProperty Name="bm_unit_cod" ColumnName="bm_unit_cod" />
+          <ScalarProperty Name="bm_trans_cod" ColumnName="bm_trans_cod" />
+          <ScalarProperty Name="bm_sta_ind" ColumnName="bm_sta_ind" />
+          <ScalarProperty Name="bm_sta_who" ColumnName="bm_sta_who" />
+          <ScalarProperty Name="bm_sta_dat" ColumnName="bm_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crmtb_client_alert_mas">
+      <EntityTypeMapping TypeName="OrixDBModel.crmtb_client_alert_mas">
+        <MappingFragment StoreEntitySet="crmtb_client_alert_mas">
+          <ScalarProperty Name="am_client_cod" ColumnName="am_client_cod" />
+          <ScalarProperty Name="am_unit_cod" ColumnName="am_unit_cod" />
+          <ScalarProperty Name="am_alert_cat" ColumnName="am_alert_cat" />
+          <ScalarProperty Name="am_alert_rsn" ColumnName="am_alert_rsn" />
+          <ScalarProperty Name="am_eff_dat" ColumnName="am_eff_dat" />
+          <ScalarProperty Name="am_rem_ark" ColumnName="am_rem_ark" />
+          <ScalarProperty Name="am_sta_ind" ColumnName="am_sta_ind" />
+          <ScalarProperty Name="am_sta_who" ColumnName="am_sta_who" />
+          <ScalarProperty Name="am_sta_dat" ColumnName="am_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crmtb_client_alert_waive_mas">
+      <EntityTypeMapping TypeName="OrixDBModel.crmtb_client_alert_waive_mas">
+        <MappingFragment StoreEntitySet="crmtb_client_alert_waive_mas">
+          <ScalarProperty Name="wm_rec_num" ColumnName="wm_rec_num" />
+          <ScalarProperty Name="wm_client_cod" ColumnName="wm_client_cod" />
+          <ScalarProperty Name="wm_unit_cod" ColumnName="wm_unit_cod" />
+          <ScalarProperty Name="wm_itm_num" ColumnName="wm_itm_num" />
+          <ScalarProperty Name="wm_waive_frm" ColumnName="wm_waive_frm" />
+          <ScalarProperty Name="wm_waive_to" ColumnName="wm_waive_to" />
+          <ScalarProperty Name="wm_waive_ind" ColumnName="wm_waive_ind" />
+          <ScalarProperty Name="wm_sta_ind" ColumnName="wm_sta_ind" />
+          <ScalarProperty Name="wm_sta_who" ColumnName="wm_sta_who" />
+          <ScalarProperty Name="wm_sta_dat" ColumnName="wm_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crmtb_client_entity_profile">
+      <EntityTypeMapping TypeName="OrixDBModel.crmtb_client_entity_profile">
+        <MappingFragment StoreEntitySet="crmtb_client_entity_profile">
+          <ScalarProperty Name="ep_client_cod" ColumnName="ep_client_cod" />
+          <ScalarProperty Name="ep_entity_cod" ColumnName="ep_entity_cod" />
+          <ScalarProperty Name="ep_profiletype_cod" ColumnName="ep_profiletype_cod" />
+          <ScalarProperty Name="ep_remark" ColumnName="ep_remark" />
+          <ScalarProperty Name="ep_created_by" ColumnName="ep_created_by" />
+          <ScalarProperty Name="ep_created_dat" ColumnName="ep_created_dat" />
+          <ScalarProperty Name="ep_sta_ind" ColumnName="ep_sta_ind" />
+          <ScalarProperty Name="ep_sta_who" ColumnName="ep_sta_who" />
+          <ScalarProperty Name="ep_sta_dat" ColumnName="ep_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crmtb_client_mas">
+      <EntityTypeMapping TypeName="OrixDBModel.crmtb_client_mas">
+        <MappingFragment StoreEntitySet="crmtb_client_mas">
+          <ScalarProperty Name="cm_client_cod" ColumnName="cm_client_cod" />
+          <ScalarProperty Name="cm_client_nam" ColumnName="cm_client_nam" />
+          <ScalarProperty Name="cm_typ_cod" ColumnName="cm_typ_cod" />
+          <ScalarProperty Name="cm_client_rate" ColumnName="cm_client_rate" />
+          <ScalarProperty Name="cm_spl_sta" ColumnName="cm_spl_sta" />
+          <ScalarProperty Name="cm_rem_ark" ColumnName="cm_rem_ark" />
+          <ScalarProperty Name="cm_client_his" ColumnName="cm_client_his" />
+          <ScalarProperty Name="cm_created_by" ColumnName="cm_created_by" />
+          <ScalarProperty Name="cm_created_dat" ColumnName="cm_created_dat" />
+          <ScalarProperty Name="cm_sta_ind" ColumnName="cm_sta_ind" />
+          <ScalarProperty Name="cm_sta_who" ColumnName="cm_sta_who" />
+          <ScalarProperty Name="cm_sta_dat" ColumnName="cm_sta_dat" />
+          <ScalarProperty Name="cm_sou_cod" ColumnName="cm_sou_cod" />
+          <ScalarProperty Name="cm_gl_typ_cod" ColumnName="cm_gl_typ_cod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crmtb_para_meter">
+      <EntityTypeMapping TypeName="OrixDBModel.crmtb_para_meter">
+        <MappingFragment StoreEntitySet="crmtb_para_meter">
+          <ScalarProperty Name="pm_par_cod" ColumnName="pm_par_cod" />
+          <ScalarProperty Name="pm_grp_cod" ColumnName="pm_grp_cod" />
+          <ScalarProperty Name="pm_sub_cod" ColumnName="pm_sub_cod" />
+          <ScalarProperty Name="pm_par_desc" ColumnName="pm_par_desc" />
+          <ScalarProperty Name="pm_sht_desc" ColumnName="pm_sht_desc" />
+          <ScalarProperty Name="pm_ord_ind" ColumnName="pm_ord_ind" />
+          <ScalarProperty Name="pm_add_info" ColumnName="pm_add_info" />
+          <ScalarProperty Name="pm_add_desc" ColumnName="pm_add_desc" />
+          <ScalarProperty Name="pm_created_by" ColumnName="pm_created_by" />
+          <ScalarProperty Name="pm_created_dat" ColumnName="pm_created_dat" />
+          <ScalarProperty Name="pm_sta_ind" ColumnName="pm_sta_ind" />
+          <ScalarProperty Name="pm_sta_who" ColumnName="pm_sta_who" />
+          <ScalarProperty Name="pm_sta_dat" ColumnName="pm_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gentb_car_mas">
+      <EntityTypeMapping TypeName="OrixDBModel.gentb_car_mas">
+        <MappingFragment StoreEntitySet="gentb_car_mas">
+          <ScalarProperty Name="cm_car_cod" ColumnName="cm_car_cod" />
+          <ScalarProperty Name="cm_car_mak" ColumnName="cm_car_mak" />
+          <ScalarProperty Name="cm_car_mod" ColumnName="cm_car_mod" />
+          <ScalarProperty Name="cm_car_cap" ColumnName="cm_car_cap" />
+          <ScalarProperty Name="cm_car_cls" ColumnName="cm_car_cls" />
+          <ScalarProperty Name="cm_car_typ_old" ColumnName="cm_car_typ_old" />
+          <ScalarProperty Name="cm_act_cap" ColumnName="cm_act_cap" />
+          <ScalarProperty Name="cm_sta_who" ColumnName="cm_sta_who" />
+          <ScalarProperty Name="cm_sta_dat" ColumnName="cm_sta_dat" />
+          <ScalarProperty Name="cm_sta_ind" ColumnName="cm_sta_ind" />
+          <ScalarProperty Name="cm_mod_cod" ColumnName="cm_mod_cod" />
+          <ScalarProperty Name="cm_fac_lif" ColumnName="cm_fac_lif" />
+          <ScalarProperty Name="cm_pkg_age" ColumnName="cm_pkg_age" />
+          <ScalarProperty Name="cm_dor_typ" ColumnName="cm_dor_typ" />
+          <ScalarProperty Name="cm_sea_ter" ColumnName="cm_sea_ter" />
+          <ScalarProperty Name="cm_tur_bo" ColumnName="cm_tur_bo" />
+          <ScalarProperty Name="cm_whl_bed" ColumnName="cm_whl_bed" />
+          <ScalarProperty Name="cm_mat_erial" ColumnName="cm_mat_erial" />
+          <ScalarProperty Name="cm_car_fuel" ColumnName="cm_car_fuel" />
+          <ScalarProperty Name="cm_pla_te" ColumnName="cm_pla_te" />
+          <ScalarProperty Name="cm_tra_mission" ColumnName="cm_tra_mission" />
+          <ScalarProperty Name="cm_car_typ" ColumnName="cm_car_typ" />
+          <ScalarProperty Name="cm_opr_ind" ColumnName="cm_opr_ind" />
+          <ScalarProperty Name="cm_veh_typ" ColumnName="cm_veh_typ" />
+          <ScalarProperty Name="cm_laden_weigh" ColumnName="cm_laden_weigh" />
+          <ScalarProperty Name="cm_axles" ColumnName="cm_axles" />
+          <ScalarProperty Name="cm_len_gth" ColumnName="cm_len_gth" />
+          <ScalarProperty Name="cm_ext_ion" ColumnName="cm_ext_ion" />
+          <ScalarProperty Name="cm_ton_age" ColumnName="cm_ton_age" />
+          <ScalarProperty Name="cm_eff_frm" ColumnName="cm_eff_frm" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gentb_gen_gd">
+      <EntityTypeMapping TypeName="OrixDBModel.gentb_gen_gd">
+        <MappingFragment StoreEntitySet="gentb_gen_gd">
+          <ScalarProperty Name="gd_grp_cod" ColumnName="gd_grp_cod" />
+          <ScalarProperty Name="gd_gen_cod" ColumnName="gd_gen_cod" />
+          <ScalarProperty Name="gd_gen_des" ColumnName="gd_gen_des" />
+          <ScalarProperty Name="gd_att_cd1" ColumnName="gd_att_cd1" />
+          <ScalarProperty Name="gd_att_cd2" ColumnName="gd_att_cd2" />
+          <ScalarProperty Name="gd_ind_001" ColumnName="gd_ind_001" />
+          <ScalarProperty Name="gd_ind_002" ColumnName="gd_ind_002" />
+          <ScalarProperty Name="gd_att_cd3" ColumnName="gd_att_cd3" />
+          <ScalarProperty Name="gd_date" ColumnName="gd_date" />
+          <ScalarProperty Name="recordno" ColumnName="recordno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crmtb_client_id_mas">
+      <EntityTypeMapping TypeName="OrixDBModel.crmtb_client_id_mas">
+        <MappingFragment StoreEntitySet="crmtb_client_id_mas">
+          <ScalarProperty Name="im_sta_dat" ColumnName="im_sta_dat" />
+          <ScalarProperty Name="im_sta_who" ColumnName="im_sta_who" />
+          <ScalarProperty Name="im_sta_ind" ColumnName="im_sta_ind" />
+          <ScalarProperty Name="im_created_dat" ColumnName="im_created_dat" />
+          <ScalarProperty Name="im_created_by" ColumnName="im_created_by" />
+          <ScalarProperty Name="im_id_num" ColumnName="im_id_num" />
+          <ScalarProperty Name="im_id_typ" ColumnName="im_id_typ" />
+          <ScalarProperty Name="im_client_cod" ColumnName="im_client_cod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crmtb_client_address_mas">
+      <EntityTypeMapping TypeName="OrixDBModel.crmtb_client_address_mas">
+        <MappingFragment StoreEntitySet="crmtb_client_address_mas">
+          <ScalarProperty Name="am_sta_dat" ColumnName="am_sta_dat" />
+          <ScalarProperty Name="am_sta_who" ColumnName="am_sta_who" />
+          <ScalarProperty Name="am_sta_ind" ColumnName="am_sta_ind" />
+          <ScalarProperty Name="am_created_dat" ColumnName="am_created_dat" />
+          <ScalarProperty Name="am_created_by" ColumnName="am_created_by" />
+          <ScalarProperty Name="am_bill_ind" ColumnName="am_bill_ind" />
+          <ScalarProperty Name="am_add_ind" ColumnName="am_add_ind" />
+          <ScalarProperty Name="am_area_cod" ColumnName="am_area_cod" />
+          <ScalarProperty Name="am_country_cod" ColumnName="am_country_cod" />
+          <ScalarProperty Name="am_postal_cod" ColumnName="am_postal_cod" />
+          <ScalarProperty Name="am_build_nam" ColumnName="am_build_nam" />
+          <ScalarProperty Name="am_street_nam" ColumnName="am_street_nam" />
+          <ScalarProperty Name="am_unit_num" ColumnName="am_unit_num" />
+          <ScalarProperty Name="am_floor_num" ColumnName="am_floor_num" />
+          <ScalarProperty Name="am_blk_num" ColumnName="am_blk_num" />
+          <ScalarProperty Name="am_blk_typ" ColumnName="am_blk_typ" />
+          <ScalarProperty Name="am_ref_cod" ColumnName="am_ref_cod" />
+          <ScalarProperty Name="am_ref_typ" ColumnName="am_ref_typ" />
+          <ScalarProperty Name="am_add_cod" ColumnName="am_add_cod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gentb_country_mas">
+      <EntityTypeMapping TypeName="OrixDBModel.gentb_country_mas">
+        <MappingFragment StoreEntitySet="gentb_country_mas">
+          <ScalarProperty Name="cm_sta_dat" ColumnName="cm_sta_dat" />
+          <ScalarProperty Name="cm_sta_who" ColumnName="cm_sta_who" />
+          <ScalarProperty Name="cm_sta_ind" ColumnName="cm_sta_ind" />
+          <ScalarProperty Name="cm_created_dat" ColumnName="cm_created_dat" />
+          <ScalarProperty Name="cm_created_by" ColumnName="cm_created_by" />
+          <ScalarProperty Name="cm_cur_sign" ColumnName="cm_cur_sign" />
+          <ScalarProperty Name="cm_cur_cod" ColumnName="cm_cur_cod" />
+          <ScalarProperty Name="cm_cur_des" ColumnName="cm_cur_des" />
+          <ScalarProperty Name="cm_idd_cod" ColumnName="cm_idd_cod" />
+          <ScalarProperty Name="cm_nationality" ColumnName="cm_nationality" />
+          <ScalarProperty Name="cm_sht_nam" ColumnName="cm_sht_nam" />
+          <ScalarProperty Name="cm_country_nam" ColumnName="cm_country_nam" />
+          <ScalarProperty Name="cm_country_cod" ColumnName="cm_country_cod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crmtb_client_dept">
+      <EntityTypeMapping TypeName="OrixDBModel.crmtb_client_dept">
+        <MappingFragment StoreEntitySet="crmtb_client_dept">
+          <ScalarProperty Name="cd_sta_dat" ColumnName="cd_sta_dat" />
+          <ScalarProperty Name="cd_sta_who" ColumnName="cd_sta_who" />
+          <ScalarProperty Name="cd_sta_ind" ColumnName="cd_sta_ind" />
+          <ScalarProperty Name="cd_created_dat" ColumnName="cd_created_dat" />
+          <ScalarProperty Name="cd_created_by" ColumnName="cd_created_by" />
+          <ScalarProperty Name="cd_einv_ind" ColumnName="cd_einv_ind" />
+          <ScalarProperty Name="cd_dept_desc" ColumnName="cd_dept_desc" />
+          <ScalarProperty Name="cd_grp_cod" ColumnName="cd_grp_cod" />
+          <ScalarProperty Name="cd_dept_cod" ColumnName="cd_dept_cod" />
+          <ScalarProperty Name="cd_add_cod" ColumnName="cd_add_cod" />
+          <ScalarProperty Name="cd_ref_num" ColumnName="cd_ref_num" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crmtb_client_contact_mas">
+      <EntityTypeMapping TypeName="OrixDBModel.crmtb_client_contact_mas">
+        <MappingFragment StoreEntitySet="crmtb_client_contact_mas">
+          <ScalarProperty Name="cm_sta_dat" ColumnName="cm_sta_dat" />
+          <ScalarProperty Name="cm_sta_who" ColumnName="cm_sta_who" />
+          <ScalarProperty Name="cm_sta_ind" ColumnName="cm_sta_ind" />
+          <ScalarProperty Name="cm_created_dat" ColumnName="cm_created_dat" />
+          <ScalarProperty Name="cm_created_by" ColumnName="cm_created_by" />
+          <ScalarProperty Name="cm_grp_cod" ColumnName="cm_grp_cod" />
+          <ScalarProperty Name="cm_con_design" ColumnName="cm_con_design" />
+          <ScalarProperty Name="cm_con_nric" ColumnName="cm_con_nric" />
+          <ScalarProperty Name="cm_con_gender" ColumnName="cm_con_gender" />
+          <ScalarProperty Name="cm_first_nam" ColumnName="cm_first_nam" />
+          <ScalarProperty Name="cm_sur_nam" ColumnName="cm_sur_nam" />
+          <ScalarProperty Name="cm_full_nam" ColumnName="cm_full_nam" />
+          <ScalarProperty Name="cm_title" ColumnName="cm_title" />
+          <ScalarProperty Name="cm_con_typ" ColumnName="cm_con_typ" />
+          <ScalarProperty Name="cm_ref_cod" ColumnName="cm_ref_cod" />
+          <ScalarProperty Name="cm_ref_typ" ColumnName="cm_ref_typ" />
+          <ScalarProperty Name="cm_con_cod" ColumnName="cm_con_cod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crmtb_client_contact_purpose">
+      <EntityTypeMapping TypeName="OrixDBModel.crmtb_client_contact_purpose">
+        <MappingFragment StoreEntitySet="crmtb_client_contact_purpose">
+          <ScalarProperty Name="cp_sta_dat" ColumnName="cp_sta_dat" />
+          <ScalarProperty Name="cp_sta_who" ColumnName="cp_sta_who" />
+          <ScalarProperty Name="cp_sta_ind" ColumnName="cp_sta_ind" />
+          <ScalarProperty Name="cp_created_dat" ColumnName="cp_created_dat" />
+          <ScalarProperty Name="cp_created_by" ColumnName="cp_created_by" />
+          <ScalarProperty Name="cp_remark" ColumnName="cp_remark" />
+          <ScalarProperty Name="cp_con_purpose_cod" ColumnName="cp_con_purpose_cod" />
+          <ScalarProperty Name="cp_con_cod" ColumnName="cp_con_cod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hr_emp_mas">
+      <EntityTypeMapping TypeName="IsTypeOf(OrixDBModel.hr_emp_mas)">
+        <MappingFragment StoreEntitySet="hr_emp_mas">
+          <ScalarProperty Name="em_thumb_id" ColumnName="em_thumb_id" />
+          <ScalarProperty Name="em_staff_status" ColumnName="em_staff_status" />
+          <ScalarProperty Name="em_dob_child" ColumnName="em_dob_child" />
+          <ScalarProperty Name="em_job_alt" ColumnName="em_job_alt" />
+          <ScalarProperty Name="em_did" ColumnName="em_did" />
+          <ScalarProperty Name="em_ot_category" ColumnName="em_ot_category" />
+          <ScalarProperty Name="em_oth_approval" ColumnName="em_oth_approval" />
+          <ScalarProperty Name="em_sht_name" ColumnName="em_sht_name" />
+          <ScalarProperty Name="em_alt_officer" ColumnName="em_alt_officer" />
+          <ScalarProperty Name="em_app_officer" ColumnName="em_app_officer" />
+          <ScalarProperty Name="em_acc_lvl" ColumnName="em_acc_lvl" />
+          <ScalarProperty Name="em_sat_date" ColumnName="em_sat_date" />
+          <ScalarProperty Name="em_emp_flg" ColumnName="em_emp_flg" />
+          <ScalarProperty Name="em_lea_cat" ColumnName="em_lea_cat" />
+          <ScalarProperty Name="em_smtp_gid" ColumnName="em_smtp_gid" />
+          <ScalarProperty Name="em_exchg_gid" ColumnName="em_exchg_gid" />
+          <ScalarProperty Name="em_smtp_id" ColumnName="em_smtp_id" />
+          <ScalarProperty Name="em_exchg_id" ColumnName="em_exchg_id" />
+          <ScalarProperty Name="em_sybase_id" ColumnName="em_sybase_id" />
+          <ScalarProperty Name="em_nt_id" ColumnName="em_nt_id" />
+          <ScalarProperty Name="em_contri_amt" ColumnName="em_contri_amt" />
+          <ScalarProperty Name="em_pr_dat" ColumnName="em_pr_dat" />
+          <ScalarProperty Name="em_pr_sts" ColumnName="em_pr_sts" />
+          <ScalarProperty Name="em_con_tri" ColumnName="em_con_tri" />
+          <ScalarProperty Name="em_cpf" ColumnName="em_cpf" />
+          <ScalarProperty Name="em_div" ColumnName="em_div" />
+          <ScalarProperty Name="em_emp_typ" ColumnName="em_emp_typ" />
+          <ScalarProperty Name="em_sta_who" ColumnName="em_sta_who" />
+          <ScalarProperty Name="em_sta_dat" ColumnName="em_sta_dat" />
+          <ScalarProperty Name="em_sta_ind" ColumnName="em_sta_ind" />
+          <ScalarProperty Name="em_pro_dat" ColumnName="em_pro_dat" />
+          <ScalarProperty Name="em_sat_grp" ColumnName="em_sat_grp" />
+          <ScalarProperty Name="em_con_ind" ColumnName="em_con_ind" />
+          <ScalarProperty Name="em_rsg_dat" ColumnName="em_rsg_dat" />
+          <ScalarProperty Name="em_cfm_dat" ColumnName="em_cfm_dat" />
+          <ScalarProperty Name="em_joi_dat" ColumnName="em_joi_dat" />
+          <ScalarProperty Name="em_emp_sta" ColumnName="em_emp_sta" />
+          <ScalarProperty Name="em_dept" ColumnName="em_dept" />
+          <ScalarProperty Name="em_subsidiary" ColumnName="em_subsidiary" />
+          <ScalarProperty Name="em_job_des" ColumnName="em_job_des" />
+          <ScalarProperty Name="em_spo_pho" ColumnName="em_spo_pho" />
+          <ScalarProperty Name="em_spo_nam" ColumnName="em_spo_nam" />
+          <ScalarProperty Name="em_oth_add" ColumnName="em_oth_add" />
+          <ScalarProperty Name="em_zip_cod" ColumnName="em_zip_cod" />
+          <ScalarProperty Name="em_loc_add" ColumnName="em_loc_add" />
+          <ScalarProperty Name="em_oth_con" ColumnName="em_oth_con" />
+          <ScalarProperty Name="em_home_pho" ColumnName="em_hom_pho" />
+          <ScalarProperty Name="em_wrk_per" ColumnName="em_wrk_per" />
+          <ScalarProperty Name="em_inc_tax" ColumnName="em_inc_tax" />
+          <ScalarProperty Name="em_nric_pp" ColumnName="em_nric_pp" />
+          <ScalarProperty Name="em_mar_sta" ColumnName="em_mar_sta" />
+          <ScalarProperty Name="em_race" ColumnName="em_race" />
+          <ScalarProperty Name="em_nation" ColumnName="em_nation" />
+          <ScalarProperty Name="em_sex" ColumnName="em_sex" />
+          <ScalarProperty Name="em_birth_dat" ColumnName="em_birth_dat" />
+          <ScalarProperty Name="em_alias" ColumnName="em_alias" />
+          <ScalarProperty Name="em_emp_nam" ColumnName="em_emp_nam" />
+          <ScalarProperty Name="em_emp_cod" ColumnName="em_emp_cod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crmtb_client_contact_det">
+      <EntityTypeMapping TypeName="OrixDBModel.crmtb_client_contact_det">
+        <MappingFragment StoreEntitySet="crmtb_client_contact_det">
+          <ScalarProperty Name="cd_sta_dat" ColumnName="cd_sta_dat" />
+          <ScalarProperty Name="cd_sta_who" ColumnName="cd_sta_who" />
+          <ScalarProperty Name="cd_sta_ind" ColumnName="cd_sta_ind" />
+          <ScalarProperty Name="cd_created_dat" ColumnName="cd_created_dat" />
+          <ScalarProperty Name="cd_created_by" ColumnName="cd_created_by" />
+          <ScalarProperty Name="cd_typ_val" ColumnName="cd_typ_val" />
+          <ScalarProperty Name="cd_area_cod" ColumnName="cd_area_cod" />
+          <ScalarProperty Name="cd_country_cod" ColumnName="cd_country_cod" />
+          <ScalarProperty Name="cd_typ_cod" ColumnName="cd_typ_cod" />
+          <ScalarProperty Name="cd_itm_num" ColumnName="cd_itm_num" />
+          <ScalarProperty Name="cd_con_cod" ColumnName="cd_con_cod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

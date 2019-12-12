@@ -1,0 +1,88 @@
+﻿@model EthozCapital.Models.ViewModels.AuthViewModel
+
+@*<ul>
+        <li>
+            <a href="~/Home/Default"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Dashboard</span></a>
+        </li>
+    </ul>*@
+
+
+@*@Html.Raw(HttpUtility.HtmlDecode(Model.pstrMenu))*@
+<style type="text/css">
+    .page-with-light-sidebar .sidebar .sub-menu > li.active > a, .page-with-light-sidebar .sidebar .sub-menu > li.active > a:focus, .page-with-light-sidebar .sidebar .sub-menu > li.active > a:hover, .page-with-light-sidebar .sidebar .sub-menu > li > a:focus, .page-with-light-sidebar .sidebar .sub-menu > li > a.currentLink {
+        color: #004092 !important;
+        /*font-weight: 900 !important;*/
+    }
+</style>
+
+@Html.Raw(Model.pstrMenu)
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.sub-menu li').click(function () {
+            if ($(this).attr('onclick') != undefined) {
+                $('#myModal').modal({
+                    backdrop: 'static',
+                    keyboard: false
+                });
+                startTimer();
+            }
+        });
+
+        $('ul li').each(function (i) {
+            var li = $(this);
+            var link = li.attr('onclick');
+            if (link != undefined) {
+                var anchorLink = link.replace("location.href='", "").replace("'", "");
+
+                if (window.location.href.indexOf(anchorLink) != -1) {
+                    console.log(li);
+                    li.parents('.sub-menu').css('display', 'block');
+                    li.find('a').first().addClass('currentLink');
+                    //li.parent().parent().parent().parent().parent().parent().find('a').first().addClass('color_blue');
+										//li.parent().parent().parent().parent().parent().parent().addClass('expand');
+										li.closest('.level-1').addClass('expand');
+                }// This is your rel value
+            }
+        })
+
+        $('ul.select2-results__options').each(function (i) {
+            var li = $(this);
+            var link = li.attr('onclick');
+            if (link != undefined) {
+                var anchorLink = link.replace("location.href='", "").replace("'", "");
+
+                if (window.location.href.indexOf(anchorLink) != -1) {
+                    console.log(li);
+                    li.parents('.sub-menu').css('display', 'block');
+                    li.find('a').first().addClass('currentLink');
+                }// This is your rel value
+            }
+        })
+    });
+    function SetNavigationforSecurity() {
+        var url = window.location.href;
+        $('ul li').each(function (i) {
+            var li = $(this);
+            var link = li.attr('onclick');
+            if (link != undefined) {
+                if (url.includes("View?SecurityId=")) {
+                    if (link.includes("/Security/SecurityMasterEnquiry")) {
+                        console.log(li);
+                        li.parents('.sub-menu').css('display', 'block');
+                        li.find('a').first().addClass('currentLink');
+                        li.closest('.level-1').addClass('expand');
+                    }
+                }
+                else if (url.includes("Edit?SecurityId=")) {
+                    if (link.includes("/Security/SecurityMasterModification")) {
+                        console.log(li);
+                        li.parents('.sub-menu').css('display', 'block');
+                        li.find('a').first().addClass('currentLink');
+                        li.closest('.level-1').addClass('expand');
+                    }
+                }
+            }
+        })
+    }
+</script>

@@ -1,0 +1,72 @@
+﻿@model EthozCapital.Models.ViewModels.LEFSInterestCodeViewModel
+
+<form id="interstCodeSearch" method="post" class="margin-top-15">
+    <div class="tab-content">
+        <div class="tab-pane active in" id="nav-tab2-1">
+            <h3 class="m-t-10"></h3>
+            <fieldset class="fieldsetCss">
+                <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Search</legend>
+                <legend class="btn pull-right col-md-1 col-sm-4 col-xs-4 text-center collapseBtn" data-toggle="collapse" data-target="#selectionbox">
+                    <span class="if-collapsed"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                    <span class="if-not-collapsed"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                </legend>                
+                <div id="selectionbox" class="selectionbox collapse in">
+                    <div class="row">                        
+                        <div class="col-md-3">
+                            <div class="form-group block1">
+                                <label>Interest Code</label>
+                                @Html.TextBox("InterestCode", "", new { @class = "form-control required", @id = "InterestCode", @placeholder = "Interest Code", @style = "display:inline", @required = "required" })
+                            </div>
+                        </div>                        
+                        <div class="col-md-3">
+                            <div class="form-group block1">
+                                <label>Interest Type</label>
+                                @if (ViewData.ContainsKey("getType"))
+                                {
+                                    @Html.DropDownList("getType", ViewData["InterestType"] as List<SelectListItem>, "--All--",
+                                                                               new { @class = "form-control required", @id = "InterestType", @required = "required" })
+                                }
+                                <i></i>
+                            </div>
+                        </div>                        
+                        <div class="col-md-3">
+                            <div class="form-group block1">
+                                <label>LEFS Contract Type</label>
+                                @if (ViewData.ContainsKey("getContract"))
+                                {
+                                    @Html.DropDownList("getContract", ViewData["ContractCode"] as List<SelectListItem>, "--All--",
+                                                                               new { @class = "form-control required", @id = "ContractType", @required = "required" })
+                                }
+                                <i></i>
+                            </div>
+                        </div>                        
+                        <div class="col-md-3">
+                            <div class="form-group block1">
+                                <label>Status</label>
+                                @if (ViewData.ContainsKey("status"))
+                                {
+                                    @Html.DropDownList("status", null, "--All--",
+                                                                               new { @class = "form-control required", @id = "Status", @required = "required" })
+                                }
+                                <i></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group block1">
+                                <button type="button" id="search" class="btn" onclick="onInterestCodeSearchClick('@ViewBag.ViewType');">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <br />
+</form>
+
+
+
+
+

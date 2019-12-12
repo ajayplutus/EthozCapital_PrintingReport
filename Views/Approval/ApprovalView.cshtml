@@ -1,0 +1,100 @@
+﻿@model EthozCapital.Models.ViewModels.PendingApprovalViewModel
+@{
+    var count = Model.PendingCount;
+    var countWidth = Model.PendingCount + "px";
+}
+<br />
+<br />
+<br />
+@if (ViewData["Message"] != null)
+{
+    <div style="margin-left: 0px; overflow: auto">
+        <h2>Invalid Page</h2>
+        <h5>@ViewData["Message"]</h5>
+    </div>
+}
+else
+{
+    <div style="margin-left: 0px; overflow: auto">
+        <h2>Dashboard</h2>
+    </div>
+    <body>
+        <style>
+        </style>
+        <script src="~/CustomScript/Approval/approval-process.module.js" asp-append-version="true"></script>
+
+        <div class="panel panel-default panel-with-tabs" data-sortable-id="ui-unlimited-tabs-2" style="overflow:auto">
+            <div class="tab-content">
+                <div class="tab-pane active in" id="nav-tab2-1">
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="widget widget-stats bg-gradient-orange m-b-10">
+                                <div class="stats-icon stats-icon-lg"><i class="fa fa-file-alt fa-fw"></i></div>
+                                <div class="stats-content">
+                                    <div class="stats-title">PENDING Approval</div>
+                                    <div class="stats-number">
+                                        @Html.DisplayFor(m => m.PendingCount)
+                                    </div>
+                                    <div class="stats-progress progress">
+                                        <div class="progress-bar" style="width:@countWidth;"></div>
+                                    </div>
+                                    <div class="stats-desc">@count%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane active in" id="nav-tab2-1">
+                    <h3 class="m-t-10"></h3>
+                    <fieldset class="fieldsetCss">
+                        <legend class="pull-left col-md-10 col-sm-8 col-xs-8">ECA</legend>
+                        <legend class="btn pull-right col-md-1 col-sm-4 col-xs-4 text-center collapseBtn" data-toggle="collapse" data-target="#selectionECA">
+                            <span class="if-collapsed"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                            <span class="if-not-collapsed"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                        </legend>
+                        <!-- begin row -->
+                        <div id="selectionECA" class="selectionbox collapse in">
+                            <div class="row">
+                                <!-- begin col-4 -->
+                                <div class="col-md-8">
+                                    @{Html.RenderPartial("_ApprovalListPartialView", Model);}
+                                </div>
+                                <!-- end col-4 -->
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="RejectApprovalReasonPopUp" style="display: none">
+            <form class="form-rejection" id="frmRejectApprovalReasonPopUp">
+                <div class="form-group block1">
+                    <label>Reject Reason *</label>
+                    <input type="hidden" id="hdnApprovalProcessDetailID" />
+                    @Html.TextArea("RejectReason", new { id = "RejectReason", @class = "form-control required", @placeholder = "Reason", @style = "display:inline-block", @required = "required", @maxlength = 100 })
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnRejectApproval" class="btn">Ok</button>
+                    <button type="button" class="btn btn-default" onclick="onCancelReasonPopup()">Cancel</button>
+                </div>
+            </form>
+        </div>
+        <div id="divDisableBackground"></div>
+            <div id="modalDialog" style="display: none" align="center">
+                <div class="modal-header modal-header-confirm">
+                    <h4 class="modal-title ng-binding">
+                        <span class="glyphicon glyphicon-indent-left"></span>{{modalOptions.headerText}}
+                        <a title="Close"><i ng-click="CloseModal()" class="glyphicon glyphicon-remove icon-arrow-right pull-right"></i></a>
+                    </h4>
+                </div>
+            </div>
+    </body>
+}
+
+@section Styles
+      {
+    <link href="~/CustomCss/Approval/Pending_Approval.css" rel="stylesheet" />
+}
+

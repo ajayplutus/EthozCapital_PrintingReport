@@ -1,0 +1,45 @@
+﻿@*@model List<EthozCapital.Models.PreConViewModel>*@
+@*@using EthozCapital.Models;
+    @model EthozCapital.Models.PreConViewModel
+    @{
+        ViewBag.PageTitle = "ETHOZ";
+    }
+
+    @using (Html.BeginForm("Default", "Home", FormMethod.Post, new { id = "main-form", @class = "smart-form", @novalidate = "novalidate" }))
+    {
+        <div style="padding-bottom: 500px;  padding-right: 500px;">
+            <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("GetFinLeaseNew", "Home")'" style="
+        margin-left: 500px;
+        margin-top: 100px;">
+                Get Form
+            </button>
+            </div>
+
+    @Html.ActionLink("Link1", "GetCustomer", "Home", new { Id = "View1" }, null)
+
+
+
+    }*@
+
+
+
+
+
+
+
+
+
+
+
+<!-- end widget grid -->
+@section scripts{
+
+    @*<script src="../../Scripts/jquery-1.10.2.js" type="text/javascript"></script>
+        <script src="../../Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>*@
+    @*<script type="text/javascript" src="../../Scripts/jquery-latest.js"></script>
+        <script type="text/javascript" src="../../Scripts//jquery.tablesorter.js"></script>*@
+    <script type="text/javascript">
+
+    </script>
+
+}

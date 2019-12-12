@@ -1,0 +1,9 @@
+Debug from IIS
+===============
+1. Publish to IIS with File Publish Options - Precompile during publishing
+2. Open application via browser
+3. Go to VS > DEBUG > Attach to Process
+4. Tick Show processes from all users
+5. Select w3wp.exe
+6. Click Attach
+7. Note: if debugger not working, check DEBUG > windows > modules > Symbol Status

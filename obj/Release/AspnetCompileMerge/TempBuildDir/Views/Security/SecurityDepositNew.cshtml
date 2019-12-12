@@ -1,0 +1,488 @@
+﻿@model EthozCapital.Models.ViewModels.SecurityDepositModel 
+@using EthozCapital.CustomLibraries;
+<br />
+<br />
+<br />
+@if (ViewData["Message"] != null)
+{
+    <h2>Invalid Page</h2>
+    @ViewData["Message"]
+}
+else
+{
+    <div style="margin-left: 0px; overflow: auto">
+        <h2>New Security Deposit - Security Deposit Master</h2>
+    </div>
+
+    <link href="~/CustomCss/Security/Mortgag_Customer.css" rel="stylesheet" />
+    <form id="mainForm" method="post">
+        <div class="tab-content">
+            <div class="tab-pane active in" id="nav-tab2-1">
+                <h3 class="m-t-10"></h3>
+                <fieldset>
+                    <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Main</legend>
+                    <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#main">
+                        <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                        <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                    </legend>
+                    <div id="selectionbox" class="selectionbox ">
+                        <div id="main" class="collapse in">
+                            <div class="row collapse in">
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <div>
+                                            <label>Refundable *</label>
+                                            <select name="Refundable" id="Refundable" class="form-control Refundable required" required style="font-size:14px;">
+                                                <option>--Select--</option>
+                                                <option>Yes</option>
+                                                <option>No</option>
+                                            </select>
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <div>
+                                            <label>Amount *</label>
+                                            <input type="text" id="txtAmount" style="text-align:right;font-size:14px;" name="Amount" min='0.00' step='0.01' class="form-control money Amount required" value="0.00" required maxlength="20" autocomplete="off" />
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="tab-pane active in" id="nav-tab2-1">
+                <h3 class="m-t-10"></h3>
+                <fieldset>
+                    <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Bill To</legend>
+                    <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#BillTo">
+                        <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                        <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                    </legend>
+                    <div id="selectionbox" class="selectionbox">
+                        <div id="BillTo" class="collapse in">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <div>
+                                            <label>Individual/ Corporate *</label>
+                                            <select name="IndividualCorporate" id="ddlIndividualCorporate" class="form-control IndividualCorporate required" required style="font-size:14px;">
+                                                <option>Individual</option>
+                                                <option>Corporate</option>
+                                            </select>
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <label>Customer *</label>
+                                        <input type="text" id="txtCustomer" style="text-align:left;font-size:14px;" name="Customer" class="form-control Customer required" placeholder="Customer" required autocomplete="off" />
+                                        <span id="customerId" hidden="hidden"></span>
+                                        <i></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" id="NRICFINPASSPORTdiv">
+                                    <div class="form-group block1">
+                                        <label>NRIC/ FIN/ PASSPORT</label>
+                                        <input type="text" id="txtNRICFINPASSPORT" name="NRICFINPASSPORT" class="form-control NRICFINPASSPORT" placeholder="NRIC/ FIN/ PASSPORT" style="font-size:14px;" readonly="readonly" />
+                                        <i></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" id="RocUendiv">
+                                    <div class="form-group block1">
+                                        <label>ROC/ UEN</label>
+                                        <input type="text" id="txtROCUEN" name="ROC_UEN" class="form-control ROCUEN" placeholder="ROC/ UEN" style="font-size:14px;" readonly="readonly" />
+                                        <i></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <label>Address *</label>
+                                        @Html.DropDownList("ddlAddress", ViewBag.Address as SelectList, "--Select--", new { @class = "form-control js-example-basic-single3 ddAddress required", @id = "Address", @style = "font-size:14px;", @onchange = "getDepartment($(this).val())" })
+                                        <i></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <label>Department</label>
+                                        @Html.DropDownList("ddlDepartment", ViewBag.DepartmentList as SelectList, "--Select--", new { @class = "form-control js-example-basic-single3 ddDepartment", @id = "Department", @style = "font-size:14px;", @onchange = "getContactPerson($(this).val())" })
+                                        <i></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <label>Contact Person</label>
+                                        @Html.DropDownList("ddlContactPerson", ViewBag.Contact as SelectList, "--Select--", new { @class = "form-control js-example-basic-single3 ddlContactPerson", @id = "ContactPerson", @style = "font-size:14px;" })
+                                        <i></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            @{Html.RenderPartial("_Customer", Model.CustomerToAccess);}
+        </div>
+    </form>
+
+    <div class="col-md-4">
+        <div class="nav navbar-nav navbar-left">
+            <div class="row">
+                <button type="button" id="SaveContract" onclick="SaveSecurityDepositNew()" class="btn">Save</button>
+                <button type="button" id="Reset" class="btn">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    @section HeaderScripts
+      {
+        <script src="~/CustomScript/Security/Customer_Mortgagor.js"></script>
+    }
+    <script src="~/CustomScript/Security/Customer.js"></script>
+    <script>
+        $(document).on('blur', '.money', function () {
+            let val = $(this).val();
+            if (val == '' || val == '0' || val == '00' || val == '.00') val = '0.00';
+            while (val.length > 0) {
+                if (val.charAt(0) == '0' && val.charAt(1) != '.') {
+                    val = val.substr(1);
+                }
+                else
+                    break;
+            }
+
+            if (val.indexOf(',') == 0) {
+                val = val.substr(1);
+                if (val.charAt(0) == '0' && val.charAt(1) != '.') {
+                    val = '0.00';
+                }
+            }
+            if (val.indexOf(".") == -1 && val != '') {
+                $(this).val(val + ".00");
+            }
+            else
+                $(this).val(val);
+        });
+        $(document).ready(function () {
+            $("#RocUendiv").hide();
+
+            $("#Reset").on('click', function () {
+                $("#RocUendiv").hide();
+                $("#NRICFINPASSPORTdiv").show();
+                document.getElementById("Refundable").selectedIndex = "0";
+                document.getElementById("ddlIndividualCorporate").selectedIndex = "0";
+                $("#txtAmount").val("0.00");
+                $("#txtCustomer").val("");
+                $("#txtROCUEN").val('');
+                ResetDropdownList();
+                $("#tblMortgagorList tbody tr").each(function () {
+                    $(this).find('button.deleting').click();
+                });
+                $("#tblCustomerToAccessList tbody tr").each(function () {
+                    $(this).find('button.deleting').click();
+                })
+            });
+
+            $(document).click(function () {
+                if ($("#txtCustomer").val() == '') {
+                    ResetDropdownList();
+                    $("#txtROCUEN").val('');
+                    $("#txtNRICFINPASSPORT").val('');
+                }
+            })
+
+            $("#txtCustomer").autocomplete({
+                source: function (request, response) {
+                    var indVal = $('#ddlIndividualCorporate').val();
+                    $.ajax({
+                        url: '@Url.Action("GetCustomerAutoComplete")',
+                        data: { textFilter: request.term, IndividualCorporate: indVal },
+                        type: 'GET',
+                        cache: false,
+                        dataType: 'json',
+                        global: false,
+                        success: function (json) {
+                            var res = JSON.parse(json.data);
+                            $(res).each(function (i, v) {
+                                v.label = v.label.replace("&#39", '\'').replace("&#34", "\"").replace("&#12296", "<").replace("&#12297", ">");
+                            });
+                            response(res);
+                        }
+                    });
+                },
+                minLength: 1,
+                scroll: true,
+                autoFocus: false,
+                autoFill: false,
+                select: function (event, ui) {
+                    $('#txtCustomer').val(ui.item.label);
+                    $('#customerId').text(ui.item.value);
+                    GetNricFinPassport(ui.item.value);
+                    GetRocUen(ui.item.value);
+                    GetAddress(ui.item.value);
+                    return false;
+                },
+                change: function (event, ui) {
+                    if (!ui.item)
+                        $('#txtCustomer').val('');
+                    return false;
+                }
+            });
+
+            $("#ddlIndividualCorporate").on('change', function (event) {
+                $("#txtCustomer").val('');
+                ResetDropdownList();
+                HideRocUenorFinPassport();
+            });
+        })
+
+        function GetNricFinPassport(selectedCustomer) {
+            $.ajax({
+                url: '@Url.Action("getNricFinPassportType")',
+                data: { selected: selectedCustomer },
+                type: 'GET',
+                cache: false,
+                dataType: 'json',
+                global: false,
+                success: function (json) {
+                    $("#txtNRICFINPASSPORT").val(json.data);
+                }
+            });
+        }
+
+        function GetRocUen(selected) {
+            $.ajax({
+                url: '@Url.Action("getRocUenType")',
+                data: { selected: selected },
+                type: 'GET',
+                cache: false,
+                dataType: 'json',
+                global: false,
+                success: function (json) {
+                    $("#txtROCUEN").val(json.data);
+                }
+            });
+        }
+
+        function HideRocUenorFinPassport() {
+            var IndividualCorporate;
+            IndividualCorporate = $("#ddlIndividualCorporate").val();
+            if (IndividualCorporate == 'Individual') {
+                $("#RocUendiv").hide();
+                $("#NRICFINPASSPORTdiv").show();
+            }
+            else {
+                $("#RocUendiv").show();
+                $("#NRICFINPASSPORTdiv").hide();
+            }
+        }
+
+        function GetAddress(selected) {
+            var IndividualCorporate = $("#ddlIndividualCorporate").val();
+            $.ajax({
+                url: '@Url.Action("getAddress")',
+                type: 'GET',
+                cache: false,
+                dataType: 'json',
+                data: { selected: selected, IndividualCorporate: IndividualCorporate },
+                global: false,
+                success: function (json) {
+                    if (json.data.length > 0) {
+                        $("#Address").html("");
+                        $.each(json.data, function (i, v) {
+                            $("#Address").append($('<option value=' + v.AddressId + '>' + v.Address + '</option>'))
+                        });
+                        getDepartment($("#Address").val());
+                    }
+                    else {
+                        $("#Address").html("");
+                        $("#Address").append($('<option>' + "--Select--" + '</option>'));
+                        $("#Department").html("");
+                        $("#ContactPerson").html("");
+                    }
+                }
+            });
+        }
+
+        function getDepartment(selectedAddress) {
+            $.ajax({
+                url: '@Url.Action("getDepartmentList")',
+                data: { selectedAddress: selectedAddress },
+                type: 'GET',
+                cache: false,
+                dataType: 'json',
+                global: false,
+                success: function (json) {
+                    if (json.data.length > 0) {
+                        $("#Department").html("");
+                        $.each(json.data, function (i, v) {
+                            $("#Department").append($('<option value=' + v.cd_ref_num + '>' + v.cd_dept_desc + '</option>'))
+                        });
+                        getContactPerson($("#Department").val());
+                    }
+                    else {
+                        $("#Department").html("");
+                        $("#ContactPerson").html("");
+                    }
+                }
+            });
+        }
+
+        function getContactPerson(selectedDepartment) {
+            $.ajax({
+                url: '@Url.Action("getContactPerson")',
+                data: { selectedDepartment: selectedDepartment },
+                type: 'GET',
+                cache: false,
+                dataType: 'json',
+                global: false,
+                success: function (json) {
+                    $("#ContactPerson").html("");
+                    $.each(json.data, function (i, v) {
+                        $("#ContactPerson").append($('<option value=' + v.Value + '>' + v.Contact + '</option>'))
+                    });
+                }
+            });
+        }
+
+        function ResetDropdownList() {
+            $("#Address").html('');
+            $("#Address").append($('<option>' + "--Select--" + '</option>'));
+            $("#Department").html('');
+            $("#Department").append($('<option>' + "--Select--" + '</option>'));
+            $("#ContactPerson").html('');
+            $("#ContactPerson").append($('<option>' + "--Select--" + '</option>'));
+        }
+
+        var model = {
+            Refundable: '',
+            Amount: '',
+            BillToDetailModel: {
+                IndividualCorporate: '',
+                Customer: '',
+                NRICFINPASSPORT: '',
+                ROCUEN: '',
+                Address: '',
+                Department: '',
+                ContactPerson: ''
+            },
+            CustomerToAccess: [{
+                IndividualCorporate: "",
+                Customer: ""
+            }]
+        }
+
+        function SaveSecurityDepositNew() {
+            event.stopPropagation();
+            if (Validation()) {
+                $('#myModal').modal({
+                    backdrop: 'static',
+                    keyboard: false
+                });
+
+                model = {
+                    Refundable: '',
+                    Amount: '',
+                    BillToDetailModel: {
+                        IndividualCorporate: '',
+                        Customer: '',
+                        NRICFINPASSPORT: '',
+                        ROCUEN: '',
+                        Address: '',
+                        Department: '',
+                        ContactPerson: ''
+                    },
+                    CustomerToAccess: []
+                }
+
+                model.Refundable = $("#Refundable").val();
+                model.Amount = $("#txtAmount").val();
+                var billto1 = {
+                    IndividualCorporate: $('#ddlIndividualCorporate').val(),
+                    Customer: $('#customerId').text(),
+                    NRICFINPASSPORT: $('#txtNRICFINPASSPORT').val(),
+                    ROCUEN: $('#txtROCUEN').val(),
+                    Address: $('#Address').val(),
+                    Department: $('#Department').val(),
+                    ContactPerson: $('#ContactPerson').val()
+                }
+                model.BillToDetailModel = billto1;
+
+                $("#tblCustomerToAccessList tbody tr").each(function () {
+                    if (!$(this).hasClass('activeRow')) {
+                        var customerToAccess1 = {
+                            IndividualCorporate: $(this).find('.Individual_Corporate_Customer_edited').text(),
+                            Customer: $(this).find('.customer_edited').data("value"),
+                        };
+                        model.CustomerToAccess.push(customerToAccess1);
+                    }
+                    else {
+                        var customerToAccess1 = {
+                            IndividualCorporate: $(this).find(".Individual_Corporate_Customer").find("option:selected").val(),
+                            Customer: $(this).find('.customer').data('id'),
+                        };
+                        model.CustomerToAccess.push(customerToAccess1);
+                    }
+                });
+
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("InsertSecurityDepositDetail")',
+                    data: { json: JSON.stringify(model) },
+                    success: function (response) {
+                        $('#myModal').modal("hide");
+                        if (response.Status == 1) {
+                            swal('@clsGlobal.SwalTitle_Success', response.Message, '@clsGlobal.SwalType_Success');
+                            $("#Reset").click();
+                        }
+                        else {
+                            if (response.Status == 0)
+                                swal('@clsGlobal.SwalTitle_Error', response.Message, '@clsGlobal.SwalType_Error');
+                        }
+                    },
+                    error: function (ex) {
+                        $('#myModal').modal("hide");
+                        swal('@clsGlobal.SwalTitle_Error', "Error", '@clsGlobal.SwalType_Error');
+                    }
+                });
+            }
+        }
+
+        function Validation() {
+            $(".required").each(function () {
+                if ($(this).val() == "" || $(this).val() == "0.00" || $(this).val() == "--Select--") {
+                    $(this).addClass('alert-danger');
+                    if ($(this).is("select")) {
+                        $(this).parent().find("span.select2-selection__rendered").addClass('alert-danger');
+                    }
+                }
+                else {
+                    $(this).removeClass('alert-danger');
+                    if ($(this).is("select")) {
+                        $(this).parent().find("span.select2-selection__rendered").removeClass('alert-danger');
+                    }
+                }
+            });
+
+            if ($('#tblCustomerToAccessList tbody').find('td.dataTables_empty').length > 0)
+                $("#tblCustomerToAccessList_wrapper").addClass("alert-danger-table");
+            else
+                $("#tblCustomerToAccessList_wrapper").removeClass("alert-danger-table");
+
+            if ($(".alert-danger").length > 0 || $('.alert-danger-table').length > 0) {
+                swal('@clsGlobal.SwalTitle_Error', "Please enter required fields.", '@clsGlobal.SwalType_Error');
+                return false;
+            }
+            else
+                return true;
+        }
+
+    </script>
+}

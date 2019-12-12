@@ -1,0 +1,96 @@
+﻿@model EthozCapital.Models.ViewModels.PendingApprovalViewModel
+@{
+    var count = Model.PendingCount;
+}
+@section Styles
+{
+    <link href="~/CustomCss/Approval/Pending_Approval.css" rel="stylesheet" />
+}
+<br />
+<br />
+<br />
+@if (ViewData["Message"] != null)
+{
+    <div style="margin-left: 0px; overflow: auto">
+        <h2>Invalid Page</h2>
+        <h5>@ViewData["Message"]</h5>
+    </div>
+}
+else
+{
+    <div style="margin-left: 0px; overflow: auto">
+        <h4>Reassign Approval</h4>
+    </div>
+    <body>
+
+        <script src="~/CustomScript/Approval/approval-process.module.js" asp-append-version="true"></script>
+        <div class="panel panel-default panel-with-tabs" data-sortable-id="ui-unlimited-tabs-2" style="overflow:auto">
+            <div class="tab-content">
+                <div class="tab-pane active in" id="nav-tab2-1">
+                    <h3 class="m-t-10"></h3>
+                    <fieldset class="fieldsetCss">
+                        <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Search</legend>
+                        <legend class="btn pull-right col-md-1 col-sm-4 col-xs-4 text-center collapseBtn" data-toggle="collapse" data-target="#ReassignSearch">
+                            <span class="if-collapsed"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                            <span class="if-not-collapsed"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                        </legend>
+                        <div id="ReassignSearch" class="selectionbox collapse in">
+                            @Html.HiddenFor(m => m.ApprovalPage);
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group block1">
+                                        <label class="elipsetxt" title="Batch No">Batch No : </label>
+                                        @*@Html.TextBox("ReassignBatchNo", null, new { id = "ReassignBatchNo", @class = "form-control", @placeholder = "Batch No", @autocomplete = "off", @tabindex = "1", @style = "display:inline;background-color:white;", @maxlenth = 20 })*@
+                                        @Html.TextBox("ReassignBatchNo", null, new { id = "txtReassignBatchNo", @class = "form-control security-customer required", @placeholder = "Batch No", @autocomplete = "off", @style = "text-align:left;font-size:14px;" })
+                                        <span id="ReassignBatchNoId" class="securityCustomerId" hidden="hidden"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group block1">
+                                        <label class="elipsetxt" title="Type">Approving Officer :</label>
+                                        @Html.DropDownList("ApprovingOfficer", ViewBag.ListOfReassignApprovalOfficer as SelectList, "--Select--", new { @class = "form-control required", @id = "sysApprovalName", @tabindex = "2", @style = "font-size:14px;" })
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group cls-btn-search">
+                                        <button type="button" id="search" class="btn" onclick="onReassignViewSearchClick();">Search</button>
+                                        <button type="button" id="Reset" class="btn" onclick="onResetClick();">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="tab-pane active in" id="nav-tab2-1">
+                    <h3 class="m-t-10"></h3>
+                    <fieldset class="fieldsetCss">
+                        <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Details</legend>
+                        <legend class="btn pull-right col-md-1 col-sm-4 col-xs-4 text-center collapseBtn" data-toggle="collapse" data-target="#ReassignECA">
+                            <span class="if-collapsed"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                            <span class="if-not-collapsed"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                        </legend>
+                        <!-- begin row -->
+                        <div id="ReassignECA" class="selectionbox collapse in">
+                            <div class="row">
+                                <!-- begin col-4 -->
+                                <div class="col-md-8" id="ReassignView">
+                                    @{Html.RenderPartial("_ApprovalListPartialView", Model);}
+                                </div>
+                                <!-- end col-4 -->
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div id="ReassignApprovalPopUp" style="display: none" align="center">
+
+        </div>
+    </body>
+}
+
+
+

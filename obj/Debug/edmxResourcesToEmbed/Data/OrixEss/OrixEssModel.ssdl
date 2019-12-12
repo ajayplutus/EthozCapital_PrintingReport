@@ -1,0 +1,1468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ORIX_ESS_DB_DevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ss_abs_det">
+    <Key>
+      <PropertyRef Name="ad_bat_num" />
+      <PropertyRef Name="ad_itm_num" />
+    </Key>
+    <Property Name="ad_bat_num" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ad_itm_num" Type="int" Nullable="false" />
+    <Property Name="ad_lev_dat" Type="datetime" Nullable="false" />
+    <Property Name="ad_lev_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="ad_lev_am" Type="bit" Nullable="false" />
+    <Property Name="ad_lev_pm" Type="bit" Nullable="false" />
+    <Property Name="ad_lev_typ" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="ad_rem_ark" Type="varchar(max)" />
+    <Property Name="ad_mrk_by" Type="char" MaxLength="5" />
+    <Property Name="ad_mrk_ind" Type="char" MaxLength="1" />
+    <Property Name="ad_mrk_dat" Type="datetime" />
+    <Property Name="ad_mrk_who" Type="varchar(max)" />
+    <Property Name="ad_con_dat" Type="datetime" />
+    <Property Name="ad_con_who" Type="varchar(max)" />
+    <Property Name="ad_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="ad_sta_who" Type="varchar(max)" />
+    <Property Name="ad_sta_dat" Type="datetime" />
+    <Property Name="ad_mail_ind" Type="int" />
+  </EntityType>
+  <EntityType Name="ss_abs_mas">
+    <Key>
+      <PropertyRef Name="am_bat_num" />
+    </Key>
+    <Property Name="am_bat_num" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="am_bat_dat" Type="datetime" />
+    <Property Name="am_emp_cod" Type="char" MaxLength="5" />
+    <Property Name="am_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="am_sta_who" Type="varchar(max)" />
+    <Property Name="am_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_app_officer">
+    <Key>
+      <PropertyRef Name="ao_emp_cod" />
+      <PropertyRef Name="ao_cat_cod" />
+    </Key>
+    <Property Name="ao_emp_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="ao_cat_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="ao_pri_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="ao_sec_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="ao_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="ao_sta_who" Type="varchar(max)" />
+    <Property Name="ao_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_att_access">
+    <Key>
+      <PropertyRef Name="aa_emp_cod" />
+    </Key>
+    <Property Name="aa_emp_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="aa_main_dept" Type="varchar(max)" />
+    <Property Name="aa_sub_dept" Type="varchar(max)" />
+    <Property Name="aa_att_emp" Type="varchar(max)" />
+    <Property Name="aa_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="aa_sta_who" Type="varchar(max)" />
+    <Property Name="aa_sta_dat" Type="datetime" />
+    <Property Name="aa_att_loc" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="ss_att_aws">
+    <Key>
+      <PropertyRef Name="aa_aws_cod" />
+    </Key>
+    <Property Name="aa_aws_cod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="aa_emp_cod" Type="varchar" MaxLength="5" />
+    <Property Name="aa_eff_dat" Type="datetime" />
+    <Property Name="aa_cap_amt" Type="money" />
+    <Property Name="aa_deduct_amt" Type="money" />
+    <Property Name="aa_sta_ind" Type="varchar" MaxLength="1" />
+    <Property Name="aa_sta_who" Type="varchar(max)" />
+    <Property Name="aa_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_att_deduct">
+    <Key>
+      <PropertyRef Name="ad_ded_cod" />
+    </Key>
+    <Property Name="ad_ded_cod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad_abs_bat_num" Type="varchar" MaxLength="15" />
+    <Property Name="ad_abs_itm_num" Type="int" />
+    <Property Name="ad_lev_bat_num" Type="varchar" MaxLength="15" />
+    <Property Name="ad_lev_itm_num" Type="int" />
+    <Property Name="ad_ded_am" Type="bit" />
+    <Property Name="ad_ded_pm" Type="bit" />
+    <Property Name="ad_pay_dat" Type="datetime" />
+    <Property Name="ad_ded_ind" Type="bit" />
+    <Property Name="ad_exp_ind" Type="bit" />
+    <Property Name="ad_exp_dat" Type="datetime" />
+    <Property Name="ad_sta_ind" Type="varchar" MaxLength="1" />
+    <Property Name="ad_sta_who" Type="varchar(max)" />
+    <Property Name="ad_sta_dat" Type="datetime" />
+    <Property Name="ad_app_sta" Type="varchar" MaxLength="1" />
+    <Property Name="ad_waive_dat" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ORIX_ESS_DB_Dev.dbo.ss_att_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ss_att_det">
+    <Key>
+      <PropertyRef Name="ad_rec_num" />
+      <PropertyRef Name="ad_ter_num" />
+      <PropertyRef Name="ad_thm_num" />
+      <PropertyRef Name="ad_emp_cod" />
+      <PropertyRef Name="ad_att_dat" />
+    </Key>
+    <Property Name="ad_rec_num" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad_ter_num" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ad_thm_num" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ad_emp_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ad_att_dat" Type="datetime" Nullable="false" />
+    <Property Name="ad_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="ad_sta_who" Type="varchar(max)" />
+    <Property Name="ad_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_att_rem_ark">
+    <Key>
+      <PropertyRef Name="ar_emp_cod" />
+      <PropertyRef Name="ar_att_dat" />
+    </Key>
+    <Property Name="ar_rec_num" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ar_emp_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ar_att_dat" Type="datetime" Nullable="false" />
+    <Property Name="ar_sta_tus" Type="varchar" MaxLength="500" />
+    <Property Name="ar_rem_ark" Type="varchar(max)" />
+    <Property Name="ar_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="ar_sta_who" Type="varchar(max)" />
+    <Property Name="ar_sta_dat" Type="datetime" />
+    <Property Name="ar_rem_ind" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ss_att_rem_ark2">
+    <Key>
+      <PropertyRef Name="ar_emp_cod" />
+      <PropertyRef Name="ar_att_dat" />
+    </Key>
+    <Property Name="ar_rec_num" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ar_emp_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ar_att_dat" Type="datetime" Nullable="false" />
+    <Property Name="ar_sta_tus" Type="varchar(max)" />
+    <Property Name="ar_rem_ark" Type="varchar(max)" />
+    <Property Name="ar_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="ar_sta_who" Type="varchar(max)" />
+    <Property Name="ar_sta_dat" Type="datetime" />
+    <Property Name="ar_rem_ind" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ss_att_sum_mary">
+    <Key>
+      <PropertyRef Name="as_emp_cod" />
+      <PropertyRef Name="as_att_dat" />
+    </Key>
+    <Property Name="as_emp_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="as_att_dat" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ss_buddy">
+    <Key>
+      <PropertyRef Name="sb_emp_cod" />
+      <PropertyRef Name="sb_bdy_cod" />
+    </Key>
+    <Property Name="sb_emp_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="sb_bdy_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="sb_grp_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="sb_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="sb_sta_who" Type="varchar(max)" />
+    <Property Name="sb_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_ccl_param">
+    <Key>
+      <PropertyRef Name="cp_rec_num" />
+    </Key>
+    <Property Name="cp_rec_num" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cp_eff_dat" Type="datetime" Nullable="false" />
+    <Property Name="cp_srv_mth" Type="int" Nullable="false" />
+    <Property Name="cp_srv_ent" Type="int" Nullable="false" />
+    <Property Name="cp_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="cp_sta_who" Type="varchar(max)" />
+    <Property Name="cp_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_clm_det">
+    <Key>
+      <PropertyRef Name="cd_bat_num" />
+      <PropertyRef Name="cd_itm_num" />
+    </Key>
+    <Property Name="cd_bat_num" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="cd_itm_num" Type="int" Nullable="false" />
+    <Property Name="cd_rec_dat" Type="datetime" Nullable="false" />
+    <Property Name="cd_rec_num" Type="varchar(max)" Nullable="false" />
+    <Property Name="cd_typ_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="cd_grp_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="cd_veh_num" Type="varchar" MaxLength="10" />
+    <Property Name="cd_clm_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="cd_pay_cod" Type="char" MaxLength="5" />
+    <Property Name="cd_pay_to" Type="varchar(max)" />
+    <Property Name="cd_rec_amt" Type="money" Nullable="false" />
+    <Property Name="cd_clm_amt" Type="money" Nullable="false" />
+    <Property Name="cd_paid_amt" Type="money" />
+    <Property Name="cd_rem_ark" Type="varchar(max)" />
+    <Property Name="cd_ver_by" Type="char" MaxLength="5" />
+    <Property Name="cd_ver_dat" Type="datetime" />
+    <Property Name="cd_ver_remark" Type="varchar(max)" />
+    <Property Name="cd_app_by" Type="char" MaxLength="5" />
+    <Property Name="cd_app_ind" Type="char" MaxLength="1" />
+    <Property Name="cd_app_dat" Type="datetime" />
+    <Property Name="cd_app_who" Type="varchar(max)" />
+    <Property Name="cd_app_remark" Type="varchar(max)" />
+    <Property Name="cd_pay_ind" Type="char" MaxLength="1" />
+    <Property Name="cd_pay_who" Type="varchar(max)" />
+    <Property Name="cd_pay_dat" Type="datetime" />
+    <Property Name="cd_ref_num" Type="varchar" MaxLength="15" />
+    <Property Name="cd_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="cd_sta_who" Type="varchar(max)" />
+    <Property Name="cd_sta_dat" Type="datetime" />
+    <Property Name="cd_clm_ind" Type="char" MaxLength="1" />
+    <Property Name="cd_clm_dat" Type="datetime" />
+    <Property Name="cd_pro_ind" Type="varchar" MaxLength="2" />
+    <Property Name="cd_srv_num" Type="varchar" MaxLength="10" />
+    <Property Name="cd_sup_inv_num" Type="varchar" MaxLength="20" />
+    <Property Name="cd_taxable" Type="money" />
+    <Property Name="cd_gst_amt" Type="money" />
+    <Property Name="cd_loc_cod" Type="varchar" MaxLength="5" />
+    <Property Name="cd_clm_des" Type="varchar(max)" />
+    <Property Name="cd_directpay_ind" Type="char" MaxLength="1" />
+    <Property Name="cd_directpay_ref_num" Type="varchar" MaxLength="15" />
+    <Property Name="cd_directpay_who" Type="varchar(max)" />
+    <Property Name="cd_directpay_dat" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ORIX_ESS_DB_Dev.dbo.ss_clm_emp_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ss_clm_emp_det">
+    <Key>
+      <PropertyRef Name="cd_ref_cod" />
+      <PropertyRef Name="cd_clm_cod" />
+    </Key>
+    <Property Name="cd_ref_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="cd_clm_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="cd_clm_bf" Type="money" />
+    <Property Name="cd_clm_ent" Type="money" />
+    <Property Name="cd_cur_ent" Type="money" />
+    <Property Name="cd_clm_add" Type="money" />
+    <Property Name="cd_clm_tot" Type="money" />
+    <Property Name="cd_clm_tak" Type="money" />
+    <Property Name="cd_clm_bal" Type="money" />
+    <Property Name="cd_sys_sta" Type="char" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="ss_clm_emp_mas">
+    <Key>
+      <PropertyRef Name="cm_ref_cod" />
+    </Key>
+    <Property Name="cm_ref_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="cm_emp_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="cm_clm_yr" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="cm_sta_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="cm_sta_who" Type="varchar(max)" />
+    <Property Name="cm_sta_dat" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ORIX_ESS_DB_Dev.dbo.ss_clm_ent_det' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ss_clm_ent_det">
+          <Property Name="ed_ent_cod" Type="char" MaxLength="5" />
+          <Property Name="ed_clm_cod" Type="char" MaxLength="5" />
+          <Property Name="ed_ent_amt" Type="money" />
+        </EntityType>-->
+  <EntityType Name="ss_clm_ent_mas">
+    <Key>
+      <PropertyRef Name="em_ent_cod" />
+    </Key>
+    <Property Name="em_ent_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="em_ent_dat" Type="datetime" Nullable="false" />
+    <Property Name="em_cat_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="em_sta_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="em_sta_who" Type="varchar(max)" />
+    <Property Name="em_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_clm_mas">
+    <Key>
+      <PropertyRef Name="cm_bat_num" />
+    </Key>
+    <Property Name="cm_bat_num" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="cm_bat_dat" Type="datetime" />
+    <Property Name="cm_emp_cod" Type="char" MaxLength="5" />
+    <Property Name="cm_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="cm_sta_who" Type="varchar(max)" />
+    <Property Name="cm_sta_dat" Type="datetime" />
+    <Property Name="cm_behalf_emp_cod" Type="char" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="ss_clm_typ">
+    <Key>
+      <PropertyRef Name="ct_clm_cod" />
+    </Key>
+    <Property Name="ct_clm_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="ct_cat_cod" Type="char" MaxLength="5" />
+    <Property Name="ct_clm_desc" Type="varchar(max)" />
+    <Property Name="ct_shr_nam" Type="nvarchar" MaxLength="5" />
+    <Property Name="ct_gl_cod" Type="char" MaxLength="5" />
+    <Property Name="ct_cri_teria" Type="char" MaxLength="10" />
+    <Property Name="ct_ent_typ" Type="char" MaxLength="1" />
+    <Property Name="ct_rem_ark" Type="varchar(max)" />
+    <Property Name="ct_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="ct_sta_who" Type="varchar(max)" />
+    <Property Name="ct_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_date_release">
+    <Key>
+      <PropertyRef Name="dr_ref_cod" />
+    </Key>
+    <Property Name="dr_ref_cod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dr_emp_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="dr_typ_ind" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="dr_rel_dat" Type="datetime" Nullable="false" />
+    <Property Name="dr_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="dr_sta_who" Type="varchar(max)" />
+    <Property Name="dr_sta_dat" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ORIX_ESS_DB_Dev.dbo.ss_dept_chd' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ss_dept_chd">
+    <Key>
+      <PropertyRef Name="dc_grp_cod" />
+      <PropertyRef Name="dc_dept_cod" />
+      <PropertyRef Name="dc_dept_grp_cod" />
+      <PropertyRef Name="dc_sta_ind" />
+      <PropertyRef Name="dc_sta_who" />
+      <PropertyRef Name="dc_sta_dat" />
+    </Key>
+    <Property Name="dc_grp_cod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="dc_dept_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="dc_dept_grp_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="dc_sta_ind" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="dc_sta_who" Type="varchar(max)" Nullable="false" />
+    <Property Name="dc_sta_dat" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ss_dept_det">
+    <Key>
+      <PropertyRef Name="dd_grp_cod" />
+      <PropertyRef Name="dd_dept_cod" />
+    </Key>
+    <Property Name="dd_grp_cod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="dd_dept_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="dd_tel_num" Type="varchar(max)" />
+    <Property Name="dd_fax_num" Type="varchar(max)" />
+    <Property Name="dd_email" Type="varchar(max)" />
+    <Property Name="dd_old_dept_cod" Type="varchar" MaxLength="5" />
+    <Property Name="dd_sta_ind" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="dd_sta_who" Type="varchar(max)" Nullable="false" />
+    <Property Name="dd_sta_dat" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ORIX_ESS_DB_Dev.dbo.ss_duty_roster' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ss_duty_roster">
+          <Property Name="dr_emp_cod" Type="varchar" MaxLength="5" />
+          <Property Name="dr_roster_date" Type="datetime" />
+          <Property Name="dr_shift_code" Type="varchar" MaxLength="5" />
+          <Property Name="dr_sta_ind" Type="char" MaxLength="1" />
+          <Property Name="dr_sta_who" Type="varchar(max)" />
+          <Property Name="dr_sta_dat" Type="datetime" />
+        </EntityType>-->
+  <EntityType Name="ss_ecard_mails">
+    <Key>
+      <PropertyRef Name="ec_mail_num" />
+    </Key>
+    <Property Name="ec_mail_num" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ec_mail_typ" Type="varchar" MaxLength="10" />
+    <Property Name="ec_ref_num" Type="int" Nullable="false" />
+    <Property Name="ec_mail_from" Type="varchar(max)" Nullable="false" />
+    <Property Name="ec_mail_to" Type="varchar(max)" Nullable="false" />
+    <Property Name="ec_mail_sub" Type="varchar(max)" Nullable="false" />
+    <Property Name="ec_mail_body" Type="text" Nullable="false" />
+    <Property Name="ec_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="ec_sta_who" Type="varchar(max)" />
+    <Property Name="ec_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_email_alert">
+    <Key>
+      <PropertyRef Name="ea_rec_num" />
+    </Key>
+    <Property Name="ea_rec_num" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ea_emp_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ea_cat_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ea_cat_val" Type="varchar(max)" Nullable="false" />
+    <Property Name="ea_alt_dat" Type="datetime" Nullable="false" />
+    <Property Name="ea_mail_count" Type="int" />
+    <Property Name="ea_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="ea_sta_who" Type="varchar(max)" />
+    <Property Name="ea_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_emp_address_book">
+    <Key>
+      <PropertyRef Name="ea_rec_num" />
+    </Key>
+    <Property Name="ea_rec_num" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ea_emp_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ea_rec_nam" Type="varchar(max)" Nullable="false" />
+    <Property Name="ea_rec_mail" Type="varchar(max)" Nullable="false" />
+    <Property Name="ea_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="ea_sta_who" Type="varchar(max)" />
+    <Property Name="ea_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_emp_appoint_ment">
+    <Key>
+      <PropertyRef Name="ea_app_num" />
+    </Key>
+    <Property Name="ea_app_num" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ea_emp_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ea_app_dat" Type="datetime" Nullable="false" />
+    <Property Name="ea_typ_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ea_rem_ark" Type="varchar(max)" />
+    <Property Name="ea_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="ea_sta_who" Type="varchar(max)" />
+    <Property Name="ea_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_emp_category">
+    <Key>
+      <PropertyRef Name="ec_cat_cod" />
+    </Key>
+    <Property Name="ec_cat_cod" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="ec_cat_desc" Type="varchar(max)" />
+    <Property Name="ec_cat_ord" Type="int" />
+    <Property Name="ec_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="ec_sta_who" Type="varchar(max)" />
+    <Property Name="ec_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_emp_grp_det">
+    <Key>
+      <PropertyRef Name="gd_grp_cod" />
+      <PropertyRef Name="gd_itm_num" />
+    </Key>
+    <Property Name="gd_grp_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="gd_itm_num" Type="int" Nullable="false" />
+    <Property Name="gd_grp_day" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="gd_wrk_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="gd_beg_tim" Type="char" MaxLength="5" />
+    <Property Name="gd_end_tim" Type="char" MaxLength="5" />
+    <Property Name="gd_hol_day" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="gd_half_day" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="gd_alt_day" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="gd_ot_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="gd_ot_beg" Type="char" MaxLength="5" />
+    <Property Name="gd_ot_end" Type="char" MaxLength="5" />
+    <Property Name="gd_ot_hrs" Type="float" />
+    <Property Name="gd_half_DayA" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="ss_emp_grp_mas">
+    <Key>
+      <PropertyRef Name="gm_grp_cod" />
+    </Key>
+    <Property Name="gm_grp_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="gm_grp_desc" Type="varchar(max)" />
+    <Property Name="gm_sta_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="gm_sta_who" Type="varchar(max)" />
+    <Property Name="gm_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_emp_mas">
+    <Key>
+      <PropertyRef Name="em_emp_cod" />
+    </Key>
+    <Property Name="em_emp_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="em_title" Type="varchar" MaxLength="4" />
+    <Property Name="em_initial" Type="char" MaxLength="5" />
+    <Property Name="em_emp_nam" Type="varchar(max)" />
+    <Property Name="em_alias_nam" Type="varchar(max)" />
+    <Property Name="em_sht_nam" Type="varchar(max)" />
+    <Property Name="em_emp_nation" Type="char" MaxLength="2" />
+    <Property Name="em_citizen_sta" Type="char" MaxLength="2" />
+    <Property Name="em_nric_type" Type="char" MaxLength="2" />
+    <Property Name="em_nric_no" Type="varchar(max)" />
+    <Property Name="em_birth_place" Type="char" MaxLength="2" />
+    <Property Name="em_birth_dat" Type="datetime" />
+    <Property Name="em_emp_gender" Type="char" MaxLength="1" />
+    <Property Name="em_mar_sta" Type="char" MaxLength="1" />
+    <Property Name="em_emp_race" Type="char" MaxLength="1" />
+    <Property Name="em_dialect_grp" Type="char" MaxLength="5" />
+    <Property Name="em_emp_religion" Type="char" MaxLength="1" />
+    <Property Name="em_wrk_per" Type="varchar(max)" />
+    <Property Name="em_fin_no" Type="varchar(max)" />
+    <Property Name="em_exp_dat" Type="datetime" />
+    <Property Name="em_pr_dat" Type="datetime" />
+    <Property Name="em_lic_sta" Type="char" MaxLength="1" />
+    <Property Name="em_lic_num" Type="varchar(max)" />
+    <Property Name="em_iss_dat" Type="datetime" />
+    <Property Name="em_lic_exp_dat" Type="datetime" />
+    <Property Name="em_height" Type="float" />
+    <Property Name="em_weight" Type="float" />
+    <Property Name="em_hea_con" Type="char" MaxLength="1" />
+    <Property Name="em_ill_ness" Type="varchar(max)" />
+    <Property Name="em_treat_ment" Type="varchar(max)" />
+    <Property Name="em_ns_sta" Type="char" MaxLength="1" />
+    <Property Name="em_ns_voc" Type="varchar(max)" />
+    <Property Name="em_ns_rank" Type="varchar(max)" />
+    <Property Name="em_ns_ord" Type="varchar(max)" />
+    <Property Name="em_child_dob" Type="datetime" />
+    <Property Name="em_blk_no" Type="varchar" MaxLength="10" />
+    <Property Name="em_str_nam" Type="varchar(max)" />
+    <Property Name="em_lvl_no" Type="varchar" MaxLength="3" />
+    <Property Name="em_unit_no" Type="varchar" MaxLength="10" />
+    <Property Name="em_build_nam" Type="varchar(max)" />
+    <Property Name="em_zip_cod" Type="varchar" MaxLength="6" />
+    <Property Name="em_loc_home" Type="varchar(max)" />
+    <Property Name="em_loc_mob" Type="varchar(max)" />
+    <Property Name="em_loc_pager" Type="varchar(max)" />
+    <Property Name="em_loc_con" Type="varchar(max)" />
+    <Property Name="em_email" Type="varchar(max)" />
+    <Property Name="em_con_person" Type="varchar(max)" />
+    <Property Name="em_con_no" Type="varchar(max)" />
+    <Property Name="em_con_mail" Type="varchar(max)" />
+    <Property Name="em_con_relation" Type="varchar" MaxLength="5" />
+    <Property Name="em_category" Type="char" MaxLength="1" />
+    <Property Name="em_join_dat" Type="datetime" />
+    <Property Name="em_emp_sta" Type="char" MaxLength="1" />
+    <Property Name="em_pro_period" Type="int" />
+    <Property Name="em_cfm_dat" Type="datetime" />
+    <Property Name="em_rsg_dat" Type="datetime" />
+    <Property Name="em_rsg_reason" Type="varchar(max)" />
+    <Property Name="em_inc_tax" Type="varchar(max)" />
+    <Property Name="em_cpf_sta" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="em_emp_cpf" Type="varchar(max)" />
+    <Property Name="em_con_sta" Type="char" MaxLength="1" />
+    <Property Name="em_ot_sta" Type="char" MaxLength="2" />
+    <Property Name="em_lea_cat" Type="varchar" MaxLength="5" />
+    <Property Name="em_clm_cat" Type="varchar" MaxLength="5" />
+    <Property Name="em_ins_cat" Type="varchar" MaxLength="5" />
+    <Property Name="em_status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="em_pro_dat" Type="datetime" />
+    <Property Name="em_emp_typ" Type="char" MaxLength="1" />
+    <Property Name="em_sat_grp" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="em_sat_dat" Type="datetime" />
+    <Property Name="em_con_pri" Type="varchar" MaxLength="5" />
+    <Property Name="em_con_sec" Type="varchar" MaxLength="5" />
+    <Property Name="em_did" Type="varchar(max)" />
+    <Property Name="em_thumb_id" Type="varchar(max)" />
+    <Property Name="em_smtp_id" Type="varchar(max)" />
+    <Property Name="em_acc_lvl" Type="smallint" />
+    <Property Name="em_usr_nam" Type="varchar(max)" />
+    <Property Name="em_app_officer" Type="varchar" MaxLength="5" />
+    <Property Name="em_alt_officer" Type="varchar" MaxLength="5" />
+    <Property Name="em_remarks" Type="varchar(max)" />
+    <Property Name="em_pay_slip" Type="char" MaxLength="1" />
+    <Property Name="em_mob_bill" Type="char" MaxLength="1" />
+    <Property Name="em_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="em_sta_who" Type="varchar(max)" />
+    <Property Name="em_sta_dat" Type="datetime" />
+    <Property Name="em_grp_cod" Type="char" MaxLength="5" />
+    <Property Name="em_dept_cod" Type="char" MaxLength="5" />
+    <Property Name="em_design_cod" Type="char" MaxLength="5" />
+    <Property Name="em_child_nation" Type="char" MaxLength="2" />
+    <Property Name="em_blk_typ" Type="varchar" MaxLength="3" />
+    <Property Name="em_loc_cod" Type="varchar" MaxLength="5" />
+    <Property Name="em_mgmt_ent_cod" Type="varchar" MaxLength="5" />
+    <Property Name="em_letter_nam" Type="varchar(max)" />
+    <Property Name="em_dept_grp_cod" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="ss_emp_mas_add">
+    <Key>
+      <PropertyRef Name="ma_emp_cod" />
+    </Key>
+    <Property Name="ma_emp_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ma_lev_ent_ind" Type="char" MaxLength="1" />
+    <Property Name="ma_lev_auto_ind" Type="char" MaxLength="1" />
+    <Property Name="ma_lev_app_days" Type="int" />
+    <Property Name="ma_clm_ent_ind" Type="char" MaxLength="1" />
+    <Property Name="ma_clm_auto_ind" Type="char" MaxLength="1" />
+    <Property Name="ma_clm_app_days" Type="int" />
+    <Property Name="ma_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="ma_sta_who" Type="varchar(max)" />
+    <Property Name="ma_sta_dat" Type="datetime" />
+    <Property Name="ma_phone_ind" Type="varchar" MaxLength="2" />
+    <Property Name="ma_pc_ind" Type="varchar" MaxLength="2" />
+    <Property Name="ma_pc_sta" Type="varchar" MaxLength="3" />
+    <Property Name="ma_rem_ark" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="ss_emp_offday_det">
+    <Key>
+      <PropertyRef Name="od_ref_cod" />
+      <PropertyRef Name="od_itm_num" />
+    </Key>
+    <Property Name="od_ref_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="od_itm_num" Type="int" Nullable="false" />
+    <Property Name="od_off_dat" Type="datetime" Nullable="false" />
+    <Property Name="od_sta_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="od_sta_who" Type="varchar(max)" />
+    <Property Name="od_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_emp_offday_mas">
+    <Key>
+      <PropertyRef Name="om_ref_cod" />
+    </Key>
+    <Property Name="om_ref_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="om_emp_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="om_off_yr" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="om_day_sta" Type="char" MaxLength="7" />
+    <Property Name="om_sta_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="om_sta_who" Type="varchar(max)" />
+    <Property Name="om_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_emp_pic">
+    <Key>
+      <PropertyRef Name="ep_emp_code" />
+    </Key>
+    <Property Name="ep_emp_code" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ep_pic_typ" Type="varchar" MaxLength="5" />
+    <Property Name="ep_pic_byte" Type="image" Nullable="false" />
+    <Property Name="ep_sta_dat" Type="datetime" />
+    <Property Name="ep_sta_who" Type="varchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ORIX_ESS_DB_Dev.dbo.ss_exp_clm' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ss_exp_clm">
+          <Property Name="el_emp_cod" Type="char" MaxLength="5" />
+          <Property Name="el_clm_typ" Type="varchar(max)" />
+          <Property Name="el_clm_amt" Type="money" />
+          <Property Name="el_clm_sta" Type="char" MaxLength="1" />
+        </EntityType>-->
+  <EntityType Name="ss_exp_lev">
+    <Key>
+      <PropertyRef Name="el_ref_num" />
+    </Key>
+    <Property Name="el_ref_num" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="el_beg_dat" Type="datetime" Nullable="false" />
+    <Property Name="el_end_dat" Type="datetime" Nullable="false" />
+    <Property Name="el_sta_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="el_sta_who" Type="varchar(max)" Nullable="false" />
+    <Property Name="el_sta_dat" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ss_gentb_mails">
+    <Key>
+      <PropertyRef Name="gm_mail_num" />
+    </Key>
+    <Property Name="gm_mail_num" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="gm_mail_typ" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="gm_mail_to" Type="varchar(max)" />
+    <Property Name="gm_mail_cc" Type="varchar(max)" />
+    <Property Name="gm_mail_subject" Type="nvarchar" MaxLength="100" />
+    <Property Name="gm_mail_body" Type="nvarchar(max)" />
+    <Property Name="gm_mail_bodycc" Type="varchar(max)" />
+    <Property Name="gm_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="gm_sta_who" Type="varchar(max)" />
+    <Property Name="gm_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_lev_det">
+    <Key>
+      <PropertyRef Name="ld_bat_num" />
+      <PropertyRef Name="ld_itm_num" />
+    </Key>
+    <Property Name="ld_bat_num" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ld_itm_num" Type="int" Nullable="false" />
+    <Property Name="ld_lev_dat" Type="datetime" Nullable="false" />
+    <Property Name="ld_lev_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="ld_lev_urg" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="ld_lev_am" Type="bit" Nullable="false" />
+    <Property Name="ld_lev_pm" Type="bit" Nullable="false" />
+    <Property Name="ld_rem_ark" Type="varchar(max)" />
+    <Property Name="ld_req_to" Type="char" MaxLength="5" />
+    <Property Name="ld_app_by" Type="char" MaxLength="5" />
+    <Property Name="ld_app_ind" Type="char" MaxLength="1" />
+    <Property Name="ld_app_dat" Type="datetime" />
+    <Property Name="ld_app_who" Type="varchar(max)" />
+    <Property Name="ld_cov_by" Type="char" MaxLength="5" />
+    <Property Name="ld_app_remark" Type="varchar(max)" />
+    <Property Name="ld_mc_ind" Type="char" MaxLength="1" />
+    <Property Name="ld_mc_num" Type="varchar" MaxLength="20" />
+    <Property Name="ld_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="ld_sta_who" Type="varchar(max)" />
+    <Property Name="ld_sta_dat" Type="datetime" />
+    <Property Name="ld_mail_ind" Type="int" />
+    <Property Name="ld_edit_ind" Type="char" MaxLength="1" />
+    <Property Name="ld_exp_ind" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="ss_lev_det_log">
+    <Key>
+      <PropertyRef Name="dl_bat_num" />
+      <PropertyRef Name="dl_itm_num" />
+    </Key>
+    <Property Name="dl_bat_num" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="dl_itm_num" Type="int" Nullable="false" />
+    <Property Name="dl_lev_dat" Type="datetime" Nullable="false" />
+    <Property Name="dl_lev_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="dl_lev_urg" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="dl_lev_am" Type="bit" Nullable="false" />
+    <Property Name="dl_lev_pm" Type="bit" Nullable="false" />
+    <Property Name="dl_rem_ark" Type="varchar(max)" />
+    <Property Name="dl_req_to" Type="char" MaxLength="5" />
+    <Property Name="dl_app_by" Type="char" MaxLength="5" />
+    <Property Name="dl_app_ind" Type="char" MaxLength="1" />
+    <Property Name="dl_app_dat" Type="datetime" />
+    <Property Name="dl_app_who" Type="varchar(max)" />
+    <Property Name="dl_cov_by" Type="char" MaxLength="5" />
+    <Property Name="dl_app_remark" Type="varchar(max)" />
+    <Property Name="dl_mc_ind" Type="char" MaxLength="1" />
+    <Property Name="dl_mc_num" Type="varchar" MaxLength="20" />
+    <Property Name="dl_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="dl_sta_who" Type="varchar(max)" />
+    <Property Name="dl_sta_dat" Type="datetime" />
+    <Property Name="dl_mail_ind" Type="int" />
+    <Property Name="dl_edit_ind" Type="char" MaxLength="1" />
+    <Property Name="dl_exp_ind" Type="char" MaxLength="1" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ORIX_ESS_DB_Dev.dbo.ss_lev_emp_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ss_lev_emp_det">
+    <Key>
+      <PropertyRef Name="sd_ref_cod" />
+      <PropertyRef Name="sd_lev_cod" />
+      <PropertyRef Name="recordno" />
+    </Key>
+    <Property Name="sd_ref_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="sd_lev_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="sd_lev_bf" Type="numeric" Precision="4" Scale="1" />
+    <Property Name="sd_lev_ent" Type="numeric" Precision="4" Scale="1" />
+    <Property Name="sd_cur_ent" Type="numeric" Precision="4" Scale="1" />
+    <Property Name="sd_lev_add" Type="numeric" Precision="4" Scale="1" />
+    <Property Name="sd_lev_tot" Type="numeric" Precision="4" Scale="1" />
+    <Property Name="sd_lev_tak" Type="numeric" Precision="4" Scale="1" />
+    <Property Name="sd_lev_bal" Type="numeric" Precision="4" Scale="1" />
+    <Property Name="sd_hd_max" Type="int" />
+    <Property Name="sd_sys_sta" Type="char" MaxLength="1" />
+    <Property Name="sd_prd_cod" Type="char" MaxLength="5" />
+    <Property Name="recordno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ORIX_ESS_DB_Dev.dbo.ss_lev_emp_det_his' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ss_lev_emp_det_his">
+    <Key>
+      <PropertyRef Name="dh_ref_cod" />
+      <PropertyRef Name="dh_lev_cod" />
+      <PropertyRef Name="dh_itm_num" />
+      <PropertyRef Name="dh_eff_dat" />
+    </Key>
+    <Property Name="dh_ref_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="dh_lev_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="dh_itm_num" Type="int" Nullable="false" />
+    <Property Name="dh_eff_dat" Type="datetime" Nullable="false" />
+    <Property Name="dh_prev_lev_bf" Type="numeric" Precision="3" Scale="1" />
+    <Property Name="dh_prev_lev_ent" Type="numeric" Precision="3" Scale="1" />
+    <Property Name="dh_prev_cur_ent" Type="numeric" Precision="3" Scale="1" />
+    <Property Name="dh_prev_lev_add" Type="numeric" Precision="3" Scale="1" />
+    <Property Name="dh_lev_bf" Type="numeric" Precision="3" Scale="1" />
+    <Property Name="dh_lev_ent" Type="numeric" Precision="3" Scale="1" />
+    <Property Name="dh_cur_ent" Type="numeric" Precision="3" Scale="1" />
+    <Property Name="dh_lev_add" Type="numeric" Precision="3" Scale="1" />
+    <Property Name="dh_rem_ark" Type="varchar(max)" />
+    <Property Name="dh_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="dh_sta_who" Type="varchar(max)" />
+    <Property Name="dh_sta_dat" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ORIX_ESS_DB_Dev.dbo.ss_lev_emp_det_temp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ss_lev_emp_det_temp">
+    <Key>
+      <PropertyRef Name="sd_ref_cod" />
+      <PropertyRef Name="sd_lev_cod" />
+    </Key>
+    <Property Name="sd_ref_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="sd_lev_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="sd_lev_bf" Type="numeric" Precision="3" Scale="1" />
+    <Property Name="sd_lev_ent" Type="numeric" Precision="3" Scale="1" />
+    <Property Name="sd_cur_ent" Type="numeric" Precision="3" Scale="1" />
+    <Property Name="sd_lev_add" Type="numeric" Precision="3" Scale="1" />
+    <Property Name="sd_lev_tot" Type="numeric" Precision="3" Scale="1" />
+    <Property Name="sd_lev_tak" Type="numeric" Precision="3" Scale="1" />
+    <Property Name="sd_lev_bal" Type="numeric" Precision="3" Scale="1" />
+    <Property Name="sd_hd_max" Type="int" />
+    <Property Name="sd_sys_sta" Type="char" MaxLength="1" />
+    <Property Name="sd_prd_cod" Type="char" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="ss_lev_emp_mas">
+    <Key>
+      <PropertyRef Name="sm_ref_cod" />
+    </Key>
+    <Property Name="sm_ref_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="sm_emp_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="sm_lev_yr" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="sm_sta_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="sm_sta_who" Type="varchar(max)" />
+    <Property Name="sm_sta_dat" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ORIX_ESS_DB_Dev.dbo.ss_lev_ent_det' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ss_lev_ent_det">
+          <Property Name="ed_ent_cod" Type="char" MaxLength="5" />
+          <Property Name="ed_lev_cod" Type="char" MaxLength="5" />
+          <Property Name="ed_ent_days" Type="float" />
+          <Property Name="ed_inc_sta" Type="bit" />
+          <Property Name="ed_per_iod1" Type="int" />
+          <Property Name="ed_inc_day1" Type="float" />
+          <Property Name="ed_per_iod2" Type="int" />
+          <Property Name="ed_inc_day2" Type="float" />
+          <Property Name="ed_inc_day1_recurr" Type="bit" />
+          <Property Name="ed_inc_cap" Type="float" />
+          <Property Name="ed_inc_day1_recurr_freq" Type="float" />
+        </EntityType>-->
+  <EntityType Name="ss_lev_ent_mas">
+    <Key>
+      <PropertyRef Name="em_ent_cod" />
+    </Key>
+    <Property Name="em_ent_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="em_ent_dat" Type="datetime" Nullable="false" />
+    <Property Name="em_cat_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="em_sta_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="em_sta_who" Type="varchar(max)" />
+    <Property Name="em_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_lev_mas">
+    <Key>
+      <PropertyRef Name="lm_bat_num" />
+    </Key>
+    <Property Name="lm_bat_num" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="lm_bat_dat" Type="datetime" />
+    <Property Name="lm_emp_cod" Type="char" MaxLength="5" />
+    <Property Name="lm_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="lm_sta_who" Type="varchar(max)" />
+    <Property Name="lm_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_lev_typ">
+    <Key>
+      <PropertyRef Name="lt_lev_cod" />
+    </Key>
+    <Property Name="lt_lev_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="lt_lev_desc" Type="varchar(max)" Nullable="false" />
+    <Property Name="lt_shr_nam" Type="char" MaxLength="3" />
+    <Property Name="lt_cri_teria" Type="char" MaxLength="10" />
+    <Property Name="lt_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="lt_sta_who" Type="varchar(max)" />
+    <Property Name="lt_sta_dat" Type="datetime" />
+    <Property Name="lt_yr_cod" Type="char" MaxLength="5" />
+    <Property Name="lt_att_aws" Type="bit" />
+  </EntityType>
+  <EntityType Name="ss_mail_cclist">
+    <Key>
+      <PropertyRef Name="ml_emp_cod" />
+      <PropertyRef Name="ml_cat_cod" />
+    </Key>
+    <Property Name="ml_emp_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="ml_cat_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="ml_cc_emp" Type="varchar(max)" />
+    <Property Name="ml_cc_rmk_emp" Type="varchar(max)" />
+    <Property Name="ml_cc_dept" Type="varchar(max)" />
+    <Property Name="ml_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="ml_sta_who" Type="varchar(max)" />
+    <Property Name="ml_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_main_menus">
+    <Key>
+      <PropertyRef Name="mm_mnu_id" />
+    </Key>
+    <Property Name="mm_mnu_id" Type="int" Nullable="false" />
+    <Property Name="mm_mnu_des" Type="varchar(max)" Nullable="false" />
+    <Property Name="mm_mnu_val" Type="varchar(max)" />
+    <Property Name="mm_mnu_ord" Type="int" />
+    <Property Name="mm_mnu_lnk" Type="varchar(max)" />
+    <Property Name="mm_mnu_img" Type="varchar(max)" />
+    <Property Name="mm_sta_ind" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="ss_ot_det">
+    <Key>
+      <PropertyRef Name="od_bat_num" />
+      <PropertyRef Name="od_itm_num" />
+    </Key>
+    <Property Name="od_bat_num" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="od_itm_num" Type="int" Nullable="false" />
+    <Property Name="od_ot_dat" Type="datetime" Nullable="false" />
+    <Property Name="od_otf_tim" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="od_ott_tim" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="od_tot_hrs" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="od_ot_meal" Type="money" Nullable="false" />
+    <Property Name="od_ot_trans" Type="money" Nullable="false" />
+    <Property Name="od_ot_night" Type="bit" Nullable="false" />
+    <Property Name="od_rem_ark" Type="varchar(max)" />
+    <Property Name="od_ver_by" Type="char" MaxLength="5" />
+    <Property Name="od_ver_dat" Type="datetime" />
+    <Property Name="od_ver_remark" Type="varchar(max)" />
+    <Property Name="od_app_by" Type="char" MaxLength="5" />
+    <Property Name="od_app_ind" Type="char" MaxLength="1" />
+    <Property Name="od_app_dat" Type="datetime" />
+    <Property Name="od_app_who" Type="varchar(max)" />
+    <Property Name="od_app_remark" Type="varchar(max)" />
+    <Property Name="od_pay_ind" Type="char" MaxLength="1" />
+    <Property Name="od_pay_who" Type="varchar(max)" />
+    <Property Name="od_pay_dat" Type="datetime" />
+    <Property Name="od_ref_num" Type="varchar" MaxLength="15" />
+    <Property Name="od_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="od_sta_who" Type="varchar(max)" />
+    <Property Name="od_sta_dat" Type="datetime" />
+    <Property Name="od_clm_ind" Type="char" MaxLength="1" />
+    <Property Name="od_clm_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_ot_mas">
+    <Key>
+      <PropertyRef Name="om_bat_num" />
+    </Key>
+    <Property Name="om_bat_num" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="om_bat_dat" Type="datetime" />
+    <Property Name="om_emp_cod" Type="char" MaxLength="5" />
+    <Property Name="om_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="om_sta_who" Type="varchar(max)" />
+    <Property Name="om_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_par_ams">
+    <Key>
+      <PropertyRef Name="pa_par_num" />
+    </Key>
+    <Property Name="pa_par_num" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pa_par_typ" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="pa_par_desc" Type="varchar(max)" Nullable="false" />
+    <Property Name="pa_str_val" Type="varchar(max)" />
+    <Property Name="pa_num_val" Type="real" />
+    <Property Name="pa_dat_val" Type="datetime" />
+    <Property Name="pa_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="pa_sta_who" Type="varchar(max)" />
+    <Property Name="pa_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_para_meter">
+    <Key>
+      <PropertyRef Name="pm_grp_cod" />
+      <PropertyRef Name="pm_par_cod" />
+    </Key>
+    <Property Name="pm_grp_cod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="pm_par_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="pm_par_desc" Type="varchar(max)" />
+    <Property Name="pm_rec_rnk" Type="smallint" />
+    <Property Name="pm_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="pm_sta_who" Type="varchar(max)" />
+    <Property Name="pm_sta_dat" Type="datetime" />
+    <Property Name="pm_shr_nam" Type="char" MaxLength="5" />
+    <Property Name="pm_add_info" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="ss_rep_officer">
+    <Key>
+      <PropertyRef Name="ro_id" />
+    </Key>
+    <Property Name="ro_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ro_emp_type" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="ro_emp_cod" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="ro_repoff_type" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="ro_repoff_cod" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="ro_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="ro_sta_who" Type="varchar" MaxLength="100" />
+    <Property Name="ro_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_req_mas">
+    <Key>
+      <PropertyRef Name="rm_req_num" />
+    </Key>
+    <Property Name="rm_req_num" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="rm_req_dat" Type="datetime" Nullable="false" />
+    <Property Name="rm_emp_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="rm_blk_no" Type="varchar" MaxLength="10" />
+    <Property Name="rm_str_nam" Type="varchar(max)" />
+    <Property Name="rm_lvl_no" Type="varchar" MaxLength="3" />
+    <Property Name="rm_unit_no" Type="varchar" MaxLength="10" />
+    <Property Name="rm_build_nam" Type="varchar(max)" />
+    <Property Name="rm_zip_cod" Type="varchar" MaxLength="6" />
+    <Property Name="rm_loc_home" Type="varchar(max)" />
+    <Property Name="rm_loc_mob" Type="varchar(max)" />
+    <Property Name="rm_loc_con" Type="varchar(max)" />
+    <Property Name="rm_email" Type="varchar(max)" />
+    <Property Name="rm_con_person" Type="varchar(max)" />
+    <Property Name="rm_con_no" Type="varchar(max)" />
+    <Property Name="rm_con_mail" Type="varchar(max)" />
+    <Property Name="rm_con_relation" Type="varchar" MaxLength="5" />
+    <Property Name="rm_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="rm_sta_who" Type="varchar(max)" />
+    <Property Name="rm_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_sop_dept_mas">
+    <Key>
+      <PropertyRef Name="dm_dept_cod" />
+    </Key>
+    <Property Name="dm_dept_cod" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="dm_file_path" Type="varchar(max)" />
+    <Property Name="dm_sta_ind" Type="varchar" MaxLength="1" />
+    <Property Name="dm_sta_who" Type="varchar" MaxLength="5" />
+    <Property Name="dm_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_sop_file_mas">
+    <Key>
+      <PropertyRef Name="fm_rec_num" />
+    </Key>
+    <Property Name="fm_rec_num" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fm_dept_cod" Type="varchar" MaxLength="50" />
+    <Property Name="fm_eff_dat" Type="datetime" />
+    <Property Name="fm_doc_nam" Type="varchar" MaxLength="100" />
+    <Property Name="fm_file_nam" Type="varchar" MaxLength="100" />
+    <Property Name="fm_file_desc" Type="varchar(max)" />
+    <Property Name="fm_sta_ind" Type="varchar" MaxLength="1" />
+    <Property Name="fm_sta_who" Type="varchar" MaxLength="5" />
+    <Property Name="fm_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_sub_menus">
+    <Key>
+      <PropertyRef Name="sm_sub_id" />
+    </Key>
+    <Property Name="sm_sub_id" Type="int" Nullable="false" />
+    <Property Name="sm_mnu_id" Type="int" Nullable="false" />
+    <Property Name="sm_mnu_des" Type="varchar(max)" />
+    <Property Name="sm_mnu_val" Type="varchar(max)" />
+    <Property Name="sm_mnu_ord" Type="int" />
+    <Property Name="sm_mnu_lnk" Type="varchar(max)" />
+    <Property Name="sm_mnu_img" Type="varchar(max)" />
+    <Property Name="sm_sta_ind" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="ss_swap_mas">
+    <Key>
+      <PropertyRef Name="ss_bat_num" />
+    </Key>
+    <Property Name="ss_bat_num" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ss_bat_dat" Type="datetime" Nullable="false" />
+    <Property Name="ss_emp_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="ss_swap_from" Type="datetime" Nullable="false" />
+    <Property Name="ss_swap_to" Type="datetime" Nullable="false" />
+    <Property Name="ss_swap_typ" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="ss_swap_with" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="ss_rem_ark" Type="varchar(max)" />
+    <Property Name="ss_app_ind" Type="char" MaxLength="1" />
+    <Property Name="ss_acc_dat" Type="datetime" />
+    <Property Name="ss_acc_who" Type="varchar(max)" />
+    <Property Name="ss_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="ss_sta_who" Type="varchar(max)" />
+    <Property Name="ss_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_usr_access">
+    <Key>
+      <PropertyRef Name="ua_emp_cod" />
+    </Key>
+    <Property Name="ua_emp_cod" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ua_main_mnu" Type="varchar(max)" />
+    <Property Name="ua_sub_mnu" Type="varchar(max)" />
+    <Property Name="ua_rpt_ind" Type="char" MaxLength="1" />
+    <Property Name="ua_rpt_dept" Type="varchar(max)" />
+    <Property Name="ua_abs_ind" Type="char" MaxLength="1" />
+    <Property Name="ua_abs_dept" Type="varchar(max)" />
+    <Property Name="ua_offday_ind" Type="char" MaxLength="1" />
+    <Property Name="ua_offday_dept" Type="varchar(max)" />
+    <Property Name="ua_bdy_ind" Type="char" MaxLength="1" />
+    <Property Name="ua_bdy_dept" Type="varchar(max)" />
+    <Property Name="ua_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="ua_sta_who" Type="varchar(max)" />
+    <Property Name="ua_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_vacant_mas">
+    <Key>
+      <PropertyRef Name="vm_id" />
+    </Key>
+    <Property Name="vm_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vm_emp_cod" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="vm_emp_nam" Type="varchar(max)" />
+    <Property Name="vm_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="vm_sta_who" Type="varchar(max)" />
+    <Property Name="vm_sta_dat" Type="datetime" />
+    <Property Name="vm_dept_cod" Type="char" MaxLength="5" />
+    <Property Name="vm_loc_cod" Type="varchar" MaxLength="5" />
+    <Property Name="vm_dept_grp_cod" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="ss_ver_officer">
+    <Key>
+      <PropertyRef Name="vo_emp_cod" />
+      <PropertyRef Name="vo_cat_cod" />
+    </Key>
+    <Property Name="vo_emp_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="vo_cat_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="vo_pri_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="vo_sec_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="vo_sta_ind" Type="char" MaxLength="1" />
+    <Property Name="vo_sta_who" Type="varchar(max)" />
+    <Property Name="vo_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ss_yr_period">
+    <Key>
+      <PropertyRef Name="yp_ref_cod" />
+    </Key>
+    <Property Name="yp_ref_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="yp_yr_val" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="yp_par_cod" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="yp_from_dat" Type="datetime" Nullable="false" />
+    <Property Name="yp_to_dat" Type="datetime" Nullable="false" />
+    <Property Name="yp_sta_ind" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="yp_sta_who" Type="varchar(max)" />
+    <Property Name="yp_sta_dat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+error 6004: The table 'ORIX_ESS_DB_Dev.dbo.ss_clm_ent_det' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_ss_clm_ent_mas" />-->
+  <Association Name="FK_ss_emp_grp_det">
+    <End Role="ss_emp_grp_mas" Type="Self.ss_emp_grp_mas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ss_emp_grp_det" Type="Self.ss_emp_grp_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_emp_grp_mas">
+        <PropertyRef Name="gm_grp_cod" />
+      </Principal>
+      <Dependent Role="ss_emp_grp_det">
+        <PropertyRef Name="gd_grp_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ss_emp_mas_add">
+    <End Role="ss_emp_mas" Type="Self.ss_emp_mas" Multiplicity="1" />
+    <End Role="ss_emp_mas_add" Type="Self.ss_emp_mas_add" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ss_emp_mas">
+        <PropertyRef Name="em_emp_cod" />
+      </Principal>
+      <Dependent Role="ss_emp_mas_add">
+        <PropertyRef Name="ma_emp_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+error 6004: The table 'ORIX_ESS_DB_Dev.dbo.ss_lev_ent_det' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_ss_lev_ent_det" />-->
+  <Association Name="FK_ss_sop_file_mas">
+    <End Role="ss_sop_dept_mas" Type="Self.ss_sop_dept_mas" Multiplicity="0..1" />
+    <End Role="ss_sop_file_mas" Type="Self.ss_sop_file_mas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_sop_dept_mas">
+        <PropertyRef Name="dm_dept_cod" />
+      </Principal>
+      <Dependent Role="ss_sop_file_mas">
+        <PropertyRef Name="fm_dept_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ss_sub_menus">
+    <End Role="ss_main_menus" Type="Self.ss_main_menus" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ss_sub_menus" Type="Self.ss_sub_menus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_main_menus">
+        <PropertyRef Name="mm_mnu_id" />
+      </Principal>
+      <Dependent Role="ss_sub_menus">
+        <PropertyRef Name="sm_mnu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKss_abs_det">
+    <End Role="ss_abs_mas" Type="Self.ss_abs_mas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ss_abs_det" Type="Self.ss_abs_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_abs_mas">
+        <PropertyRef Name="am_bat_num" />
+      </Principal>
+      <Dependent Role="ss_abs_det">
+        <PropertyRef Name="ad_bat_num" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKss_clm_det">
+    <End Role="ss_clm_mas" Type="Self.ss_clm_mas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ss_clm_det" Type="Self.ss_clm_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_clm_mas">
+        <PropertyRef Name="cm_bat_num" />
+      </Principal>
+      <Dependent Role="ss_clm_det">
+        <PropertyRef Name="cd_bat_num" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKss_clm_emp_det">
+    <End Role="ss_clm_emp_mas" Type="Self.ss_clm_emp_mas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ss_clm_emp_det" Type="Self.ss_clm_emp_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_clm_emp_mas">
+        <PropertyRef Name="cm_ref_cod" />
+      </Principal>
+      <Dependent Role="ss_clm_emp_det">
+        <PropertyRef Name="cd_ref_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKss_emp_offday_det">
+    <End Role="ss_emp_offday_mas" Type="Self.ss_emp_offday_mas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ss_emp_offday_det" Type="Self.ss_emp_offday_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_emp_offday_mas">
+        <PropertyRef Name="om_ref_cod" />
+      </Principal>
+      <Dependent Role="ss_emp_offday_det">
+        <PropertyRef Name="od_ref_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKss_lev_det">
+    <End Role="ss_lev_mas" Type="Self.ss_lev_mas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ss_lev_det" Type="Self.ss_lev_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_lev_mas">
+        <PropertyRef Name="lm_bat_num" />
+      </Principal>
+      <Dependent Role="ss_lev_det">
+        <PropertyRef Name="ld_bat_num" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKss_lev_det_log">
+    <End Role="ss_lev_mas" Type="Self.ss_lev_mas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ss_lev_det_log" Type="Self.ss_lev_det_log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_lev_mas">
+        <PropertyRef Name="lm_bat_num" />
+      </Principal>
+      <Dependent Role="ss_lev_det_log">
+        <PropertyRef Name="dl_bat_num" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKss_lev_emp_det">
+    <End Role="ss_lev_emp_mas" Type="Self.ss_lev_emp_mas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ss_lev_emp_det" Type="Self.ss_lev_emp_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_lev_emp_mas">
+        <PropertyRef Name="sm_ref_cod" />
+      </Principal>
+      <Dependent Role="ss_lev_emp_det">
+        <PropertyRef Name="sd_ref_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKss_lev_emp_det_his">
+    <End Role="ss_lev_emp_mas" Type="Self.ss_lev_emp_mas" Multiplicity="1" />
+    <End Role="ss_lev_emp_det_his" Type="Self.ss_lev_emp_det_his" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_lev_emp_mas">
+        <PropertyRef Name="sm_ref_cod" />
+      </Principal>
+      <Dependent Role="ss_lev_emp_det_his">
+        <PropertyRef Name="dh_ref_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKss_ot_det">
+    <End Role="ss_ot_mas" Type="Self.ss_ot_mas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ss_ot_det" Type="Self.ss_ot_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_ot_mas">
+        <PropertyRef Name="om_bat_num" />
+      </Principal>
+      <Dependent Role="ss_ot_det">
+        <PropertyRef Name="od_bat_num" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ORIX_ESS_DB_DevModelStoreContainer">
+    <EntitySet Name="ss_abs_det" EntityType="Self.ss_abs_det" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_abs_mas" EntityType="Self.ss_abs_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_app_officer" EntityType="Self.ss_app_officer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_att_access" EntityType="Self.ss_att_access" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_att_aws" EntityType="Self.ss_att_aws" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_att_deduct" EntityType="Self.ss_att_deduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_att_rem_ark" EntityType="Self.ss_att_rem_ark" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_att_rem_ark2" EntityType="Self.ss_att_rem_ark2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_att_sum_mary" EntityType="Self.ss_att_sum_mary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_buddy" EntityType="Self.ss_buddy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_ccl_param" EntityType="Self.ss_ccl_param" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_clm_det" EntityType="Self.ss_clm_det" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_clm_emp_mas" EntityType="Self.ss_clm_emp_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_clm_ent_mas" EntityType="Self.ss_clm_ent_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_clm_mas" EntityType="Self.ss_clm_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_clm_typ" EntityType="Self.ss_clm_typ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_date_release" EntityType="Self.ss_date_release" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_dept_det" EntityType="Self.ss_dept_det" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_ecard_mails" EntityType="Self.ss_ecard_mails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_email_alert" EntityType="Self.ss_email_alert" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_emp_address_book" EntityType="Self.ss_emp_address_book" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_emp_appoint_ment" EntityType="Self.ss_emp_appoint_ment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_emp_category" EntityType="Self.ss_emp_category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_emp_grp_det" EntityType="Self.ss_emp_grp_det" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_emp_grp_mas" EntityType="Self.ss_emp_grp_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_emp_mas" EntityType="Self.ss_emp_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_emp_mas_add" EntityType="Self.ss_emp_mas_add" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_emp_offday_det" EntityType="Self.ss_emp_offday_det" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_emp_offday_mas" EntityType="Self.ss_emp_offday_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_emp_pic" EntityType="Self.ss_emp_pic" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_exp_lev" EntityType="Self.ss_exp_lev" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_gentb_mails" EntityType="Self.ss_gentb_mails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_lev_det" EntityType="Self.ss_lev_det" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_lev_det_log" EntityType="Self.ss_lev_det_log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_lev_emp_mas" EntityType="Self.ss_lev_emp_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_lev_ent_mas" EntityType="Self.ss_lev_ent_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_lev_mas" EntityType="Self.ss_lev_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_lev_typ" EntityType="Self.ss_lev_typ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_mail_cclist" EntityType="Self.ss_mail_cclist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_main_menus" EntityType="Self.ss_main_menus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_ot_det" EntityType="Self.ss_ot_det" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_ot_mas" EntityType="Self.ss_ot_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_par_ams" EntityType="Self.ss_par_ams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_para_meter" EntityType="Self.ss_para_meter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_rep_officer" EntityType="Self.ss_rep_officer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_req_mas" EntityType="Self.ss_req_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_sop_dept_mas" EntityType="Self.ss_sop_dept_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_sop_file_mas" EntityType="Self.ss_sop_file_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_sub_menus" EntityType="Self.ss_sub_menus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_swap_mas" EntityType="Self.ss_swap_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_usr_access" EntityType="Self.ss_usr_access" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_vacant_mas" EntityType="Self.ss_vacant_mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_ver_officer" EntityType="Self.ss_ver_officer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_yr_period" EntityType="Self.ss_yr_period" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ss_att_det" EntityType="Self.ss_att_det" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ss_att_det].[ad_rec_num] AS [ad_rec_num], 
+    [ss_att_det].[ad_ter_num] AS [ad_ter_num], 
+    [ss_att_det].[ad_thm_num] AS [ad_thm_num], 
+    [ss_att_det].[ad_emp_cod] AS [ad_emp_cod], 
+    [ss_att_det].[ad_att_dat] AS [ad_att_dat], 
+    [ss_att_det].[ad_sta_ind] AS [ad_sta_ind], 
+    [ss_att_det].[ad_sta_who] AS [ad_sta_who], 
+    [ss_att_det].[ad_sta_dat] AS [ad_sta_dat]
+    FROM [dbo].[ss_att_det] AS [ss_att_det]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ss_clm_emp_det" EntityType="Self.ss_clm_emp_det" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ss_clm_emp_det].[cd_ref_cod] AS [cd_ref_cod], 
+    [ss_clm_emp_det].[cd_clm_cod] AS [cd_clm_cod], 
+    [ss_clm_emp_det].[cd_clm_bf] AS [cd_clm_bf], 
+    [ss_clm_emp_det].[cd_clm_ent] AS [cd_clm_ent], 
+    [ss_clm_emp_det].[cd_cur_ent] AS [cd_cur_ent], 
+    [ss_clm_emp_det].[cd_clm_add] AS [cd_clm_add], 
+    [ss_clm_emp_det].[cd_clm_tot] AS [cd_clm_tot], 
+    [ss_clm_emp_det].[cd_clm_tak] AS [cd_clm_tak], 
+    [ss_clm_emp_det].[cd_clm_bal] AS [cd_clm_bal], 
+    [ss_clm_emp_det].[cd_sys_sta] AS [cd_sys_sta]
+    FROM [dbo].[ss_clm_emp_det] AS [ss_clm_emp_det]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ss_dept_chd" EntityType="Self.ss_dept_chd" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ss_dept_chd].[dc_grp_cod] AS [dc_grp_cod], 
+    [ss_dept_chd].[dc_dept_cod] AS [dc_dept_cod], 
+    [ss_dept_chd].[dc_dept_grp_cod] AS [dc_dept_grp_cod], 
+    [ss_dept_chd].[dc_sta_ind] AS [dc_sta_ind], 
+    [ss_dept_chd].[dc_sta_who] AS [dc_sta_who], 
+    [ss_dept_chd].[dc_sta_dat] AS [dc_sta_dat]
+    FROM [dbo].[ss_dept_chd] AS [ss_dept_chd]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ss_lev_emp_det" EntityType="Self.ss_lev_emp_det" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ss_lev_emp_det].[sd_ref_cod] AS [sd_ref_cod], 
+    [ss_lev_emp_det].[sd_lev_cod] AS [sd_lev_cod], 
+    [ss_lev_emp_det].[sd_lev_bf] AS [sd_lev_bf], 
+    [ss_lev_emp_det].[sd_lev_ent] AS [sd_lev_ent], 
+    [ss_lev_emp_det].[sd_cur_ent] AS [sd_cur_ent], 
+    [ss_lev_emp_det].[sd_lev_add] AS [sd_lev_add], 
+    [ss_lev_emp_det].[sd_lev_tot] AS [sd_lev_tot], 
+    [ss_lev_emp_det].[sd_lev_tak] AS [sd_lev_tak], 
+    [ss_lev_emp_det].[sd_lev_bal] AS [sd_lev_bal], 
+    [ss_lev_emp_det].[sd_hd_max] AS [sd_hd_max], 
+    [ss_lev_emp_det].[sd_sys_sta] AS [sd_sys_sta], 
+    [ss_lev_emp_det].[sd_prd_cod] AS [sd_prd_cod], 
+    [ss_lev_emp_det].[recordno] AS [recordno]
+    FROM [dbo].[ss_lev_emp_det] AS [ss_lev_emp_det]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ss_lev_emp_det_his" EntityType="Self.ss_lev_emp_det_his" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ss_lev_emp_det_his].[dh_ref_cod] AS [dh_ref_cod], 
+    [ss_lev_emp_det_his].[dh_lev_cod] AS [dh_lev_cod], 
+    [ss_lev_emp_det_his].[dh_itm_num] AS [dh_itm_num], 
+    [ss_lev_emp_det_his].[dh_eff_dat] AS [dh_eff_dat], 
+    [ss_lev_emp_det_his].[dh_prev_lev_bf] AS [dh_prev_lev_bf], 
+    [ss_lev_emp_det_his].[dh_prev_lev_ent] AS [dh_prev_lev_ent], 
+    [ss_lev_emp_det_his].[dh_prev_cur_ent] AS [dh_prev_cur_ent], 
+    [ss_lev_emp_det_his].[dh_prev_lev_add] AS [dh_prev_lev_add], 
+    [ss_lev_emp_det_his].[dh_lev_bf] AS [dh_lev_bf], 
+    [ss_lev_emp_det_his].[dh_lev_ent] AS [dh_lev_ent], 
+    [ss_lev_emp_det_his].[dh_cur_ent] AS [dh_cur_ent], 
+    [ss_lev_emp_det_his].[dh_lev_add] AS [dh_lev_add], 
+    [ss_lev_emp_det_his].[dh_rem_ark] AS [dh_rem_ark], 
+    [ss_lev_emp_det_his].[dh_sta_ind] AS [dh_sta_ind], 
+    [ss_lev_emp_det_his].[dh_sta_who] AS [dh_sta_who], 
+    [ss_lev_emp_det_his].[dh_sta_dat] AS [dh_sta_dat]
+    FROM [dbo].[ss_lev_emp_det_his] AS [ss_lev_emp_det_his]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ss_lev_emp_det_temp" EntityType="Self.ss_lev_emp_det_temp" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ss_lev_emp_det_temp].[sd_ref_cod] AS [sd_ref_cod], 
+    [ss_lev_emp_det_temp].[sd_lev_cod] AS [sd_lev_cod], 
+    [ss_lev_emp_det_temp].[sd_lev_bf] AS [sd_lev_bf], 
+    [ss_lev_emp_det_temp].[sd_lev_ent] AS [sd_lev_ent], 
+    [ss_lev_emp_det_temp].[sd_cur_ent] AS [sd_cur_ent], 
+    [ss_lev_emp_det_temp].[sd_lev_add] AS [sd_lev_add], 
+    [ss_lev_emp_det_temp].[sd_lev_tot] AS [sd_lev_tot], 
+    [ss_lev_emp_det_temp].[sd_lev_tak] AS [sd_lev_tak], 
+    [ss_lev_emp_det_temp].[sd_lev_bal] AS [sd_lev_bal], 
+    [ss_lev_emp_det_temp].[sd_hd_max] AS [sd_hd_max], 
+    [ss_lev_emp_det_temp].[sd_sys_sta] AS [sd_sys_sta], 
+    [ss_lev_emp_det_temp].[sd_prd_cod] AS [sd_prd_cod]
+    FROM [dbo].[ss_lev_emp_det_temp] AS [ss_lev_emp_det_temp]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_ss_emp_grp_det" Association="Self.FK_ss_emp_grp_det">
+      <End Role="ss_emp_grp_mas" EntitySet="ss_emp_grp_mas" />
+      <End Role="ss_emp_grp_det" EntitySet="ss_emp_grp_det" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ss_emp_mas_add" Association="Self.FK_ss_emp_mas_add">
+      <End Role="ss_emp_mas" EntitySet="ss_emp_mas" />
+      <End Role="ss_emp_mas_add" EntitySet="ss_emp_mas_add" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ss_sop_file_mas" Association="Self.FK_ss_sop_file_mas">
+      <End Role="ss_sop_dept_mas" EntitySet="ss_sop_dept_mas" />
+      <End Role="ss_sop_file_mas" EntitySet="ss_sop_file_mas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ss_sub_menus" Association="Self.FK_ss_sub_menus">
+      <End Role="ss_main_menus" EntitySet="ss_main_menus" />
+      <End Role="ss_sub_menus" EntitySet="ss_sub_menus" />
+    </AssociationSet>
+    <AssociationSet Name="FKss_abs_det" Association="Self.FKss_abs_det">
+      <End Role="ss_abs_mas" EntitySet="ss_abs_mas" />
+      <End Role="ss_abs_det" EntitySet="ss_abs_det" />
+    </AssociationSet>
+    <AssociationSet Name="FKss_clm_det" Association="Self.FKss_clm_det">
+      <End Role="ss_clm_mas" EntitySet="ss_clm_mas" />
+      <End Role="ss_clm_det" EntitySet="ss_clm_det" />
+    </AssociationSet>
+    <AssociationSet Name="FKss_clm_emp_det" Association="Self.FKss_clm_emp_det">
+      <End Role="ss_clm_emp_mas" EntitySet="ss_clm_emp_mas" />
+      <End Role="ss_clm_emp_det" EntitySet="ss_clm_emp_det" />
+    </AssociationSet>
+    <AssociationSet Name="FKss_emp_offday_det" Association="Self.FKss_emp_offday_det">
+      <End Role="ss_emp_offday_mas" EntitySet="ss_emp_offday_mas" />
+      <End Role="ss_emp_offday_det" EntitySet="ss_emp_offday_det" />
+    </AssociationSet>
+    <AssociationSet Name="FKss_lev_det" Association="Self.FKss_lev_det">
+      <End Role="ss_lev_mas" EntitySet="ss_lev_mas" />
+      <End Role="ss_lev_det" EntitySet="ss_lev_det" />
+    </AssociationSet>
+    <AssociationSet Name="FKss_lev_det_log" Association="Self.FKss_lev_det_log">
+      <End Role="ss_lev_mas" EntitySet="ss_lev_mas" />
+      <End Role="ss_lev_det_log" EntitySet="ss_lev_det_log" />
+    </AssociationSet>
+    <AssociationSet Name="FKss_lev_emp_det" Association="Self.FKss_lev_emp_det">
+      <End Role="ss_lev_emp_mas" EntitySet="ss_lev_emp_mas" />
+      <End Role="ss_lev_emp_det" EntitySet="ss_lev_emp_det" />
+    </AssociationSet>
+    <AssociationSet Name="FKss_lev_emp_det_his" Association="Self.FKss_lev_emp_det_his">
+      <End Role="ss_lev_emp_mas" EntitySet="ss_lev_emp_mas" />
+      <End Role="ss_lev_emp_det_his" EntitySet="ss_lev_emp_det_his" />
+    </AssociationSet>
+    <AssociationSet Name="FKss_ot_det" Association="Self.FKss_ot_det">
+      <End Role="ss_ot_mas" EntitySet="ss_ot_mas" />
+      <End Role="ss_ot_det" EntitySet="ss_ot_det" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

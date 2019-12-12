@@ -1,0 +1,28 @@
+﻿@model EthozCapital.Models.ViewModels.SecurityDepositModel
+<br />
+<br />
+<br />
+@if (ViewData["Message"] != null)
+{
+    <h2>Invalid Page</h2>
+    @ViewData["Message"]
+}
+else
+{
+    <div style="margin-left: 0px; overflow: auto">
+        <h2>View Security Deposit - Security Deposit Master</h2>
+    </div>
+
+    <link href="~/CustomCss/Security/Mortgag_Customer.css" rel="stylesheet" />
+    { Html.RenderAction("GetSecurityDepositView", new { IsView = true }); }
+    @section HeaderScripts
+      {
+        <script src="~/CustomScript/Security/Customer_Mortgagor.js"></script>
+    }
+    @section Styles
+        {
+        <link href="~/Content/common.css" rel="stylesheet" />
+    }
+}
+
+

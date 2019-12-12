@@ -1,0 +1,274 @@
+﻿@model EthozCapital.Models.ViewModels.EquipmentModel
+<br />
+<br />
+<br />
+
+<div style="margin-left: 0px; overflow: auto">
+    @if (ViewBag.Check == "C" && ViewBag.Viewable == true)
+    {
+        <h2>View Debenture - Construction Equipment Master</h2>
+    }
+    else if (ViewBag.Check == "I" && ViewBag.Viewable == true)
+    {
+        <h2>View Debenture - Industrial Equipment Master</h2>
+    }
+    else if (ViewBag.Check == "C" && ViewBag.Viewable == false)
+    {
+        <h2>Edit Debenture - Construction Equipment Master</h2>
+    }
+    else if (ViewBag.Check == "I" && ViewBag.Viewable == false)
+    {
+        <h2>Edit Debenture - Industrial Equipment Master</h2>
+    }
+</div>
+<div id="MainView">
+    <form id="mainForm" method="post">
+        <div class="tab-content">
+            <div class="tab-pane active in" id="nav-tab2-1">
+                <fieldset>
+                    <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Main</legend>
+                    <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#main">
+                        <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                        <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                    </legend>
+                    <div id="selectionbox" class="selectionbox ">
+                        <div id="main" class="collapse in">
+                            <div class="row collapse in">
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <label>Security System ID </label>
+                                        @Html.TextBoxFor(model => model.Id, new { @class = "form-control", @id = "txtEquipmentID", @style = "text-align:left;font-size:14px;", @placeholder = "Equipment Description", @maxlength = "100", @disabled = "disabled" })
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <div>
+                                            <label>Equipment Brand</label>
+                                        </div>
+                                        <div>
+                                            @Html.DropDownListFor(model => model.Brand, ViewBag.EquipmentBrand as SelectList, "--Select--", new { @class = "form-control js-example-basic-single5 EquipmentBrand", @id = "Equipment_Brand", @style = "font-size:14px;", @onchange = "getEquipmentModel(this.value)" })
+                                        </div>
+                                        <i></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <div>
+                                            <label>Equipment Model</label>
+                                        </div>
+                                        <div>
+                                            @Html.DropDownListFor(model => model.Model, ViewBag.EquipmentModel as SelectList, "--Select--", new { @class = "form-control js-example-basic-single5 EquipmentModel", @id = "Equipment_Model", @style = "font-size:14px;", @onchange = "getEquipmentDesc()" })
+                                        </div>
+                                        <i></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row collapse in">
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <label>Equipment Description *</label>
+                                        @Html.TextAreaFor(model => model.EquipmentDescription, new { @class = "form-control required", @id = "txtEquipmentDescription", @style = "text-align:left;font-size:14px;", @placeholder = "Equipment Description", @maxlength = "100" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="tab-pane active in" id="nav-tab2-1">
+                <h3 class="m-t-10"></h3>
+                <fieldset>
+                    <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Equipment Details</legend>
+                    <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#EquipmentDetails">
+                        <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                        <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                    </legend>
+                    <div id="selectionbox" class="selectionbox">
+                        <div id="EquipmentDetails" class="collapse in">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <label>Serial Number *</label>
+                                        @Html.TextBoxFor(model => model.EquipmentDetails.SerialNumber, new { @class = "form-control SerialNumber required", @id = "txtSerialNumber", @style = "text-align:left;font-size:14px;", @placeholder = "Serial Number", @maxlength = "50" })
+                                        <i></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <label>Secured Amount *</label>
+                                        @Html.TextBoxFor(model => model.EquipmentDetails.SecuredAmount, new { @class = "form-control  money SecuredAmount required", @id = "txtSecuredAmount", @style = "text-align:right;font-size:14px;", @placeholder = "Serial Number", @maxlength = "20" })
+                                        <i></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <div>
+                                            <label>Year of Manufacture</label>
+                                        </div>
+                                        <div>
+                                            @Html.HiddenFor(model => model.EquipmentDetails.ManufactureYear, new { @id = "YearofManufacture" })
+                                            @Html.DropDownListFor(model => model.EquipmentDescription, ViewBag.Years as SelectList, "", new { @class = "form-control js-example-basic-single5 YearofManufacture", @id = "ManufactureYear", @style = "font-size:14px;" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <label>Engine Number</label>
+                                        @Html.TextBoxFor(model => model.EquipmentDetails.EngineNumber, new { @class = "form-control Engine_Number", @id = "txtSecuredAmount", @style = "text-align:left;font-size:14px;", @placeholder = "Engine Number", @maxlength = "20" })
+                                        <i></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <label>Charge Number</label>
+                                        @Html.TextBoxFor(model => model.EquipmentDetails.ChargeNumber, new { @class = "form-control Charge_Number", @id = "txtChargeNumber", @style = "text-align:left;font-size:14px;", @placeholder = "Charge Number", @maxlength = "20" })
+                                        <i></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <label>Charge Date</label>
+                                        @Html.TextBoxFor(model => model.EquipmentDetails.ChargeDate, new { @class = "form-control chargedate", @id = "txtChargeDate", @style = "text-align:left;font-size:14px;background:white", @placeholder = "Charge Date", @readonly = "readonly" })
+                                        <i></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            @{Html.RenderPartial("_Customer", Model.CustomerToAccess);}
+
+            <div class="tab-pane active in" id="nav-tab2-1">
+                <h3 class="m-t-10"></h3>
+                <fieldset>
+                    <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Creation & Modification Info </legend>
+
+                    <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#creationInfoBox">
+                        <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                        <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                    </legend>
+
+                    <div id="creationInfoBox" class="mortgagorList collapse in">
+                        <div class="row">
+                            <div class="col-md-4" id="dtpCreatedDateDiv">
+                                <div class="form-group block1">
+                                    <label>Created Date </label>
+                                    @Html.TextBoxFor(model => model.CreatedDate, new { id = "dtpCreatedDate", @class = "form-control", @disabled = "disabled" })
+                                </div>
+                            </div>
+                            <div class="col-md-4" id="cdreatedBy">
+                                <div class="form-group block1">
+                                    <label>Created by </label>
+                                    @Html.TextBoxFor(model => model.CreatedBy, new { @class = "form-control", @disabled = "disabled" })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <label>Last Updated Date </label>
+                                    @Html.TextBoxFor(model => model.UpdatedDate, new { id = "dtpUpdatedDate", @class = "form-control", @disabled = "disabled" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4" id="UpdatedBy">
+                                <div class="form-group block1">
+                                    <label>Last Updated By </label>
+                                    @Html.TextBoxFor(model => model.UpdatedBy, new { @class = "form-control", @disabled = "disabled" })
+                                </div>
+                            </div>
+                            <div class="col-md-4" id="status">
+                                <div class="form-group block1">
+                                    <label>Status </label>
+                                    @Html.DropDownListFor(model => model.Status, ViewBag.StatusList as SelectList, "--Select--", new { @class = "form-control Property_Level_2", @id = "Status", @readonly = "readonly", @tabindex = "2", @style = "font-size:14px;", @disabled = "disabled" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="tab-pane active in" id="nav-tab2-1">
+                <h3 class="m-t-10"></h3>
+                <fieldset>
+                    <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Contract Related</legend>
+                    <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#contractRelated">
+                        <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                        <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                    </legend>
+                    <!-- begin row -->
+                    <div id="contractRelated" class="collapse in">
+                        @{Html.RenderPartial("_SecurityContractsListView", Model.ContractDetails);}
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="col-md-10 margin-bottom-25">
+    <div class="nav navbar-nav navbar-left">
+        <div class="row">
+            @if (!ViewBag.Viewable && ViewBag.Check == "C")
+            {
+                <button type="button" id="SaveEquipment" onclick="SaveNewConstructionEqu('@Url.Action("ConstructionEquipmentEdit", "Security", new { SecurityId = Model.Id, SubMenuId= @Request.QueryString["SubMenuId"], IsView = false})')" class="btn">Save</button>
+                <button type="button" class="btn" id="DischargeOrCancel" onclick="UpdateConstructionEquStatus('@Url.Action("ConstructionEquipmentEdit", "Security", new { SecurityId = Model.Id, SubMenuId= @Request.QueryString["SubMenuId"], IsView = false})')">Discharge/ Cancel</button>
+                <button type="button" class="btn" id="ResetEdit" onclick="ResetDebentureView('@Url.Action("ConstructionEquipmentEdit", "Security", new { SecurityId = Model.Id, SubMenuId= @Request.QueryString["SubMenuId"], IsView = false})')">Reset</button>
+                <button type="button" class="btn deleting" onclick="onViewClick('@Url.Action("SecurityMasterModification", "Security", new { CTGroupCode = DBNull.Value, SubConGroupCode = DBNull.Value, SubMenuId =  @HttpContext.Current.Session["SubMenuIdEdit"] }, Request.Url.Scheme)')">Back</button>
+            }
+            else if (!ViewBag.Viewable && ViewBag.Check == "I")
+            {
+                <button type="button" id="SaveEquipment" onclick="SaveNewIndustrialEqu('@Url.Action("IndustrialEquipmentEdit", "Security", new { SecurityId = Model.Id, SubMenuId= @Request.QueryString["SubMenuId"], IsView = false })')" class="btn">Save</button>
+                <button type="button" class="btn" id="DischargeOrCancel" onclick="UpdateIndustrialEquStatus('@Url.Action("IndustrialEquipmentEdit", "Security", new { SecurityId = Model.Id, SubMenuId= @Request.QueryString["SubMenuId"], IsView = false })')">Discharge/ Cancel</button>
+                <button type="button" class="btn" id="ResetEdit" onclick="ResetDebentureView('@Url.Action("IndustrialEquipmentEdit", "Security", new { SecurityId = Model.Id, SubMenuId= @Request.QueryString["SubMenuId"], IsView = false })')">Reset</button>
+                <button type="button" class="btn deleting" onclick="onViewClick('@Url.Action("SecurityMasterModification", "Security", new { CTGroupCode = DBNull.Value, SubConGroupCode = DBNull.Value, SubMenuId =  @HttpContext.Current.Session["SubMenuIdEdit"] }, Request.Url.Scheme)')">Back</button>
+            }
+            else
+            {
+                <button type="button" class="btn deleting" onclick="onViewClick('@Url.Action("SecurityMasterEnquiry", "Security", new { CTGroupCode = DBNull.Value, SubConGroupCode = DBNull.Value, SubMenuId =  @HttpContext.Current.Session["SubMenuId"] }, Request.Url.Scheme)')">Back</button>
+            }
+        </div>
+    </div>
+</div>
+@section Styles
+        {
+    <link href="~/CustomCss/Security/Mortgag_Customer.css" rel="stylesheet" />
+    <link href="~/Content/common.css" rel="stylesheet" />
+}
+@section HeaderScripts
+      {
+    <script src="~/CustomScript/Security/Customer_Mortgagor.js"></script>
+}
+<script src="~/CustomScript/Security/Customer.js"></script>
+<script src="~/CustomScript/Security/debenture-equipment-master.js"></script>
+<script>
+    $(document).ready(function () {
+
+        if ('@Html.Raw(ViewBag.Viewable)' == 'True') {
+            $("#mainForm input,textarea,select").prop("disabled", true);
+            $(".btnAction").prop("disabled", true);
+            $(".chargedate").css("background-color", "#eee")
+            $(".input-sm").removeAttr("disabled");
+        }
+        else {
+            if ('@Html.Raw(@Model.Status.ToUpper())' != 'O') {
+                $("#mainForm input,textarea,select").prop("disabled", true);
+                swal(swalGlobal.SwalTitle_Warning, "Security item already discharged/cancelled, modification is not allowed.", swalGlobal.SwalType_Warning);
+                $("#SaveEquipment").prop("disabled", true);
+                $("#DischargeOrCancel").prop("disabled", true);
+                $("#ResetEdit").prop("disabled", true);
+                $(".chargedate").css("background-color", "#eee")
+                $(".btnAction").prop("disabled", true);
+                $("#btnCustomerToAccessList").css('display', 'none');
+                $(".input-sm").removeAttr("disabled");
+            }
+            else {
+                $("#Id").prop("disabled", true);
+            }
+        }
+        if ('@Html.Raw(@Model.Id)' != null) {
+            SetNavigationforSecurity();
+        }
+    });
+</script>

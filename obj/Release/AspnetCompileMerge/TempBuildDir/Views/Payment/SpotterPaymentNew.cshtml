@@ -1,0 +1,129 @@
+﻿@model EthozCapital.Models.ViewModels.SpotterFeeViewModel
+<br />
+<br />
+<br />
+@if (ViewData["Message"] != null)
+{
+    <div style="margin-left: 0px; overflow: auto">
+        <h2>Invalid Page</h2>
+        <h5>@ViewData["Message"]</h5>
+    </div>
+}
+else
+{
+    <div style="margin-left: 0px; overflow: auto">
+        <h2>Spotter Payment Preparation</h2>
+    </div>
+    <body>
+        <link href="~/CustomCss/Payment/Payment_Spotterfee.css?v2=1" rel="stylesheet" />
+        <script src="~/CustomScript/Payment/spotter-payment.module.js" asp-append-version="true"></script>
+        <div class="panel panel-default panel-with-tabs" data-sortable-id="ui-unlimited-tabs-2" style="overflow:auto">
+
+            <div class="tab-content">
+                <div class="tab-pane active in" id="nav-tab2-1">
+                    <h3 class="m-t-10"></h3>
+                    <fieldset class="fieldsetCss">
+                        <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Search</legend>
+                        <legend class="btn pull-right col-md-1 col-sm-4 col-xs-4 text-center collapseBtn" data-toggle="collapse" data-target="#selectionbox">
+                            <span class="if-collapsed"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                            <span class="if-not-collapsed"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                        </legend>
+                        <!-- begin row -->
+                        <div id="selectionbox" class="selectionbox collapse in">
+
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <!-- begin col-4 -->
+                                    <input type="text" id="SpotterId" style="display:none" value="0">
+                                    <input type="text" id="Status" style="display:none" value="">
+                                    <input type="text" id="CreatedBy" style="display:none" value="">
+                                    <input type="text" id="CreatedDate" style="display:none" value="">
+                                    <div class="col-md-3">
+                                        <div class="form-group block1">
+                                            <label class="elipsetxt" title="Agreement Date As At">Agreement Date As At</label>
+                                            <input type="text" id="dtpAgrementDate" class="form-control dtpPaymentDate required" readonly="readonly" placeholder="Agreement Date As At" style="display:inline;background-color:white;">
+                                            @*@Html.TextBoxFor(model => model.CreatedDateFrom, new { id = "dtpCreatedDateFrom", @class = "form-control agrementDate", @readonly = "readonly", @placeholder = "Created Date From", @style = "display:inline;background-color:white;" })*@
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group block1" style="margin-top:22px">
+                                            <button type="button" id="search" class="btn" onclick="onSearchSpotterDetails();">Search</button>
+                                            <button type="button" id="Reset" class="btn" onclick="onResetSpotterDetails();">Reset</button>
+                                        </div>
+                                    </div>
+                                    <!-- end col-4 -->
+                                </div>
+                            </div>
+                                <!-- begin col-4 -->
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group block1">
+                                            <label class="elipsetxt" title="Preparation Date">Preparation Date</label>
+                                            <input type="text" id="dtpPreparationDate" class="form-control dtpPaymentDate" readonly="readonly" placeholder="Preparation Date" style="display:inline;background-color:white;" disabled="disabled">
+                                            @*@Html.TextBoxFor(model => model.CreatedDateFrom, new { id = "dtpCreatedDateFrom", @class = "form-control agrementDate", @readonly = "readonly", @placeholder = "Created Date From", @style = "display:inline;background-color:white;" })*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="tab-pane active in" id="nav-tab2-1">
+                    <h3 class="m-t-10"></h3>
+                    <fieldset class="fieldsetCss">
+                        <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Summary</legend>
+                        <legend class="btn pull-right col-md-1 col-sm-4 col-xs-4 text-center collapseBtn" data-toggle="collapse" data-target="#selectionSummary">
+                            <span class="if-collapsed"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                            <span class="if-not-collapsed"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                        </legend>
+                        <!-- begin row -->
+                        <div id="selectionSummary" class="selectionbox collapse in">
+                            <div class="row">
+                                <!-- begin col-4 -->
+                                <div class="col-md-8">
+                                    @{Html.RenderPartial("_Summary", Model.SpotterSummary);}
+                                </div>
+                                <!-- end col-4 -->
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="tab-pane active in" id="nav-tab2-1">
+                    <h3 class="m-t-10"></h3>
+                    <fieldset class="fieldsetCss">
+                        <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Spotter Details</legend>
+                        <legend class="btn pull-right col-md-1 col-sm-4 col-xs-4 text-center collapseBtn" data-toggle="collapse" data-target="#spotterDetailsbox">
+                            <span class="if-collapsed"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                            <span class="if-not-collapsed"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                        </legend>
+                        <!-- begin row -->
+                        <div id="spotterDetailsbox" class="selectionbox collapse in">
+                            <div class="row">
+                                <!-- begin col-4 -->
+                                <div class="col-md-8" id="divSpotterDetail">
+                                    @{Html.RenderPartial("_SpotterDetails", Model.SpotterDetails);}
+                                </div>
+                                <!-- end col-4 -->
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div id="divContractDetails">
+
+                </div>
+                <div class="col-md-10 m-t-25 m-b-25">
+                    <div class="nav navbar-nav navbar-left">
+                        <div class="row">
+                            <button type="button" class="btn" id="SubmitSpotterFee" onclick="SaveSpotterFee()">Submit for Approval</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+}

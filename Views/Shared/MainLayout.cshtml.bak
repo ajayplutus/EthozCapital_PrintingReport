@@ -1,0 +1,235 @@
+﻿@using EthozCapital.CustomLibraries
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <title> @ViewBag.PageTitle</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    @RenderSection("css", required: false)
+    @Styles.Render("~/assets/coloradmin")
+
+    <!-- ================== BEGIN BASE CSS STYLE ================== -->
+    @*Note: Uncaught ReferenceError: $ is not defined in the Java Script Function. MOVE JQuery.min to the first line of code before the rest*@
+    <script src="~/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
+    @*Unable to use 1.12 will overlap search*@
+    @*<script src="~/assets/plugins/jquery/jquery-1.12.4.min.js"></script>*@
+    @*Note: Uncaught ReferenceError: $ is not defined in the Java Script Function. MOVE JQuery.min to the first line of code before the rest*@
+
+    <link href="~/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/assets/plugins/ionicons/css/ionicons.min.css" rel="stylesheet" />
+
+    <!-- ================== END BASE CSS STYLE ================== -->
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script data-pace-options='{ "ajax": false }' src="~/assets/plugins/pace/pace.min.js"></script>
+    <!-- ================== END BASE JS ================== -->
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <style>
+    span.timer {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: 30px 0 0 -55px;
+      text-align: center;
+    }
+    .modal
+    {
+        top:150px;
+    }
+    .modal-body{
+        min-height:120px;
+    }
+  </style>
+</head>
+<body>
+    <!-- begin #page-loader -->
+    <div class="container">
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="fade in">
+                            <span class="spinner"></span>                            
+							<br />	
+                            <span class="timer">minutes: <label id="minutes">00</label>, seconds: <label id="seconds">00</label></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="container">
+            <div class="modal fade" id="alertBox1" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="fade in">
+                                <div class="modal-body" id="alertmsg">
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+    <!-- end #page-loader -->
+    <!-- begin #page-container -->
+    <div id="page-container" class="fade page-sidebar-fixed page-header-fixed page-with-light-sidebar in">
+        <!-- begin #header -->
+        <div id="header" class="header navbar navbar-default navbar-fixed-top">
+            <!-- begin container-fluid -->
+            <div class="container-fluid">
+                <!-- begin mobile sidebar expand / collapse button -->
+                <div class="navbar-header">
+                    <!-- PLACE YOUR LOGO HERE -->
+                    <span id="logo">
+                        <img src="~/assets/img/ethoz-logo.png" alt="ETHOZ" style="width:200px !important; height:70px !important">
+                        @*<img src="~/assets/img/ethoz-brand-mascot-final.png" alt="Mascot" style="width:50px !important; height:55px !important">*@
+                    </span>
+                    <!-- END LOGO PLACEHOLDER -->
+                    <!--<div id="header2" class="container" style=" top: 59px; position: fixed; z-index: 905; width: 100%; height: 20px; margin: 0 auto; background-color: #283691; ">-->
+                    @*<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>*@                    
+                </div>
+                <!-- end mobile sidebar expand / collapse button -->
+                <!-- begin header navigation right -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>     
+                    </li>
+                    <li>
+                        <form class="navbar-form full-width">
+                            <a href="@Url.Action("Logout", "Auth")" data-action="userLogout" data-logout-msg="Are you sure you want to log out?" class="btn btn-success m-r-5"><i class="fa ion-ios-unlocked"></i> Log Out</a>
+                        </form>
+                    </li>
+                </ul>
+                <!-- end header navigation right -->
+            </div>
+            <!-- end container-fluid -->
+            <div id="header2" class="container header-bar-ethoz">
+                <br />
+            </div>
+        </div>
+        <!-- end #header -->
+        <!-- begin #sidebar -->
+        <div id="sidebar" class="sidebar">
+            <!-- begin sidebar scrollbar -->
+            <div data-scrollbar="true" data-height="100%">
+                <!-- begin sidebar user -->
+                <ul class="nav">
+                    <li class="nav-profile">
+                        <div class="info">
+                            @{Html.RenderAction("_MenuUserPartial", "Main");}
+                        </div>
+                    </li>
+                </ul>
+                <!-- end sidebar user -->
+                <!-- begin sidebar nav -->
+                @{Html.RenderAction("_MenuNavigationPartial", "Main");}                
+
+                @*<li onclick="location.href='/PreCon/PreConNew?CTGroupCode=CT-1000&SubConGroupCode=SC-2000'"><a href="javascript:;">New</a></li>*@
+
+                <!-- end sidebar nav -->
+            </div>
+
+            <!-- end sidebar scrollbar -->
+        </div>
+        <div class="sidebar-bg"></div>
+        <!-- end #sidebar -->
+        <!-- begin #content -->
+        <div id="content" class="content">
+            @RenderBody()
+        </div>
+        <!-- end #content -->
+        <!-- begin scroll to top btn -->
+        <a href="javascript:;" class="btn btn-icon btn-circle btn-primary btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+        <!-- end scroll to top btn -->
+    </div>
+    <!-- end page container -->
+    <!-- ================== BEGIN BASE JS ================== -->
+    @*<script src="~/assets/plugins/jquery/jquery-1.9.1.min.js"></script>*@
+
+    @*CP comment*@
+
+
+
+    @*<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+        <link href="~/Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" />*@
+
+    @*refer to bundleconfig*@
+
+    @Scripts.Render("~/scripts/coloradmin")
+
+    @*CP comment*@
+    @*@Scripts.Render("~/scripts/smartadmin")*@
+    @*@Scripts.Render("~/scripts/forms")*@
+    @*@Scripts.Render("~/scripts/jq-grid")*@
+
+    @*move to bundleconfig*
+        @*<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+            <script src="~/Scripts/jquery-ui-1.10.4.min.js"></script>
+            <script src="~/Scripts/i18n/grid.locale-en.js"></script>
+            <script src="~/Scripts/jquery.jqGrid.min.js"></script>*@
+
+    @*<script src="~/assets/js/apps.min.js"></script>*@
+    @*<script src="~/Scripts/TodoList.js"></script>*@
+    @*<script src="~/Scripts/myjqgrid.js"></script>*@
+    @*<script src="~/Scripts/SmartAdminJqgrid.js"></script>*@
+    @*<script src="~/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
+        <script src="~/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+        <script src="~/assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>*@
+    @*move to bundleconfig*@
+    @*<script src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>*@
+    <!--[if lt IE 9]>
+        <script src="~/assets/crossbrowserjs/html5shiv.js"></script>
+        <script src="~/assets/crossbrowserjs/respond.min.js"></script>
+        <script src="~/assets/crossbrowserjs/excanvas.min.js"></script>
+    <![endif]-->
+    @*move to bundleconfig*@
+    @*<script src="~/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="~/assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+        <script src="~/assets/js/apps.js"></script>*@
+    <!-- ================== END BASE JS ================== -->
+    <!-- ================== BEGIN PAGE LEVEL JS ================== -->
+    @*move to bundleconfig*@
+    @*<script src="~/assets/js/apps.min.js"></script>*@
+    <!-- ================== END PAGE LEVEL JS ================== -->
+    @RenderSection("scripts", required: false)
+    <script>
+                
+        $(document).ready(function () {
+            App.init();
+           
+      });
+
+        $(document).ajaxStart(function (event, request, settings) {
+            $('#myModal').modal({
+            backdrop: 'static',
+            keyboard: false
+          });
+		  startTimer();
+        });
+
+        $(document).ajaxComplete(function (event, request, settings) {
+
+            $('#myModal').modal('hide');
+        });
+    </script>
+
+</body>
+</html>

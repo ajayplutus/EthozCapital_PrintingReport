@@ -1,0 +1,33 @@
+﻿@model EthozCapital.Models.ViewModels.SecFinInstrumentModel
+@using EthozCapital.CustomLibraries;
+<br />
+<br />
+<br />
+@if (ViewData["Message"] != null)
+{
+    <h2>Invalid Page</h2>
+    @ViewData["Message"]
+}
+else
+{
+    <div style="margin-left: 0px; overflow: auto">
+        <h2>Edit Securities/ Financial Instruments - Securities/ Financial Instruments Master</h2>
+    </div>
+    <div id="MainView">
+        @{ Html.RenderAction("GetSecuritiesOrFinancialInstruments", new { IsView = false }); }
+    </div>
+    @section Styles
+        {
+        <link href="~/CustomCss/Security/Mortgag_Customer.css" rel="stylesheet" />
+        <link href="~/Content/common.css" rel="stylesheet" />
+    }
+    @section HeaderScripts
+      {
+
+        <script src="~/CustomScript/Security/Customer_Mortgagor.js"></script>
+    }
+}
+
+
+
+

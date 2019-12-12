@@ -1,0 +1,23 @@
+﻿@model EthozCapital.Models.ViewModels.EquipmentModel
+<br />
+<br />
+<br />
+@if (ViewData["Message"] != null)
+{
+    <h2>Invalid Page</h2>
+    @ViewData["Message"]
+}
+else
+{
+    { Html.RenderAction("GetInventoryDetails", new { IsView = false }); }
+
+    @section Styles
+        {
+        <link href="~/CustomCss/Security/Mortgag_Customer.css" rel="stylesheet" />
+        <link href="~/Content/common.css" rel="stylesheet" />
+    }
+    @section HeaderScripts
+      {
+        <script src="~/CustomScript/Security/Customer_Mortgagor.js"></script>
+    }
+}

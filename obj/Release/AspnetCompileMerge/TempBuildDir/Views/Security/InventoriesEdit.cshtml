@@ -1,0 +1,30 @@
+﻿@model EthozCapital.Models.ViewModels.InventoryModel
+<br />
+<br />
+<br />
+@if (ViewData["Message"] != null)
+{
+    <h2>Invalid Page</h2>
+    @ViewData["Message"]
+}
+else
+{
+    <div style="margin-left: 0px; overflow: auto">
+        <h2>Edit Debenture - Inventories Master</h2>
+    </div>
+    <div id="MainView">
+        @{Html.RenderAction("GetInventoryDetails", new { IsView = false });}
+    </div>
+    @section Styles
+      {
+        <link href="~/CustomCss/Security/Mortgag_Customer.css" rel="stylesheet" />
+        <link href="~/Content/common.css" rel="stylesheet" />
+    }
+    @section HeaderScripts
+      {
+        <script src="~/CustomScript/Security/Customer_Mortgagor.js"></script>
+    }
+}
+
+
+

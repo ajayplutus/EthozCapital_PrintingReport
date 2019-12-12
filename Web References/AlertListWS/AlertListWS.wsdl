@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetClientCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AS_Connection" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LS_CusType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LS_CusCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClientCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetClientCodeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckCusAlertList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AS_Connection" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AlertParameter" type="tns:entAlertUtil" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="entAlertUtil">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:baseEntitiesComponents">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="TransCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ClaimType" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Parameter1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Parameter2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Parameter3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Parameter4" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Parameter5" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="baseEntitiesComponents">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EmployeeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClientCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClientName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IDType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PlaceIncorporation" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AppointmentDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DesignationGroupCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nationality" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreatedDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusIndicator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StaffWho" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StaDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EffectiveDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RenewalDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpiryDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="AnnualDeclarationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TextField" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValueField" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Criteria" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SortBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SubItemNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildingName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WebAddress" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckCusAlertListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckCusAlertListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWaiveDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AS_Connection" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AlertParameter" type="tns:entAlertUtil" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWaiveDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateWaiveDetailResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConnectionString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LS_UserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LS_Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LS_Server" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LS_DatabaseName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConnectionStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetConnectionStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClientAlertReason">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AS_Connection" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AlertParameter" type="tns:entAlertUtil" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClientAlertReasonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetClientAlertReasonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetClientCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetClientCode" />
+  </wsdl:message>
+  <wsdl:message name="GetClientCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetClientCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckCusAlertListSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckCusAlertList" />
+  </wsdl:message>
+  <wsdl:message name="CheckCusAlertListSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckCusAlertListResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWaiveDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateWaiveDetail" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWaiveDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateWaiveDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetConnectionStringSoapIn">
+    <wsdl:part name="parameters" element="tns:GetConnectionString" />
+  </wsdl:message>
+  <wsdl:message name="GetConnectionStringSoapOut">
+    <wsdl:part name="parameters" element="tns:GetConnectionStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetClientAlertReasonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetClientAlertReason" />
+  </wsdl:message>
+  <wsdl:message name="GetClientAlertReasonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetClientAlertReasonResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AlertListWSSoap">
+    <wsdl:operation name="GetClientCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Client Code</wsdl:documentation>
+      <wsdl:input message="tns:GetClientCodeSoapIn" />
+      <wsdl:output message="tns:GetClientCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCusAlertList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check Client is in Customer Alert List</wsdl:documentation>
+      <wsdl:input message="tns:CheckCusAlertListSoapIn" />
+      <wsdl:output message="tns:CheckCusAlertListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWaiveDetail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update waive detail</wsdl:documentation>
+      <wsdl:input message="tns:UpdateWaiveDetailSoapIn" />
+      <wsdl:output message="tns:UpdateWaiveDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConnectionString">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Connection String</wsdl:documentation>
+      <wsdl:input message="tns:GetConnectionStringSoapIn" />
+      <wsdl:output message="tns:GetConnectionStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientAlertReason">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Client Alert Reason</wsdl:documentation>
+      <wsdl:input message="tns:GetClientAlertReasonSoapIn" />
+      <wsdl:output message="tns:GetClientAlertReasonSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AlertListWSSoap" type="tns:AlertListWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetClientCode">
+      <soap:operation soapAction="http://tempuri.org/GetClientCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCusAlertList">
+      <soap:operation soapAction="http://tempuri.org/CheckCusAlertList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWaiveDetail">
+      <soap:operation soapAction="http://tempuri.org/UpdateWaiveDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConnectionString">
+      <soap:operation soapAction="http://tempuri.org/GetConnectionString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientAlertReason">
+      <soap:operation soapAction="http://tempuri.org/GetClientAlertReason" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AlertListWSSoap12" type="tns:AlertListWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetClientCode">
+      <soap12:operation soapAction="http://tempuri.org/GetClientCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCusAlertList">
+      <soap12:operation soapAction="http://tempuri.org/CheckCusAlertList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWaiveDetail">
+      <soap12:operation soapAction="http://tempuri.org/UpdateWaiveDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConnectionString">
+      <soap12:operation soapAction="http://tempuri.org/GetConnectionString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientAlertReason">
+      <soap12:operation soapAction="http://tempuri.org/GetClientAlertReason" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AlertListWS">
+    <wsdl:port name="AlertListWSSoap" binding="tns:AlertListWSSoap">
+      <soap:address location="https://203.125.154.192/ETHOZWS/AlertListWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AlertListWSSoap12" binding="tns:AlertListWSSoap12">
+      <soap12:address location="https://203.125.154.192/ETHOZWS/AlertListWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

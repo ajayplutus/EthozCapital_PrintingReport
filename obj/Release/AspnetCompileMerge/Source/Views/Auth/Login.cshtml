@@ -1,0 +1,108 @@
+﻿@using EthozCapital.CustomLibraries;
+@model EthozCapital.Models.Tables.Sys_Users
+
+@{
+    Layout = "~/Views/Shared/LoginLayout.cshtml";
+}
+
+@using (Html.BeginForm("", "", FormMethod.Post, new { @id = "form", @class = "smart-form client-form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="login-content">
+        <form action="/" method="POST" class="margin-bottom-0">
+            <div class="form-group m-b-20">
+                @*<input type="text" class="form-control input-lg" placeholder="Email Address" required="">*@
+                @Html.TextBoxFor(m => m.Email, new { @type = "text", @class = "form-control input-lg", @placeholder = "Enter Login ID", autocomplete = "on" })
+            </div>
+            <div class="form-group m-b-20">
+                @Html.TextBoxFor(m => m.Password, new { @type = "password", @class = "form-control input-lg", @placeholder = "Enter Password" })
+                @*<input type="password" class="form-control input-lg" placeholder="Password" required="">*@
+            </div>
+            <div class="login-buttons">
+                @*<button type="submit" class="btn btn-primary btn-block btn-lg">Login</button>*@
+                <a onclick="btnLogin(this)" id="btnLogin" class="btn btn-primary btn-block btn-lg">
+                    Login
+                </a>
+            </div>
+            <div><br /></div>
+        </form>
+    </div>
+
+    @*<fieldset>
+            <section>
+                <label class="label">User Name</label>
+                <label class="input">
+                    <i class="icon-append fa fa-user"></i>
+                    @Html.TextBoxFor(m => m.Email, new { @type = "text", autocomplete = "off" })
+                    <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Please enter your username</b>
+                </label>
+            </section>
+            <section>
+                <label class="label">Password</label>
+                <label class="input">
+                    <i class="icon-append fa fa-lock"></i>
+                    @Html.TextBoxFor(m => m.Password, new { @type = "password" })
+                    <b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Please enter your password</b>
+                </label>
+                <div class="note">
+                    <a href="#">Forget password?</a>
+                </div>
+            </section>
+        </fieldset>
+        <footer>
+            <a onclick="btnLogin()" id="btnLogin" class="btn btn-primary m-r-5 m-b-5">
+                Login
+            </a>
+        </footer>*@
+}
+
+@section script
+{
+    <script type="text/javascript">
+        $('.btn').click(function () {
+            $(this).addClass("disabled");
+            //var $btn = $(this);
+            //$btn.button('loading');
+
+            // simulating a timeout
+            //setTimeout(function () {
+            //    $btn.button('reset');
+            //}, 8000);
+        });
+
+        $(document).ready(function () {
+            $('#Email').keypress(function (e) {
+                if (e.keyCode == 13)
+                    $('#btnLogin').click();
+            });
+
+            $('#Password').keypress(function (e) {
+                if (e.keyCode == 13)
+                    $('#btnLogin').click();
+            });
+        });
+
+        function btnLogin(element) {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Login", "Auth")',
+                dataType: 'json',
+                data: $("#form").serialize(),
+                success: function (data) {
+                    if (data.NotificationType == '@clsGlobal.SwalType_Success') {
+                        window.location.href = data.redirectUrl;
+                    }
+                    else {
+                        $(element).removeClass('disabled');
+                        swal(data.NotificationTitle, data.NotificationContent, data.NotificationType);
+                    }
+                },
+                error: function (ex) {
+                    $(element).removeClass('disabled');
+                    swal('@clsGlobal.SwalTitle_Error', 'Login Failed!', '@clsGlobal.SwalType_Error');
+                }
+            });
+            return false;
+        }
+    </script>
+}

@@ -1,0 +1,38 @@
+﻿@model EthozCapital.Models.ViewModels.ListOfValueListViewModel
+
+    <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Existing List of Value</legend>
+    <legend class="btn pull-right col-md-1 col-sm-4 col-xs-4 text-center collapseBtn" data-toggle="collapse" data-target="#selectionbox">
+        <span class="if-collapsed"><i class="fa fa-plus" aria-hidden="true"></i></span>
+        <span class="if-not-collapsed"><i class="fa fa-minus" aria-hidden="true"></i></span>
+    </legend>
+<table id="tblListOfValue" class="display table table-bordered dataTable table-hover" cellspacing="0" style="min-width: 100% !important;">
+    <thead>
+        <tr>
+            <th>Group Code</th> 
+            <th>Group Member Desc</th>
+            <th>Parent Group Type</th>
+            <th>Parent Group Member Desc</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ListOfValueList)
+        {
+            <tr>
+                <td>
+                    @item.GroupCode
+                </td>
+                <td>
+                    @item.GroupMemberDesc
+                </td>
+                <td>
+                    @item.ParentID
+                </td>
+                <td>
+                    @item.ParentGroupMemberDesc
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

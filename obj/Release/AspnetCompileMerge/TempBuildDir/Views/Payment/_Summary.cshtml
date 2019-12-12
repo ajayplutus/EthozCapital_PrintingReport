@@ -1,0 +1,26 @@
+﻿@model EthozCapital.Models.ViewModels.SpotterSummaryViewModel
+<div id="divSummary" class="collapse in col-md-4 col-sm-8 col-xs-8">
+    <table id="tblSummary" class="display table table-bordered dataTable table-hover tblspotter" cellspacing="0">
+        <thead>
+            <tr>
+                <th class="tbl-w-95">Record</th>
+                <th class="tbl-w-150">Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @*@{int i = 0;}
+            @foreach (var item in Model)
+            {*@
+                <tr>
+                    <td>
+                        @Model.Count
+                    </td>
+                    <td>
+                        <span class="txtAmount align-right">@Model.SumOfAmount</span>
+                    </td>
+                </tr>
+                @*i++;
+            }*@
+        </tbody>
+    </table>
+</div>

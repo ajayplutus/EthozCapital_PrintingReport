@@ -1,0 +1,67 @@
+﻿@model List<EthozCapital.Models.ViewModels.OutstandingSpotterFeeViewModel>
+
+<h3 class="m-t-10"></h3>
+<fieldset class="fieldsetCss">
+    <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Contract Details</legend>
+    <legend class="btn pull-right col-md-1 col-sm-4 col-xs-4 text-center collapseBtn" data-toggle="collapse" data-target="#contractDetailsbox">
+        <span class="if-collapsed"><i class="fa fa-plus" aria-hidden="true"></i></span>
+        <span class="if-not-collapsed"><i class="fa fa-minus" aria-hidden="true"></i></span>
+    </legend>
+    <!-- begin row -->
+    <div id="contractDetailsbox" class="selectionbox collapse in">
+        <div class="row">
+            <!-- begin col-4 -->
+            <div class="col-md-8">
+                <div id="divContracDetails" class="collapse in col-md-10 col-sm-8 col-xs-8">
+                    <table id="tblContracDetails" class="display table table-bordered dataTable table-hover tblspotter" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th class="tbl-w-300">Name</th>
+                                <th class="tbl-w-150">Contract No.</th>
+                                <th class="tbl-w-150">Amount</th>
+                                <th class="tbl-w-150">Include</th>
+                                <th style="display:none">Rollover Number</th>
+                                <th style="display:none">Item Number</th>
+                                <th style="display:none">SpotterDetailId</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{int i = 0;}
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @item.ReferralName
+                                    </td>
+                                    <td>
+                                        <span class="contractNumber">@item.ContractNumber</span>
+                                    </td>
+                                    <td>
+                                        $<span class="contractAmount float-right">@item.SpotterAmt.ToString("#,##0.00")</span>
+                                    </td>
+                                    <td class="align-center">
+                                        <label class="switch">
+                                            <input type="checkbox" @(Convert.ToString(@item.PostInd) == "Y" ? "checked='checked'" : string.Empty) spotterId="@item.ReferralID" onchange="fnIncludeTransactionCon(this,'@item.ReferralID','@item.ContractNumber','@item.SpotterAmt')">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </td>
+                                    <td style="display:none"><span class="rolloverNumber">@item.RolloverNumber</span></td>
+                                    <td style="display:none"><span class="itemNumber">@item.ItemNumber</span></td>
+                                    <td style="display:none"><span class="spotterDetailId">@item.SpotterDetailId</span></td>
+                                </tr>
+                                i++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- end col-4 -->
+        </div>
+    </div>
+</fieldset>
+
+<script>
+    $(document).ready(function(){
+        $(".contractAmount").text().toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    });
+</script>

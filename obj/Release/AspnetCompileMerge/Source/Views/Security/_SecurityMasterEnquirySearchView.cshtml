@@ -1,0 +1,200 @@
+﻿
+@model EthozCapital.Models.ViewModels.SecurityMasterInqParam
+<script type="text/javascript">
+    
+</script>
+<form id="securityMasterInqSearch" method="post" class="margin-top-15">
+       <div class="tab-content">
+        <div class="tab-pane active in" id="nav-tab2-1">
+            <h3 class="m-t-10"></h3>
+            <fieldset class="fieldsetCss">
+                <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Search</legend>
+                <legend class="btn pull-right col-md-1 col-sm-4 col-xs-4 text-center collapseBtn" data-toggle="collapse" data-target="#selectionbox">
+                    <span class="if-collapsed"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                    <span class="if-not-collapsed"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                </legend>
+                <!-- begin row -->
+                <div id="selectionbox" class="selectionbox collapse in">
+                    <div class="row">
+                        <!-- begin col-4 -->
+                        <div class="col-md-3">
+                            <div class="form-group block1">
+                                <label class="elipsetxt" title="Security Type 1st Level">Security Type 1st Level :</label>
+                                @if (ViewData.ContainsKey("securityTypeLevel1"))
+                                {
+                                    @Html.DropDownList("SecurityTypeLevel1", ViewData["SecurityTypeLevel1"] as List<SelectListItem>, "--Select--",
+                                                                               new { @class = "form-control", @id = "SecurityTypeLevel1"})
+                                }
+                            </div>
+                        </div>
+                        <!-- end col-4 -->
+                        <!-- begin col-4 -->
+                        <div class="col-md-3">
+                            <div class="form-group block1">
+                                <label class="elipsetxt" title="Security Type 2nd Level">Security Type 2nd Level :</label>
+                                @if (ViewData.ContainsKey("SecurityTypeLevel2"))
+                                {
+                                    @Html.DropDownList("SecurityTypeLevel2", ViewData["SecurityTypeLevel2"] as List<SelectListItem>, "--Select--",
+                                                                               new { @class = "form-control", @id = "SecurityTypeLevel2" })
+                                }
+                                <i></i>
+                            </div>
+                        </div>
+                        <!-- end col-4 -->
+                        <!-- begin col-4 -->
+                        <div class="col-md-3">
+                            <div class="form-group block1">
+                                <label class="elipsetxt" title="Security System ID">Security System ID :</label>
+                                @Html.TextBox("SecuritySystemId", "", new { @class = "form-control", @id = "SecuritySystemId", @placeholder = "Security System ID", @style = "display:inline" })
+                                <i></i>
+                            </div>
+                        </div>
+                        <!-- end col-4 -->
+                        <!-- begin col-4 -->
+                        <div class="col-md-3">
+                            <div class="form-group block1">
+                                <label class="elipsetxt" title="Security Item Status">Security Item Status :</label>
+                                @if (ViewData.ContainsKey("SecurityItemStatus"))
+                                    {
+                                        @Html.DropDownListFor(m => m.SecurityItemStatus, ViewData["SecurityItemStatus"] as List<SelectListItem>, null,
+                                            new { @class = "form-control js-example-basic-single3", @id = "SecurityItemStatus", @multiple="multiple" })
+                                    }
+                                <i></i>
+                            </div>
+                        </div>
+                        <!-- end col-4 -->
+                    </div>
+                    <div class="row">
+                        <!-- begin col-4 -->
+                        <div class="col-md-3">
+                            <div class="form-group block1">
+                                <label class="elipsetxt" title="Created Date From">Created Date From :</label>
+                                @Html.TextBoxFor(model => model.CreatedDateFrom, new { id = "dtpCreatedDateFrom", @class = "form-control", @readonly = "readonly", @placeholder = "Created Date From", @style = "display:inline;background-color:white;" })
+                            </div>
+                        </div>
+                        <!-- end col-4 -->
+                        <!-- begin col-4 -->
+                        <div class="col-md-3">
+                            <div class="form-group block1">
+                                <label class="elipsetxt" title="Created Date To">Created Date To :</label>
+                                @Html.TextBoxFor(model => model.CreatedDateTo, new { id = "dtpCreatedDateTo", @class = "form-control", @readonly = "readonly", @placeholder = "Created Date To", @style = "display:inline;background-color:white;" })
+                            </div>
+                        </div>
+                        <!-- end col-4 -->
+                        <!-- begin col-4 -->
+                        <div class="col-md-3">
+                            <div class="form-group block1">
+                                <label class="elipsetxt" title="Charge Date From">Charge Date From :</label>
+                                @Html.TextBoxFor(model => model.ChargeDateFrom, new { id = "dtpChargeDateFrom", @class = "form-control", @readonly = "readonly", @placeholder = "Charge Date From", @style = "display:inline;background-color:white;" })
+                            </div>
+                        </div>
+                        <!-- end col-4 -->
+                        <!-- begin col-4 -->
+                        <div class="col-md-3">
+                            <div class="form-group block1">
+                                <label class="elipsetxt" title="Charge Date To">Charge Date To : </label>
+                                @Html.TextBoxFor(model => model.ChargeDateTo, new { id = "dtpChargeDateTo", @class = "form-control", @readonly = "readonly", @placeholder = "Charge Date To", @style = "display:inline;background-color:white;" })
+                            </div>
+                        </div>
+                        <!-- end col-4 -->
+                    </div>
+                    <div class="row">
+                        <!-- begin col-4 -->
+                        <div class="col-md-3">
+                            <div class="form-group block1">
+                                <label class="elipsetxt" title="Security Item’s Customer Type">Security Item’s Customer Type :</label>
+                                @Html.DropDownList("SecurityItemsIndividual", new List<SelectListItem>
+                                        {
+                                            new SelectListItem{ Text="Individual", Value = "Individual" },
+                                            new SelectListItem{ Text="Corporate", Value = "Corporate" },
+                                        },
+                                        new { @class = "form-control", @id = "SecurityItemsIndividual"})
+                            </div>
+                        </div>
+                        <!-- end col-4 -->
+                        <!-- begin col-4 -->
+                        <div class="col-md-3">
+                            <div class="form-group block1">
+                                <label class="elipsetxt" title="Security Item’s Customer">Security Item’s Customer :</label>
+                                @Html.TextBoxFor(model => model.SecurityItemsCustomer, new { id = "txtSecurityItemsCustomer", @class = "form-control security-customer", @placeholder = "Security Item's Customer", @autocomplete = "off", @style = "text-align:left;font-size:14px;" })
+                                <span id="securityItemsCustomerId" class="securityCustomerId" hidden="hidden"></span>
+                                <i></i>
+                            </div>
+                        </div>
+                        <!-- end col-4 -->
+                        <!-- begin col-4 -->
+                        <div class="col-md-3">
+                            <div class="form-group block1">
+                                <label class="elipsetxt" title="Contract’s Customer Type">Contract’s Customer Type :</label>
+                                @Html.DropDownListFor(model => model.ContractsIndividual, new List<SelectListItem>
+                                    {
+                                        new SelectListItem{ Text="Individual", Value = "Individual" },
+                                        new SelectListItem{ Text="Corporate", Value = "Corporate" },
+                                    },
+                                    new { @class = "form-control", @id = "ContractsIndividual"})
+                                <i></i>
+                            </div>
+                        </div>
+                        <!-- end col-4 -->
+                        <!-- begin col-4 -->
+                        <div class="col-md-3">
+                            <div class="form-group block1">
+                                <label class="elipsetxt" title="Contract’s Customer">Contract’s Customer :</label>
+                                @Html.TextBoxFor(model => model.ContractsCustomer, new { id = "txtContractsCustomer", @class = "form-control security-customer", @placeholder = "Contract’s Customer", @autocomplete = "off", @style = "text-align:left;font-size:14px;" })
+                                <span id="contractsCustomerId" class="securityCustomerId" hidden="hidden"></span>
+                                <i></i>
+                            </div>
+                        </div>
+                        <!-- end col-4 -->
+
+                    </div>
+                    <div class="row">
+                        <!-- begin col-4 -->
+                        <div class="col-md-3">
+                            <div class="form-group block1">
+                                <label class="elipsetxt" title="Contract Number">Contract Number :</label>
+                                @Html.TextBoxFor(model => model.ContractNumber, "", new { @class = "form-control", @id = "ContractNumber", @placeholder = "Contract Number", @style = "display:inline" })
+                                <i></i>
+                            </div>
+                        </div>
+                        <!-- end col-4 -->
+                        <!-- begin col-4 -->
+                        <div class="col-md-3">
+                            <div class="form-group block1">
+                                <label class="elipsetxt" title="Contract Rollover Number">Contract Rollover Number :</label>
+                                @Html.TextBoxFor(model => model.ContractRolloverNo, "", new { @class = "form-control", @id = "ContractRolloverNo", @placeholder = "Contract Rollover Number", @style = "display:inline" })
+                                <i></i>
+                            </div>
+                        </div>
+                        <!-- end col-4 -->
+                        <!-- begin col-4 -->
+                        <div class="col-md-3">
+                            <div class="form-group block1">
+                                <label class="elipsetxt" title="Contract Status">Contract Status :</label>
+                                @if (ViewData.ContainsKey("ContractsStatus"))
+                                {
+                                    @Html.DropDownListFor(m => m.ContractsStatus, ViewData["ContractsStatus"] as List<SelectListItem>, null,
+                                  new { @class = "form-control js-example-basic-single3", @id = "ContractsStatus", @multiple = "multiple" })
+                                }
+                                <i></i>
+                            </div>
+                        </div>
+                        <!-- end col-4 -->                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group block1">
+                                <button type="button" id="search" class="btn" onclick="onSecurityInqSearchClick('@ViewBag.ViewType');">Search</button>
+                                <button type="button" id="Reset" class="btn" onclick="onSecurityInqResetClick('@ViewBag.ViewType');">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <br />
+</form>
+
+
+

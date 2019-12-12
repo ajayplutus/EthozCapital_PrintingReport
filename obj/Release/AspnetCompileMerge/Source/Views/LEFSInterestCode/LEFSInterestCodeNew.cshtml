@@ -1,0 +1,326 @@
+﻿@using System.Configuration
+@model EthozCapital.Models.ViewModels.LEFSInterestCodeViewModel
+@{
+    ViewBag.Title = "LEFSInterestCode-New";
+    //string sitePath = ConfigurationManager.AppSettings["SitePath"].ToString();
+    var SubMenuID = TempData["SubMenuId"];
+}
+<br />
+<br />
+<br />
+@if (ViewData["Message"] != null)
+{
+    <h2>Invalid Page</h2>
+    @ViewData["Message"]
+}
+else
+{
+    <div class="new-header-title">
+        @if (!ViewBag.IsEnable && Model.Id > 0)
+        {
+            <h2>LEFS Interest Code - View</h2>
+        }
+        else if (ViewBag.IsEnable && Model.Id > 0)
+        {
+            <h2>LEFS Interest Code – View/Update</h2>
+        }
+        else
+        {
+            <h2>LEFS Interest Code - New</h2>
+        }
+    </div>
+    <body>
+        <div class="panel panel-default panel-with-tabs" data-sortable-id="ui-unlimited-tabs-2" style="margin-top: -15px;overflow:auto;">
+            <link href="~/CustomCss/LEFSInterestCode/interestCode.css" rel="stylesheet" />
+            <form id="interstCodeForm" method="post">
+                <div class="tab-content" id="interstCodeFormDiv">
+                    <div class="tab-pane active in" id="nav-tab2-1">
+                        <h3 class="m-t-10"></h3>
+                        <fieldset>
+                            <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Selection</legend>
+                            <legend class="btn pull-right col-md-1 col-sm-4 col-xs-4 text-center collapseBtn" data-toggle="collapse" data-target="#selectionbox">
+                                <span class="if-collapsed"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                <span class="if-not-collapsed"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                            </legend>
+                            <!-- begin row -->
+                            <div id="selectionbox" class="selectionbox collapse in">
+                                <div class="row">
+                                    @Html.HiddenFor(model => model.Id, new { @id = "InterestCodeId" })
+                                    <!-- begin col-4 -->
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Interest Code * </label>
+
+                                            @Html.TextBoxFor(model => model.InterestCode, new
+                                       {
+                                           @class = "form-control required",
+                                           @id = "InterestCode",
+                                           @placeholder = "Interest Code",
+                                           @style = "display:inline",
+                                           @maxlength = 10,
+                                           @required = "required"
+                                       })
+                                        </div>
+                                    </div>
+                                    <!-- end col-4 -->
+                                    <!-- begin col-4 -->
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Interest Type *</label>
+                                            @if (ViewData.ContainsKey("getType"))
+                                            {
+                                                @Html.DropDownListFor(m => m.InterestType, ViewData["getType"] as List<SelectListItem>, "--Select--",
+                                                                                                          new { @class = "form-control required", @id = "InterestType", @required = "required" })
+                                            }
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                    <!-- end col-4 -->
+                                    <!-- begin col-4 -->
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>LEFS Contract Type *</label>
+                                            @if (ViewData.ContainsKey("getContract"))
+                                            {
+                                                @Html.DropDownListFor(m => m.SubContractType, ViewData["getContract"] as List<SelectListItem>, "--Select--",
+                                                                                                          new { @class = "form-control required", @id = "SubContractType", @required = "required" })
+                                            }
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end col-4 -->
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Effective Date *</label>
+                                            @Html.TextBoxFor(model => model.EffectiveDate, new { id = "dtpEffectiveDate", @class = "form-control required readonly-date-bg", @readonly = "readonly", @placeholder = "Effective Date", @style = "display:inline;", @required = "required" })
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Description *</label>
+                                            @Html.TextAreaFor(model => model.Description, new { id = "Description", @class = "form-control required", @placeholder = "Description", @style = "display:inline", @maxlength = 100, @required = "required" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Rate</legend>
+                            <legend class="btn pull-right col-md-1 col-sm-4 col-xs-4 text-center collapseBtn" data-toggle="collapse" data-target="#generalbox">
+                                <span class="if-collapsed"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                <span class="if-not-collapsed"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                            </legend>
+                            <div id="generalbox" class="generalbox collapse in">
+                                <div class="row">
+                                    <div class="col-md-4" id="dtpCreationDateDiv">
+                                        <div class="form-group block1">
+                                            <label>Bank Rate % *</label>
+                                            @Html.TextBoxFor(model => model.BankRate, new { id = "BankRate", placeholder = "Bank Rate %", @class = "form-control required rate_value", @style = "display:inline", @maxlength = 23, min = "1", @required = "required" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4" id="dtpLODateDiv">
+                                        <div class="form-group block1">
+                                            <label>Coy Rate % *</label>
+                                            @Html.TextBoxFor(Main => Main.CoyRate, new { id = "CoyRate", placeholder = "Coy Rate %", @class = "form-control required rate_value", @style = "display:inline", @maxlength = 23, min = "1", @required = "required" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Risk Sharing</legend>
+                            <legend class="btn pull-right col-md-1 col-sm-4 col-xs-4 text-center collapseBtn" data-toggle="collapse" data-target="#risksharingbox">
+                                <span class="if-collapsed"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                <span class="if-not-collapsed"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                            </legend>
+                            <div id="risksharingbox" class="generalbox collapse in">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Risk Sharing by Spring% *</label>
+                                            @Html.TextBoxFor(Main => Main.RiskSpring, new { id = "RiskSpring", placeholder = "Bank Rate(by Spring) %", @class = "form-control required rate_value", @style = "display:inline", @maxlength = 23, min = "1", @required = "required" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Risk Sharing by ETHOZ % *</label>
+                                            @Html.TextBoxFor(Main => Main.RiskEthoz, new { id = "RiskEthoz", placeholder = "Risk Sharing(by ETHOZ ) % ", @class = "form-control required rate_value", @style = "display:inline", @maxlength = 23, min = "1", @required = "required" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br />
+                            <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Others</legend>
+                            <legend class="btn pull-right col-md-1 col-sm-4 col-xs-4 text-center collapseBtn" data-toggle="collapse" data-target="#othersbox">
+                                <span class="if-collapsed"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                <span class="if-not-collapsed"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                            </legend>
+                            <div id="othersbox" class="generalbox collapse in">
+                                <div class="row">
+                                    <div class="col-md-4" id="dtpCreationDateDiv">
+                                        <div class="form-group block1">
+                                            <label>Repayment Period (No. of Years - From) *</label>
+                                            @Html.DropDownList("RepaymentPeriodFrom", null, new { @class = "form-control required", @id = "RepaymentPeriodFrom", @required = "required" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4" id="dtpLODateDiv">
+                                        <div class="form-group block1">
+                                            <label>Repayment Period (No. of Years - To)</label>
+
+                                            @Html.DropDownList("RepaymentPeriodTo", null, new { @class = "form-control", @id = "RepaymentPeriodTo" })
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Remarks </label>
+                                            @Html.TextAreaFor(Main => Main.Remarks, new { @class = "form-control", @id = "Remarks", @placeholder = "Remarks", @maxlength = 100 })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <legend class="pull-left col-md-10 col-sm-8 col-xs-8" id="creationInfoHdr">Creation & Modification Info</legend>
+                            <legend class="btn pull-right col-md-1 col-sm-4 col-xs-4 text-center collapseBtn" data-toggle="collapse" data-target="#creationInfobox" id="creationInfoButton">
+                                <span class="if-collapsed"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                <span class="if-not-collapsed"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                            </legend>
+                            <div id="creationInfobox" class="generalbox collapse in">
+                                <div class="row">
+                                    <div class="col-md-4" id="dtpCreatedDate">
+                                        <div class="form-group block1">
+                                            <label>Created Date </label>
+                                            @Html.TextBoxFor(model => model.CreatedDate, new { id = "dtpCreatedDate", @class = "form-control", @disabled = "disabled" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4" id="cdreatedBy">
+                                        <div class="form-group block1">
+                                            <label>Created by </label>
+                                            @Html.TextBoxFor(model => model.CreatedBy, new { @class = "form-control", @disabled = "disabled" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Last Updated Date </label>
+                                            @Html.TextBoxFor(model => model.UpdatedDate, new { id = "dtpUpdatedDate", @class = "form-control", @disabled = "disabled" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4" id="UpdatedBy">
+                                        <div class="form-group block1">
+                                            <label>Last Updated By </label>
+                                            @Html.TextBoxFor(model => model.UpdatedBy, new { @class = "form-control", @disabled = "disabled" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4" id="status">
+                                        <div class="form-group block1">
+                                            <label>Status </label>
+                                            @if (ViewData.ContainsKey("status"))
+                                            {
+                                                @Html.DropDownListFor(m => m.ActiveStatus, ViewData["status"] as List<SelectListItem>, "--Select--",
+                                                                                                          new { @class = "form-control", @id = "Status", @disabled = "disabled" })
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4" id="deactivationRemarks">
+                                        <div class="form-group block1">
+                                            <label>Deactivation Remarks </label>
+                                            @Html.TextBoxFor(model => model.DeactivationRemarks, new { @class = "form-control", @disabled = "disabled" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <br /> <div class="col-md-4" id="divbuttons" style="margin-top: -30px;">
+                    <div class="nav navbar-nav navbar-left">
+                        <div class="row">
+
+                            @if (!ViewBag.IsEnable && Model.Id > 0)
+                            {
+                                <button type="button" class="btn deleting" onclick="onViewClick('@Url.Action("LEFSInterestCodeView", "LEFSInterestCode", new { CTGroupCode= DBNull.Value,SubConGroupCode=DBNull.Value,SubMenuId=TempData["SubMenuId"] }, Request.Url.Scheme)')">Back</button>
+
+                            }
+                            else if (ViewBag.IsEnable && Model.Id > 0)
+                            {
+                                <button type="button" id="UpdateInterestCode" class="btn">Update</button>
+                                <button type="button" class="btn" id="ResetView" onclick="onResetViewClick()">Reset</button>
+                                <button type="button" class="btn deleting" onclick="onViewClick('@Url.Action("LEFSInterestCodeEdit", "LEFSInterestCode", new { CTGroupCode= DBNull.Value,SubConGroupCode=DBNull.Value,SubMenuId=TempData["SubMenuId"] }, Request.Url.Scheme)')">Back</button>
+                            }
+                            else
+                            {
+                                <button type="button" id="SaveInterestCode" class="btn">Save</button>
+                                <button type="button" id="Reset" class="btn">Reset</button>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <a href="javascript:;" class="btn btn-icon btn-circle btn-primary btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.13.4/jquery.mask.min.js"></script>
+        <script> var SubMenuID=@SubMenuID; </script>
+        <script src="~/CustomScript/LEFSInterestCode/interestCode.module.js" asp-append-version="true"></script>
+        <script>
+            $('.rate_value').mask("#,##0.0000", { reverse: true });
+            $(document).ready(function () {
+
+                if ('@Html.Raw(ViewBag.IsEnable)' == 'False') {
+                    $("#interstCodeForm input,textarea,select").prop("disabled", true);
+                    $("#dtpEffectiveDate").addClass('readonly-date-bg-disable ');
+                }
+                else {
+                    if ('@Html.Raw(ViewBag.IsPrePostContrat)' != '0') {
+                        $("#interstCodeForm input,select").prop("disabled", true);
+                        $("#dtpEffectiveDate").addClass('readonly-date-bg-disable');
+                        swal(swalGlobal.SwalTitle_Warning, "Interest code is selected in pre-contracts/posted contracts, only Description and Remarks are allowed for modification.", swalGlobal.SwalType_Warning);
+                    }
+                    if (@Model.Id > 0) {
+                        $("#InterestCode").prop("disabled", true);
+                        $("#creationInfoHdr").show();
+                        $("#creationInfoButton").show();
+                        $("#creationInfobox").show();
+                    }
+                    else {
+                        $("#creationInfoHdr").hide();
+                        $("#creationInfoButton").hide();
+                        $("#creationInfobox").hide();
+                    }
+
+                }
+                if (@Model.Id> 0) {
+                    $('ul li').each(function (i) {
+                        var li = $(this);
+                        var link = li.attr('onclick');
+                        if (link != undefined) {
+                            if ('@Html.Raw(ViewBag.IsEnable)' == 'False') {
+                                if (link.includes("/LEFSInterestCode/LEFSInterestCodeView")) {
+                                    console.log(li);
+                                    li.parents('.sub-menu').css('display', 'block');
+                                    li.find('a').first().addClass('currentLink');
+                                    li.closest('.level-1').addClass('expand');
+                                }
+                            }
+                            else {
+                                if (link.includes("/LEFSInterestCode/LEFSInterestCodeEdit")) {
+                                    console.log(li);
+                                    li.parents('.sub-menu').css('display', 'block');
+                                    li.find('a').first().addClass('currentLink');
+                                    li.closest('.level-1').addClass('expand');
+                                }
+                            }
+                        }
+                    })
+                }
+            });
+        </script>
+    </body>
+}
+
+
+

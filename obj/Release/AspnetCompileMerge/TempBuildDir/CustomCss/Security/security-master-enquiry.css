@@ -1,0 +1,174 @@
+﻿#tblEquipmentList span.select2-container {
+    width: 250px !important;
+    height: 34px !important;
+}
+
+#serialNumbers span.select2-container {
+    width: 250px !important;
+    height: 34px !important;
+}
+
+#tblSecurityInquiryList th, #tblSecurityInquiryList button.deleting {
+    background-color: #004092;
+    color: white;
+}
+
+#tblSecurityInquiryList button.deleting {
+    padding: 0px 12px;
+    text-align: center;
+    margin-left: 8%;
+}
+
+#tblSecurityInquiryList th, #tblSecurityInquiryList td {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+#tblSecurityInquiryList th {
+    text-align: center;
+    /*padding-left: 5px;
+    padding-right: 5px;*/
+    padding-left: 1px;
+    padding-right: 16px;
+    vertical-align: middle;
+}
+
+    #tblSecurityInquiryList th.tbl-w-40 {
+        width: 40px !important;
+    }
+
+    #tblSecurityInquiryList th.tbl-w-45 {
+        width: 45px !important;
+    }
+
+    #tblSecurityInquiryList th.tbl-w-65 {
+        width: 65px !important;
+    }
+
+    #tblSecurityInquiryList th.tbl-w-71 {
+        width: 71px !important;
+    }
+
+    #tblSecurityInquiryList th.tbl-w-70 {
+        width: 70px !important;
+    }
+
+    #tblSecurityInquiryList th.tbl-w-85 {
+        width: 85px !important;
+    }
+
+    #tblSecurityInquiryList th.tbl-w-95 {
+        width: 95px !important;
+    }
+
+    #tblSecurityInquiryList th.tbl-w-100 {
+        width: 100px !important;
+    }
+
+    #tblSecurityInquiryList th.tbl-w-150 {
+        width: 150px !important;
+    }
+
+    #tblSecurityInquiryList th.tbl-w-200 {
+        width: 200px !important;
+    }
+
+#tblSecurityInquiryList_wrapper.dataTables_wrapper {
+    zoom: normal !important;
+    margin-top: 10px !important;
+}
+
+#tblSecurityInquiryList span.edited i {
+    margin-left: 39%;
+}
+
+#tblSecurityInquiryList input.nric_fin_passport {
+    margin-left: 39%;
+}
+
+#tblSecurityInquiryList select, #tblSecurityInquiryList input[type=text] {
+    min-width: 100%;
+}
+
+#tblSecurityInquiryList tbody td input[type=text] {
+    width: 100%;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover, .dataTables_wrapper .dataTables_paginate .paginate_button:focus {
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    box-sizing: inherit;
+    display: inherit;
+    min-width: 1.5em;
+    padding: 5px;
+    margin-left: 0px;
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:focus, .dataTables_wrapper .dataTables_paginate .paginate_button:active {
+        box-shadow: none;
+        outline: none;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button a {
+        margin: 0px;
+    }
+#tblSecurityInquiryList button.deleting {
+    margin-left: 0px;
+    font-size: 10px;
+}
+
+    #tblSecurityInquiryList button.deleting:hover {
+        box-shadow: 0px 0px 0px 2px lightblue;
+        color: black !important;
+        font-weight: normal !important;
+    }
+
+#interstCodeForm .form-control, #interstCodeSearch .form-control {
+    font-size: 14px;
+}
+
+#DivInterestCodeList .dt-buttons {
+    margin: 0px 0px -30px 190px;
+    padding: 0px 0px 0px 0px;
+}
+
+.elipsetxt {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#dialog {
+    width: 900px !important;
+    min-height: 0px;
+    max-height: 500px !important;
+    height: auto;
+}
+
+.ui-dialog {
+    position: fixed !important;
+}
+
+a,
+a label {
+    cursor: pointer;
+}
+
+.ui-dialog {
+    z-index: 9999999;
+}
+#tblSecurityInquiryList {
+    width: 120% !important;
+}
+
+.isdisabledLink {
+    pointer-events: none !important;
+    cursor: default !important;
+}

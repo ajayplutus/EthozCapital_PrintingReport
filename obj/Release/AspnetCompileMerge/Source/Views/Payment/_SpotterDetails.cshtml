@@ -1,0 +1,52 @@
+﻿@model List<EthozCapital.Models.ViewModels.SpotterDetailsViewModel>
+<div id="divSpotterDetails" class="collapse in col-md-10 col-sm-8 col-xs-8">
+    <table id="tblSpotterDetails" class="display table table-bordered dataTable table-hover tblspotter" cellspacing="0">
+        <thead>
+            <tr>
+                <th style="display:none">SpotterId</th>
+                <th style="display:none">Referral</th>
+                <th class="tbl-w-300">Name</th>
+                <th class="tbl-w-150">No. Of Contract</th>
+                <th class="tbl-w-150">Amount</th>
+                <th class="tbl-w-150">Include</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{int i = 0;}
+            @foreach (var item in Model)
+            {
+                <tr id="@item.Referral">
+                    <td style="display:none">@item.SpotterId</td>
+                    <td style="display:none">@item.Referral</td>
+                    <td class="tbl-w-95">
+                        @item.ReferralName
+                    </td>
+                    <td class="align-center">
+                        @item.NoOfContract
+                    </td>
+                    <td>
+                        $<span class="detailsAmount float-right">@item.SumOfAmount.ToString("#,##0.00")</span>
+                    </td>
+                    <td class="align-center">
+                        <label class="switch">
+                            <input type="checkbox" @(Convert.ToString(@item.PostInd) == "Y" ? "checked='checked'" : string.Empty) onchange="fnIncludeTransaction(this,'@item.Referral','@item.PostInd')">
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                </tr>
+                i++;
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#tblSpotterDetails td:not(:first-child, :last-child)')
+        $('#tblSpotterDetails tbody').on('click', 'tr td:not(:last-child)', function () {
+            var refferId = $(this).closest("tr").find('td:eq(1)').text();
+            FnPopulateContractDetails(refferId);
+        });
+        $(".detailsAmount").text().toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    })
+</script>
+

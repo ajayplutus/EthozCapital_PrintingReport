@@ -1,0 +1,40 @@
+﻿#btnAddInsurance i {
+    font-size: 15px;
+    margin: 0 10px 0 0;
+}
+
+#btnAddInsurance {
+    cursor: pointer;
+}
+
+#tblInsurance button.deleting {
+    padding: 0px 12px;
+    text-align: center;
+    margin-left: 8%;
+}
+
+#tblInsurance th, #tblInsurance button.deleting {
+    background-color: #004092;
+    color: white;
+}
+
+#tblInsurance {
+    min-width: 100%;    
+}
+
+    #tblInsurance thead th:nth-child(1) {
+        width: 15% !important;
+    }
+
+    #tblInsurance thead th:nth-child(2) {
+        width: 55% !important;
+    }
+
+    #tblInsurance thead th:nth-child(3) {
+        width: 30% !important;
+    }
+
+#insurance {
+    min-width: 500px;
+    max-width: 650px;
+}

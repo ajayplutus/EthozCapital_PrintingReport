@@ -1,0 +1,262 @@
+﻿@{
+    ViewBag.Title = "Printing";
+}
+@section Styles
+{
+    <style type="text/css">
+        .printing-header-title {
+            text-decoration: underline;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+            .printing-header-title a {
+                color: black !important;
+            }
+
+        table {
+            width: 50% !important;
+            float: left;
+        }
+
+        #tblReportTypeList th {
+            background-color: #004092;
+            color: white;
+        }
+        .txtCopies {
+            text-align:center;
+        }
+
+    </style>
+}
+<br />
+<br />
+@if (ViewData["Message"] != null)
+{
+    <div style="        margin-left: 0px;
+        overflow: auto">
+        <h2>Invalid Page</h2>
+        <h5>@ViewData["Message"]</h5>
+    </div>
+}
+else
+{
+    <br />
+    <div class="printing-header-title">
+        <a>Reprint Option</a>
+    </div>
+    <body>
+        <div class="row">
+            <div class="col-md-4">
+                <label style="font-size: 18px;">Contract Number*</label>
+            </div>
+            <div class="col-md-2">
+                <input type="text" class="form-control" maxlength="20" id="txtContractNumber" placeholder="Contract Number" required />
+            </div>
+            <div class="col-md-6">
+
+            </div>
+        </div>
+        <div class="row">
+            <table id="tblReportTypeList" class="display table table-bordered dataTable table-hover" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Report Type</th>
+                        <th>Print</th>
+                        <th>Copies</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.ReportTypeList)
+                    {
+                        <tr>
+                            <td>
+                                @item.Text
+                            </td>
+                            <td style="text-align: center;">
+                                <input type="checkbox" class="Chk_Print btn btn-label" id="chkPrint_@item.Value"  />
+                            </td>
+                            <td>
+                                <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="0" max="100" maxlength="3" class="txtCopies" id="txtCopies_@item.Value" />
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <div class="nav navbar-nav navbar-left">
+                <div class="row">
+                    <button type="button" id="btnPrint" onclick="PrintReportsType()" class="btn">Print</button>
+                    <button type="button" id="btnReset" class="btn">Reset</button>
+                </div>
+            </div>
+        </div>
+    </body>
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        tblReportTypeList = $("#tblReportTypeList").DataTable({
+            "paging": false,
+            "info": false,
+            "bSort": false,
+            "searching": false,
+            "language": {
+                "zeroRecords": "No Data Available.",
+                "infoEmpty": "No Data Available."
+            },
+            "dom": '<"top"i>rt<"bottom"flp><"clear">'
+        });
+
+        $('.Chk_Print').click(function () {
+            if ($(this).is(':checked')) {
+                $("#txtCopies_" + $(this).attr('Id').split('_')[1]).val(1);
+            }
+            else {
+                $("#txtCopies_" + $(this).attr('Id').split('_')[1]).val('');
+            }
+        });
+
+        $("#btnReset").on('click', function () {
+            $("#txtContractNumber").val('');
+            $('input:checkbox').prop('checked', false);
+            $(".txtCopies").val('');
+        });
+
+    });
+
+    function PrintReportsType() {
+        $('#myModal').modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+        var strSubContractType = "";
+        var strContractNumber = $("#txtContractNumber").val().trim();
+        if (strContractNumber == "") {
+            $('#myModal').modal("hide");
+            swal(swalGlobal.SwalTitle_Error, "Please input contract number!", swalGlobal.SwalType_Error);
+            return false;
+        }
+        else {
+            if ($('input:checkbox:checked').length > 0) {
+                if (strContractNumber.startsWith("T")) {
+                    $.post(varSitePath + '/Reports/FnSubContractTypeByPreContractNumber',
+                        { strContractNumber: strContractNumber }, function (data) {
+                            if (data == "") {
+                                $('#myModal').modal("hide");
+                                swal(swalGlobal.SwalTitle_Error, "Invalid contract number inputted, please try another contract number!", swalGlobal.SwalType_Error);
+                                return false;
+                            }
+                            else if (data.startsWith("Please contact MIS, error:")) {
+                                $('#myModal').modal("hide");
+                                swal(swalGlobal.SwalTitle_Error, data, swalGlobal.SwalType_Error);
+                                return false;
+                            }
+                            else {
+                                strSubContractType = data;
+                                fnGenerateReport(strSubContractType, strContractNumber);
+                            }
+
+                        }).fail(function (ex) {
+                            $('#myModal').modal("hide");
+                            swal(swalGlobal.SwalTitle_Error, "Please contact MIS, error:", swalGlobal.SwalType_Error);
+                            return false;
+                        });
+                }
+                else {
+                    $.post(varSitePath + '/Reports/FnSubContractTypeByContractNumber',
+                        { strContractNumber: strContractNumber }, function (data) {
+                            if (data == "") {
+                                $('#myModal').modal("hide");
+                                swal(swalGlobal.SwalTitle_Error, "Invalid contract number inputted, please try another contract number!", swalGlobal.SwalType_Error);
+                                return false;
+                            }
+                            else if (data.startsWith("Please contact MIS, error:")) {
+                                $('#myModal').modal("hide");
+                                swal(swalGlobal.SwalTitle_Error, data, swalGlobal.SwalType_Error);
+                                return false;
+                            }
+                            else {
+                                strSubContractType = data;
+                                fnGenerateReport(strSubContractType, strContractNumber);
+                            }
+
+                        }).fail(function (ex) {
+                            $('#myModal').modal("hide");
+                            swal(swalGlobal.SwalTitle_Error, "Please contact MIS, error:", swalGlobal.SwalType_Error);
+                            return false;
+                        });
+                }
+            }
+            else {
+                 $('#myModal').modal("hide");
+                swal(swalGlobal.SwalTitle_Error, "Please select at least one checkbox!", swalGlobal.SwalType_Error);
+                return false;
+            }
+        }
+    }
+
+    function fnGenerateReport(strSubContractType, strContractNumber) {
+         startTimer();
+        if (strSubContractType != "" && strContractNumber != "") {
+            var strLogicCode = "";
+            $.post(varSitePath + '/Reports/FNGenerateReport',
+                { strSubContractType: strSubContractType }, function (data) {
+                    if (data == "") {
+                         $('#myModal').modal("hide");
+                        swal(swalGlobal.SwalTitle_Error, "Invalid contract number inputted, please try another contract number!", swalGlobal.SwalType_Error);
+                        return false;
+                    }
+                    else if (data.startsWith("Please contact MIS, error:")) {
+                         $('#myModal').modal("hide");
+                        swal(swalGlobal.SwalTitle_Error, data, swalGlobal.SwalType_Error);
+                        return false;
+                    }
+                    else {
+                        strLogicCode = data;
+                        if (strLogicCode != "") {
+                            var blIsLetterOfOfferChecked = false;
+                            if ($("#chkPrint_CRT-1004").prop('checked')) {
+                                if (strLogicCode == "L-10008") {
+                                    blIsLetterOfOfferChecked = true;
+                                }
+                            }
+                            $.get(varSitePath + '/Reports/FnPrepareContractData',
+                                { strContractNumber: strContractNumber, blIsLetterOfOfferChecked: blIsLetterOfOfferChecked }, function (data) {
+                                    if (data == "") {
+                                         $('#myModal').modal("hide");
+                                        swal(swalGlobal.SwalTitle_Error, "Invalid contract number inputted, please try another contract number!", swalGlobal.SwalType_Error);
+                                        return false;
+                                    }
+                                    else if (data.startsWith("Please contact MIS, error:")) {
+                                         $('#myModal').modal("hide");
+                                        swal(swalGlobal.SwalTitle_Error, data, swalGlobal.SwalType_Error);
+                                        return false;
+                                    }
+                                    else {
+
+                                        //use window.location.href for redirect to download action for download the file
+                                        window.location.href = "@Url.RouteUrl(new { Controller = "Reports", Action = "FnPrepareContractData" })/?strContractNumber=" + strContractNumber + "&blIsLetterOfOfferChecked=" + blIsLetterOfOfferChecked;
+                                        $('#myModal').modal("hide");
+                                    }
+                                }).fail(function (ex) {
+                                     $('#myModal').modal("hide");
+                                    swal(swalGlobal.SwalTitle_Error, "Please contact MIS, error:", swalGlobal.SwalType_Error);
+                                    return false;
+                                });
+                        }
+                    }
+
+                }).fail(function (ex) {
+                     $('#myModal').modal("hide");
+                    swal(swalGlobal.SwalTitle_Error, "Please contact MIS, error:", swalGlobal.SwalType_Error);
+                    return false;
+                });
+        }
+
+    }
+
+</script>

@@ -1,0 +1,146 @@
+﻿@model EthozCapital.Models.ViewModels.LEFSInterestCodeListViewModel
+
+<legend class="pull-left col-md-10 col-sm-8 col-xs-8">Interest Code List</legend>
+<legend class="btn pull-right col-md-1 col-sm-4 col-xs-4 text-center collapseBtn" data-toggle="collapse" data-target="#DivInterestCodeList">
+    <span class="if-collapsed"><i class="fa fa-plus" aria-hidden="true"></i></span>
+    <span class="if-not-collapsed"><i class="fa fa-minus" aria-hidden="true"></i></span>
+</legend>
+<div id="DivInterestCodeList" class="tbl_wrapper mortgagorList collapse in">
+    <table id="tblInterestCodeList" class="display table table-bordered dataTable table-hover" cellspacing="0">
+        <thead>
+            <tr>
+                @if (Model.Action == "ViewAndUpdate")
+                {
+                    <th class="tbl-w-80">View/ Update</th>
+                    <th class="tbl-w-60">Deactivate</th>
+                    <th class="tbl-w-45">Status</th>
+                    <th class="tbl-w-71">Contract Type</th>
+                    <th class="tbl-w-71">Interest Type</th>
+                    <th class="tbl-w-71">Interest Code</th>
+                    <th class="tbl-w-75">Effective Date</th>
+                    <th class="tbl-w-100">Description</th>
+                    <th class="tbl-w-71">Bank Rate %</th>
+                    <th class="tbl-w-71">Coy Rate %</th>
+                    <th class="tbl-w-80">Risk Sharing % by Spring</th>
+                    <th class="tbl-w-80">Risk Sharing % by ETHOZ</th>
+                    <th class="tbl-w-110">Repayment Period (No. of Years – From)</th>
+                    <th class="tbl-w-100">Repayment Period (No. of Years – To)</th>
+                    <th class="tbl-w-100">Remarks</th>
+                    <th class="tbl-w-100">Deactivation Remarks</th>
+                    <th class="tbl-w-71">Created Date</th>
+                    <th class="tbl-w-71">Created By</th>
+                    <th class="tbl-w-71">Last Updated Date</th>
+                    <th class="tbl-w-71">Last Updated By</th>
+                }
+                else
+                {
+                    <th autowrap class="tbl-w-45">View</th>
+                    <th autowrap class="tbl-w-45">Status</th>
+                    <th autowrap class="tbl-w-71">Contract Type</th>
+                    <th autowrap class="tbl-w-71">Interest Type</th>
+                    <th autowrap class="tbl-w-71">Interest Code</th>
+                    <th autowrap class="tbl-w-75">Effective Date</th>
+                    <th autowrap class="tbl-w-100">Description</th>
+                    <th autowrap class="tbl-w-71">Bank Rate %</th>
+                    <th autowrap class="tbl-w-71">Coy Rate %</th>
+                    <th autowrap class="tbl-w-80">Risk Sharing % by Spring</th>
+                    <th autowrap class="tbl-w-80">Risk Sharing % by ETHOZ</th>
+                    <th autowrap class="tbl-w-110">Repayment Period (No. of Years – From)</th>
+                    <th autowrap class="tbl-w-100">Repayment Period (No. of Years – To)</th>
+                    <th autowrap class="tbl-w-100">Remarks</th>
+                    <th autowrap class="tbl-w-100">Deactivation Remarks</th>
+                    <th autowrap class="tbl-w-71">Created Date</th>
+                    <th autowrap class="tbl-w-71">Created By</th>
+                    <th autowrap class="tbl-w-71">Last Updated Date</th>
+                    <th autowrap class="tbl-w-71">Last Updated By</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @{int i = 0;}
+            @foreach (var item in Model.LEFSInterestCodeList)
+            {
+                <tr>
+                    <td class="align-center">
+                        @if (Model.Action == "ViewAndUpdate")
+                        {
+                            <a  onclick="onViewClick('@Url.Action("LEFSInterestCodeNew", "LEFSInterestCode", new { CTGroupCode= DBNull.Value,SubConGroupCode=DBNull.Value,SubMenuId=DBNull.Value,InterestCodeId= item.Id,IsEnable=true }, Request.Url.Scheme)')">View/Update</a>
+                        }
+                        else
+                        {
+                            <a onclick="onViewClick('@Url.Action("LEFSInterestCodeNew", "LEFSInterestCode", new { CTGroupCode= DBNull.Value,SubConGroupCode=DBNull.Value,SubMenuId=DBNull.Value,InterestCodeId= item.Id,IsEnable=false}, Request.Url.Scheme)')">View</a>
+                        }
+                    </td>
+                    @if (Model.Action == "ViewAndUpdate")
+                    {
+                        if (item.Status == "Inactive")
+                        {
+                            <td class="align-center">  <a onclick="showInterestCodeActivatePopup(@item.Id,@item.IsPreContract,this)">Activate</a></td>
+                        }
+                        else
+                        {
+                            <td class="align-center">  <a onclick="showInterestCodeDeactivatePopup(@item.Id,@item.IsPreContract,this)">Deactivate</a></td>
+                        }
+                    }
+                    <td>
+                        @item.Status
+                    </td>
+                    <td>
+                        @item.ContractType
+                    </td>
+                    <td>
+                        @item.InterestType
+                    </td>
+                    <td>
+                        @item.InterestCode
+                    </td>
+                    <td>
+                        @item.EffectiveDate
+                    </td>
+                    <td>
+                        @item.Description
+                    </td>
+                    <td class="align-right">
+                        @item.BankRate
+                    </td>
+                    <td class="align-right">
+                        @item.CoyRate
+                    </td>
+                    <td class="align-right">
+                        @item.RiskSpring
+                    </td>
+                    <td class="align-right">
+                        @item.RiskEthoz
+                    </td>
+                    <td class="align-center">
+                        @item.RepaymentPeriodFrom
+                    </td>
+                    <td class="align-center">
+                        @item.RepaymentPeriodTo
+                    </td>
+                    <td>
+                        @item.Remarks
+                    </td>
+                    <td></td>
+                    <td>
+                        @item.CreatedDate
+                    </td>
+                    <td>
+                        @item.CreatedBy
+                    </td>
+                    <td>
+                        @item.UpdatedDate
+                    </td>
+                    <td>
+                        @item.UpdatedBy
+                    </td>
+
+                </tr>
+                i++;
+            }
+
+        </tbody>
+    </table>
+
+</div>
+

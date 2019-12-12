@@ -1,0 +1,95 @@
+﻿   
+    #tblMortgagorList span.select2-container {
+      width: 250px !important;
+      height: 34px !important;
+    }    
+
+    #tblMortgagorList tbody td:nth-child(4) span.select2.select2-container, #tblMortgagorList tbody td:nth-child(2) span.select2.select2-container {
+      max-width: 140px;
+    }
+
+     #selectionbox {
+       display: inline-block;
+       width: 100%;
+     }
+
+    #tblMortgagorList, tblCustomerToAccessList {
+      min-width: 125%;
+      width: max-content !Important;
+    }    
+
+    #tblMortgagorList th, #tblMortgagorList button.deleting, #tblCustomerToAccessList th, #tblCustomerToAccessList button.deleting {
+      background-color: #004092;
+      color: white;
+    }
+
+    #tblMortgagorList button.deleting, #tblCustomerToAccessList button.deleting {
+      padding: 0px 12px;
+      text-align: center;
+      margin-left: 8%;
+    }
+
+    #btnAddMortgagorList {
+      cursor: pointer;
+    }
+
+      #btnAddMortgagorList i {
+        font-size: 15px;
+        margin: 0 10px 0 0;
+      }
+
+    #tblMortgagorList th, #tblMortgagorList td {
+      padding-left: 2px;
+      padding-right: 2px;
+    }
+
+    #tblMortgagorList th {
+      text-align: center;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    #tblMortgagorList span.edited i {
+      margin-left: 39%;
+    }
+
+    #tblMortgagorList input.nric_fin_passport {
+      margin-left: 39%;
+    }
+
+    #tblMortgagorList select, #tblMortgagorList input[type=text] {
+      min-width: 100%;
+    }
+
+    #tblMortgagorList tbody td input[type=text] {
+      width: 100%;
+    }
+
+    #tblMortgagorList tbody td:nth-child(5), #tblMortgagorList tbody td:nth-child(6) {
+      width: 65px !important;
+    }
+
+    #tblMortgagorList tbody td:nth-child(4), #tblMortgagorList tbody td:nth-child(7), #tblMortgagorList tbody td:nth-child(8), #tblMortgagorList tbody td:nth-child(9) {
+      width: 100px !important;
+    }
+ 
+    #tblMortgagorList tbody td:nth-child(3) {
+      width: 150px !important;
+    }
+
+    #tblCustomerToAccessList thead th:nth-child(2) {
+      width: 25% !important;
+    }
+
+    #tblCustomerToAccessList thead th:nth-child(3) {
+      width: 50% !important;
+    }
+
+    #tblCustomerToAccessList thead th:nth-child(1) {
+      width: 15% !important;
+    }
+
+    #CustomerToAccessList {
+      min-width: 500px;
+      max-width: 100%;
+    }

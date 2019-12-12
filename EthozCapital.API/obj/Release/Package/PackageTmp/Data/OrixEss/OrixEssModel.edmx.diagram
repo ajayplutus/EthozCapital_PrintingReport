@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="56876dac1c984a0b80752b5478051b2f" Name="Diagram1">
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_abs_det" Width="1.5" PointX="3" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_abs_mas" Width="1.5" PointX="0.75" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_app_officer" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_att_access" Width="1.5" PointX="2.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_att_aws" Width="1.5" PointX="17.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_att_deduct" Width="1.5" PointX="10.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_att_rem_ark" Width="1.5" PointX="12.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_att_rem_ark2" Width="1.5" PointX="19.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_att_sum_mary" Width="1.5" PointX="5.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_buddy" Width="1.5" PointX="20.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_ccl_param" Width="1.5" PointX="21.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_clm_det" Width="1.5" PointX="20" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_clm_emp_mas" Width="1.5" PointX="10.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_clm_ent_mas" Width="1.5" PointX="5.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_clm_mas" Width="1.5" PointX="17.75" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_clm_typ" Width="1.5" PointX="7.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_date_release" Width="1.5" PointX="12.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_dept_det" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_ecard_mails" Width="1.5" PointX="22.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_email_alert" Width="1.5" PointX="9.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_emp_address_book" Width="1.5" PointX="22.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_emp_appoint_ment" Width="1.5" PointX="14.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_emp_category" Width="1.5" PointX="16.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_emp_grp_det" Width="1.5" PointX="20" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_emp_grp_mas" Width="1.5" PointX="17.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_emp_mas" Width="1.5" PointX="15.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_emp_mas_add" Width="1.5" PointX="18" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_emp_offday_det" Width="1.5" PointX="13" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_emp_offday_mas" Width="1.5" PointX="10.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_emp_pic" Width="1.5" PointX="22.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_exp_lev" Width="1.5" PointX="22.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_gentb_mails" Width="1.5" PointX="23.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_lev_det" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_lev_det_log" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_lev_emp_mas" Width="1.5" PointX="5.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_lev_ent_mas" Width="1.5" PointX="22.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_lev_mas" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_lev_typ" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_mail_cclist" Width="1.5" PointX="24.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_main_menus" Width="1.5" PointX="10.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_ot_det" Width="1.5" PointX="8" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_ot_mas" Width="1.5" PointX="5.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_par_ams" Width="1.5" PointX="24.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_para_meter" Width="1.5" PointX="24.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_rep_officer" Width="1.5" PointX="24.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_req_mas" Width="1.5" PointX="24.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_sop_dept_mas" Width="1.5" PointX="10.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_sop_file_mas" Width="1.5" PointX="13" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_sub_menus" Width="1.5" PointX="13" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_swap_mas" Width="1.5" PointX="0.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_usr_access" Width="1.5" PointX="2.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_vacant_mas" Width="1.5" PointX="25.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_ver_officer" Width="1.5" PointX="4.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_yr_period" Width="1.5" PointX="6.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.sysdiagram" Width="1.5" PointX="11.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_att_det" Width="1.5" PointX="16.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_clm_emp_det" Width="1.5" PointX="13" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_dept_chd" Width="1.5" PointX="18.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_lev_emp_det" Width="1.5" PointX="8" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_lev_emp_det_his" Width="1.5" PointX="8" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ORIX_ESS_DB_DevModel.ss_lev_emp_det_temp" Width="1.5" PointX="26.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="ORIX_ESS_DB_DevModel.FKss_abs_det" ManuallyRouted="false" />
+        <AssociationConnector Association="ORIX_ESS_DB_DevModel.FKss_clm_det" ManuallyRouted="false" />
+        <AssociationConnector Association="ORIX_ESS_DB_DevModel.FKss_clm_emp_det" ManuallyRouted="false" />
+        <AssociationConnector Association="ORIX_ESS_DB_DevModel.FK_ss_emp_grp_det" ManuallyRouted="false" />
+        <AssociationConnector Association="ORIX_ESS_DB_DevModel.FK_ss_emp_mas_add" ManuallyRouted="false" />
+        <AssociationConnector Association="ORIX_ESS_DB_DevModel.FKss_emp_offday_det" ManuallyRouted="false" />
+        <AssociationConnector Association="ORIX_ESS_DB_DevModel.FKss_lev_det" ManuallyRouted="false" />
+        <AssociationConnector Association="ORIX_ESS_DB_DevModel.FKss_lev_det_log" ManuallyRouted="false" />
+        <AssociationConnector Association="ORIX_ESS_DB_DevModel.FKss_lev_emp_det" ManuallyRouted="false" />
+        <AssociationConnector Association="ORIX_ESS_DB_DevModel.FKss_lev_emp_det_his" ManuallyRouted="false" />
+        <AssociationConnector Association="ORIX_ESS_DB_DevModel.FK_ss_sub_menus" ManuallyRouted="false" />
+        <AssociationConnector Association="ORIX_ESS_DB_DevModel.FKss_ot_det" ManuallyRouted="false" />
+        <AssociationConnector Association="ORIX_ESS_DB_DevModel.FK_ss_sop_file_mas" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

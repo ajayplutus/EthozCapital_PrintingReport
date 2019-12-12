@@ -1,0 +1,381 @@
+﻿@model EthozCapital.Models.ViewModels.VehicleModel
+
+@using EthozCapital.CustomLibraries;
+<br />
+<br />
+<br />
+@if (ViewData["Message"] != null)
+{
+    <h2>Invalid Page</h2>
+    @ViewData["Message"]
+}
+else
+{
+    <link href="~/CustomCss/Security/Mortgag_Customer.css" rel="stylesheet" />
+    <body>
+        <div style="margin-left: 0px; overflow: auto">
+            <h2>New Debenture - Vehicle Master</h2>
+        </div>
+
+        <form id="mainForm" method="post">
+            <div class="tab-content">
+                <div class="tab-pane active in" id="nav-tab2-1">
+                    <h3 class="m-t-10"></h3>
+                    <fieldset>
+                        <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Main</legend>
+                        <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#main">
+                            <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                            <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                        </legend>
+                        <div id="selectionbox" class="selectionbox ">
+                            <div id="main" class="collapse in">
+                                <div class="row collapse in">
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Vehicle Chassis Number *</label>
+                                            <input type="text" id="txtVehicleChassisNumber" style="text-align:left;font-size:14px;text-transform:uppercase;" name="VehicleChassisNumber" class="form-control required" required placeholder="Vehicle Chassis Number" maxlength="20" /><i></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Vehicle Registration Number *</label>
+                                            <input type="text" id="txtVehicleRegNumber" style="text-align:left;font-size:14px; text-transform:uppercase;" name="VehicleRegistrationNumber" class="form-control required" required placeholder="Vehicle Registration Number" maxlength="10" /><i></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="tab-pane active in" id="nav-tab2-1">
+                    <h3 class="m-t-10"></h3>
+                    <fieldset>
+                        <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Vehicle Details</legend>
+                        <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#vesseldetails">
+                            <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                            <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                        </legend>
+                        <div id="selectionbox" class="selectionbox">
+                            <div id="vesseldetails" class="collapse in">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <div>
+                                                <label>Vehicle Make *</label>
+                                            </div>
+                                            <div>
+                                                @Html.DropDownList("ddlVehicleMake", ViewBag.VehicleMake as SelectList, "--Select--", new { @class = "form-control js-example-basic-single3 vehiclemake required", @id = "Vehicle_Make", @style = "font-size:14px;", @onchange = "getVehicleModel(this.value)", @tabIndex = "1" })
+                                            </div>
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <div>
+                                                <label>Vehicle Model *</label>
+                                            </div>
+                                            <div>
+                                                @Html.DropDownList("ddlVehicleModel", ViewBag.VehicleModel as SelectList, "--Select--", new { @class = "form-control js-example-basic-single3 vehiclemodel required", @id = "Vehicle_Model", @style = "font-size:14px;", tabIndex = "2" })
+                                            </div>
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <div>
+                                                <label>Vehicle Type</label>
+                                            </div>
+                                            <input type="text" tabindex="3" id="txtVehicleType" style="text-align:left;font-size:14px;" name="VehicleType" class="form-control Vehicle_Type" placeholder="Vehicle Type" maxlength="50" />
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>COE Expiry Date</label>
+                                            <input type="text" tabindex="4" id="txtCOEExpiryDate" name="COEExpiryDate" class="form-control COEExpiryDate" placeholder="COE Expiry Date" style="font-size:14px;background:white" readonly="readonly" />
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Value *</label>
+                                            <input type="text" tabindex="5" id="txtValue" style="text-align:right;font-size:14px;" name="Value" class="form-control money Value required" value="0.00" required maxlength="20" />
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Engine Number</label>
+                                            <input type="text" tabindex="6" id="txtEngineNumber" style="text-align:left;font-size:14px;" name="EngineNumber" class="form-control  Engine_Number" placeholder="Engine Number" maxlength="20" />
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Charge Number</label>
+                                            <input type="text" tabindex="7" id="txtChargeNumber" style="text-align:left;font-size:14px;" name="ChargeNumber" class="form-control Charge_Number" placeholder="Charge Number" required maxlength="20" />
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Charge Date</label>
+                                            <input type="text" tabindex="8" id="txtChargeDate" name="ChargeDate" class="form-control chargedate" placeholder="Charge Date" style="font-size:14px;background:white" readonly="readonly" />
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                @{Html.RenderPartial("_Customer", Model.CustomerToAccess);}
+            </div>
+        </form>
+        <div class="col-md-4">
+            <div class="nav navbar-nav navbar-left">
+                <div class="row">
+                    <button type="button" id="SaveInventory" onclick="SaveNewVehicle()" class="btn">Save</button>
+                    <button type="button" id="Reset" class="btn">Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            function getVehicleModel(VehicleMakeId) {
+                $.ajax({
+                    url: '@Url.Action("GetVehicleModelByMake")',
+                    type: 'POST',
+                    datatype: 'json',
+                    data: { code: VehicleMakeId },
+                    success: function (result) {
+                        $("#Vehicle_Model").html("");
+                        $.each(result, function (i, v) {
+                            $("#Vehicle_Model").append($('<option value=' + v.value + '>' + v.label + '</option>'))
+                        })
+                    },
+                    error: function () {
+                        swal('@clsGlobal.SwalTitle_Error', "Some Error Occured while loading Vehicle Model!.", '@clsGlobal.SwalType_Error');
+                    },
+                })
+            }
+
+            //$('.money').mask("#,##0.00", { reverse: true });
+
+            $(document).on('blur', '.money', function () {
+                let val = $(this).val();
+                if (val == '' || val == '0' || val == '00' || val == '.00') val = '0.00';
+                while (val.length > 0) {
+                    if (val.charAt(0) == '0' && val.charAt(1) != '.') {
+                        val = val.substr(1);
+                    }
+                    else
+                        break;
+                }
+
+                if (val.indexOf(',') == 0) {
+                    val = val.substr(1);
+                    if (val.charAt(0) == '0' && val.charAt(1) != '.') {
+                        val = '0.00';
+                    }
+                }
+                if (val.indexOf(".") == -1 && val != '') {
+                    $(this).val(val + ".00");
+                }
+                else
+                    $(this).val(val);
+            });
+
+            $(document).ready(function () {
+
+                $("#Reset").on('click', function () {
+                    $("#txtVehicleChassisNumber").val("");
+                    $("#txtVehicleRegNumber").val("");
+                    $("#txtVehicleType").val("");
+                    $("#Vehicle_Make").parent().find("span.select2-selection__rendered").text("--Select--");
+                    $("select#Vehicle_Make").prop('selectedIndex', 0);
+                    $("#Vehicle_Model").html('');
+                    $("#Vehicle_Model").append($('<option value=>' + "--Select--" + '</option>'))
+                    $("#txtChargeNumber").val("");
+                    $("#txtEngineNumber").val("");
+                    $("#txtValue").val("0.00");
+                    $("#txtChargeDate").val("");
+                    $("#txtCOEExpiryDate").val("");
+
+                    $("#tblCustomerToAccessList tbody tr").each(function () {
+                        $(this).find('button.deleting').click();
+                    });
+                });
+
+                var d = new Date();
+                var yrRange = (d.getFullYear() - 20) + ":" + (d.getFullYear() + 20);
+                $(".chargedate").datepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    dateFormat: 'dd/mm/yy',
+                    yearRange: yrRange,
+                    showButtonPanel: true,
+                    closeText: 'Clear',
+                    onClose: function () {
+                        var event = arguments.callee.caller.caller.arguments[0];
+                        if ($(event.delegateTarget).hasClass('ui-datepicker-close')) {
+                            $(this).val('');
+                        }
+                    },
+                });
+
+                var date = new Date();
+                var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
+                $(".COEExpiryDate").datepicker({
+                    minDate: new Date(y, m, d + 1),
+                    changeMonth: true,
+                    changeYear: true,
+                    dateFormat: 'dd/mm/yy',
+                    showButtonPanel: true,
+                    closeText: 'Clear',
+                    onClose: function () {
+                        var event = arguments.callee.caller.caller.arguments[0];
+                        if ($(event.delegateTarget).hasClass('ui-datepicker-close')) {
+                            $(this).val('');
+                        }
+                    },
+                });
+            })
+
+            var model = {
+                ChassisNumber: "",
+                VehicleRegNumber: "",
+                VehicleDetails: {
+                    VehicleMakeId: "",
+                    VehicleModelId: "",
+                    VehicleType: "",
+                    EngineNumber: "",
+                    ChargeNumber: "",
+                    Value: "",
+                    ChargeDate: "",
+                    COEExpiryDate: ""
+                },
+                CustomerToSccess: [{
+                    IndividualCorporate: "",
+                    Customer: ""
+                }]
+            };
+
+            function SaveNewVehicle() {
+                if (Validation()) {
+                    $('#myModal').modal({
+                        backdrop: 'static',
+                        keyboard: false
+                    });
+                    var model = {
+                        ChassisNumber: "",
+                        VehicleRegNumber: "",
+                        VehicleDetails: {
+                            VehicleMakeId: "",
+                            VehicleModelId: "",
+                            VehicleType: "",
+                            EngineNumber: "",
+                            ChargeNumber: "",
+                            Value: "",
+                            ChargeDate: "",
+                            COEExpiryDate: ""
+                        },
+                        CustomerToAccess: []
+                    };
+
+                    model.ChassisNumber = $("#txtVehicleChassisNumber").val();
+                    model.VehicleRegNumber = $("#txtVehicleRegNumber").val();
+                    var Vehicle1 = {
+                        VehicleMakeId: $('.vehiclemake').val(),
+                        VehicleModelId: $('.vehiclemodel').val(),
+                        VehicleType: $('.Vehicle_Type').val(),
+                        EngineNumber: $('.Engine_Number').val(),
+                        ChargeNumber: $('.Charge_Number').val(),
+                        Value: $('.Value').val(),
+                        ChargeDate: $('.chargedate').val(),
+                        COEExpiryDate: $('.COEExpiryDate').val()
+                    };
+                    model.VehicleDetails = Vehicle1;
+                    $("#tblCustomerToAccessList tbody tr").each(function () {
+                        if (!$(this).hasClass('activeRow')) {
+                            var customerToAccess1 = {
+                                IndividualCorporate: $(this).find('.Individual_Corporate_Customer_edited').text(),
+                                Customer: $(this).find('.customer_edited').data("value"),
+                            };
+                            model.CustomerToAccess.push(customerToAccess1);
+                        }
+                        else {
+                            var customerToAccess1 = {
+                                IndividualCorporate: $(this).find(".Individual_Corporate_Customer").find("option:selected").val(),
+                                Customer: $(this).find('.customer').data('id'),
+                            };
+                            model.CustomerToAccess.push(customerToAccess1);
+                        }
+                    });
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("InsertVehicleDetails")',
+                        data: { json: JSON.stringify(model) },
+                        success: function (response) {
+                            $('#myModal').modal("hide");
+                            if (response.Status == 1) {
+                                swal('@clsGlobal.SwalTitle_Success', response.Message, '@clsGlobal.SwalType_Success');
+                                $("#Reset").click();
+                            }
+                            else {
+                                if (response.Status == 2) $("#txtVehicleChassisNumber").addClass('alert-danger');
+                                swal('@clsGlobal.SwalTitle_Error', response.Message, '@clsGlobal.SwalType_Error');
+                            }
+                        },
+                        error: function (ex) {
+                            $('#myModal').modal("hide");
+                            swal('@clsGlobal.SwalTitle_Error', "Error", '@clsGlobal.SwalType_Error');
+                        }
+                    });
+                }
+
+            }
+
+            function Validation() {
+                $(".required").each(function () {
+                    if ($(this).val() == "" || $(this).val() == "0.00" || $(this).val() == null) {
+                        $(this).addClass('alert-danger');
+                        if ($(this).is("select")) {
+                            $(this).parent().find("span.select2-selection__rendered").text("--Select--");
+                            $(this).parent().find("span.select2-selection__rendered").addClass('alert-danger');
+                        }
+                    }
+                    else {
+                        $(this).removeClass('alert-danger');
+                        if ($(this).is("select")) {
+                            $(this).parent().find("span.select2-selection__rendered").removeClass('alert-danger');
+                        }
+                    }
+
+                });
+
+                if ($('#tblCustomerToAccessList tbody').find('td.dataTables_empty').length > 0)
+                    $("#tblCustomerToAccessList_wrapper").addClass("alert-danger-table");
+                else
+                    $("#tblCustomerToAccessList_wrapper").removeClass("alert-danger-table");
+
+                if ($(".alert-danger").length > 0 || $('.alert-danger-table').length > 0) {
+                    swal('@clsGlobal.SwalTitle_Error', "Please enter required fields.", '@clsGlobal.SwalType_Error');
+                    return false;
+                }
+                else
+                    return true;
+            }
+
+        </script>
+    </body>
+    @section HeaderScripts
+      {
+        <script src="~/CustomScript/Security/Customer_Mortgagor.js"></script>
+    }
+    <script src="~/CustomScript/Security/Customer.js"></script>
+}

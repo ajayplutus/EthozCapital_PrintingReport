@@ -1,0 +1,251 @@
+﻿@model EthozCapital.Models.ViewModels.VehicleModel
+
+<form id="mainForm" method="post">
+    <div class="tab-content">
+        <div class="tab-pane active in" id="nav-tab2-1">
+            <h3 class="m-t-10"></h3>
+            <fieldset>
+                <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Main</legend>
+                <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#main">
+                    <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                    <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                </legend>
+                <div id="selectionbox" class="selectionbox ">
+                    <div id="main" class="collapse in">
+                        <div class="row collapse in">
+                            <!-- begin col-4 -->
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <label>Security System ID :</label>
+                                    @Html.TextBoxFor(model => model.Id, "", new { @class = "form-control", @id = "Id", @placeholder = "Security System ID", @style = "text-align:left;font-size:14px", @disabled = "disabled" })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <label>Vehicle Chassis Number *</label>
+                                    @Html.TextBoxFor(model => model.ChassisNumber, "", new { @class = "form-control required", @id = "txtVehicleChassisNumber", @placeholder = "Vehicle Chassis Number", @style = "text-align:left;font-size:14px;text-transform:uppercase;", @maxlength = "20" })
+                                    <i></i>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <label>Vehicle Registration Number *</label>
+                                    @Html.TextBoxFor(model => model.VehicleRegNumber, "", new { @class = "form-control required", @id = "txtVehicleRegNumber", @placeholder = "Vehicle Registration Number", @style = "text-align:left;font-size:14px; text-transform:uppercase;", @maxlength = "10" })
+                                    <i></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="tab-pane active in" id="nav-tab2-1">
+            <h3 class="m-t-10"></h3>
+            <fieldset>
+                <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Vehicle Details</legend>
+                <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#vesseldetails">
+                    <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                    <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                </legend>
+                <div id="selectionbox" class="selectionbox">
+                    <div id="vesseldetails" class="collapse in">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <div>
+                                        <label>Vehicle Make *</label>
+                                    </div>
+                                    <div>
+                                        @Html.DropDownListFor(model => model.VehicleDetails.VehicleMakeId, ViewBag.VehicleMake as SelectList, "--Select--", new { @class = "form-control js-example-basic-single3 required vehiclemake", @id = "Vehicle_Make", @onchange = "getVehicleModel(this.value)", @style = "font-size:14px;" })
+                                    </div>
+                                    <i></i>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <div>
+                                        <label>Vehicle Model *</label>
+                                    </div>
+                                    <div>
+                                        @Html.DropDownListFor(model => model.VehicleDetails.VehicleModelId, ViewBag.VehicleModel as SelectList, "--Select--", new { @class = "form-control js-example-basic-single3 vehiclemodel required", @id = "Vehicle_Model", @style = "font-size:14px;" })
+                                    </div>
+                                    <i></i>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <div>
+                                        <label>Vehicle Type</label>
+                                    </div>
+                                    @Html.TextBoxFor(model => model.VehicleDetails.VehicleType, "", new { @class = "form-control Vehicle_Type", @id = "txtVehicleType", @placeholder = "Vehicle Type", @style = "text-align:left;font-size:14px;", @maxlength = "50" })
+                                    <i></i>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <label>COE Expiry Date</label>
+                                    @Html.TextBoxFor(model => model.VehicleDetails.COEExpiryDate, "", new { @class = "form-control COEExpiryDate", @id = "txtCOEExpiryDate", @placeholder = "COE Expiry Date", @style = "font-size:14px;background:white", @readonly = "readonly", @maxlength = "10" })
+                                    <i></i>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <label>Value *</label>
+                                    @Html.TextBoxFor(model => model.VehicleDetails.Value, "", new { @class = "form-control  money Value required", @id = "txtValue", @style = "text-align:right;font-size:14px;", @maxlength = "20" })
+                                    <i></i>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <label>Engine Number</label>
+                                    @Html.TextBoxFor(model => model.VehicleDetails.EngineNumber, "", new { @class = "form-control Engine_Number", @id = "txtEngineNumber", @placeholder = "Engine Number", @style = "text-align:left;font-size:14px;", @maxlength = "20" })
+                                    <i></i>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <label>Charge Number</label>
+                                    @Html.TextBoxFor(model => model.VehicleDetails.ChargeNumber, "", new { @class = "form-control Charge_Number", @id = "txtChargeNumber", @placeholder = "Charge Number", @style = "text-align:left;font-size:14px;", @maxlength = "20" })
+                                    <i></i>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <label>Charge Date</label>
+                                    @Html.TextBoxFor(model => model.VehicleDetails.ChargeDate, "", new { @class = "form-control chargedate", @id = "txtChargeDate", @placeholder = "Charge Date", @style = "font-size:14px;background:white", @readonly = "readonly", @maxlength = "10" })
+                                    <i></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        @{Html.RenderPartial("_Customer", Model.CustomerToAccess);}
+        <div class="tab-pane active in" id="nav-tab2-1">
+            <h3 class="m-t-10"></h3>
+            <fieldset>
+                <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Creation & Modification Info </legend>
+
+                <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#creationInfoBox">
+                    <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                    <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                </legend>
+
+                @*<legend class="btn pull-right col-md-2 col-xs-3 text-center" id="btnCustomerToAccessList" style="margin-right:5px;"><i class="fa fa-plus" style="padding-right:10px;"></i>Add</legend>*@
+
+                <div id="creationInfoBox" class="mortgagorList collapse in">
+                    <div class="row">
+                        <div class="col-md-4" id="dtpCreatedDateDiv">
+                            <div class="form-group block1">
+                                <label>Created Date </label>
+                                @Html.TextBoxFor(model => model.CreatedDate, new { id = "dtpCreatedDate", @class = "form-control", @disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="col-md-4" id="cdreatedBy">
+                            <div class="form-group block1">
+                                <label>Created by </label>
+                                @Html.TextBoxFor(model => model.CreatedBy, new { @class = "form-control", @disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group block1">
+                                <label>Last Updated Date </label>
+                                @Html.TextBoxFor(model => model.UpdatedDate, new { id = "dtpUpdatedDate", @class = "form-control", @disabled = "disabled" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4" id="UpdatedBy">
+                            <div class="form-group block1">
+                                <label>Last Updated By </label>
+                                @Html.TextBoxFor(model => model.UpdatedBy, new { @class = "form-control", @disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="col-md-4" id="status">
+                            <div class="form-group block1">
+                                <label>Status </label>
+                                @Html.DropDownListFor(model => model.Status, ViewBag.StatusList as SelectList, "--Select--", new { @class = "form-control Property_Level_2", @id = "Status", @readonly = "readonly", @tabindex = "2", @style = "font-size:14px;" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="tab-pane active in" id="nav-tab2-1">
+            <h3 class="m-t-10"></h3>
+            <fieldset>
+                <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Contract Related</legend>
+                <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#contractRelated">
+                    <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                    <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                </legend>
+                <!-- begin row -->
+                <div id="contractRelated" class="collapse in">
+                    @{Html.RenderPartial("_SecurityContractsListView", Model.ContractDetails);}
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</form>
+<div class="col-md-10 margin-bottom-25">
+    <div class="nav navbar-nav navbar-left">
+        <div class="row">
+            @if (!ViewBag.Viewable)
+            {
+                <button type="button" id="SaveVehicle" onclick="SaveNewVehicle('@Url.Action("GetSecurityVehicle","Security", new { SecurityId=Model.Id ,IsView=false})')" class="btn">Save</button>
+                <button type="button" class="btn" id="DischargeOrCancel" onclick="UpdateStatus('@Url.Action("GetSecurityVehicle","Security", new { SecurityId=Model.Id ,IsView=false})')">Discharge/ Cancel</button>
+                <button type="button" class="btn" id="ResetEdit" onclick="ResetView('@Url.Action("GetSecurityVehicle","Security", new { SecurityId=Model.Id ,IsView=false})')">Reset</button>
+                <button type="button" class="btn deleting" onclick="onViewClick('@Url.Action("SecurityMasterModification", "Security", new { CTGroupCode = DBNull.Value, SubConGroupCode = DBNull.Value, SubMenuId =  @HttpContext.Current.Session["SubMenuIdEdit"] }, Request.Url.Scheme)')">Back</button>
+            }
+            else
+            {
+                <button type="button" class="btn deleting" onclick="onViewClick('@Url.Action("SecurityMasterEnquiry", "Security", new { CTGroupCode = DBNull.Value, SubConGroupCode = DBNull.Value, SubMenuId =  @HttpContext.Current.Session["SubMenuId"] }, Request.Url.Scheme)')">Back</button>
+            }
+        </div>
+    </div>
+</div>
+<script src="~/CustomScript/Security/Customer.js"></script>
+<script src="~/CustomScript/Security/security-vehicle-master.js"></script>
+<script>
+    $(document).ready(function () {
+        if ('@Html.Raw(@Model)' != null) {
+            if ('@Html.Raw(ViewBag.Viewable)' == 'True') {
+                $("#mainForm input,textarea,select").prop("disabled", true);
+                $(".input-sm").removeAttr("disabled");
+                $("#txtCOEExpiryDate").css("background-color", "#eee")
+                $("#txtChargeDate").css("background-color", "#eee")
+                $(".btnAction").prop("disabled", true);
+            }
+            else {
+                if ('@Html.Raw(@Model.Status)' != 'O') {
+                    $("#mainForm input,textarea,select").prop("disabled", true);
+                    swal(swalGlobal.SwalTitle_Warning, "Security item already discharged/cancelled, modification is not allowed.", swalGlobal.SwalType_Warning);
+                    $("#SaveVehicle").prop("disabled", true);
+                    $("#DischargeOrCancel").prop("disabled", true);
+                    $("#ResetEdit").prop("disabled", true);
+                    $(".btnAction").prop("disabled", true);
+                    $("#btnCustomerToAccessList").css('display', 'none');
+                    $("#txtCOEExpiryDate").css("background-color", "#eee")
+                    $("#txtChargeDate").css("background-color", "#eee");
+                    $(".input-sm").removeAttr("disabled");
+                    $("body").css("overflow", "auto");
+                }
+                else {
+                    $("#Id").prop("disabled", true);
+                    $("#txtNRICFINPASSPORT").prop("disabled", true);
+                    $("#txtROCUEN").prop("disabled", true);
+                }
+            }
+        }
+        else {
+            swal(swalGlobal.SwalTitle_Error, "No record found!", swalGlobal.SwalType_Error);
+        }
+    if ('@Html.Raw(@Model.Id)' != null) {
+            SetNavigationforSecurity();
+        }
+    });
+</script>

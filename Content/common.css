@@ -1,0 +1,197 @@
+﻿#tblSecurityContractList th, #tblSecurityContractList button.deleting {
+    background-color: #004092 !important;
+    color: white !important;
+}
+
+#tblSecurityContractList button.deleting {
+    padding: 0px 12px;
+    text-align: center;
+    margin-left: 8%;
+}
+
+#tblSecurityContractList th, #tblSecurityContractList td {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+#tblSecurityContractList th {
+    text-align: center;
+    /*padding-left: 5px;
+    padding-right: 5px;*/
+    padding-left: 1px;
+    padding-right: 16px;
+    vertical-align: middle;
+}
+
+
+#tblSecurityContractList {
+    min-width: 100% !Important;
+    width: max-content !Important;
+}
+
+    #tblSecurityContractList th.tbl-w-65 {
+        width: 65px !important;
+    }
+
+    #tblSecurityContractList th.tbl-w-45 {
+        width: 45px !important;
+    }
+
+    #tblSecurityContractList th.tbl-w-50 {
+        width: 50px !important;
+    }
+
+    #tblSecurityContractList th.tbl-w-71 {
+        width: 71px !important;
+    }
+
+    #tblSecurityContractList th.tbl-w-70 {
+        width: 70px !important;
+    }
+
+    #tblSecurityContractList th.tbl-w-85 {
+        width: 85px !important;
+    }
+
+    #tblSecurityContractList th.tbl-w-100 {
+        width: 100px !important;
+    }
+
+    #tblSecurityContractList th.tbl-w-85 {
+        width: 85px !important;
+    }
+
+#tblSecurityContractList_wrapper.dataTables_wrapper {
+    zoom: normal !important;
+    margin-top: 10px !important;
+}
+
+#tblSecurityContractList span.edited i {
+    margin-left: 39%;
+}
+
+#tblSecurityContractList input.nric_fin_passport {
+    margin-left: 39%;
+}
+
+#tblSecurityContractList select, #tblSecurityContractList input[type=text] {
+    min-width: 100%;
+}
+
+#tblSecurityContractList tbody td input[type=text] {
+    width: 100%;
+}
+
+.popup-overlay {
+    visibility: hidden;
+}
+
+.popup-content {
+    visibility: hidden;
+}
+
+.ui-dialog {
+    width: auto !important;
+}
+
+.ui-dialog-titlebar-close {
+    background-color: #004092 !important;
+    color: white !important;
+    margin-right: 5px !important;
+}
+
+.margin-bottom-25 {
+    margin-bottom: 25px;
+}
+
+#tblModificationHistory th, #tblModificationHistory button.deleting {
+    background-color: #004092 !important;
+    color: white !important;
+}
+
+#tblModificationHistory button.deleting {
+    background-color: #004092 !important;
+    padding: 0px 12px;
+    text-align: center;
+    margin-left: 8%;
+}
+
+#tblModificationHistory th, #tblModificationHistory td {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+#tblModificationHistory th {
+    text-align: center;
+    /*padding-left: 5px;
+    padding-right: 5px;*/
+    padding-left: 1px;
+    padding-right: 16px;
+    vertical-align: middle;
+}
+
+
+#tblModificationHistory {
+    min-width: 100% !Important;
+    width: max-content !Important;
+}
+
+#tblModificationHistory th.tbl-w-85 {
+    width: 85px !important;
+}
+
+#tblModificationHistory_wrapper.dataTables_wrapper {
+    zoom: normal !important;
+    margin-top: 50px !important;
+}
+
+#tblModificationHistory span.edited i {
+    margin-left: 39%;
+}
+
+#tblModificationHistory input.nric_fin_passport {
+    margin-left: 39%;
+}
+
+#tblModificationHistory select, #tblModificationHistory input[type=text] {
+    min-width: 100%;
+}
+
+#tblModificationHistory tbody td input[type=text] {
+    width: 100%;
+}
+
+dataTables_wrapper .dataTables_paginate .paginate_button:hover, .dataTables_wrapper .dataTables_paginate .paginate_button:focus {
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    box-sizing: inherit;
+    display: inherit;
+    min-width: 1.5em;
+    padding: 5px;
+    margin-left: 0px;
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:focus, .dataTables_wrapper .dataTables_paginate .paginate_button:active {
+        box-shadow: none;
+        outline: none;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button a {
+        margin: 0px;
+    }
+.form-control{
+    font-size : 14px;
+}
+
+.alert-danger-date{
+color: #a94442;
+background-color: #f2dede !important;
+border-color: #ebccd1 !important;
+}

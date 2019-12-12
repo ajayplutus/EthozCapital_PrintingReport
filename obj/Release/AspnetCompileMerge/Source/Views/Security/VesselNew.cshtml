@@ -1,0 +1,688 @@
+﻿@model EthozCapital.Models.ViewModels.VesselModel
+@using EthozCapital.CustomLibraries;
+<br />
+<br />
+<br />
+@if (ViewData["Message"] != null)
+{
+    <h2>Invalid Page</h2>
+    @ViewData["Message"]
+}
+else
+{
+    <link href="~/CustomCss/Security/Mortgag_Customer.css" rel="stylesheet" />
+    <body>
+        <style>
+            #btnAddInsurance i {
+                font-size: 15px;
+                margin: 0 10px 0 0;
+            }
+
+            #btnAddInsurance {
+                cursor: pointer;
+            }
+
+            #tblInsurance button.deleting {
+                padding: 0px 12px;
+                text-align: center;
+                margin-left: 8%;
+            }
+
+            #tblInsurance th, #tblInsurance button.deleting {
+                background-color: #004092;
+                color: white;
+            }
+
+            #tblInsurance {
+                min-width: 100%;
+            }
+
+                #tblInsurance thead th:nth-child(1) {
+                    width: 15% !important;
+                }
+
+                #tblInsurance thead th:nth-child(2) {
+                    width: 55% !important;
+                }
+
+                #tblInsurance thead th:nth-child(3) {
+                    width: 30% !important;
+                }
+
+            #insurance {
+                min-width: 500px;
+                max-width: 650px;
+            }
+        </style>
+        <div style="margin-left: 0px; overflow: auto">
+            <h2>New Mortgage - Vessel Master</h2>
+        </div>
+
+        <form id="mainForm" method="post">
+            <div class="tab-content">
+                <div class="tab-pane active in" id="nav-tab2-1">
+                    <h3 class="m-t-10"></h3>
+                    <fieldset>
+                        <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Main</legend>
+                        <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#main">
+                            <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                            <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                        </legend>
+                        <div id="selectionbox" class="selectionbox ">
+                            <div id="main" class="collapse in">
+                                <div class="row collapse in">
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Hull Number *</label>
+                                            <input type="text" id="txtHullNumber" style="text-align:left;font-size:14px;" name="HullNumber" class="form-control required" required placeholder="Hull Number" maxlength="20" /><i></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Vessel Name *</label>
+                                            <input type="text" id="txtVesselName" style="text-align:left;font-size:14px;" name="VesselName" class="form-control required" required placeholder="Vessel Name" maxlength="50" /><i></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                @{ Html.RenderPartial("_Mortgagor", Model.Mortgagor);}
+
+                <div class="tab-pane active in" id="nav-tab2-1">
+                    <h3 class="m-t-10"></h3>
+                    <fieldset>
+                        <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Vessel  Details</legend>
+                        <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#vesseldetails">
+                            <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                            <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                        </legend>
+                        <div id="selectionbox" class="selectionbox">
+                            <div id="vesseldetails" class="collapse in">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <div>
+                                                <label>Country of Registration *</label>
+                                            </div>
+                                            <div>
+                                                @Html.DropDownList("ddlCountry", ViewBag.Country as SelectList, "--Select--", new { @class = "form-control js-example-basic-single3 CountryofRegistration required", @id = "Country_Registration", @style = "font-size:14px;" })
+                                            </div>
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <div>
+                                                <label>Mortgage Number</label>
+                                            </div>
+                                            <input type="text" id="txtmortgagenumber" style="text-align:left;font-size:14px;" name="MortgageNumber" class="form-control mortgage_number" placeholder="Mortgage Number" maxlength="20" />
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <div>
+                                                <label>Charge Number</label>
+                                            </div>
+                                            <input type="text" id="txtchargenumber" style="text-align:left;font-size:14px;" name="ChargeNumber" class="form-control charge_number" placeholder="Charge Number" maxlength="20" />
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Charge Date</label>
+                                            <input type="text" id="chargedate" name="ChargeDate" class="form-control chargedate charge_date" placeholder="Charge Date" readonly="readonly" style="font-size:14px;background:white" />
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Formal Valuation (Reference)</label>
+                                            <input type="text" id="txtformalvaluation" style="text-align:right;font-size:14px;" name="FormalValuation" class="form-control money formal_valuation" value="0.00" maxlength="22" />
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Indicative Valuation (For Contract) *</label>
+                                            <input type="text" id="txtIndicativeValuation" style="text-align:right;font-size:14px;" name="IndicativeValuation" class="form-control money Indicative_Valuation required" value="0.00" required maxlength="22" />
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Credit Limit (ETHOZ) *</label>
+                                            <input type="text" id="txtCreditLimit" style="text-align:right;font-size:14px;" name="CreditLimit" class="form-control money Credit_Limit required" value="0.00" required maxlength="22" />
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="tab-pane active in" id="nav-tab2-1">
+                    <h3 class="m-t-10"></h3>
+                    <fieldset>
+                        <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Insurance</legend>
+                        <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#insurance">
+                            <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                            <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                        </legend>
+                        <legend class="btn pull-right col-md-1 col-xs-3 text-center" id="btnAddInsurance" style="margin-right:5px;"><i class="fa fa-plus"></i>Add</legend>
+                        <div id="insurance" class="tbl_wrapper insurance collapse in">
+                            <table id="tblInsurance" class="table table-bordered dataTable table-hover">
+                                <thead>
+                                    <tr>
+                                        <th autowrap style="min-width:65px;text-align:center;">Action</th>
+                                        <th autowrap style="max-width:140px;text-align:center;">Insurance Type *</th>
+                                        <th autowrap style="text-align:center;">Expiry Date *</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </fieldset>
+                </div>
+
+                @{Html.RenderPartial("_Customer", Model.CustomerToAccess);}
+            </div>
+        </form>
+        <div class="col-md-4">
+            <div class="nav navbar-nav navbar-left">
+                <div class="row">
+                    <button type="button" id="SaveInventory" onclick="SaveNewVessel()" class="btn">Save</button>
+                    <button type="button" id="Reset" class="btn">Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var Insurance_Type = [];
+            //$('.money').mask("#,##0.00", { reverse: true });
+            $(document).on('blur', '.money', function () {
+                let val = $(this).val();
+                if (val == '' || val == '0' || val == '00' || val == '.00') val = '0.00';
+                while (val.length > 0) {
+                    if (val.charAt(0) == '0' && val.charAt(1) != '.') {
+                        val = val.substr(1);
+                    }
+                    else
+                        break;
+                }
+
+                if (val.indexOf(',') == 0) {
+                    val = val.substr(1);
+                    if (val.charAt(0) == '0' && val.charAt(1) != '.') {
+                        val = '0.00';
+                    }
+                }
+                if (val.indexOf(".") == -1 && val != '') {
+                    $(this).val(val + ".00");
+                }
+                else
+                    $(this).val(val);
+            });
+
+            function getInsuranceType() {
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("GetInsuranceType")',
+                    dataType: 'json',
+                    success: function (response) {
+                        Insurance_Type = response;
+                    },
+                    error: function (ex) {
+                        swal('@clsGlobal.SwalTitle_Error', "Error Occured whiling loading Insurance Type", '@clsGlobal.SwalType_Error');
+                        return [];
+                    }
+                });
+            };
+
+            $(document).ready(function () {
+                $('.js-example-basic-single3').select2();
+                var j = 0;
+                getInsuranceType();
+
+                var newRow = {
+                    "Action": "<button type='button' tabindex='1' class='btn deleting' >Delete</button>", "Insurance_Type": "", "Expiry_Date": ""
+                };
+
+                function initializeNewRow() {
+                    if (Insurance_Type) {
+                        var strnsurance_Type = "<select tabindex='2' style='width:100% !important; font-size:14px;' class='editor select Insurance_Type js-example-basic-single1 ddlInsuranceType'>";
+                        $.each(Insurance_Type, function (i, v) {
+                            strnsurance_Type += "<option value='" + v.Value + "'>" + v.Text + "</option>";
+                        })
+                        strnsurance_Type += "</select><span data-value='' class='edited Insurance_Type_edited' style='width:100% !important;'></span>";
+                        newRow.Insurance_Type = strnsurance_Type;
+                    }
+                    else {
+                        newRow.Insurance_Type = "<select class='editor select Insurance_Type_edited js-example-basic-single1 Insurance_Type' style='width:100% !important; font-size:14px;' tabindex='2'></select><span class='edited Insurance_Type_edited'></span>";
+                    }
+                    newRow.Expiry_Date = "<input type='text' tabindex='3' name='charge_date' class='editor expiry_date' readonly='true' style='font-size:14px;'/><span class='edited expiry_edited'></span>";
+                };
+
+                var tblInsurance = $("#tblInsurance").DataTable({
+                    "paging": false,
+                    "info": false,
+                    "searching": false,
+                    "language": {
+                        "zeroRecords": "No Data Available.",
+                        "infoEmpty": "No Data Available."
+                    },
+                    "dom": '<"top"i>rt<"bottom"flp><"clear">'
+                });
+
+                $(document).on('click', function (event) {
+                    targetInsuranceRowEvent(event);
+                });
+
+                $("#tblInsurance tbody").on('click', 'tr', function (event) {
+                    if (!($(this).hasClass("activeRow")) && isValidInsuranceRow()) {
+                        if (!IsDuplicateInsuranceType()) {
+                            setInsuranceActiveRow(this);
+                        }
+                    }
+                });
+
+                $("#Reset").on('click', function () {
+                    $("#txtVesselName").val("");
+                    $("#txtHullNumber").val("");
+                    $("#Country_Registration").parent().find("span.select2-selection__rendered").text("--Select--");
+                    $("select#Country_Registration").prop('selectedIndex', 0);
+                    $("#txtformalvaluation").val("0.00");
+                    $("#txtmortgagenumber").val("");
+                    $("#txtchargenumber").val("");
+                    $("#chargedate").val("");
+                    $("#txtCreditLimit").val("0.00");
+                    $("#txtIndicativeValuation").val("0.00");
+                    $("#tblMortgagorList tbody tr").each(function () {
+                        $(this).find('button.deleting').click();
+                    });
+                    $("#tblInsurance tbody tr").each(function () {
+                        $(this).find('button.deleting').click();
+                    });
+                    $("#tblCustomerToAccessList tbody tr").each(function () {
+                        $(this).find('button.deleting').click();
+                    });
+                });
+
+                var IsInsuranceType = false;
+
+                $("#btnAddInsurance ").on("click", function () {
+                    if (!IsDuplicateInsuranceType() && ($.isFunction(isValidRow) ? isValidRow() : true) && ($.isFunction(isValidCustomerRow) ? isValidCustomerRow() : true)) {
+                        j++;
+                        if (tblInsurance.rows().count() == 0) {
+                            initializeNewRow();
+                        }
+                        if (tblInsurance.rows().count() == 0 || (!IsInsuranceType && isValidInsuranceRow())) {
+                            var _row1 = tblInsurance.rows.add([[newRow.Action, newRow.Insurance_Type, newRow.Expiry_Date]]);
+
+                            _row1.draw();
+                            setInsuranceActiveRow($("#tblInsurance tr:last"));
+                            $("#insurance").removeClass("alert-danger-table");
+                            var date = new Date();
+                            var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
+                            $(".activeRow").find('.expiry_date').datepicker({
+                                minDate: new Date(y, m, d + 1),
+                                changeMonth: true,
+                                changeYear: true,
+                                dateFormat: 'dd/mm/yy',
+                                showButtonPanel: true,
+                                closeText: 'Clear',
+                                onClose: function () {
+                                    var event = arguments.callee.caller.caller.arguments[0];
+                                    if ($(event.delegateTarget).hasClass('ui-datepicker-close')) {
+                                        $(this).val('');
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+
+                $('#tblInsurance tbody').on('click', 'button.deleting', function () {
+                    IsInsuranceType = false;
+                    tblInsurance.row($(this).parents("tr")).remove().draw();
+                });
+
+                function targetInsuranceRowEvent(event) {
+                    if (!$(event.target).closest('#tblInsurance tbody tr.activeRow').length &&
+                      !$(event.target).closest('#tblInsurance thead').length &&
+                      !$(event.target).closest('.sweet-alert').length &&
+                      !$(event.target).closest('#SaveInventory').length &&
+                      !$(event.target).closest('.ui-autocomplete').length &&
+                      !$(event.target).closest('.ui-datepicker-header').length &&
+                      !$(event.target).closest('#btnAddMortgagorList').length &&
+                      !$(event.target).closest('#btnAddInsurance').length &&
+                      !$(event.target).closest('#btnCustomerToAccessList').length &&
+                      !$(event.target).closest('button.deleting').length) {
+                        if (!isInsuranceRowChanged()) {
+                            $('#tblInsurance tr.activeRow').find('button.deleting').click();
+                        }
+                        else if (!IsDuplicateInsuranceType() && isValidInsuranceRow()) {
+                            setInsuranceActiveRow(null);
+                        }
+                    }
+                };
+
+                function isInsuranceRowChanged() {
+                    let activeRow = $("#tblInsurance tr.activeRow");
+                    let isValid = false;
+                    if (activeRow && activeRow.length > 0) {
+                        $(activeRow[0]).find(":input").each(function () {
+                            if ($(this).hasClass('unrequired')) {
+                                if ($(this).val() != '')
+                                    isValid = true;
+                            }
+                        });
+                        if (!isValid) {
+                            if ($(activeRow[0]).find('.Insurance_Type').val() == ''
+                                && $(activeRow[0]).find('.charge_date').val() == ''
+                              )
+                                isValid = false;
+                            else
+                                isValid = true;
+
+                        }
+                    }
+                    else {
+                        return true;
+                    }
+                    return isValid;
+                };
+
+                $('body').on('click', '.ui-state-default', function () {
+                    event.stopPropagation();
+                });
+
+                function setInsuranceActiveRow(row) {
+                    $("#tblInsurance tr").each(function () {
+                        if ($(this).hasClass('activeRow')) {
+                            $(this).find(":input").each(function () {
+                                $(this).next('span').html('');
+
+                                var DropText = '';
+                                if ($(this).hasClass('js-example-basic-single1')) {
+                                    DropText = $(this).next('span.select2-container').find('.select2-selection__rendered').text();
+                                    $(this).next().remove();
+                                }
+                                if (!($(this).hasClass("deleting")) && $(this).val() == "") {
+                                    $(this).addClass("alert-danger");
+                                    $(this).next('span').empty();
+                                }
+                                else {
+                                    if ($(this).hasClass('js-example-basic-single1')) {
+                                        $(this).next('span').html($(this).find("option:selected").text());
+                                        $(this).next('span').data("value", $(this).val());
+                                    }
+                                    else {
+                                        $(this).next('span').html($(this).val());
+                                        if ($(this).hasClass('expiry_date')) {
+                                            $(this).next('span').data("value", $(this).val());
+                                        }
+                                    }
+                                }
+                            });
+                            $(this).removeClass("activeRow");
+                        }
+                    });
+                    if (row != null)
+                        $(row).addClass('activeRow');
+                    $('.activeRow .js-example-basic-single1').select2();
+                };
+
+                var d = new Date();
+                var yrRange = (d.getFullYear() - 20) + ":" + (d.getFullYear() + 20);
+                $(".chargedate").datepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: yrRange,
+                    dateFormat: 'dd/mm/yy',
+                    showButtonPanel: true,
+                    closeText: 'Clear',
+                    onClose: function () {
+                        var event = arguments.callee.caller.caller.arguments[0];
+                        if ($(event.delegateTarget).hasClass('ui-datepicker-close')) {
+                            $(this).val('');
+                        }
+                    },
+                });
+
+            });
+
+            var model = {
+                HullNumber: "",
+                VesselName: "",
+                Mortgagor: [{
+                    IndividualCorporate: "",
+                    Mortgagor: "",
+                    MainType: "",
+                    NRICType: "",
+                    ROCType: "",
+                    Address: "",
+                    Department: "",
+                    ContactPerson: "",
+
+                }],
+                VesselDetails: {
+                    CountryofRegistration: "",
+                    MortgageNumber: "",
+                    ChargeNumber: "",
+                    FormalValuation: "",
+                    ChargeDate: "",
+                    CreditLimit: "",
+                    IndicativeValuation: "",
+                },
+                InsuranceDetail: [{
+                    InsuranceType: "",
+                    ExpiryDate: ""
+                }],
+                CustomerToSccess: [{
+                    IndividualCorporate: "",
+                    Customer: ""
+                }]
+            };
+
+            function SaveNewVessel() {
+
+                if (Validation() && !IsDuplicateCustomer() && !IsDuplicateInsuranceType() && isValidRow()) {
+                    $('#myModal').modal({
+                        backdrop: 'static',
+                        keyboard: false
+                    });
+                    var model = {
+                        HullNumber: "",
+                        VesselName: "",
+                        Mortgagor: [],
+                        VesselDetails: {
+                            CountryofRegistration: "",
+                            MortgageNumber: "",
+                            ChargeNumber: "",
+                            FormalValuation: "",
+                            ChargeDate: "",
+                            CreditLimit: "",
+                            IndicativeValuation: "",
+                        },
+                        InsuranceDetail: [],
+                        CustomerToAccess: []
+                    };
+                    model.HullNumber = $("#txtHullNumber").val();
+                    model.VesselName = $("#txtVesselName").val();
+                    $("#tblMortgagorList tbody tr").each(function () {
+                        if (!$(this).hasClass('activeRow')) {
+                            var mortgagor1 = {
+                                IndividualCorporate: $(this).find('.Individual_Corporate_edited').text(),
+                                Mortgagor: $(this).find('.mortgagorName').data("value"),
+                                MainType: $(this).find('.checkMain').text(),
+                                NRICType: $(this).find('.NricType_edited').text(),
+                                ROCType: $(this).find('.RocUen_edited').text(),
+                                Address: $(this).find('.Address_edited').data("value"),
+                                Department: $(this).find('.Department_edited').data("value"),
+                                ContactPerson: $(this).find('.ContactPerson_edited').data("value"),
+                                ItemNumber: $(this).find('.ItemNumber').text()
+                            };
+                            model.Mortgagor.push(mortgagor1);
+                        }
+                        else {
+                            var mortgagor1 = {
+                                IndividualCorporate: $(this).find('select.Individual_Corporate').find('option:selected').val(),
+                                Mortgagor: $(this).find('.mortgagor').data('id'),
+                                MainType: $(this).find('select.Main_Secondary').find('option:selected').text(),
+                                NRICType: $(this).find('input.NricFinPassport').val(),
+                                ROCType: $(this).find('input.RocUen').text(),
+                                Address: $(this).find('select.ddlAddress').find('option:selected').val(),
+                                Department: $(this).find('.ddlDepartment').find('option:selected').val(),
+                                ContactPerson: $(this).find('select.contact_Person').find('option:selected').val(),
+                                ItemNumber: $(this).find('.ItemNumber').text()
+                            };
+                            model.Mortgagor.push(mortgagor1);
+                        }
+                    });
+                    $("#tblCustomerToAccessList tbody tr").each(function () {
+                        if (!$(this).hasClass('activeRow')) {
+                            var customerToAccess1 = {
+                                IndividualCorporate: $(this).find('.Individual_Corporate_Customer_edited').text(),
+                                Customer: $(this).find('.customer_edited').data("value"),
+                            };
+                            model.CustomerToAccess.push(customerToAccess1);
+                        }
+                        else {
+                            var customerToAccess1 = {
+                                IndividualCorporate: $(this).find(".Individual_Corporate_Customer").find("option:selected").val(),
+                                Customer: $(this).find('.customer').data('id'),
+                            };
+                            model.CustomerToAccess.push(customerToAccess1);
+                        }
+                    });
+                    $("#tblInsurance tbody tr").each(function () {
+                        if (!$(this).hasClass('activeRow')) {
+                            var insurance1 = {
+                                InsuranceType: $(this).find('.Insurance_Type_edited').data("value"),
+                                ExpiryDate: $(this).find('.expiry_edited').text(),
+                            };
+                            model.InsuranceDetail.push(insurance1);
+                        }
+                        else {
+                            var insurance1 = {
+                                InsuranceType: $(this).find(".ddlInsuranceType").find("option:selected").val(),
+                                ExpiryDate: $(this).find('.expiry_date').val(),
+                            };
+                            model.InsuranceDetail.push(insurance1);
+                        }
+                    });
+                    var vessel1 = {
+                        CountryofRegistration: $('.CountryofRegistration').val(),
+                        FormalValuation: $('.formal_valuation').val(),
+                        MortgageNumber: $('.mortgage_number').val(),
+                        ChargeNumber: $('.charge_number').val(),
+                        ChargeDate: $('.charge_date').val(),
+                        CreditLimit: $("#txtCreditLimit").val(),
+                        IndicativeValuation: $("#txtIndicativeValuation").val()
+                    };
+                    model.VesselDetails = vessel1;
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("InsertVesselDetails")',
+                        data: { json: JSON.stringify(model) },
+                        success: function (response) {
+                            $('#myModal').modal("hide");
+                            if (response.Status == 1) {
+                                swal('@clsGlobal.SwalTitle_Success', response.Message, '@clsGlobal.SwalType_Success');
+                                $("#Reset").click();
+                            }
+                            else {
+                                if (response.Status == 2) $("#txtHullNumber").addClass('alert-danger');
+                                swal('@clsGlobal.SwalTitle_Error', response.Message, '@clsGlobal.SwalType_Error');
+                            }
+                        },
+                        error: function (ex) {
+                            $('#myModal').modal("hide");
+                            swal('@clsGlobal.SwalTitle_Error', "Error", '@clsGlobal.SwalType_Error');
+                        }
+                    });
+                }
+                else
+                    $('.sweet-overlay').attr("tabindex", 1000);
+
+            }
+
+            function IsDuplicateInsuranceType() {
+                var i = 0;
+                IsInsuranceType = false;
+                var Insurance_Type = $("#tblInsurance tbody tr.activeRow").find("select.Insurance_Type").find("option:selected").text();
+                $(".Insurance_Type_edited").each(function () {
+                    if (Insurance_Type == $(this).text() && !$(this).closest('tr.activeRow').length) {
+                        swal('@clsGlobal.SwalTitle_Error', "Insurance Type already selected!", '@clsGlobal.SwalType_Error');
+                        IsInsuranceType = true;
+                    }
+                });
+                return IsInsuranceType;
+            }
+
+            function Validation() {
+                $(".required").each(function () {
+                    if ($(this).val() == "" || $(this).val() == "0.00" || $(this).val() == null) {
+                        $(this).addClass('alert-danger');
+                        if ($(this).is("select")) {
+                            $(this).parent().find("span.select2-selection__rendered").addClass('alert-danger');
+                        }
+                    }
+                    else {
+                        $(this).removeClass('alert-danger');
+                        if ($(this).is("select")) {
+                            $(this).parent().find("span.select2-selection__rendered").removeClass('alert-danger');
+                        }
+                    }
+
+                });
+                if ($('#tblMortgagorList tbody').find('td.dataTables_empty').length > 0) {
+                    $(this).parent().find("span.select2-selection__rendered").addClass('alert-danger');
+                    $("#mortgatorDetails").addClass("alert-danger-table");
+                }
+                else {
+                    $(this).parent().find("span.select2-selection__rendered").removeClass('alert-danger');
+                    $("#mortgatorDetails").removeClass("alert-danger-table");
+                }
+                if ($('#tblCustomerToAccessList tbody').find('td.dataTables_empty').length > 0)
+                    $("#tblCustomerToAccessList_wrapper").addClass("alert-danger-table");
+                else
+                    $("#tblCustomerToAccessList_wrapper").removeClass("alert-danger-table");
+
+                if ($('#tblInsurance tbody').find('td.dataTables_empty').length > 0)
+                    $("#insurance").addClass("alert-danger-table");
+                else
+                    $("#insurance").removeClass("alert-danger-table");
+
+                if ($(".alert-danger").length > 0 || $('.alert-danger-table').length > 0) {
+                    swal('@clsGlobal.SwalTitle_Error', "Please enter required fields.", '@clsGlobal.SwalType_Error');
+
+                    return false;
+                }
+                else if (!CheckMainMortgagor())
+                    return false;
+                else
+                    return true;
+            }
+
+        </script>
+    </body>
+    @*<script src="~/CustomScript/Security/Customer_Mortgagor.js"></script>*@
+    @section Styles
+        {
+        <link href="~/CustomCss/Security/Mortgag_Customer.css" rel="stylesheet" />
+        <link href="~/Content/common.css" rel="stylesheet" />
+    }
+    @section HeaderScripts
+      {
+
+        <script src="~/CustomScript/Security/Customer_Mortgagor.js"></script>
+    }
+    <script src="~/CustomScript/Security/Mortgagor.js"></script>
+    <script src="~/CustomScript/Security/Customer.js"></script>
+}

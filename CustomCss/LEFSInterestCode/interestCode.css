@@ -1,0 +1,165 @@
+﻿#tblEquipmentList span.select2-container {
+    width: 250px !important;
+    height: 34px !important;
+}
+
+#serialNumbers span.select2-container {
+    width: 250px !important;
+    height: 34px !important;
+}
+
+#tblInterestCodeList th, #tblInterestCodeList button.deleting {
+    background-color: #004092;
+    color: white;
+}
+
+#tblInterestCodeList button.deleting {
+    padding: 0px 12px;
+    text-align: center;
+    margin-left: 8%;
+}
+
+#tblInterestCodeList th, #tblInterestCodeList td {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+#tblInterestCodeList th {
+    text-align: center;
+    /*padding-left: 5px;
+    padding-right: 5px;*/
+    padding-left: 1px;
+    padding-right: 16px;
+    vertical-align: middle;
+   
+}
+
+/*#tblInterestCodeList {
+    min-width: 2200px !important;
+}*/
+
+    #tblInterestCodeList th.tbl-w-40 {
+        width: 40px !important;
+    }
+    #tblInterestCodeList th.tbl-w-45 {
+        width: 45px !important;
+    }
+    #tblInterestCodeList th.tbl-w-50 {
+        width: 50px !important;
+    }
+    #tblInterestCodeList th.tbl-w-71 {
+        width: 71px !important;
+    }
+    #tblInterestCodeList th.tbl-w-70 {
+        width: 70px !important;
+    }
+    #tblInterestCodeList th.tbl-w-75 {
+        width: 75px !important;
+    }
+    #tblInterestCodeList th.tbl-w-85 {
+        width: 85px !important;
+    }
+    #tblInterestCodeList th.tbl-w-80 {
+        width: 80px !important;
+    }
+    #tblInterestCodeList th.tbl-w-60 {
+        width: 60px !important;
+    }
+    #tblInterestCodeList th.tbl-w-100 {
+        width: 100px !important;
+    }
+    #tblInterestCodeList th.tbl-w-110 {
+        width: 110px !important;
+    }
+#tblInterestCodeList_wrapper.dataTables_wrapper {
+    zoom: normal !important;
+    margin-top: 10px !important;
+}
+
+#tblInterestCodeList span.edited i {
+    margin-left: 39%;
+}
+
+#tblInterestCodeList input.nric_fin_passport {
+    margin-left: 39%;
+}
+
+#tblInterestCodeList select, #tblInterestCodeList input[type=text] {
+    min-width: 100%;
+}
+
+#tblInterestCodeList tbody td input[type=text] {
+    width: 100%;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover, .dataTables_wrapper .dataTables_paginate .paginate_button:focus {
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    box-sizing: inherit;
+    display: inherit;
+    min-width: 1.5em;
+    padding: 5px;
+    margin-left: 0px;
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:focus, .dataTables_wrapper .dataTables_paginate .paginate_button:active {
+        box-shadow: none;
+        outline: none;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button a {
+        margin: 0px;
+    }
+#tblInterestCodeList button.deleting {
+    margin-left: 0px;
+    font-size: 10px;
+}
+
+    #tblInterestCodeList button.deleting:hover {
+        box-shadow: 0px 0px 0px 2px lightblue;
+        color: black !important;
+        font-weight: normal !important;
+    }
+
+#interstCodeForm .form-control, #interstCodeSearch .form-control {
+    font-size: 14px;
+}
+
+#DivInterestCodeList .dt-buttons {
+    margin: 0px 0px -30px 190px;
+    padding: 0px 0px 0px 0px;
+}
+
+#tblInterestCodeList {
+    min-width: 125%;
+    width: max-content !Important;
+}
+
+.readonly-date-bg {
+    background-color: white !important;
+}
+.readonly-date-bg-disable {
+    background-color: #eee !important;
+}
+
+.alert-danger {
+    color: #b94a48 !important;
+    background-color: #f2dede !important;
+    border-color: #eed3d7;
+    opacity: 1 !important;
+}
+.collapse.in {
+    display: block;
+}
+
+a,
+a label {
+    cursor: pointer;
+}

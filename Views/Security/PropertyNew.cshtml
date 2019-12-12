@@ -1,0 +1,519 @@
+﻿@model EthozCapital.Models.ViewModels.SecurityPropertyViewModel
+@using EthozCapital.Models;
+@using EthozCapital.Models.ViewModels;
+@using EthozCapital.CustomLibraries;
+
+<br />
+<br />
+<br />
+@if (ViewData["Message"] != null)
+{
+    <h2>Invalid Page</h2>
+    @ViewData["Message"]
+}
+else
+{
+    <body>
+        <style>
+            #tblMortgagorList span.select2-container {
+                width: 250px !important;
+                height: 34px !important;
+            }
+
+            #tblMortgagorList tbody td:nth-child(4) span.select2.select2-container, #tblMortgagorList tbody td:nth-child(2) span.select2.select2-container {
+                max-width: 140px;
+            }
+
+            #tblMortgagorList, tblCustomerToAccessList {
+                min-width: 125%;
+                width: max-content !Important;
+            }
+
+            #tblMortgagorList th, #tblMortgagorList button.deleting, #tblCustomerToAccessList th, #tblCustomerToAccessList button.deleting {
+                background-color: #004092;
+                color: white;
+            }
+
+            #tblMortgagorList button.deleting, #tblCustomerToAccessList button.deleting {
+                padding: 0px 12px;
+                text-align: center;
+                margin-left: 8%;
+            }
+
+            #btnAddMortgagorList {
+                cursor: pointer;
+            }
+
+                #btnAddMortgagorList i {
+                    font-size: 15px;
+                    margin: 0 10px 0 0;
+                }
+
+            #tblMortgagorList th, #tblMortgagorList td {
+                padding-left: 2px;
+                padding-right: 2px;
+            }
+
+            #tblMortgagorList th {
+                text-align: center;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            #tblMortgagorList span.edited i {
+                margin-left: 39%;
+            }
+
+            #tblMortgagorList input.nric_fin_passport {
+                margin-left: 39%;
+            }
+
+            #tblMortgagorList select, #tblMortgagorList input[type=text] {
+                min-width: 100%;
+            }
+
+            #tblMortgagorList tbody td input[type=text] {
+                width: 100%;
+            }
+
+            #tblMortgagorList tbody td:nth-child(5), #tblMortgagorList tbody td:nth-child(6) {
+                width: 65px !important;
+            }
+
+            #tblMortgagorList tbody td:nth-child(4), #tblMortgagorList tbody td:nth-child(7), /*#tblMortgagorList tbody td:nth-child(8)*/ #tblMortgagorList tbody td:nth-child(9) {
+                width: 100px !important;
+            }
+
+            #tblMortgagorList tbody td:nth-child(8) {
+                width: 150px !important;
+            }
+
+            #tblMortgagorList tbody td:nth-child(3) {
+                width: 150px !important;
+            }
+
+            #tblCustomerToAccessList thead th:nth-child(2) {
+                width: 30% !important;
+            }
+
+            #tblCustomerToAccessList thead th:nth-child(3) {
+                width: 55% !important;
+            }
+
+            #tblCustomerToAccessList thead th:nth-child(1) {
+                width: 15% !important;
+            }
+        </style>
+
+        <div style="margin-left: 0px; overflow: auto">
+            <h2>New Mortgage - Property Master</h2>
+        </div>
+
+        <form id="mainForm" method="post">
+            <div class="tab-content">
+                <div class="tab-pane active in" id="nav-tab2-1">
+                    <h3 class="m-t-10"></h3>
+                    <fieldset>
+                        <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Main</legend>
+                        <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#main">
+                            <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                            <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                        </legend>
+                        <!-- begin row -->
+                        <div id="selectionbox" class="selectionbox ">
+                            <div id="main" class="collapse in">
+                                <div class="row collapse in">
+                                    <!-- begin col-4 -->
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Property Address *</label>
+                                            <textarea typeof="text" tabindex="1" name="txtPropertyAddress" placeholder="Property Address" id="Property_Address" class="form-control required" data-parsley-group="wizard-step-1" required style="font-size:14px;"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                @{ Html.RenderPartial("_Mortgagor", Model.Mortgagor);}
+
+                <div class="tab-pane active in" id="nav-tab2-1">
+                    <h3 class="m-t-10"></h3>
+                    <fieldset>
+                        <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Property Details</legend>
+                        <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#propertydetails">
+                            <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                            <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                        </legend>
+                        <!-- begin row -->
+                        <div id="selectionbox" class="selectionbox">
+                            <div id="propertydetails" class="collapse in">
+                                <div class="row">
+                                    <!-- begin col-4 -->
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <div>
+                                                <label>Property Type Level 1 *</label>
+                                            </div>
+                                            <div>
+                                                @Html.DropDownList("ddlPropertyTypeLevel1", ViewBag.PropertyTypeLevel1 as SelectList, "--Select--", new { @class = "form-control js-example-basic-single3 Property_Level_1 required", @id = "Property_Level_1", @tabindex = "1", @style = "font-size:14px;" })
+                                            </div>
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <div>
+                                                <label>Property Type Level 2 *</label>
+                                            </div>
+                                            <div>
+                                                @Html.DropDownList("ddlPropertyTypeLevel2", ViewBag.PropertyTypeLevel2 as SelectList, "--Select--", new { @class = "form-control js-example-basic-single3 Property_Level_2 required", @id = "Property_Level_2", @tabindex = "2", @style = "font-size:14px;" })
+                                            </div>
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>First/Third Party *</label>
+                                            <select name="first_Third_Party" tabindex="3" id="First_third_Party" class="form-control First_third_Party" required style="font-size:14px;">
+                                                <option selected="selected">First Party</option>
+                                                <option>Third Party</option>
+                                            </select>
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Formal Valuation (Reference)</label>
+                                            <input type="text" id="formal_valuation" tabindex="4" style="text-align:right;font-size:14px;" name="formal_valuation" class="form-control money formal_valuation" value="0.00" maxlength="22" autocomplete="off" />
+                                            <i></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Indicative Valuation (For Contract) *</label>
+                                            <input type="text" tabindex="5" id="txtIndicativeValuation" style="text-align:right;font-size:14px;" name="IndicativeValuation" class="form-control money Indicative_Valuation required" value="0.00" required maxlength="22" />
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Credit Limit (ETHOZ) *</label>
+                                            <input type="text" tabindex="6" id="txtCreditLimit" style="text-align:right;font-size:14px;" name="CreditLimit" class="form-control money Credit_Limit required" value="0.00" required maxlength="22" />
+                                            <i></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Title Number</label>
+                                            <input type="text" tabindex="7" id="title_number" name="title_number" class="form-control title_number" style="font-size:14px;" maxlength="20" placeholder="Title Number" />
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Mortgage Number</label>
+                                            <input type="text" tabindex="8" id="mortgage_number" name="mortgage_number" class="form-control mortgage_number" style="font-size:14px;" maxlength="20" placeholder="Mortgage Number" />
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Charge Number</label>
+                                            <input type="text" tabindex="9" id="charge_number" name="charge_number" class="form-control charge_number" style="font-size:14px;" maxlength="20" placeholder="Charge Number" />
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group block1">
+                                            <label>Charge Date</label>
+                                            <input type="text" tabindex="10" id="chargedate" name="charge_date" class="form-control chargedate charge_date" readonly="readonly" style="font-size:14px;background-color:white;" placeholder="Charge Date" />
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                @{Html.RenderPartial("_Customer", Model.CustomerToAccess);}
+            </div>
+        </form>
+
+
+        <div class="col-md-4">
+            <div class="nav navbar-nav navbar-left">
+                <div class="row">
+                    <button type="button" id="SaveInventory" onclick="SaveNewProperty()" class="btn">Save</button>
+                    <button type="button" id="Reset" class="btn">Reset</button>
+                </div>
+            </div>
+        </div>
+
+
+        @section HeaderScripts
+      {
+            <script src="~/CustomScript/Security/Customer_Mortgagor.js"></script>
+        }
+        <script src="~/CustomScript/Security/Mortgagor.js"></script>
+        <script src="~/CustomScript/Security/Customer.js"></script>
+        <script>
+            //$('.money').mask("#,##0.00", { reverse: true });
+
+            $(document).ready(function () {
+
+                $('.js-example-basic-single3').select2();
+
+                $("#Reset").on('click', function () {
+                    $("#Property_Address").val("");
+                    document.getElementById("First_third_Party").selectedIndex = "0";
+                    $("#Property_Level_1").val("");
+                    $("#Property_Level_2").val("");
+                    $("#Property_Level_1").parent().find("span.select2-selection__rendered").text("--Select--");
+                    $("#Property_Level_2").parent().find("span.select2-selection__rendered").text("--Select--");
+                    $("#formal_valuation").val("0.00");
+                    $("#title_number").val("");
+                    $("#mortgage_number").val("");
+                    $(".ddlAddress").html('');
+                    $("#charge_number").val("");
+                    $("#chargedate").val("");
+                    $("#txtCreditLimit").val("0.00");
+                    $("#txtIndicativeValuation").val("0.00");
+                    $("#tblMortgagorList tbody tr").each(function () {
+                        $(this).find('button.deleting').click();
+                    });
+                    $("#tblCustomerToAccessList tbody tr").each(function () {
+                        $(this).find('button.deleting').click();
+                    })
+                });
+
+                var d = new Date();
+                var yrRange = (d.getFullYear() - 20) + ":" + (d.getFullYear() + 20);
+                $(".chargedate").datepicker({
+                    dateFormat: 'dd/mm/yy',
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: yrRange,
+                    showButtonPanel: true,
+                    closeText: 'Clear',
+                    onClose: function () {
+                        var event = arguments.callee.caller.caller.arguments[0];
+                        if ($(event.delegateTarget).hasClass('ui-datepicker-close')) {
+                            $(this).val('');
+
+                        }
+                    },
+                });
+
+                $(document).on('blur', '.money', function () {
+                    let val = $(this).val();
+                    if (val == '' || val == '0' || val == '00' || val == '.00') val = '0.00';
+                    while (val.length > 0) {
+                        if (val.charAt(0) == '0' && val.charAt(1) != '.') {
+                            val = val.substr(1);
+                        }
+                        else
+                            break;
+                    }
+
+                    if (val.indexOf(',') == 0) {
+                        val = val.substr(1);
+                        if (val.charAt(0) == '0' && val.charAt(1) != '.') {
+                            val = '0.00';
+                        }
+                    }
+                    if (val.indexOf(".") == -1 && val != '') {
+                        $(this).val(val + '.00');
+                    }
+                    else
+                        $(this).val(val);
+                });
+            })
+            var model = {
+                PropertyAddress: "",
+                Mortgagor: [{
+                    IndividualCorporate: "",
+                    Mortgagor: "",
+                    MainType: "",
+                    NRICType: "",
+                    ROCType: "",
+                    Address: "",
+                    Department: "",
+                    ContactPerson: ""
+
+                }],
+                PropertyDetails: {
+                    PropertyTypeLevel1: "",
+                    Propertytypelevel2: "",
+                    PartyType: "",
+                    FormalValuation: "",
+                    TitleNumber: "",
+                    MortgagorNumber: "",
+                    ChangeNumber: "",
+                    ChargeDate: "",
+                    CreditLimit: "",
+                    IndicativeValuation: "",
+
+                },
+                CustomerToSccess: [{
+                    IndividualCorporate: "",
+                    Customer: ""
+
+                }]
+            };
+
+            function SaveNewProperty() {
+                if (Validation() && !IsDuplicateCustomer() && isValidRow()) {
+                    $('#myModal').modal({
+                        backdrop: 'static',
+                        keyboard: false
+                    });
+                    var model = {
+                        PropertyAddress: "",
+                        Mortgagor: [],
+                        PropertyDetails: {
+                            PropertyTypeLevel1: "",
+                            Propertytypelevel2: "",
+                            PartyType: "",
+                            FormalValuation: "",
+                            TitleNumber: "",
+                            MortgagorNumber: "",
+                            ChangeNumber: "",
+                            ChargeDate: "",
+                            CreditLimit: "",
+                            IndicativeValuation: ""
+
+                        },
+                        CustomerToAccess: []
+                    };
+                    model.PropertyAddress = $("#Property_Address").val();
+                    $("#tblMortgagorList tbody tr").each(function () {
+                        if (!$(this).hasClass('activeRow')) {
+                            var mortgagor1 = {
+                                IndividualCorporate: $(this).find('.Individual_Corporate_edited').text(),
+                                Mortgagor: $(this).find('.mortgagorName').data("value"),
+                                MainType: $(this).find('.checkMain').text(),
+                                NRICType: $(this).find('.NricType_edited').text(),
+                                ROCType: $(this).find('.RocUen_edited').text(),
+                                Address: $(this).find('.Address_edited').data("value"),
+                                Department: $(this).find('.Department_edited').data("value"),
+                                ContactPerson: $(this).find('.ContactPerson_edited').data("value"),
+                                ItemNumber: $(this).find('.ItemNumber').text()
+                            };
+                            model.Mortgagor.push(mortgagor1);
+                        }
+                        else {
+                            var mortgagor1 = {
+                                IndividualCorporate: $(this).find('select.Individual_Corporate').find('option:selected').val(),
+                                Mortgagor: $(this).find('.mortgagor').data('id'),
+                                MainType: $(this).find('select.Main_Secondary').find('option:selected').text(),
+                                NRICType: $(this).find('input.NricFinPassport').val(),
+                                ROCType: $(this).find('input.RocUen').text(),
+                                Address: $(this).find('select.ddlAddress').find('option:selected').val(),
+                                Department: $(this).find('.ddlDepartment').find('option:selected').val(),
+                                ContactPerson: $(this).find('select.contact_Person').find('option:selected').val(),
+                                ItemNumber: $(this).find('.ItemNumber').text()
+                            };
+                            model.Mortgagor.push(mortgagor1);
+                        }
+                    });
+                    $("#tblCustomerToAccessList tbody tr").each(function () {
+                        if (!$(this).hasClass('activeRow')) {
+                            var customerToAccess1 = {
+                                IndividualCorporate: $(this).find('.Individual_Corporate_Customer_edited').text(),
+                                Customer: $(this).find('.customer_edited').data("value"),
+                            };
+                            model.CustomerToAccess.push(customerToAccess1);
+                        }
+                        else {
+                            var customerToAccess1 = {
+                                IndividualCorporate: $(this).find(".Individual_Corporate_Customer").find("option:selected").val(),
+                                Customer: $(this).find('.customer').data('id'),
+                            };
+                            model.CustomerToAccess.push(customerToAccess1);
+                        }
+                    });
+                    var property1 = {
+                        PropertyTypeLevel1: $('.Property_Level_1').val(),
+                        Propertytypelevel2: $('.Property_Level_2').val(),
+                        PartyType: $('.First_third_Party').val(),
+                        FormalValuation: $('.formal_valuation').val(),
+                        TitleNumber: $('.title_number').val(),
+                        MortgagorNumber: $('.mortgage_number').val(),
+                        ChangeNumber: $('.charge_number').val(),
+                        ChargeDate: $('.charge_date').val(),
+                        CreditLimit: $("#txtCreditLimit").val(),
+                        IndicativeValuation: $("#txtIndicativeValuation").val()
+                    };
+                    model.PropertyDetails = property1;
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("InsertPropertyDetails")',
+                        data: { json: JSON.stringify(model) },
+                        success: function (response) {
+                            $('#myModal').modal("hide");
+                            if (response.Status == 1) {
+                                swal('@clsGlobal.SwalTitle_Success', response.Message, '@clsGlobal.SwalType_Success');
+                                $("#Reset").click();
+                            }
+                            else {
+                                if (response.Status == 2) $("#Property_Address").addClass('alert-danger');
+                                swal('@clsGlobal.SwalTitle_Error', response.Message, '@clsGlobal.SwalType_Error');
+                            }
+                        },
+                        error: function (ex) {
+                            $('#myModal').modal("hide");
+                            swal('@clsGlobal.SwalTitle_Error', "Error", '@clsGlobal.SwalType_Error');
+                        }
+                    });
+                }
+            }
+
+            function Validation() {
+                $(".required").each(function () {
+                    if ($(this).val() == "" || $(this).val() == "0.00" || $(this).val() == null) {
+                        $(this).addClass('alert-danger');
+                        if ($(this).is("select")) {
+                            $(this).parent().find("span.select2-selection__rendered").addClass('alert-danger');
+                        }
+                    }
+                    else {
+                        $(this).removeClass('alert-danger');
+                        if ($(this).is("select")) {
+                            $(this).parent().find("span.select2-selection__rendered").addClass('alert-danger');
+                            $(this).parent().find("span.select2-selection__rendered").removeClass('alert-danger');
+                        }
+                    }
+
+                });
+                if ($('#tblMortgagorList tbody').find('td.dataTables_empty').length > 0) {
+                    $(this).parent().find("span.select2-selection__rendered").addClass('alert-danger');
+                    $("#mortgatorDetails").addClass("alert-danger-table");
+                }
+                else {
+                    $(this).parent().find("span.select2-selection__rendered").removeClass('alert-danger');
+                    $("#mortgatorDetails").removeClass("alert-danger-table");
+                }
+                if ($('#tblCustomerToAccessList tbody').find('td.dataTables_empty').length > 0)
+                    $("#tblCustomerToAccessList_wrapper").addClass("alert-danger-table");
+                else
+                    $("#tblCustomerToAccessList_wrapper").removeClass("alert-danger-table");
+
+                if ($(".alert-danger").length > 0 || $('.alert-danger-table').length > 0) {
+                    swal('@clsGlobal.SwalTitle_Error', "Please enter required fields.", '@clsGlobal.SwalType_Error');
+                    return false;
+                }
+                else if (!CheckMainMortgagor())
+                    return false;
+                else
+                    return true;
+            }
+        </script>
+
+    </body>
+}

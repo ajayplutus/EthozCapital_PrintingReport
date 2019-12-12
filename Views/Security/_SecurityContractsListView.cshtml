@@ -1,0 +1,42 @@
+﻿@model List<EthozCapital.Models.ViewModels.SecurityContractViewModel>
+<div id="DivSecurityContractList" class="collapse in">
+    <table id="tblSecurityContractList" class="dtCutomStyle display table table-bordered dataTable table-hover" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th class="tbl-w-45">Security System ID</th>
+                <th class="tbl-w-45">Contract Number</th>
+                <th class="tbl-w-45">Contract Rollover Number</th>
+                <th class="tbl-w-65">Contract Customer</th>
+                <th class="tbl-w-45">Contract Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{int i = 0;}
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.SysSequrityID
+                        </td>
+                        <td>
+                            @item.ContractNumber
+                        </td>
+                        <td class="align-right">
+                            @item.ContractRolloverNo
+                        </td>
+                        <td>
+                            @item.ContractsCustomerName
+                        </td>
+                        <td>
+                            @item.ContractsStatus
+                        </td>
+                    </tr>
+                    i++;
+                }
+            }
+        </tbody>
+    </table>
+</div>
+

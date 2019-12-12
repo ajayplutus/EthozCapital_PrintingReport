@@ -1,0 +1,135 @@
+﻿@model EthozCapital.Models.ViewModels.PendingApprovalViewModel
+@{
+    var count = Model.PendingCount;
+}
+<br />
+<br />
+<br />
+@if (ViewData["Message"] != null)
+{
+    <div style="margin-left: 0px; overflow: auto">
+        <h2>Invalid Page</h2>
+        <h5>@ViewData["Message"]</h5>
+    </div>
+}
+else
+{
+    <div style="margin-left: 0px; overflow: auto">
+        <h4>Approval History</h4>
+    </div>
+    <body>
+        <style>
+        </style>
+        <script src="~/CustomScript/Approval/approval-process.module.js" asp-append-version="true"></script>
+        <div class="panel panel-default panel-with-tabs" data-sortable-id="ui-unlimited-tabs-2" style="overflow:auto">
+            <div class="tab-content">
+                <div class="tab-pane active in" id="nav-tab2-1">
+                    <h3 class="m-t-10"></h3>
+                    <fieldset class="fieldsetCss">
+                        <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Search</legend>
+                        <legend class="btn pull-right col-md-1 col-sm-4 col-xs-4 text-center collapseBtn" data-toggle="collapse" data-target="#AprrovalSearch">
+                            <span class="if-collapsed"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                            <span class="if-not-collapsed"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                        </legend>
+                        <div id="AprrovalSearch" class="selectionbox collapse in">
+                            @Html.HiddenFor(m => m.ApprovalPage);
+                            <div class="row">
+                                <!-- begin col-4 -->
+                                <div class="col-md-3">
+                                    <div class="form-group block1">
+                                        <label class="elipsetxt" title="Approved Date From">Approved Date From :</label>
+                                        @Html.TextBox("ApprovedDateFrom", null, new { id = "dtpApprovedDateFrom", @class = "form-control dtpApprovalDate required", @readonly = "readonly", @placeholder = "Approved Date From", @tabindex = "1", @style = "display:inline;background-color:white;" })
+                                    </div>
+                                </div>
+                                <!-- end col-4 -->
+                                <!-- begin col-4 -->
+                                <div class="col-md-3">
+                                    <div class="form-group block1">
+                                        <label class="elipsetxt" title="Approved Date To">Approved Date To :</label>
+                                        @Html.TextBox("ApprovedDateTo", null, new { id = "dtpApprovedDateTo", @class = "form-control dtpApprovalDate required", @readonly = "readonly", @placeholder = "Approved Date To", @tabindex = "2", @style = "display:inline;background-color:white;" })
+                                    </div>
+                                </div>
+                                <!-- end col-4 -->
+                                <!-- begin col-4 -->
+                                <div class="col-md-3">
+                                    <div class="form-group block1">
+                                        <label class="elipsetxt" title="Type">Type :</label>
+                                        @*@Html.TextBox("Type", null, new { id = "approvalType", @class = "form-control", @readonly = "readonly", @placeholder = "Type", @style = "display:inline;background-color:white;" })*@
+                                        @Html.DropDownList("Type", ViewBag.ListOfApprovalName as SelectList, "--Select--", new { @class = "form-control Property_Level_2", @id = "sysApprovalName", @tabindex = "3", @style = "font-size:14px;" })
+                                    </div>
+                                </div>
+                                <!-- end col-4 -->
+                                <!-- begin col-4 -->
+                                <div class="col-md-3">
+                                    <div class="form-group block1">
+                                        <label class="elipsetxt" title="Batch No">Batch No : </label>
+                                        @Html.TextBox("BatchNo", null, new { id = "txtReassignBatchNo", @class = "form-control security-customer", @placeholder = "Batch No", @autocomplete = "off", @style = "text-align:left;font-size:14px;" })
+                                    </div>
+                                </div>
+                                <!-- end col-4 -->
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group block1">
+                                        <button type="button" id="search" class="btn" onclick="onApprovedViewSearchClick();">Search</button>
+                                        <button type="button" id="Reset" class="btn" onclick="onResetClick();">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="tab-pane active in" id="nav-tab2-1">
+                    <h3 class="m-t-10"></h3>
+                    <fieldset class="fieldsetCss">
+                        <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Details</legend>
+                        <legend class="btn pull-right col-md-1 col-sm-4 col-xs-4 text-center collapseBtn" data-toggle="collapse" data-target="#selectionECA">
+                            <span class="if-collapsed"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                            <span class="if-not-collapsed"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                        </legend>
+                        <!-- begin row -->
+                        <div id="selectionECA" class="selectionbox collapse in">
+                            <div class="row">
+                                <!-- begin col-4 -->
+                                <div class="col-md-12" id="ApprovedView">
+                                    @{Html.RenderPartial("_ApprovalListPartialView", Model);}
+                                </div>
+                                <!-- end col-4 -->
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="RejectApprovalReasonPopUp" style="display: none">
+            <form class="form-rejection" id="frmRejectApprovalReasonPopUp">
+                <div class="form-group block1">
+                    <label>Reject Reason *</label>
+                    <input type="hidden" id="hdnApprovalProcessDetailID" />
+                    @Html.TextArea("RejectReason", new { id = "RejectReason", @class = "form-control required", @placeholder = "Reason", @style = "display:inline-block", @required = "required", @maxlength = 100 })
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnRejectApproval" class="btn">Ok</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="modalDialog" style="display: none" align="center">
+            <div class="modal-header modal-header-confirm">
+                <h4 class="modal-title ng-binding">
+                    <span class="glyphicon glyphicon-indent-left"></span>{{modalOptions.headerText}}
+                    <a title="Close"><i ng-click="CloseModal()" class="glyphicon glyphicon-remove icon-arrow-right pull-right"></i></a>
+                </h4>
+            </div>
+        </div>
+    </body>
+}
+
+@section Styles
+      {
+    <link href="~/CustomCss/Approval/Pending_Approval.css" rel="stylesheet" />
+}
+

@@ -1,0 +1,246 @@
+﻿/*MainLayout Start*/
+.header-bar-ethoz {
+    top: 64px;
+    position: fixed;
+    width: 100%;
+    height: 35px;
+    margin: 0 auto;
+    background-color: #004092 !important;
+    border-bottom: 1px lightgrey solid;
+    /*background-image: linear-gradient(#004092,#004092 25%,#3d61d2) !important;*/
+}
+
+body {
+    background: white !important;
+}
+
+.navbar-right {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+}
+
+.page-with-light-sidebar .sidebar, .page-with-light-sidebar .sidebar-bg {
+    border-right: 1px solid lightgrey !important;
+    background: #dbdbe0 !important;
+}
+
+.pace-progress, .pace:before {
+    top: 99px !important;
+}
+
+.sidebar {
+    padding-top: 99px !important;
+}
+
+.page-with-light-sidebar.page-sidebar-minified .sidebar .nav li.has-sub > .sub-menu, .page-with-light-sidebar.page-sidebar-minified .sidebar .nav > li.has-sub > .sub-menu {
+    border: 1px solid lightgrey !important;
+}
+
+.navbar-fixed-top, .navbar-fixed-bottom {
+    height: 80px !important;
+}
+
+.sidebar .slimScrollDiv .sub-menu {
+    padding-left: 25px !important;
+}
+
+    .sidebar .slimScrollDiv .sub-menu > li > a {
+        padding-left: 0px !important;
+    }
+
+    .sidebar .slimScrollDiv .sub-menu .sub-menu {
+        padding-left: 25px !important;
+    }
+
+.page-with-light-sidebar .sidebar .slimScrollDiv .nav > li.nav-profile {
+    border-bottom: 1px lightgrey solid !important;
+}
+
+.page-with-light-sidebar .sidebar .slimScrollDiv .nav > li.expand > a, .page-with-light-sidebar .sidebar .slimScrollDiv .nav > li > a:focus {
+    color: #fff !important;
+    background: #004092 !important;
+}
+
+    .page-with-light-sidebar .sidebar .slimScrollDiv .nav > li.expand > a i, .page-with-light-sidebar .sidebar .slimScrollDiv .nav > li > a:focus i {
+        color: #fff !important;
+        background: #004092 !important;
+    }
+
+.page-with-light-sidebar .sidebar .nav > li > a {
+    color: black !important;
+    font-weight: 500 !important;
+}
+
+.sidebar .sub-menu > li > a {
+    color: black !important;
+    font-weight: 500 !important;
+}
+
+.page-with-light-sidebar .sidebar .sub-menu > li.active > a, .page-with-light-sidebar .sidebar .sub-menu > li.active > a:focus, .page-with-light-sidebar .sidebar .sub-menu > li.active > a:hover, .page-with-light-sidebar .sidebar .sub-menu > li > a:focus, .page-with-light-sidebar .sidebar .sub-menu > li > a:hover {
+    color: #004092 !important;
+    font-weight: 900 !important;
+}
+
+.page-with-light-sidebar .sidebar .nav > li.nav-profile {
+    color: #004092 !important;
+    font-weight: 900 !important;
+    background: #dbdbe0 !important;
+}
+
+/*Dropdown width*/
+/*.ddwidth {
+    width: 330px !important;
+}*/
+
+.select2-container {
+    width: 100% !important;
+}
+
+
+/*MainLayout End*/
+/*Forms Start*/
+.panel-body {
+    border: 1px lightgrey solid !important;
+}
+
+legend {
+    border-bottom: 1px solid #004092 !important;
+    box-shadow: 0 1px 0 0 #004092 !important;
+    font-weight: 500 !important;
+    color: #004092 !important;
+}
+/*Forms End*/
+/*Button Start*/
+.btn {
+    /*background: #004092 !important;*/
+    border-color: #3b48af !important;
+    border-radius: 10px !important;
+    color: #fff !important;
+    font-weight: 500 !important;
+    background-image: linear-gradient(#004092,#004092 25%,#7189d6) !important;
+}
+
+#Act_Buttons .ui-state-hover {
+    margin-right: 4px !important;
+}
+
+.fm-button {
+    background: #004092 !important;
+    border-color: cadetblue !important;
+    border-radius: 10px !important;
+    color: #fff !important;
+    font-weight: 500 !important;
+}
+
+.fm-button-icon-left .ui-icon {
+    background-image: url(../../Content/themes/base/images/ui-icons_ffffff_256x240.png) !important;
+}
+
+.ui-widget-header .ui-icon {
+    background-image: url(../../Content/themes/base/images/ui-icons_ffffff_256x240.png) !important;
+}
+
+.ui-dialog-titlebar.fm-button-icon-closethick .ui-dialog-titlebar-close {
+    background-image: var(--close-icon-white) !important;
+    margin-top: 0PX;
+    margin-right: 4px !important;
+    top: 4px;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.ui-dialog-titlebar.fm-button-icon-closethick:hover .ui-dialog-titlebar-close {
+    background-image: var(--close-icon-black) !important;
+}
+
+.btn:hover, .fm-button:hover {
+    box-shadow: 0px 0px 0px 2px lightblue;
+    color: black !important;
+    font-weight: 700 !important;
+}
+
+.fm-button-icon-left:hover .ui-icon, .ui-widget-header:hover .ui-icon {
+    background-image: url(../../Content/themes/base/images/ui-icons_222222_256x240.png) !important;
+}
+
+
+
+.navbar-default .navbar-toggle .icon-bar {
+    background: #004092 !important;
+}
+/*Button End*/
+/*.page-header-fixed {
+    padding-top: 54px !important;
+}*/
+/*JQGrid Start*/
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+    background: lightgrey /*{bgColorHighlight}*/ url(images/ui-bg_glass_55_fbf9ee_1x400.png) /*{bgImgUrlHighlight}*/ 50% /*{bgHighlightXPos}*/ 50% /*{bgHighlightYPos}*/ repeat-x /*{bgHighlightRepeat}*/ !important;
+    border: 1px solid darkgrey !important;
+}
+
+.ui-jqgrid-view .ui-state-hover, .ui-jqdialog .ui-state-hover {
+    margin-top: -10px !important;
+}
+
+.ui-jqgrid .ui-jqgrid-titlebar {
+    background: #004092 !important;
+    color: white !important;
+    font-size: 12px !important;
+}
+
+.ui-th-column, .ui-jqgrid .ui-jqgrid-htable th.ui-th-column {
+    font-weight: 600 !important;
+    color: black !important;
+}
+
+.ui-jqdialog .ui-jqdialog-titlebar {
+    background: #004092 !important;
+    color: white !important;
+    padding-left: 10px !important;
+}
+
+.table.dataTable.no-footer {
+    border-bottom: 1px !important;
+}
+/*JQGrid End*/
+/*Datetime Picker Start*/
+.ui-datepicker table {
+    background: white !important;
+    border: solid lightgrey 1px !important;
+}
+/*Datetime Picker End*/
+/*Nav Tab Start*/
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+    color: #004092 !important;
+}
+
+.nav-tabs {
+    background: #004092 !important;
+    border: 1px solid #004092 !important;
+    /*background-image: linear-gradient(#004092,#004092 25%,#3d61d2) !important;*/
+}
+
+    .nav-tabs > li > a {
+        color: white !important;
+        font-size: 12px;
+    }
+
+        .nav-tabs > li > a:focus, .nav-tabs > li > a:hover {
+            color: #004092 !important;
+            background: #fafafa !important;
+            /*border: 1px solid #004092 !important;*/ /*remove the border width when hover to tabs in pre-contract screen*/
+        }
+
+.tab-overflow .next-button a, .tab-overflow .prev-button a {
+    background: #004092 !important;
+    border: 1px solid white !important;
+    height: 40px !important;
+    /*background-image: linear-gradient(#004092,#004092 25%,#3d61d2) !important;*/
+}
+
+.tab-overflow .nav-tabs > li > a {
+    margin-left: 0px !important;
+}
+/*Nav Tab End*/

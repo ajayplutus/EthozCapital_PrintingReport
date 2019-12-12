@@ -1,0 +1,1353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ORIX_ESS_DB_DevModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ss_abs_det">
+    <Key>
+      <PropertyRef Name="ad_bat_num" />
+      <PropertyRef Name="ad_itm_num" />
+    </Key>
+    <Property Name="ad_bat_num" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ad_itm_num" Type="Int32" Nullable="false" />
+    <Property Name="ad_lev_dat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ad_lev_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ad_lev_am" Type="Boolean" Nullable="false" />
+    <Property Name="ad_lev_pm" Type="Boolean" Nullable="false" />
+    <Property Name="ad_lev_typ" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ad_rem_ark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ad_mrk_by" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="ad_mrk_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ad_mrk_dat" Type="DateTime" Precision="3" />
+    <Property Name="ad_mrk_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ad_con_dat" Type="DateTime" Precision="3" />
+    <Property Name="ad_con_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ad_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ad_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ad_sta_dat" Type="DateTime" Precision="3" />
+    <Property Name="ad_mail_ind" Type="Int32" />
+    <NavigationProperty Name="ss_abs_mas" Relationship="Self.FKss_abs_det" FromRole="ss_abs_det" ToRole="ss_abs_mas" />
+  </EntityType>
+  <EntityType Name="ss_abs_mas">
+    <Key>
+      <PropertyRef Name="am_bat_num" />
+    </Key>
+    <Property Name="am_bat_num" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="am_bat_dat" Type="DateTime" Precision="3" />
+    <Property Name="am_emp_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="am_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="am_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="am_sta_dat" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ss_abs_det" Relationship="Self.FKss_abs_det" FromRole="ss_abs_mas" ToRole="ss_abs_det" />
+  </EntityType>
+  <EntityType Name="ss_app_officer">
+    <Key>
+      <PropertyRef Name="ao_emp_cod" />
+      <PropertyRef Name="ao_cat_cod" />
+    </Key>
+    <Property Name="ao_emp_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ao_cat_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ao_pri_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ao_sec_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ao_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ao_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ao_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_att_access">
+    <Key>
+      <PropertyRef Name="aa_emp_cod" />
+    </Key>
+    <Property Name="aa_emp_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="aa_main_dept" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="aa_sub_dept" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="aa_att_emp" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="aa_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="aa_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="aa_sta_dat" Type="DateTime" Precision="3" />
+    <Property Name="aa_att_loc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ss_att_aws">
+    <Key>
+      <PropertyRef Name="aa_aws_cod" />
+    </Key>
+    <Property Name="aa_aws_cod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="aa_emp_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="aa_eff_dat" Type="DateTime" Precision="3" />
+    <Property Name="aa_cap_amt" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="aa_deduct_amt" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="aa_sta_ind" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="aa_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="aa_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_att_deduct">
+    <Key>
+      <PropertyRef Name="ad_ded_cod" />
+    </Key>
+    <Property Name="ad_ded_cod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ad_abs_bat_num" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ad_abs_itm_num" Type="Int32" />
+    <Property Name="ad_lev_bat_num" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ad_lev_itm_num" Type="Int32" />
+    <Property Name="ad_ded_am" Type="Boolean" />
+    <Property Name="ad_ded_pm" Type="Boolean" />
+    <Property Name="ad_pay_dat" Type="DateTime" Precision="3" />
+    <Property Name="ad_ded_ind" Type="Boolean" />
+    <Property Name="ad_exp_ind" Type="Boolean" />
+    <Property Name="ad_exp_dat" Type="DateTime" Precision="3" />
+    <Property Name="ad_sta_ind" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="ad_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ad_sta_dat" Type="DateTime" Precision="3" />
+    <Property Name="ad_app_sta" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="ad_waive_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_att_rem_ark">
+    <Key>
+      <PropertyRef Name="ar_emp_cod" />
+      <PropertyRef Name="ar_att_dat" />
+    </Key>
+    <Property Name="ar_rec_num" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ar_emp_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ar_att_dat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ar_sta_tus" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ar_rem_ark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ar_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ar_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ar_sta_dat" Type="DateTime" Precision="3" />
+    <Property Name="ar_rem_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ss_att_rem_ark2">
+    <Key>
+      <PropertyRef Name="ar_emp_cod" />
+      <PropertyRef Name="ar_att_dat" />
+    </Key>
+    <Property Name="ar_rec_num" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ar_emp_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ar_att_dat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ar_sta_tus" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ar_rem_ark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ar_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ar_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ar_sta_dat" Type="DateTime" Precision="3" />
+    <Property Name="ar_rem_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ss_att_sum_mary">
+    <Key>
+      <PropertyRef Name="as_emp_cod" />
+      <PropertyRef Name="as_att_dat" />
+    </Key>
+    <Property Name="as_emp_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="as_att_dat" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_buddy">
+    <Key>
+      <PropertyRef Name="sb_emp_cod" />
+      <PropertyRef Name="sb_bdy_cod" />
+    </Key>
+    <Property Name="sb_emp_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="sb_bdy_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="sb_grp_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="sb_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="sb_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="sb_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_ccl_param">
+    <Key>
+      <PropertyRef Name="cp_rec_num" />
+    </Key>
+    <Property Name="cp_rec_num" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cp_eff_dat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="cp_srv_mth" Type="Int32" Nullable="false" />
+    <Property Name="cp_srv_ent" Type="Int32" Nullable="false" />
+    <Property Name="cp_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="cp_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="cp_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_clm_det">
+    <Key>
+      <PropertyRef Name="cd_bat_num" />
+      <PropertyRef Name="cd_itm_num" />
+    </Key>
+    <Property Name="cd_bat_num" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cd_itm_num" Type="Int32" Nullable="false" />
+    <Property Name="cd_rec_dat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="cd_rec_num" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cd_typ_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="cd_grp_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="cd_veh_num" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="cd_clm_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="cd_pay_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="cd_pay_to" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="cd_rec_amt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="cd_clm_amt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="cd_paid_amt" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cd_rem_ark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="cd_ver_by" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="cd_ver_dat" Type="DateTime" Precision="3" />
+    <Property Name="cd_ver_remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="cd_app_by" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="cd_app_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="cd_app_dat" Type="DateTime" Precision="3" />
+    <Property Name="cd_app_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="cd_app_remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="cd_pay_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="cd_pay_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="cd_pay_dat" Type="DateTime" Precision="3" />
+    <Property Name="cd_ref_num" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="cd_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="cd_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="cd_sta_dat" Type="DateTime" Precision="3" />
+    <Property Name="cd_clm_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="cd_clm_dat" Type="DateTime" Precision="3" />
+    <Property Name="cd_pro_ind" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="cd_srv_num" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="cd_sup_inv_num" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="cd_taxable" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cd_gst_amt" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cd_loc_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="cd_clm_des" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="cd_directpay_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="cd_directpay_ref_num" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="cd_directpay_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="cd_directpay_dat" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ss_clm_mas" Relationship="Self.FKss_clm_det" FromRole="ss_clm_det" ToRole="ss_clm_mas" />
+  </EntityType>
+  <EntityType Name="ss_clm_emp_mas">
+    <Key>
+      <PropertyRef Name="cm_ref_cod" />
+    </Key>
+    <Property Name="cm_ref_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="cm_emp_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="cm_clm_yr" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="cm_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="cm_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="cm_sta_dat" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ss_clm_emp_det" Relationship="Self.FKss_clm_emp_det" FromRole="ss_clm_emp_mas" ToRole="ss_clm_emp_det" />
+  </EntityType>
+  <EntityType Name="ss_clm_ent_mas">
+    <Key>
+      <PropertyRef Name="em_ent_cod" />
+    </Key>
+    <Property Name="em_ent_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="em_ent_dat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="em_cat_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="em_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="em_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_clm_mas">
+    <Key>
+      <PropertyRef Name="cm_bat_num" />
+    </Key>
+    <Property Name="cm_bat_num" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cm_bat_dat" Type="DateTime" Precision="3" />
+    <Property Name="cm_emp_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="cm_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="cm_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="cm_sta_dat" Type="DateTime" Precision="3" />
+    <Property Name="cm_behalf_emp_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="ss_clm_det" Relationship="Self.FKss_clm_det" FromRole="ss_clm_mas" ToRole="ss_clm_det" />
+  </EntityType>
+  <EntityType Name="ss_clm_typ">
+    <Key>
+      <PropertyRef Name="ct_clm_cod" />
+    </Key>
+    <Property Name="ct_clm_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ct_cat_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="ct_clm_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ct_shr_nam" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="ct_gl_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="ct_cri_teria" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="ct_ent_typ" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ct_rem_ark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ct_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ct_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ct_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_date_release">
+    <Key>
+      <PropertyRef Name="dr_ref_cod" />
+    </Key>
+    <Property Name="dr_ref_cod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dr_emp_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="dr_typ_ind" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="dr_rel_dat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="dr_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="dr_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dr_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_dept_det">
+    <Key>
+      <PropertyRef Name="dd_grp_cod" />
+      <PropertyRef Name="dd_dept_cod" />
+    </Key>
+    <Property Name="dd_grp_cod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dd_dept_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dd_tel_num" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dd_fax_num" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dd_email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dd_old_dept_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="dd_sta_ind" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dd_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dd_sta_dat" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_ecard_mails">
+    <Key>
+      <PropertyRef Name="ec_mail_num" />
+    </Key>
+    <Property Name="ec_mail_num" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ec_mail_typ" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ec_ref_num" Type="Int32" Nullable="false" />
+    <Property Name="ec_mail_from" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ec_mail_to" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ec_mail_sub" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ec_mail_body" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ec_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ec_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ec_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_email_alert">
+    <Key>
+      <PropertyRef Name="ea_rec_num" />
+    </Key>
+    <Property Name="ea_rec_num" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ea_emp_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ea_cat_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ea_cat_val" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ea_alt_dat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ea_mail_count" Type="Int32" />
+    <Property Name="ea_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ea_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ea_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_emp_address_book">
+    <Key>
+      <PropertyRef Name="ea_rec_num" />
+    </Key>
+    <Property Name="ea_rec_num" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ea_emp_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ea_rec_nam" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ea_rec_mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ea_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ea_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ea_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_emp_appoint_ment">
+    <Key>
+      <PropertyRef Name="ea_app_num" />
+    </Key>
+    <Property Name="ea_app_num" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ea_emp_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ea_app_dat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ea_typ_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ea_rem_ark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ea_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ea_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ea_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_emp_category">
+    <Key>
+      <PropertyRef Name="ec_cat_cod" />
+    </Key>
+    <Property Name="ec_cat_cod" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ec_cat_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ec_cat_ord" Type="Int32" />
+    <Property Name="ec_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ec_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ec_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_emp_grp_det">
+    <Key>
+      <PropertyRef Name="gd_grp_cod" />
+      <PropertyRef Name="gd_itm_num" />
+    </Key>
+    <Property Name="gd_grp_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="gd_itm_num" Type="Int32" Nullable="false" />
+    <Property Name="gd_grp_day" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="gd_wrk_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="gd_beg_tim" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="gd_end_tim" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="gd_hol_day" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="gd_half_day" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="gd_alt_day" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="gd_ot_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="gd_ot_beg" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="gd_ot_end" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="gd_ot_hrs" Type="Double" />
+    <Property Name="gd_half_DayA" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="ss_emp_grp_mas" Relationship="Self.FK_ss_emp_grp_det" FromRole="ss_emp_grp_det" ToRole="ss_emp_grp_mas" />
+  </EntityType>
+  <EntityType Name="ss_emp_grp_mas">
+    <Key>
+      <PropertyRef Name="gm_grp_cod" />
+    </Key>
+    <Property Name="gm_grp_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="gm_grp_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="gm_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="gm_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="gm_sta_dat" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ss_emp_grp_det" Relationship="Self.FK_ss_emp_grp_det" FromRole="ss_emp_grp_mas" ToRole="ss_emp_grp_det" />
+  </EntityType>
+  <EntityType Name="ss_emp_mas">
+    <Key>
+      <PropertyRef Name="em_emp_cod" />
+    </Key>
+    <Property Name="em_emp_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="em_title" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="em_initial" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="em_emp_nam" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_alias_nam" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_sht_nam" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_emp_nation" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="em_citizen_sta" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="em_nric_type" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="em_nric_no" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_birth_place" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="em_birth_dat" Type="DateTime" Precision="3" />
+    <Property Name="em_emp_gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="em_mar_sta" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="em_emp_race" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="em_dialect_grp" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="em_emp_religion" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="em_wrk_per" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_fin_no" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_exp_dat" Type="DateTime" Precision="3" />
+    <Property Name="em_pr_dat" Type="DateTime" Precision="3" />
+    <Property Name="em_lic_sta" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="em_lic_num" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_iss_dat" Type="DateTime" Precision="3" />
+    <Property Name="em_lic_exp_dat" Type="DateTime" Precision="3" />
+    <Property Name="em_height" Type="Double" />
+    <Property Name="em_weight" Type="Double" />
+    <Property Name="em_hea_con" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="em_ill_ness" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_treat_ment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_ns_sta" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="em_ns_voc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_ns_rank" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_ns_ord" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_child_dob" Type="DateTime" Precision="3" />
+    <Property Name="em_blk_no" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="em_str_nam" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_lvl_no" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="em_unit_no" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="em_build_nam" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_zip_cod" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="em_loc_home" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_loc_mob" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_loc_pager" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_loc_con" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_con_person" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_con_no" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_con_mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_con_relation" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="em_category" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="em_join_dat" Type="DateTime" Precision="3" />
+    <Property Name="em_emp_sta" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="em_pro_period" Type="Int32" />
+    <Property Name="em_cfm_dat" Type="DateTime" Precision="3" />
+    <Property Name="em_rsg_dat" Type="DateTime" Precision="3" />
+    <Property Name="em_rsg_reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_inc_tax" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_cpf_sta" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="em_emp_cpf" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_con_sta" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="em_ot_sta" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="em_lea_cat" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="em_clm_cat" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="em_ins_cat" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="em_status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="em_pro_dat" Type="DateTime" Precision="3" />
+    <Property Name="em_emp_typ" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="em_sat_grp" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="em_sat_dat" Type="DateTime" Precision="3" />
+    <Property Name="em_con_pri" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="em_con_sec" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="em_did" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_thumb_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_smtp_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_acc_lvl" Type="Int16" />
+    <Property Name="em_usr_nam" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_app_officer" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="em_alt_officer" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="em_remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_pay_slip" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="em_mob_bill" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="em_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="em_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_sta_dat" Type="DateTime" Precision="3" />
+    <Property Name="em_grp_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="em_dept_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="em_design_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="em_child_nation" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="em_blk_typ" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="em_loc_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="em_mgmt_ent_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="em_letter_nam" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_dept_grp_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ss_emp_mas_add" Relationship="Self.FK_ss_emp_mas_add" FromRole="ss_emp_mas" ToRole="ss_emp_mas_add" />
+  </EntityType>
+  <EntityType Name="ss_emp_mas_add">
+    <Key>
+      <PropertyRef Name="ma_emp_cod" />
+    </Key>
+    <Property Name="ma_emp_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ma_lev_ent_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ma_lev_auto_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ma_lev_app_days" Type="Int32" />
+    <Property Name="ma_clm_ent_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ma_clm_auto_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ma_clm_app_days" Type="Int32" />
+    <Property Name="ma_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ma_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ma_sta_dat" Type="DateTime" Precision="3" />
+    <Property Name="ma_phone_ind" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="ma_pc_ind" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="ma_pc_sta" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="ma_rem_ark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ss_emp_mas" Relationship="Self.FK_ss_emp_mas_add" FromRole="ss_emp_mas_add" ToRole="ss_emp_mas" />
+  </EntityType>
+  <EntityType Name="ss_emp_offday_det">
+    <Key>
+      <PropertyRef Name="od_ref_cod" />
+      <PropertyRef Name="od_itm_num" />
+    </Key>
+    <Property Name="od_ref_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="od_itm_num" Type="Int32" Nullable="false" />
+    <Property Name="od_off_dat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="od_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="od_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="od_sta_dat" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ss_emp_offday_mas" Relationship="Self.FKss_emp_offday_det" FromRole="ss_emp_offday_det" ToRole="ss_emp_offday_mas" />
+  </EntityType>
+  <EntityType Name="ss_emp_offday_mas">
+    <Key>
+      <PropertyRef Name="om_ref_cod" />
+    </Key>
+    <Property Name="om_ref_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="om_emp_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="om_off_yr" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="om_day_sta" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+    <Property Name="om_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="om_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="om_sta_dat" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ss_emp_offday_det" Relationship="Self.FKss_emp_offday_det" FromRole="ss_emp_offday_mas" ToRole="ss_emp_offday_det" />
+  </EntityType>
+  <EntityType Name="ss_emp_pic">
+    <Key>
+      <PropertyRef Name="ep_emp_code" />
+    </Key>
+    <Property Name="ep_emp_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ep_pic_typ" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="ep_pic_byte" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ep_sta_dat" Type="DateTime" Precision="3" />
+    <Property Name="ep_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ss_exp_lev">
+    <Key>
+      <PropertyRef Name="el_ref_num" />
+    </Key>
+    <Property Name="el_ref_num" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="el_beg_dat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="el_end_dat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="el_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="el_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="el_sta_dat" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_gentb_mails">
+    <Key>
+      <PropertyRef Name="gm_mail_num" />
+    </Key>
+    <Property Name="gm_mail_num" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="gm_mail_typ" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="gm_mail_to" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="gm_mail_cc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="gm_mail_subject" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="gm_mail_body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="gm_mail_bodycc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="gm_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="gm_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="gm_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_lev_det">
+    <Key>
+      <PropertyRef Name="ld_bat_num" />
+      <PropertyRef Name="ld_itm_num" />
+    </Key>
+    <Property Name="ld_bat_num" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ld_itm_num" Type="Int32" Nullable="false" />
+    <Property Name="ld_lev_dat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ld_lev_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ld_lev_urg" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ld_lev_am" Type="Boolean" Nullable="false" />
+    <Property Name="ld_lev_pm" Type="Boolean" Nullable="false" />
+    <Property Name="ld_rem_ark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ld_req_to" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="ld_app_by" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="ld_app_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ld_app_dat" Type="DateTime" Precision="3" />
+    <Property Name="ld_app_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ld_cov_by" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="ld_app_remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ld_mc_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ld_mc_num" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ld_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ld_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ld_sta_dat" Type="DateTime" Precision="3" />
+    <Property Name="ld_mail_ind" Type="Int32" />
+    <Property Name="ld_edit_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ld_exp_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="ss_lev_mas" Relationship="Self.FKss_lev_det" FromRole="ss_lev_det" ToRole="ss_lev_mas" />
+  </EntityType>
+  <EntityType Name="ss_lev_det_log">
+    <Key>
+      <PropertyRef Name="dl_bat_num" />
+      <PropertyRef Name="dl_itm_num" />
+    </Key>
+    <Property Name="dl_bat_num" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dl_itm_num" Type="Int32" Nullable="false" />
+    <Property Name="dl_lev_dat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="dl_lev_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="dl_lev_urg" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="dl_lev_am" Type="Boolean" Nullable="false" />
+    <Property Name="dl_lev_pm" Type="Boolean" Nullable="false" />
+    <Property Name="dl_rem_ark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dl_req_to" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="dl_app_by" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="dl_app_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="dl_app_dat" Type="DateTime" Precision="3" />
+    <Property Name="dl_app_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dl_cov_by" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="dl_app_remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dl_mc_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="dl_mc_num" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="dl_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="dl_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dl_sta_dat" Type="DateTime" Precision="3" />
+    <Property Name="dl_mail_ind" Type="Int32" />
+    <Property Name="dl_edit_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="dl_exp_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="ss_lev_mas" Relationship="Self.FKss_lev_det_log" FromRole="ss_lev_det_log" ToRole="ss_lev_mas" />
+  </EntityType>
+  <EntityType Name="ss_lev_emp_mas">
+    <Key>
+      <PropertyRef Name="sm_ref_cod" />
+    </Key>
+    <Property Name="sm_ref_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="sm_emp_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="sm_lev_yr" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="sm_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="sm_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="sm_sta_dat" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ss_lev_emp_det" Relationship="Self.FKss_lev_emp_det" FromRole="ss_lev_emp_mas" ToRole="ss_lev_emp_det" />
+    <NavigationProperty Name="ss_lev_emp_det_his" Relationship="Self.FKss_lev_emp_det_his" FromRole="ss_lev_emp_mas" ToRole="ss_lev_emp_det_his" />
+  </EntityType>
+  <EntityType Name="ss_lev_ent_mas">
+    <Key>
+      <PropertyRef Name="em_ent_cod" />
+    </Key>
+    <Property Name="em_ent_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="em_ent_dat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="em_cat_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="em_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="em_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="em_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_lev_mas">
+    <Key>
+      <PropertyRef Name="lm_bat_num" />
+    </Key>
+    <Property Name="lm_bat_num" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="lm_bat_dat" Type="DateTime" Precision="3" />
+    <Property Name="lm_emp_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="lm_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="lm_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="lm_sta_dat" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ss_lev_det" Relationship="Self.FKss_lev_det" FromRole="ss_lev_mas" ToRole="ss_lev_det" />
+    <NavigationProperty Name="ss_lev_det_log" Relationship="Self.FKss_lev_det_log" FromRole="ss_lev_mas" ToRole="ss_lev_det_log" />
+  </EntityType>
+  <EntityType Name="ss_lev_typ">
+    <Key>
+      <PropertyRef Name="lt_lev_cod" />
+    </Key>
+    <Property Name="lt_lev_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="lt_lev_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="lt_shr_nam" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="lt_cri_teria" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="lt_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="lt_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="lt_sta_dat" Type="DateTime" Precision="3" />
+    <Property Name="lt_yr_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="lt_att_aws" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ss_mail_cclist">
+    <Key>
+      <PropertyRef Name="ml_emp_cod" />
+      <PropertyRef Name="ml_cat_cod" />
+    </Key>
+    <Property Name="ml_emp_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ml_cat_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ml_cc_emp" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ml_cc_rmk_emp" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ml_cc_dept" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ml_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ml_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ml_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_main_menus">
+    <Key>
+      <PropertyRef Name="mm_mnu_id" />
+    </Key>
+    <Property Name="mm_mnu_id" Type="Int32" Nullable="false" />
+    <Property Name="mm_mnu_des" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="mm_mnu_val" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="mm_mnu_ord" Type="Int32" />
+    <Property Name="mm_mnu_lnk" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="mm_mnu_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="mm_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="ss_sub_menus" Relationship="Self.FK_ss_sub_menus" FromRole="ss_main_menus" ToRole="ss_sub_menus" />
+  </EntityType>
+  <EntityType Name="ss_ot_det">
+    <Key>
+      <PropertyRef Name="od_bat_num" />
+      <PropertyRef Name="od_itm_num" />
+    </Key>
+    <Property Name="od_bat_num" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="od_itm_num" Type="Int32" Nullable="false" />
+    <Property Name="od_ot_dat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="od_otf_tim" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="od_ott_tim" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="od_tot_hrs" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="od_ot_meal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="od_ot_trans" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="od_ot_night" Type="Boolean" Nullable="false" />
+    <Property Name="od_rem_ark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="od_ver_by" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="od_ver_dat" Type="DateTime" Precision="3" />
+    <Property Name="od_ver_remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="od_app_by" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="od_app_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="od_app_dat" Type="DateTime" Precision="3" />
+    <Property Name="od_app_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="od_app_remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="od_pay_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="od_pay_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="od_pay_dat" Type="DateTime" Precision="3" />
+    <Property Name="od_ref_num" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="od_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="od_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="od_sta_dat" Type="DateTime" Precision="3" />
+    <Property Name="od_clm_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="od_clm_dat" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ss_ot_mas" Relationship="Self.FKss_ot_det" FromRole="ss_ot_det" ToRole="ss_ot_mas" />
+  </EntityType>
+  <EntityType Name="ss_ot_mas">
+    <Key>
+      <PropertyRef Name="om_bat_num" />
+    </Key>
+    <Property Name="om_bat_num" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="om_bat_dat" Type="DateTime" Precision="3" />
+    <Property Name="om_emp_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="om_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="om_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="om_sta_dat" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ss_ot_det" Relationship="Self.FKss_ot_det" FromRole="ss_ot_mas" ToRole="ss_ot_det" />
+  </EntityType>
+  <EntityType Name="ss_par_ams">
+    <Key>
+      <PropertyRef Name="pa_par_num" />
+    </Key>
+    <Property Name="pa_par_num" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pa_par_typ" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="pa_par_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="pa_str_val" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="pa_num_val" Type="Single" />
+    <Property Name="pa_dat_val" Type="DateTime" Precision="3" />
+    <Property Name="pa_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="pa_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="pa_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_para_meter">
+    <Key>
+      <PropertyRef Name="pm_grp_cod" />
+      <PropertyRef Name="pm_par_cod" />
+    </Key>
+    <Property Name="pm_grp_cod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="pm_par_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="pm_par_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="pm_rec_rnk" Type="Int16" />
+    <Property Name="pm_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="pm_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="pm_sta_dat" Type="DateTime" Precision="3" />
+    <Property Name="pm_shr_nam" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="pm_add_info" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ss_rep_officer">
+    <Key>
+      <PropertyRef Name="ro_id" />
+    </Key>
+    <Property Name="ro_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ro_emp_type" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ro_emp_cod" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ro_repoff_type" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ro_repoff_cod" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ro_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ro_sta_who" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ro_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_req_mas">
+    <Key>
+      <PropertyRef Name="rm_req_num" />
+    </Key>
+    <Property Name="rm_req_num" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="rm_req_dat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="rm_emp_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="rm_blk_no" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="rm_str_nam" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="rm_lvl_no" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="rm_unit_no" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="rm_build_nam" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="rm_zip_cod" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="rm_loc_home" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="rm_loc_mob" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="rm_loc_con" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="rm_email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="rm_con_person" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="rm_con_no" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="rm_con_mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="rm_con_relation" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="rm_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="rm_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="rm_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_sop_dept_mas">
+    <Key>
+      <PropertyRef Name="dm_dept_cod" />
+    </Key>
+    <Property Name="dm_dept_cod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dm_file_path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dm_sta_ind" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="dm_sta_who" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="dm_sta_dat" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ss_sop_file_mas" Relationship="Self.FK_ss_sop_file_mas" FromRole="ss_sop_dept_mas" ToRole="ss_sop_file_mas" />
+  </EntityType>
+  <EntityType Name="ss_sop_file_mas">
+    <Key>
+      <PropertyRef Name="fm_rec_num" />
+    </Key>
+    <Property Name="fm_rec_num" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fm_dept_cod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fm_eff_dat" Type="DateTime" Precision="3" />
+    <Property Name="fm_doc_nam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fm_file_nam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fm_file_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="fm_sta_ind" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="fm_sta_who" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="fm_sta_dat" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ss_sop_dept_mas" Relationship="Self.FK_ss_sop_file_mas" FromRole="ss_sop_file_mas" ToRole="ss_sop_dept_mas" />
+  </EntityType>
+  <EntityType Name="ss_sub_menus">
+    <Key>
+      <PropertyRef Name="sm_sub_id" />
+    </Key>
+    <Property Name="sm_sub_id" Type="Int32" Nullable="false" />
+    <Property Name="sm_mnu_id" Type="Int32" Nullable="false" />
+    <Property Name="sm_mnu_des" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="sm_mnu_val" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="sm_mnu_ord" Type="Int32" />
+    <Property Name="sm_mnu_lnk" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="sm_mnu_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="sm_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="ss_main_menus" Relationship="Self.FK_ss_sub_menus" FromRole="ss_sub_menus" ToRole="ss_main_menus" />
+  </EntityType>
+  <EntityType Name="ss_swap_mas">
+    <Key>
+      <PropertyRef Name="ss_bat_num" />
+    </Key>
+    <Property Name="ss_bat_num" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ss_bat_dat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ss_emp_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ss_swap_from" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ss_swap_to" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ss_swap_typ" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ss_swap_with" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ss_rem_ark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ss_app_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ss_acc_dat" Type="DateTime" Precision="3" />
+    <Property Name="ss_acc_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ss_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ss_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ss_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_usr_access">
+    <Key>
+      <PropertyRef Name="ua_emp_cod" />
+    </Key>
+    <Property Name="ua_emp_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ua_main_mnu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ua_sub_mnu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ua_rpt_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ua_rpt_dept" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ua_abs_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ua_abs_dept" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ua_offday_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ua_offday_dept" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ua_bdy_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ua_bdy_dept" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ua_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ua_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ua_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_vacant_mas">
+    <Key>
+      <PropertyRef Name="vm_id" />
+    </Key>
+    <Property Name="vm_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vm_emp_cod" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="vm_emp_nam" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="vm_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="vm_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="vm_sta_dat" Type="DateTime" Precision="3" />
+    <Property Name="vm_dept_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="vm_loc_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="vm_dept_grp_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ss_ver_officer">
+    <Key>
+      <PropertyRef Name="vo_emp_cod" />
+      <PropertyRef Name="vo_cat_cod" />
+    </Key>
+    <Property Name="vo_emp_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="vo_cat_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="vo_pri_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="vo_sec_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="vo_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="vo_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="vo_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_yr_period">
+    <Key>
+      <PropertyRef Name="yp_ref_cod" />
+    </Key>
+    <Property Name="yp_ref_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="yp_yr_val" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="yp_par_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="yp_from_dat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="yp_to_dat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="yp_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="yp_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="yp_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ss_att_det">
+    <Key>
+      <PropertyRef Name="ad_rec_num" />
+      <PropertyRef Name="ad_ter_num" />
+      <PropertyRef Name="ad_thm_num" />
+      <PropertyRef Name="ad_emp_cod" />
+      <PropertyRef Name="ad_att_dat" />
+    </Key>
+    <Property Name="ad_rec_num" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ad_ter_num" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ad_thm_num" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ad_emp_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ad_att_dat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ad_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ad_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ad_sta_dat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_clm_emp_det">
+    <Key>
+      <PropertyRef Name="cd_ref_cod" />
+      <PropertyRef Name="cd_clm_cod" />
+    </Key>
+    <Property Name="cd_ref_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="cd_clm_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="cd_clm_bf" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cd_clm_ent" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cd_cur_ent" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cd_clm_add" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cd_clm_tot" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cd_clm_tak" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cd_clm_bal" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cd_sys_sta" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="ss_clm_emp_mas" Relationship="Self.FKss_clm_emp_det" FromRole="ss_clm_emp_det" ToRole="ss_clm_emp_mas" />
+  </EntityType>
+  <EntityType Name="ss_dept_chd">
+    <Key>
+      <PropertyRef Name="dc_grp_cod" />
+      <PropertyRef Name="dc_dept_cod" />
+      <PropertyRef Name="dc_dept_grp_cod" />
+      <PropertyRef Name="dc_sta_ind" />
+      <PropertyRef Name="dc_sta_who" />
+      <PropertyRef Name="dc_sta_dat" />
+    </Key>
+    <Property Name="dc_grp_cod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dc_dept_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dc_dept_grp_cod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dc_sta_ind" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dc_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dc_sta_dat" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="ss_lev_emp_det">
+    <Key>
+      <PropertyRef Name="sd_ref_cod" />
+      <PropertyRef Name="sd_lev_cod" />
+      <PropertyRef Name="recordno" />
+    </Key>
+    <Property Name="sd_ref_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="sd_lev_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="sd_lev_bf" Type="Decimal" Precision="4" Scale="1" />
+    <Property Name="sd_lev_ent" Type="Decimal" Precision="4" Scale="1" />
+    <Property Name="sd_cur_ent" Type="Decimal" Precision="4" Scale="1" />
+    <Property Name="sd_lev_add" Type="Decimal" Precision="4" Scale="1" />
+    <Property Name="sd_lev_tot" Type="Decimal" Precision="4" Scale="1" />
+    <Property Name="sd_lev_tak" Type="Decimal" Precision="4" Scale="1" />
+    <Property Name="sd_lev_bal" Type="Decimal" Precision="4" Scale="1" />
+    <Property Name="sd_hd_max" Type="Int32" />
+    <Property Name="sd_sys_sta" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="sd_prd_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="recordno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="ss_lev_emp_mas" Relationship="Self.FKss_lev_emp_det" FromRole="ss_lev_emp_det" ToRole="ss_lev_emp_mas" />
+  </EntityType>
+  <EntityType Name="ss_lev_emp_det_his">
+    <Key>
+      <PropertyRef Name="dh_ref_cod" />
+      <PropertyRef Name="dh_lev_cod" />
+      <PropertyRef Name="dh_itm_num" />
+      <PropertyRef Name="dh_eff_dat" />
+    </Key>
+    <Property Name="dh_ref_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="dh_lev_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="dh_itm_num" Type="Int32" Nullable="false" />
+    <Property Name="dh_eff_dat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="dh_prev_lev_bf" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="dh_prev_lev_ent" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="dh_prev_cur_ent" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="dh_prev_lev_add" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="dh_lev_bf" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="dh_lev_ent" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="dh_cur_ent" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="dh_lev_add" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="dh_rem_ark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dh_sta_ind" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="dh_sta_who" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dh_sta_dat" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ss_lev_emp_mas" Relationship="Self.FKss_lev_emp_det_his" FromRole="ss_lev_emp_det_his" ToRole="ss_lev_emp_mas" />
+  </EntityType>
+  <EntityType Name="ss_lev_emp_det_temp">
+    <Key>
+      <PropertyRef Name="sd_ref_cod" />
+      <PropertyRef Name="sd_lev_cod" />
+    </Key>
+    <Property Name="sd_ref_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="sd_lev_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="sd_lev_bf" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="sd_lev_ent" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="sd_cur_ent" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="sd_lev_add" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="sd_lev_tot" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="sd_lev_tak" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="sd_lev_bal" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="sd_hd_max" Type="Int32" />
+    <Property Name="sd_sys_sta" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="sd_prd_cod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <Association Name="FKss_abs_det">
+    <End Role="ss_abs_mas" Type="Self.ss_abs_mas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ss_abs_det" Type="Self.ss_abs_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_abs_mas">
+        <PropertyRef Name="am_bat_num" />
+      </Principal>
+      <Dependent Role="ss_abs_det">
+        <PropertyRef Name="ad_bat_num" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKss_clm_det">
+    <End Role="ss_clm_mas" Type="Self.ss_clm_mas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ss_clm_det" Type="Self.ss_clm_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_clm_mas">
+        <PropertyRef Name="cm_bat_num" />
+      </Principal>
+      <Dependent Role="ss_clm_det">
+        <PropertyRef Name="cd_bat_num" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKss_clm_emp_det">
+    <End Role="ss_clm_emp_mas" Type="Self.ss_clm_emp_mas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ss_clm_emp_det" Type="Self.ss_clm_emp_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_clm_emp_mas">
+        <PropertyRef Name="cm_ref_cod" />
+      </Principal>
+      <Dependent Role="ss_clm_emp_det">
+        <PropertyRef Name="cd_ref_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ss_emp_grp_det">
+    <End Role="ss_emp_grp_mas" Type="Self.ss_emp_grp_mas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ss_emp_grp_det" Type="Self.ss_emp_grp_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_emp_grp_mas">
+        <PropertyRef Name="gm_grp_cod" />
+      </Principal>
+      <Dependent Role="ss_emp_grp_det">
+        <PropertyRef Name="gd_grp_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ss_emp_mas_add">
+    <End Role="ss_emp_mas" Type="Self.ss_emp_mas" Multiplicity="1" />
+    <End Role="ss_emp_mas_add" Type="Self.ss_emp_mas_add" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ss_emp_mas">
+        <PropertyRef Name="em_emp_cod" />
+      </Principal>
+      <Dependent Role="ss_emp_mas_add">
+        <PropertyRef Name="ma_emp_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKss_emp_offday_det">
+    <End Role="ss_emp_offday_mas" Type="Self.ss_emp_offday_mas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ss_emp_offday_det" Type="Self.ss_emp_offday_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_emp_offday_mas">
+        <PropertyRef Name="om_ref_cod" />
+      </Principal>
+      <Dependent Role="ss_emp_offday_det">
+        <PropertyRef Name="od_ref_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKss_lev_det">
+    <End Role="ss_lev_mas" Type="Self.ss_lev_mas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ss_lev_det" Type="Self.ss_lev_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_lev_mas">
+        <PropertyRef Name="lm_bat_num" />
+      </Principal>
+      <Dependent Role="ss_lev_det">
+        <PropertyRef Name="ld_bat_num" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKss_lev_det_log">
+    <End Role="ss_lev_mas" Type="Self.ss_lev_mas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ss_lev_det_log" Type="Self.ss_lev_det_log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_lev_mas">
+        <PropertyRef Name="lm_bat_num" />
+      </Principal>
+      <Dependent Role="ss_lev_det_log">
+        <PropertyRef Name="dl_bat_num" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKss_lev_emp_det">
+    <End Role="ss_lev_emp_mas" Type="Self.ss_lev_emp_mas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ss_lev_emp_det" Type="Self.ss_lev_emp_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_lev_emp_mas">
+        <PropertyRef Name="sm_ref_cod" />
+      </Principal>
+      <Dependent Role="ss_lev_emp_det">
+        <PropertyRef Name="sd_ref_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKss_lev_emp_det_his">
+    <End Role="ss_lev_emp_mas" Type="Self.ss_lev_emp_mas" Multiplicity="1" />
+    <End Role="ss_lev_emp_det_his" Type="Self.ss_lev_emp_det_his" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_lev_emp_mas">
+        <PropertyRef Name="sm_ref_cod" />
+      </Principal>
+      <Dependent Role="ss_lev_emp_det_his">
+        <PropertyRef Name="dh_ref_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ss_sub_menus">
+    <End Role="ss_main_menus" Type="Self.ss_main_menus" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ss_sub_menus" Type="Self.ss_sub_menus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_main_menus">
+        <PropertyRef Name="mm_mnu_id" />
+      </Principal>
+      <Dependent Role="ss_sub_menus">
+        <PropertyRef Name="sm_mnu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKss_ot_det">
+    <End Role="ss_ot_mas" Type="Self.ss_ot_mas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ss_ot_det" Type="Self.ss_ot_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_ot_mas">
+        <PropertyRef Name="om_bat_num" />
+      </Principal>
+      <Dependent Role="ss_ot_det">
+        <PropertyRef Name="od_bat_num" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ss_sop_file_mas">
+    <End Role="ss_sop_dept_mas" Type="Self.ss_sop_dept_mas" Multiplicity="0..1" />
+    <End Role="ss_sop_file_mas" Type="Self.ss_sop_file_mas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ss_sop_dept_mas">
+        <PropertyRef Name="dm_dept_cod" />
+      </Principal>
+      <Dependent Role="ss_sop_file_mas">
+        <PropertyRef Name="fm_dept_cod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ORIX_ESS_DB_DevEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ss_abs_det" EntityType="Self.ss_abs_det" />
+    <EntitySet Name="ss_abs_mas" EntityType="Self.ss_abs_mas" />
+    <EntitySet Name="ss_app_officer" EntityType="Self.ss_app_officer" />
+    <EntitySet Name="ss_att_access" EntityType="Self.ss_att_access" />
+    <EntitySet Name="ss_att_aws" EntityType="Self.ss_att_aws" />
+    <EntitySet Name="ss_att_deduct" EntityType="Self.ss_att_deduct" />
+    <EntitySet Name="ss_att_rem_ark" EntityType="Self.ss_att_rem_ark" />
+    <EntitySet Name="ss_att_rem_ark2" EntityType="Self.ss_att_rem_ark2" />
+    <EntitySet Name="ss_att_sum_mary" EntityType="Self.ss_att_sum_mary" />
+    <EntitySet Name="ss_buddy" EntityType="Self.ss_buddy" />
+    <EntitySet Name="ss_ccl_param" EntityType="Self.ss_ccl_param" />
+    <EntitySet Name="ss_clm_det" EntityType="Self.ss_clm_det" />
+    <EntitySet Name="ss_clm_emp_mas" EntityType="Self.ss_clm_emp_mas" />
+    <EntitySet Name="ss_clm_ent_mas" EntityType="Self.ss_clm_ent_mas" />
+    <EntitySet Name="ss_clm_mas" EntityType="Self.ss_clm_mas" />
+    <EntitySet Name="ss_clm_typ" EntityType="Self.ss_clm_typ" />
+    <EntitySet Name="ss_date_release" EntityType="Self.ss_date_release" />
+    <EntitySet Name="ss_dept_det" EntityType="Self.ss_dept_det" />
+    <EntitySet Name="ss_ecard_mails" EntityType="Self.ss_ecard_mails" />
+    <EntitySet Name="ss_email_alert" EntityType="Self.ss_email_alert" />
+    <EntitySet Name="ss_emp_address_book" EntityType="Self.ss_emp_address_book" />
+    <EntitySet Name="ss_emp_appoint_ment" EntityType="Self.ss_emp_appoint_ment" />
+    <EntitySet Name="ss_emp_category" EntityType="Self.ss_emp_category" />
+    <EntitySet Name="ss_emp_grp_det" EntityType="Self.ss_emp_grp_det" />
+    <EntitySet Name="ss_emp_grp_mas" EntityType="Self.ss_emp_grp_mas" />
+    <EntitySet Name="ss_emp_mas" EntityType="Self.ss_emp_mas" />
+    <EntitySet Name="ss_emp_mas_add" EntityType="Self.ss_emp_mas_add" />
+    <EntitySet Name="ss_emp_offday_det" EntityType="Self.ss_emp_offday_det" />
+    <EntitySet Name="ss_emp_offday_mas" EntityType="Self.ss_emp_offday_mas" />
+    <EntitySet Name="ss_emp_pic" EntityType="Self.ss_emp_pic" />
+    <EntitySet Name="ss_exp_lev" EntityType="Self.ss_exp_lev" />
+    <EntitySet Name="ss_gentb_mails" EntityType="Self.ss_gentb_mails" />
+    <EntitySet Name="ss_lev_det" EntityType="Self.ss_lev_det" />
+    <EntitySet Name="ss_lev_det_log" EntityType="Self.ss_lev_det_log" />
+    <EntitySet Name="ss_lev_emp_mas" EntityType="Self.ss_lev_emp_mas" />
+    <EntitySet Name="ss_lev_ent_mas" EntityType="Self.ss_lev_ent_mas" />
+    <EntitySet Name="ss_lev_mas" EntityType="Self.ss_lev_mas" />
+    <EntitySet Name="ss_lev_typ" EntityType="Self.ss_lev_typ" />
+    <EntitySet Name="ss_mail_cclist" EntityType="Self.ss_mail_cclist" />
+    <EntitySet Name="ss_main_menus" EntityType="Self.ss_main_menus" />
+    <EntitySet Name="ss_ot_det" EntityType="Self.ss_ot_det" />
+    <EntitySet Name="ss_ot_mas" EntityType="Self.ss_ot_mas" />
+    <EntitySet Name="ss_par_ams" EntityType="Self.ss_par_ams" />
+    <EntitySet Name="ss_para_meter" EntityType="Self.ss_para_meter" />
+    <EntitySet Name="ss_rep_officer" EntityType="Self.ss_rep_officer" />
+    <EntitySet Name="ss_req_mas" EntityType="Self.ss_req_mas" />
+    <EntitySet Name="ss_sop_dept_mas" EntityType="Self.ss_sop_dept_mas" />
+    <EntitySet Name="ss_sop_file_mas" EntityType="Self.ss_sop_file_mas" />
+    <EntitySet Name="ss_sub_menus" EntityType="Self.ss_sub_menus" />
+    <EntitySet Name="ss_swap_mas" EntityType="Self.ss_swap_mas" />
+    <EntitySet Name="ss_usr_access" EntityType="Self.ss_usr_access" />
+    <EntitySet Name="ss_vacant_mas" EntityType="Self.ss_vacant_mas" />
+    <EntitySet Name="ss_ver_officer" EntityType="Self.ss_ver_officer" />
+    <EntitySet Name="ss_yr_period" EntityType="Self.ss_yr_period" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="ss_att_det" EntityType="Self.ss_att_det" />
+    <EntitySet Name="ss_clm_emp_det" EntityType="Self.ss_clm_emp_det" />
+    <EntitySet Name="ss_dept_chd" EntityType="Self.ss_dept_chd" />
+    <EntitySet Name="ss_lev_emp_det" EntityType="Self.ss_lev_emp_det" />
+    <EntitySet Name="ss_lev_emp_det_his" EntityType="Self.ss_lev_emp_det_his" />
+    <EntitySet Name="ss_lev_emp_det_temp" EntityType="Self.ss_lev_emp_det_temp" />
+    <AssociationSet Name="FKss_abs_det" Association="Self.FKss_abs_det">
+      <End Role="ss_abs_mas" EntitySet="ss_abs_mas" />
+      <End Role="ss_abs_det" EntitySet="ss_abs_det" />
+    </AssociationSet>
+    <AssociationSet Name="FKss_clm_det" Association="Self.FKss_clm_det">
+      <End Role="ss_clm_mas" EntitySet="ss_clm_mas" />
+      <End Role="ss_clm_det" EntitySet="ss_clm_det" />
+    </AssociationSet>
+    <AssociationSet Name="FKss_clm_emp_det" Association="Self.FKss_clm_emp_det">
+      <End Role="ss_clm_emp_mas" EntitySet="ss_clm_emp_mas" />
+      <End Role="ss_clm_emp_det" EntitySet="ss_clm_emp_det" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ss_emp_grp_det" Association="Self.FK_ss_emp_grp_det">
+      <End Role="ss_emp_grp_mas" EntitySet="ss_emp_grp_mas" />
+      <End Role="ss_emp_grp_det" EntitySet="ss_emp_grp_det" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ss_emp_mas_add" Association="Self.FK_ss_emp_mas_add">
+      <End Role="ss_emp_mas" EntitySet="ss_emp_mas" />
+      <End Role="ss_emp_mas_add" EntitySet="ss_emp_mas_add" />
+    </AssociationSet>
+    <AssociationSet Name="FKss_emp_offday_det" Association="Self.FKss_emp_offday_det">
+      <End Role="ss_emp_offday_mas" EntitySet="ss_emp_offday_mas" />
+      <End Role="ss_emp_offday_det" EntitySet="ss_emp_offday_det" />
+    </AssociationSet>
+    <AssociationSet Name="FKss_lev_det" Association="Self.FKss_lev_det">
+      <End Role="ss_lev_mas" EntitySet="ss_lev_mas" />
+      <End Role="ss_lev_det" EntitySet="ss_lev_det" />
+    </AssociationSet>
+    <AssociationSet Name="FKss_lev_det_log" Association="Self.FKss_lev_det_log">
+      <End Role="ss_lev_mas" EntitySet="ss_lev_mas" />
+      <End Role="ss_lev_det_log" EntitySet="ss_lev_det_log" />
+    </AssociationSet>
+    <AssociationSet Name="FKss_lev_emp_det" Association="Self.FKss_lev_emp_det">
+      <End Role="ss_lev_emp_mas" EntitySet="ss_lev_emp_mas" />
+      <End Role="ss_lev_emp_det" EntitySet="ss_lev_emp_det" />
+    </AssociationSet>
+    <AssociationSet Name="FKss_lev_emp_det_his" Association="Self.FKss_lev_emp_det_his">
+      <End Role="ss_lev_emp_mas" EntitySet="ss_lev_emp_mas" />
+      <End Role="ss_lev_emp_det_his" EntitySet="ss_lev_emp_det_his" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ss_sub_menus" Association="Self.FK_ss_sub_menus">
+      <End Role="ss_main_menus" EntitySet="ss_main_menus" />
+      <End Role="ss_sub_menus" EntitySet="ss_sub_menus" />
+    </AssociationSet>
+    <AssociationSet Name="FKss_ot_det" Association="Self.FKss_ot_det">
+      <End Role="ss_ot_mas" EntitySet="ss_ot_mas" />
+      <End Role="ss_ot_det" EntitySet="ss_ot_det" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ss_sop_file_mas" Association="Self.FK_ss_sop_file_mas">
+      <End Role="ss_sop_dept_mas" EntitySet="ss_sop_dept_mas" />
+      <End Role="ss_sop_file_mas" EntitySet="ss_sop_file_mas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

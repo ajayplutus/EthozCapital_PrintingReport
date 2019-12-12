@@ -1,0 +1,164 @@
+﻿@model EthozCapital.Models.ViewModels.EquipmentModel
+@using EthozCapital.CustomLibraries;
+<br />
+<br />
+<br />
+@if (ViewData["Message"] != null)
+{
+    <h2>Invalid Page</h2>
+    @ViewData["Message"]
+}
+else
+{
+    <div style="margin-left: 0px; overflow: auto">
+        @if (ViewBag.Check == "C")
+        {
+            <h2>New Debenture - Construction Equipment Master</h2>
+        }
+
+        else
+        {
+            <h2>New Debenture - Industrial Equipment Master</h2>
+        }
+    </div>
+
+    <form id="mainForm" method="post">
+        <div class="tab-content">
+            <div class="tab-pane active in" id="nav-tab2-1">
+                <h3 class="m-t-10"></h3>
+                <fieldset>
+                    <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Main</legend>
+                    <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#main">
+                        <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                        <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                    </legend>
+                    <div id="selectionbox" class="selectionbox ">
+                        <div id="main" class="collapse in">
+                            <div class="row collapse in">
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <div>
+                                            <label>Equipment Brand</label>
+                                        </div>
+                                        <div>
+                                            @Html.DropDownList("ddlEquipmentBrand", ViewBag.EquipmentBrand as SelectList, "--Select--", new { @class = "form-control js-example-basic-single5 EquipmentBrand", @id = "Equipment_Brand", @style = "font-size:14px;", @onchange = "getEquipmentModel(this.value)" })
+                                        </div>
+                                        <i></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <div>
+                                            <label>Equipment Model</label>
+                                        </div>
+                                        <div>
+                                            @Html.DropDownList("ddlEquipmentModel", ViewBag.EquipmentModel as SelectList, "--Select--", new { @class = "form-control js-example-basic-single5 EquipmentModel", @id = "Equipment_Model", @style = "font-size:14px;", @onchange = "getEquipmentDesc()" })
+                                        </div>
+                                        <i></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <label>Equipment Description *</label>
+                                        <input type="text" id="txtEquipmentDescription" style="text-align:left;font-size:14px;" name="Equipment_Description" class="form-control required" required placeholder="Equipment Description" maxlength="100" /><i></i>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="tab-pane active in" id="nav-tab2-1">
+                <h3 class="m-t-10"></h3>
+                <fieldset>
+                    <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Equipment Details</legend>
+                    <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#EquipmentDetails">
+                        <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                        <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                    </legend>
+                    <div id="selectionbox" class="selectionbox">
+                        <div id="EquipmentDetails" class="collapse in">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <label>Serial Number *</label>
+                                        <input type="text" id="txtSerialNumber" style="text-align:left;font-size:14px;" name="Serial_Number" class="form-control  SerialNumber required" placeholder="Serial Number" required maxlength="50" />
+                                        <i></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <label>Secured Amount *</label>
+                                        <input type="text" id="txtSecuredAmount" style="text-align:right;font-size:14px;" name="Secured_Amount" min='0.00' step='0.01' class="form-control money SecuredAmount required" value="0.00" required maxlength="20" />
+                                        <i></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <div>
+                                            <label>Year of Manufacture</label>
+                                        </div>
+                                        <div>
+                                            @Html.DropDownList("ddlManufactureYear", ViewBag.Years as SelectList, "", new { @class = "form-control js-example-basic-single5 YearofManufacture", @id = "ManufactureYear", @style = "font-size:14px;" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <label>Engine Number</label>
+                                        <input type="text" id="txtEngineNumber" style="text-align:left;font-size:14px;" name="EngineNumber" class="form-control  Engine_Number" placeholder="Engine Number" maxlength="20" />
+                                        <i></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <label>Charge Number</label>
+                                        <input type="text" id="txtChargeNumber" style="text-align:left;font-size:14px;" name="ChargeNumber" class="form-control Charge_Number" placeholder="Charge Number" required maxlength="20" />
+                                        <i></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <label>Charge Date</label>
+                                        <input type="text" id="txtChargeDate" name="ChargeDate" class="form-control chargedate" placeholder="Charge Date" style="font-size:14px;background:white" readonly="readonly" />
+                                        <i></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            @{Html.RenderPartial("_Customer", Model.CustomerToAccess);}
+        </div>
+    </form>
+    <div class="col-md-4">
+        <div class="nav navbar-nav navbar-left">
+            <div class="row">
+                @if (ViewBag.Check == "C")
+                {
+                    <button type="button" id="SaveInventory" onclick="SaveNewConstructionEqu()" class="btn">Save</button>
+                }
+                else
+                {
+                    <button type="button" id="SaveInventory" onclick="SaveNewIndustrialEqu()" class="btn">Save</button>
+                }
+                <button type="button" id="Reset" class="btn">Reset</button>
+            </div>
+        </div>
+    </div>
+    @section Styles
+        {
+        <link href="~/CustomCss/Security/Mortgag_Customer.css" rel="stylesheet" />
+    }
+    @section HeaderScripts
+      {
+        <script src="~/CustomScript/Security/Customer_Mortgagor.js"></script>
+    }
+    <script src="~/CustomScript/Security/Customer.js"></script>
+    <script src="~/CustomScript/Security/debenture-equipment-master.js"></script>
+}
+

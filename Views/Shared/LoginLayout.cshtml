@@ -1,0 +1,167 @@
+﻿
+<!DOCTYPE html>
+<html lang="en-us" id="extr-page">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <title>ETHOZ - Login</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- ================== BEGIN BASE CSS STYLE ================== -->
+    <link href="~/assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/assets/plugins/ionicons/css/ionicons.min.css" rel="stylesheet" />
+    <link href="~/assets/css/animate.min.css" rel="stylesheet" />
+    <link href="~/assets/css/style.min.css" rel="stylesheet" />
+    <link href="~/assets/css/style-responsive.min.css" rel="stylesheet" />
+    @*<link href="~/assets/css/theme/default.css" rel="stylesheet" id="theme" />*@
+    <link href="~/assets/css/coloradmin_custom.css" rel="stylesheet" id="theme" />
+    <link href="~/assets/css/sweetalert.css" rel="stylesheet" type="text/css" media="screen">
+    <!-- ================== END BASE CSS STYLE ================== -->
+    <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+    <link href="~/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
+    <!-- ================== END PAGE LEVEL STYLE ================== -->
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script data-pace-options='{ "ajax": false }' src="~/assets/plugins/pace/pace.min.js"></script>
+    <!-- ================== END BASE JS ================== -->
+    <style>
+        span.timer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: 30px 0 0 -55px;
+            text-align: center;
+        }
+
+        .modal {
+            top: 150px;
+        }
+
+        .modal-body {
+            min-height: 120px;
+        }
+    </style>
+</head>
+<body>
+    <!-- begin #page-loader -->
+
+    <div class="container">
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div id="page-loader" class="fade in">
+                            <span class="spinner"></span>
+                            <br />
+                            <span class="timer">minutes: <label id="minutes">00</label>, seconds: <label id="seconds">00</label></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end #page-loader -->
+    <!-- begin #page-container -->
+    <div id="page-container" class="fade page-sidebar-fixed page-header-fixed page-with-light-sidebar in">
+        <!-- begin #header -->
+        <div id="header" class="header navbar navbar-default navbar-fixed-top">
+            <!-- begin container-fluid -->
+            <div class="container-fluid">
+                <!-- begin mobile sidebar expand / collapse button -->
+                <div class="navbar-header">
+                    <!-- PLACE YOUR LOGO HERE -->
+                    <span id="logo">
+                        <img src="~/assets/img/ethoz-logo.png" alt="ETHOZ" style="width:200px !important; height:70px !important">
+                        @*<img src="~/assets/img/ethoz-brand-mascot-final.png" alt="Mascot" style="width:50px !important; height:55px !important">*@
+                    </span>
+                    <!-- END LOGO PLACEHOLDER -->
+                    <!--<div id="header2" class="container" style=" top: 59px; position: fixed; z-index: 905; width: 100%; height: 20px; margin: 0 auto; background-color: #283691; ">-->
+                    @*<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>*@
+                </div>
+                <!-- end mobile sidebar expand / collapse button -->
+            </div>
+            <!-- end container-fluid -->
+            <div id="header2" class="container header-bar-ethoz" style=" top: 64px; position: fixed; width: 100%; height: 35px; margin: 0 auto; background-color: #007aff; ">
+                <br />
+            </div>
+        </div>
+        <!-- end #header -->
+        <div id="main" role="main" style="padding-top: 100px;">
+            <!-- MAIN CONTENT -->
+            <div id="content" class="container" style="width: 30%; margin: 0 auto;border: 1px solid darkgrey;">
+                <h1 style="color: #004092; text-align:center">
+                    ETHOZ Capital Ltd
+                </h1>
+                <br>
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <!--================================================== -->
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="~/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
+    <script src="~/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+    <script src="~/assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+    <script src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="~/assets/crossbrowserjs/html5shiv.js"></script>
+        <script src="~/assets/crossbrowserjs/respond.min.js"></script>
+        <script src="~/assets/crossbrowserjs/excanvas.min.js"></script>
+    <![endif]-->
+    <script src="~/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+    <script src="~/assets/js/apps.js"></script>
+    <script src="~/assets/js/apps.min.js"></script>
+    <!-- ================== END BASE JS ================== -->
+    <!-- ================== BEGIN PAGE LEVEL JS ================== -->
+    <script src="~/assets/js/apps.min.js"></script>
+    <script src="~/assets/js/sweetalert-dev.js"></script>
+    <script src="~/assets/plugins/parsley/dist/parsley.js"></script>
+    <!-- ================== END PAGE LEVEL JS ================== -->
+    @RenderSection("script", required: false)
+    <script>
+        $(document).ajaxStart(function (event, request, settings) {
+            //$('#page-loader').removeClass('hide');
+            $('#myModal').modal({
+                backdrop: 'static',
+                keyboard: true
+            });
+            startTimer();
+        });
+
+        $(document).ajaxComplete(function (event, request, settings) {
+            //$('#page-loader').addClass('hide');
+            $('#myModal').modal('hide');
+            // startTimer();
+        });
+
+        function startTimer() {
+            var minutesLabel = document.getElementById("minutes");
+            var secondsLabel = document.getElementById("seconds");
+            var totalSeconds = 0;
+            setInterval(setTime, 1000);
+
+            function setTime() {
+                ++totalSeconds;
+                secondsLabel.innerHTML = pad(totalSeconds % 60);
+                minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+            }
+
+            function pad(val) {
+                var valString = val + "";
+                if (valString.length < 2) {
+                    return "0" + valString;
+                } else {
+                    return valString;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,497 @@
+﻿@using System.Configuration
+@using EthozCapital.Models;
+@using EthozCapital.Models.ViewModels;
+@model EthozCapital.Models.ViewModels.ListOfValueViewModel
+
+@{
+    ViewBag.Title = "List of Value - New";
+    ListOfValueDropDownModel dropdownModel = ViewBag.DropDownData as ListOfValueDropDownModel;
+    string sitePath = ConfigurationManager.AppSettings["SitePath"].ToString();
+
+}
+
+
+<br />
+<br />
+<br />
+
+<h2>List of Value - New</h2>
+
+
+<body>
+    @*<style type="text/css">
+            #tblListOfValue th, #tblListOfValue button.deleting,
+            #tblValueList th, #tblValueList button.deleting {
+                background-color: #004092;
+                color: white;
+            }
+        </style>*@
+    <link href="~/Content/custom/css/listOfValue.css" rel="stylesheet" />
+    <div class="panel panel-default panel-with-tabs" data-sortable-id="ui-unlimited-tabs-2" style="margin-top: -15px;overflow:auto;">
+        <link href="~/Content/custom/css/interestCode.css" rel="stylesheet" />
+        <form id="ListOfValueForm" method="post">
+            <div class="tab-content">
+                <div class="tab-pane active in" id="nav-tab2-1">
+                    <h3 class="m-t-10"></h3>
+                    <fieldset>
+                        <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Selection</legend>
+                        <legend class="btn pull-right col-md-1 col-sm-4 col-xs-4 text-center collapseBtn" data-toggle="collapse" data-target="#selectionbox">
+                            <span class="if-collapsed"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                            <span class="if-not-collapsed"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                        </legend>
+                        <!-- begin row -->
+                        <div id="selectionBox" class="selectionbox collapse in">
+                            <div class="row">
+                                <!-- begin col-4 -->
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <label>Type *</label>
+                                        <select name="ListOfValueSelectType" id="ddlListOfValueSelectType" class="form-control required" required style="font-size:14px;">
+                                            <option value="0">-- Select --</option>
+                                            <option value="1">New Group Type</option>
+                                            <option value="2">Existing Group Type</option>
+                                        </select>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- end col-4 -->
+                            <!-- begin col-4 -->
+                            <div class="row">
+                                <div class="col-md-4" id="newGroupTypeDiv">
+                                    <div class="form-group block1">
+                                        <label>New Group Type *</label>
+                                        @Html.TextBoxFor(model => model.GroupType,
+                                        new
+                                        {
+                                            id = "newGroupType",
+                                            @class = "form-control required",
+                                            @style = "text-transform:uppercase;",
+                                            @placeholder = "Select New Group Type",
+                                            @required = "required",
+                                            maxlength = 50
+                                        })
+                                    </div>
+                                </div>
+                                <!-- end col-4 -->
+                                <div class="col-md-4" id="newGroupCodeDiv">
+                                    <div class="form-group block1">
+                                        <label>New Group Type - Prefix *</label>
+                                        @Html.TextBoxFor(model => model.GroupCode,
+                                        new
+                                        {
+                                            id = "newGroupCode",
+                                            @class = "form-control required",
+                                            @style = "text-transform:uppercase;",
+                                            @placeholder = "Select New Group Type",
+                                            @required = "required",
+                                            maxlength = 5
+                                        })
+                                    </div>
+                                </div>
+                                <!-- end col-4 -->
+
+                                <div class="col-md-4" id="existGroupTypeDiv">
+                                    <div class="form-group block1">
+                                        <label for="existGroupType">Existing Group Type *</label>
+                                        @Html.DropDownListFor(m => m.GroupType, dropdownModel.lstGroupType as List<SelectListItem>, "--Select--",
+                                                 new { @class = "selectGroup form-control js-example-basic-single", @required = "", @id = "existGroupType" })
+                                    </div>
+                                </div>
+                                <!-- end col-4 -->
+                            </div>
+
+                        </div>
+
+                    </fieldset>
+                </div>
+            </div>
+
+
+            <fieldset>
+                <div id="DivListOfValue" class="collapse in ">
+                    @{Html.RenderAction("ListOfValueListView");}
+                </div>
+            </fieldset>
+
+            <br />
+            <div id="DivValueList" class="collapse in ">
+                <legend class="pull-left col-md-8 col-xs-7">Add List Of Value</legend>
+                <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#">
+                    <span class="if-collapsed"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                    <span class="if-not-collapsed"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                </legend>
+                <legend class="btn pull-right col-md-2 col-xs-3 text-center" id="btnAddNewListOfValue" style="margin-right:5px;"><i class="fa fa-plus"></i>Add</legend>
+
+                <table id="tblValueList" class="display table table-bordered dataTable table-hover" cellspacing="0" style="min-width: 100% !important;">
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>Group Member Desc *</th>
+                            <th>Parent Group Type</th>
+                            <th>Parent Group Member Desc</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="nav navbar-nav navbar-left">
+                    <div class="row">
+                        <button type="button" id="SaveGroup" class="btn">Save</button>
+                        <button type="reset" id="ResetField" class="btn">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+
+
+
+
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+<script type="text/javascript">
+ 
+    @*function setGroupValue(groupd) {
+        var jsonParseData = JSON.parse(dropdownList).Data;
+        if (groupd)
+            var code = $(groupd).val();
+        else
+            code = jsonParseData.ParentGroupType[0].value;
+        var options = "";
+        if (code != '' && code != undefined) {
+            $.ajax({
+                url: '@sitePath/ListOfValue/GetDescByGroupType',
+                data: { code: code },
+                type: 'Get',
+                success: function (result) {
+                    $.each(result, function (i, desc) {
+                        options += "<option>" + desc.label + "</option>";
+                    });
+                    if (groupd) {
+                        var currentDesc = $(groupd).closest("tr").find(".parent-desc")
+                        currentDesc.html(options);
+                    }
+                    else
+                        desc = result;
+                    $('.js-example-basic-single').select2();
+                    //setDefaultValues(e);
+                },
+                error: function (data) {
+                }
+            });
+
+        }
+    };*@
+
+    var j = 0;
+    var desc = [];
+    var dropdownList = [];
+    $(document).ready(function () {        
+
+        inittblList();
+        $('.js-example-basic-single').select2();
+        $('#tblValueList .js-example-basic-single3').select2();
+        $("#newGroupType").attr("disabled", "disabled");
+        $("#newGroupCode").attr("disabled", "disabled");
+        $("#existGroupType").attr("disabled", "disabled");
+        dropdownList = '@{ @Html.Raw(Json.Encode(@ViewBag.GroupDropDownData)); }';
+
+        var addRow = {
+            "Action": "<button type='button' class='btn deleting'>Delete</button>",
+            "Group_Member_Desc": "",
+            "Parent_Group_Type": "",
+            "Parent_Group_Member_Desc": ""
+        };
+
+        //setGroupValue();
+
+        
+
+        var tblValueList = $("#tblValueList").DataTable({
+            "paging": false,
+            "info": false,
+            "searching": false,
+            "language": {
+                "zeroRecords": "No Data Available.",
+                "infoEmpty": "No Data Available."
+            },
+            "dom": '<"top"i>rt<"bottom"flp><"clear">'
+        });
+
+        $("#ddlListOfValueSelectType").change(function () {
+            //debugger;
+            var selectGroupType = $("#ddlListOfValueSelectType").find("option:selected").val();
+            if (selectGroupType == "1") {
+                $('#newGroupType').attr("disabled", false);
+                $('#newGroupCode').attr("disabled", false);
+                $("#existGroupType").attr("disabled", true);
+                if ($(this).hasClass("alert-danger")) {
+                    $(this).removeClass("alert-danger");
+                }
+
+            } else if (selectGroupType == "2") {
+                $("#newGroupType").attr("disabled", true);
+                $("#newGroupCode").attr("disabled", true);
+                $("#existGroupType").attr("disabled", false);
+                if ($(this).hasClass("alert-danger")) {
+                    $(this).removeClass("alert-danger");
+                }
+
+            } else {
+                // --Select--
+                $("#newGroupType").attr("disabled", true);
+                $("#newGroupCode").attr("disabled", true);
+                $("#existGroupType").attr("disabled", true);
+
+            }
+        });
+
+        $("#SaveGroup").click(function () {
+            //debugger;
+            if (Validation()) {
+                CheckGroup();
+            }
+        });
+
+        $("#existGroupType").change(function () {
+
+            //var selectGroupType = $("#existGroupType").find("option:selected").val();
+            onExistingGroupTypeSearchChange();
+        });
+
+        function inittblList() {
+            $('#tblListOfValue').DataTable({
+                dom: 'lBfrtip',
+                pageLength: 10,
+                buttons: ['copy', 'print',
+                    {
+                        extend: 'csvHtml5',
+                        title: 'Export-Data-Csv-' + new Date().getTime().toString()
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        title: 'Export-Data-Excel-' + new Date().getTime().toString()
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        title: 'Export-Data-PDF-' + new Date().getTime().toString(),
+                        orientation: 'landscape',
+                        pageSize: 'TABLOID'
+                    }
+                ]
+            });
+
+        }
+
+        @*function setGroupValue(groupd) {
+            var jsonParseData = JSON.parse(dropdownList).Data;
+            if (groupd)
+                var code = $(groupd).val();
+            else
+                code = jsonParseData.ParentGroupType[0].value;
+            var options = "";
+            if (code != '' && code != undefined) {
+                $.ajax({
+                    url: '@sitePath/ListOfValue/GetDescByGroupType',
+                    data: { code: code },
+                    type: 'Get',
+                    success: function (result) {
+                        $.each(result, function (i, desc) {
+                            options += "<option>" + desc.label + "</option>";
+                        });
+                        if (groupd) {
+                            var currentDesc = $(e).closest("tr").find(".parent-desc")
+                            currentDesc.html(options);
+                        }
+                        else
+                            desc = result;
+                        $('.js-example-basic-single').select2();
+                        //setDefaultValues(e);
+                    },
+                    error: function (data) {
+                    }
+                });
+
+            }
+        }*@
+
+        function initializeNewRow() {
+            addRow.Group_Member_Desc = "<input class='editor description' type='text'><span class='edited'></span>";
+            addRow.Parent_Group_Member_Desc = "<input style='width:200px !important' class='editor parent-desc js-example-basic-single3' type='text'><span class='edited suppliera_edited'></span>";
+            
+            if (dropdownList) {
+                //debugger;
+                var strParentGroup = "<select id='selectParentGroup' class='editor brand js-example-basic-single' tabindex='3' onchange='setGroupValue(this)'>";
+                var jsonParseData = JSON.parse(dropdownList).Data;
+                strParentGroup += "<option disabled selected value> Select Group Type </option>";
+                $.each(jsonParseData.ParentGroupType, function (i, v) {
+                    strParentGroup += "<option value = " + v.value + ">" + v.label + "</option>";
+                })
+                strParentGroup += "</select><span class='edited'></span>";
+                addRow.Parent_Group_Type = strParentGroup;
+
+                var strParentGroupDesc = "<select id='selectParentGroupDesc' tabindex='4' class='editor parent-desc js-example-basic-single3'>";
+                strParentGroupDesc += "<option disabled selected value> Select Group Description </option>";
+                strParentGroupDesc += "</select><span class='edited'></span>";
+                addRow.Parent_Group_Member_Desc = strParentGroupDesc;
+            }
+            else {
+                addRow.Parent_Group_Type = "<select id='selectParentGroup' class='editor' tabindex='3'></select><span class='edited'></span>"
+
+            }
+
+        }
+
+        $("#btnAddNewListOfValue").click(function () {
+            j++;
+            if (tblValueList.rows().count() == 0) {
+                initializeNewRow();
+                tblValueList.rows.add([[addRow.Action, addRow.Group_Member_Desc, addRow.Parent_Group_Type, addRow.Parent_Group_Member_Desc]]).draw();
+
+            }
+
+        });
+
+        
+
+        
+
+        window.setActiveRow = function (row) {
+            if (row != null) {
+                $(row).hasClass("activeRow");
+                $('#tblValueList .activeRow .js-example-basic-single3').select2();
+            }
+        }
+
+        
+
+        function setDefaultValues(currentCell) {
+            var currentRow = $(currentCell).closest("tr");
+            var GroupDesc = $(currentRow).find('#selectParentGroupDesc option:selected').text();
+        }
+
+        function Validation() {
+            var check = true;
+            var typeOption = true;
+
+            $(".required").each(function () {
+                if ($(this).val().trim() === "" || $(this).val() === "" ||
+                    $(this).val() === null || $(this).val() === "0") {
+                    $(this).addClass('alert-danger');
+                    if ($(this).is("select")) {
+                        $(this).parent().find("span.select2-selection__rendered").addClass('alert-danger');
+                    }
+                }
+                else {
+                    $(this).removeClass('alert-danger');
+                    if ($(this).is("select")) {
+                        $(this).parent().find("span.select2-selection__rendered").removeClass('alert-danger');
+                    }
+                }
+
+                if ($(".alert-danger").val() === "0") {
+                    debugger;
+                    swal(swalGlobal.SwalTitle_Error, "Please choose a valid option.", swalGlobal.SwalType_Error);
+                    check = false;
+                    typeOption = false;
+                } else {
+                    $("#ddlListOfValueSelectType").removeClass('alert-danger');
+                }
+
+                if ($(".alert-danger").length > 0 && typeOption) {
+                    debugger;
+                    swal(swalGlobal.SwalTitle_Error, "Please enter required fields.", swalGlobal.SwalType_Error);
+                    check = false;
+
+                } else {
+                    //$(this).removeClass('alert-danger');
+                }
+            });
+
+
+
+            return check;
+        }
+
+        function CheckGroup() {
+            //pass paramaters to controller
+            var model = {
+                GroupType: $("#newGroupType").val(),
+                GroupCodePrefix: $("#newGroupCode").val()
+            };
+            debugger;
+            $.post('/ListOfValue/CheckValidGroupType', model).done(function (response) {
+                //console.info("response");
+
+                if (response.Status === 1) {
+                    swal(swalGlobal.SwalTitle_Success, response.Message, swalGlobal.SwalType_Success);
+                } else {
+                    if (response.Status === 2 || response.Status === 3 || response.Status === 4) {
+                        swal(swalGlobal.SwalTitle_Error, response.Message, swalGlobal.SwalType_Error);
+                    }
+                }
+
+            });
+
+
+        }
+
+        function onExistingGroupTypeSearchChange() {
+            var eGroupType = $("#existGroupType").find("option:selected").val();
+
+            $.post("ListOfValueListView", { GroupType: eGroupType }, function (data) {
+                debugger;
+                $("#DivListOfValue").html(data);
+                inittblList();
+            });
+        }
+
+
+        $('#tblValueList tbody').on('click', 'button.deleting', function () {
+            tblValueList.row($(this).parents("tr")).remove().draw();
+        });
+
+    })
+
+    function setGroupValue(groupd) {
+        var jsonParseData = JSON.parse(dropdownList).Data;
+        if (groupd)
+            var code = $(groupd).val();
+        else
+            code = jsonParseData.ParentGroupType[0].value;
+        var options = "";
+        if (code != '' && code != undefined) {
+            $.ajax({
+                url: '@sitePath/ListOfValue/GetDescByGroupType',
+                data: { code: code },
+                type: 'Get',
+                success: function (result) {
+                    $.each(result, function (i, desc) {
+                        options += "<option>" + desc.label + "</option>";
+                    });
+                    if (groupd) {
+                        var currentDesc = $(groupd).closest("tr").find(".parent-desc")
+                        currentDesc.html(options);
+                    }
+                    else
+                        desc = result;
+                    $('.js-example-basic-single').select2();
+                    //setDefaultValues(e);
+                },
+                error: function (data) {
+                }
+            });
+
+        }
+    };
+</script>

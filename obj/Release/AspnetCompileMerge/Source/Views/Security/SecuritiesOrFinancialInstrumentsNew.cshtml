@@ -1,0 +1,284 @@
+﻿@using EthozCapital.CustomLibraries;
+<br />
+<br />
+<br />
+@if (ViewData["Message"] != null)
+{
+    <h2>Invalid Page</h2>
+    @ViewData["Message"]
+}
+else
+{
+    @section HeaderScripts
+      {
+
+        <script src="~/CustomScript/Security/Customer_Mortgagor.js"></script>
+    }
+    <script src="~/CustomScript/Security/Customer.js"></script>
+
+
+    <div style="margin-left: 0px; overflow: auto">
+        <h2>New Securities/ Financial Instruments - Securities/ Financial Instruments Master</h2>
+    </div>
+
+    <link href="~/CustomCss/Security/Mortgag_Customer.css" rel="stylesheet" />
+
+    <form id="mainForm" method="post">
+        <div class="tab-content">
+            <div class="tab-pane active in" id="nav-tab2-1">
+                <h3 class="m-t-10"></h3>
+                <fieldset>
+                    <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Main</legend>
+                    <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#main">
+                        <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                        <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                    </legend>
+                    <div id="selectionbox" class="selectionbox ">
+                        <div id="main" class="collapse in">
+                            <div class="row collapse in">
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <div>
+                                            <label>Financial Instrument Type *</label>
+                                            @Html.DropDownList("ddlFinancialInstrumentType", ViewBag.FinancialInstrumentType as SelectList, "--Select--", new { @class = "form-control js-example-basic-single3 FinancialInstrumentType required", @id = "FinancialInstrumentType", @style = "font-size:14px;" })
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <div>
+                                            <label>Amount *</label>
+                                            <input type="text" id="txtAmount" style="text-align:right;font-size:14px;" name="Amount" min='0.00' step='0.01' class="form-control money Amount required" value="0.00" required maxlength="20" autocomplete="off" />
+                                            <i></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="tab-pane active in" id="nav-tab2-1">
+                <h3 class="m-t-10"></h3>
+                <fieldset>
+                    <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Security/ Financial Instrument Details</legend>
+                    <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#SecurityFinancialInstruments">
+                        <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                        <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                    </legend>
+                    <div id="selectionbox" class="selectionbox">
+                        <div id="SecurityFinancialInstruments" class="collapse in">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <label>Document Number</label>
+                                        <input type="text" id="txtDocumentNumber" style="text-align:left;font-size:14px;" name="DocumentNumber" class="form-control DocumentNumber" placeholder="Document Number" autocomplete="off" maxlength="20" />
+                                        <i></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <label>Bank Name/ Financial Company</label>
+                                        <input type="text" id="txtBankNameFinancialCompany" name="BankName_FinancialCompany" class="form-control BankName_FinancialCompany" placeholder="Bank Name/ Financial Company" style="font-size:14px;" autocomplete="off" maxlength="50" />
+                                        <i></i>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group block1">
+                                        <label>Charge Date</label>
+                                        <input type="text" id="txtChargeDate" name="ChargeDate" class="form-control ChargeDate" placeholder="Charge Date" style="font-size:14px; background-color:white;" readonly autocomplete="off" />
+                                        <i></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            @{Html.RenderPartial("_Customer");}
+        </div>
+    </form>
+
+    <div class="col-md-4">
+        <div class="nav navbar-nav navbar-left">
+            <div class="row">
+                <button type="button" id="SaveContract" onclick="SaveNewCashandEquivalent()" class="btn">Save</button>
+                <button type="button" id="Reset" class="btn">Reset</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        //$('.money').mask("#,##0.00", { reverse: true });
+        $(document).on('blur', '.money', function () {
+            let val = $(this).val();
+            if (val == '' || val == '0' || val == '00' || val == '.00') val = '0.00';
+            while (val.length > 0) {
+                if (val.charAt(0) == '0' && val.charAt(1) != '.') {
+                    val = val.substr(1);
+                }
+                else
+                    break;
+            }
+
+            if (val.indexOf(',') == 0) {
+                val = val.substr(1);
+                if (val.charAt(0) == '0' && val.charAt(1) != '.') {
+                    val = '0.00';
+                }
+            }
+            if (val.indexOf(".") == -1 && val != '') {
+                $(this).val(val + ".00");
+            }
+            else
+                $(this).val(val);
+        });
+        $(document).ready(function () {
+            $(".ChargeDate").datepicker({
+                dateFormat: 'dd/mm/yy',
+                changeMonth: true,
+                changeYear: true,
+                showButtonPanel: true,
+                closeText: 'Clear',
+                onClose: function () {
+                    var event = arguments.callee.caller.caller.arguments[0];
+                    if ($(event.delegateTarget).hasClass('ui-datepicker-close')) {
+                        $(this).val('');
+
+                    }
+                },
+            });
+
+            $("#Reset").on('click', function () {
+                $("#FinancialInstrumentType").parent().find("span.select2-selection__rendered").text("--Select--");
+                $("select#FinancialInstrumentType").prop('selectedIndex', 0);
+                $("#txtAmount").val("0.00");
+                $("#txtDocumentNumber").val("");
+                $("#txtBankNameFinancialCompany").val('');
+                $("#txtChargeDate").val("");
+                $("#tblMortgagorList tbody tr").each(function () {
+                    $(this).find('button.deleting').click();
+                });
+                $("#tblCustomerToAccessList tbody tr").each(function () {
+                    $(this).find('button.deleting').click();
+                })
+            });
+        })
+
+        var model = {
+            FinancialInstrumentType: "",
+            Amount: "",
+            SecurityorFinancialInstrumentDetails: {
+                DocumentNumber: "",
+                BankNameorFinancialCompany: "",
+                ChargeDate: ""
+            },
+            CustomerToAccess: [{
+                IndividualCorporate: "",
+                Customer: ""
+            }]
+        }
+
+        function SaveNewCashandEquivalent() {
+            event.stopPropagation();
+            if (Validation()) {
+                $('#myModal').modal({
+                    backdrop: 'static',
+                    keyboard: false
+                });
+                model = {
+                    FinancialInstrumentType: '',
+                    Amount: '',
+                    SecurityorFinancialInstrumentDetails: {
+                        DocumentNumber: "",
+                        BankNameorFinancialCompany: "",
+                        ChargeDate: ""
+                    },
+                    CustomerToAccess: []
+                }
+
+                model.FinancialInstrumentType = $("#FinancialInstrumentType").val();
+                model.Amount = $("#txtAmount").val();
+                var FinanceType = {
+                    DocumentNumber: $("#txtDocumentNumber").val(),
+                    BankNameorFinancialCompany: $("#txtBankNameFinancialCompany").val(),
+                    ChargeDate: $("#txtChargeDate").val()
+                }
+                model.SecurityorFinancialInstrumentDetails = FinanceType;
+                $("#tblCustomerToAccessList tbody tr").each(function () {
+                    if (!$(this).hasClass('activeRow')) {
+                        var customerToAccess1 = {
+                            IndividualCorporate: $(this).find('.Individual_Corporate_Customer_edited').text(),
+                            Customer: $(this).find('.customer_edited').data("value"),
+                        };
+                        model.CustomerToAccess.push(customerToAccess1);
+                    }
+                    else {
+                        var customerToAccess1 = {
+                            IndividualCorporate: $(this).find(".Individual_Corporate_Customer").find("option:selected").val(),
+                            Customer: $(this).find('.customer').data('id'),
+                        };
+                        model.CustomerToAccess.push(customerToAccess1);
+                    }
+                });
+
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("InsertSecFinInstruments")',
+                    data: { json: JSON.stringify(model) },
+                    success: function (response) {
+                        $('#myModal').modal("hide");
+                        if (response.Status == 1) {
+                            swal('@clsGlobal.SwalTitle_Success', response.Message, '@clsGlobal.SwalType_Success');
+                            $("#Reset").click();
+                        }
+                        else {
+                            if (response.Status == 0)
+                                swal('@clsGlobal.SwalTitle_Error', response.Message, '@clsGlobal.SwalType_Error');
+                        }
+                    },
+                    error: function (ex) {
+                        $('#myModal').modal("hide");
+                        swal('@clsGlobal.SwalTitle_Error', "Error", '@clsGlobal.SwalType_Error');
+                    }
+                });
+            }
+        }
+
+        function Validation() {
+            $(".required").each(function () {
+                if ($(this).val() == "" || $(this).val() == "0.00" || $(this).val() == "--Select--") {
+                    $(this).addClass('alert-danger');
+                    if ($(this).is("select")) {
+                        $(this).parent().find("span.select2-selection__rendered").addClass('alert-danger');
+                    }
+                }
+                else {
+                    $(this).removeClass('alert-danger');
+                    if ($(this).is("select")) {
+                        $(this).parent().find("span.select2-selection__rendered").removeClass('alert-danger');
+                    }
+                }
+
+            });
+            if ($('#tblCustomerToAccessList tbody').find('td.dataTables_empty').length > 0)
+                $("#tblCustomerToAccessList_wrapper").addClass("alert-danger-table");
+            else
+                $("#tblCustomerToAccessList_wrapper").removeClass("alert-danger-table");
+
+            if ($(".alert-danger").length > 0 || $('.alert-danger-table').length > 0) {
+                swal('@clsGlobal.SwalTitle_Error', "Please enter required fields.", '@clsGlobal.SwalType_Error');
+                return false;
+            }
+            else
+                return true;
+        }
+
+    </script>
+
+}

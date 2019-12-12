@@ -1,0 +1,1067 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ORIX_ESS_DB_DevModelStoreContainer" CdmEntityContainer="ORIX_ESS_DB_DevEntities">
+    <EntitySetMapping Name="ss_abs_det">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_abs_det">
+        <MappingFragment StoreEntitySet="ss_abs_det">
+          <ScalarProperty Name="ad_bat_num" ColumnName="ad_bat_num" />
+          <ScalarProperty Name="ad_itm_num" ColumnName="ad_itm_num" />
+          <ScalarProperty Name="ad_lev_dat" ColumnName="ad_lev_dat" />
+          <ScalarProperty Name="ad_lev_cod" ColumnName="ad_lev_cod" />
+          <ScalarProperty Name="ad_lev_am" ColumnName="ad_lev_am" />
+          <ScalarProperty Name="ad_lev_pm" ColumnName="ad_lev_pm" />
+          <ScalarProperty Name="ad_lev_typ" ColumnName="ad_lev_typ" />
+          <ScalarProperty Name="ad_rem_ark" ColumnName="ad_rem_ark" />
+          <ScalarProperty Name="ad_mrk_by" ColumnName="ad_mrk_by" />
+          <ScalarProperty Name="ad_mrk_ind" ColumnName="ad_mrk_ind" />
+          <ScalarProperty Name="ad_mrk_dat" ColumnName="ad_mrk_dat" />
+          <ScalarProperty Name="ad_mrk_who" ColumnName="ad_mrk_who" />
+          <ScalarProperty Name="ad_con_dat" ColumnName="ad_con_dat" />
+          <ScalarProperty Name="ad_con_who" ColumnName="ad_con_who" />
+          <ScalarProperty Name="ad_sta_ind" ColumnName="ad_sta_ind" />
+          <ScalarProperty Name="ad_sta_who" ColumnName="ad_sta_who" />
+          <ScalarProperty Name="ad_sta_dat" ColumnName="ad_sta_dat" />
+          <ScalarProperty Name="ad_mail_ind" ColumnName="ad_mail_ind" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_abs_mas">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_abs_mas">
+        <MappingFragment StoreEntitySet="ss_abs_mas">
+          <ScalarProperty Name="am_bat_num" ColumnName="am_bat_num" />
+          <ScalarProperty Name="am_bat_dat" ColumnName="am_bat_dat" />
+          <ScalarProperty Name="am_emp_cod" ColumnName="am_emp_cod" />
+          <ScalarProperty Name="am_sta_ind" ColumnName="am_sta_ind" />
+          <ScalarProperty Name="am_sta_who" ColumnName="am_sta_who" />
+          <ScalarProperty Name="am_sta_dat" ColumnName="am_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_app_officer">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_app_officer">
+        <MappingFragment StoreEntitySet="ss_app_officer">
+          <ScalarProperty Name="ao_emp_cod" ColumnName="ao_emp_cod" />
+          <ScalarProperty Name="ao_cat_cod" ColumnName="ao_cat_cod" />
+          <ScalarProperty Name="ao_pri_cod" ColumnName="ao_pri_cod" />
+          <ScalarProperty Name="ao_sec_cod" ColumnName="ao_sec_cod" />
+          <ScalarProperty Name="ao_sta_ind" ColumnName="ao_sta_ind" />
+          <ScalarProperty Name="ao_sta_who" ColumnName="ao_sta_who" />
+          <ScalarProperty Name="ao_sta_dat" ColumnName="ao_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_att_access">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_att_access">
+        <MappingFragment StoreEntitySet="ss_att_access">
+          <ScalarProperty Name="aa_emp_cod" ColumnName="aa_emp_cod" />
+          <ScalarProperty Name="aa_main_dept" ColumnName="aa_main_dept" />
+          <ScalarProperty Name="aa_sub_dept" ColumnName="aa_sub_dept" />
+          <ScalarProperty Name="aa_att_emp" ColumnName="aa_att_emp" />
+          <ScalarProperty Name="aa_sta_ind" ColumnName="aa_sta_ind" />
+          <ScalarProperty Name="aa_sta_who" ColumnName="aa_sta_who" />
+          <ScalarProperty Name="aa_sta_dat" ColumnName="aa_sta_dat" />
+          <ScalarProperty Name="aa_att_loc" ColumnName="aa_att_loc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_att_aws">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_att_aws">
+        <MappingFragment StoreEntitySet="ss_att_aws">
+          <ScalarProperty Name="aa_aws_cod" ColumnName="aa_aws_cod" />
+          <ScalarProperty Name="aa_emp_cod" ColumnName="aa_emp_cod" />
+          <ScalarProperty Name="aa_eff_dat" ColumnName="aa_eff_dat" />
+          <ScalarProperty Name="aa_cap_amt" ColumnName="aa_cap_amt" />
+          <ScalarProperty Name="aa_deduct_amt" ColumnName="aa_deduct_amt" />
+          <ScalarProperty Name="aa_sta_ind" ColumnName="aa_sta_ind" />
+          <ScalarProperty Name="aa_sta_who" ColumnName="aa_sta_who" />
+          <ScalarProperty Name="aa_sta_dat" ColumnName="aa_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_att_deduct">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_att_deduct">
+        <MappingFragment StoreEntitySet="ss_att_deduct">
+          <ScalarProperty Name="ad_ded_cod" ColumnName="ad_ded_cod" />
+          <ScalarProperty Name="ad_abs_bat_num" ColumnName="ad_abs_bat_num" />
+          <ScalarProperty Name="ad_abs_itm_num" ColumnName="ad_abs_itm_num" />
+          <ScalarProperty Name="ad_lev_bat_num" ColumnName="ad_lev_bat_num" />
+          <ScalarProperty Name="ad_lev_itm_num" ColumnName="ad_lev_itm_num" />
+          <ScalarProperty Name="ad_ded_am" ColumnName="ad_ded_am" />
+          <ScalarProperty Name="ad_ded_pm" ColumnName="ad_ded_pm" />
+          <ScalarProperty Name="ad_pay_dat" ColumnName="ad_pay_dat" />
+          <ScalarProperty Name="ad_ded_ind" ColumnName="ad_ded_ind" />
+          <ScalarProperty Name="ad_exp_ind" ColumnName="ad_exp_ind" />
+          <ScalarProperty Name="ad_exp_dat" ColumnName="ad_exp_dat" />
+          <ScalarProperty Name="ad_sta_ind" ColumnName="ad_sta_ind" />
+          <ScalarProperty Name="ad_sta_who" ColumnName="ad_sta_who" />
+          <ScalarProperty Name="ad_sta_dat" ColumnName="ad_sta_dat" />
+          <ScalarProperty Name="ad_app_sta" ColumnName="ad_app_sta" />
+          <ScalarProperty Name="ad_waive_dat" ColumnName="ad_waive_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_att_rem_ark">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_att_rem_ark">
+        <MappingFragment StoreEntitySet="ss_att_rem_ark">
+          <ScalarProperty Name="ar_rec_num" ColumnName="ar_rec_num" />
+          <ScalarProperty Name="ar_emp_cod" ColumnName="ar_emp_cod" />
+          <ScalarProperty Name="ar_att_dat" ColumnName="ar_att_dat" />
+          <ScalarProperty Name="ar_sta_tus" ColumnName="ar_sta_tus" />
+          <ScalarProperty Name="ar_rem_ark" ColumnName="ar_rem_ark" />
+          <ScalarProperty Name="ar_sta_ind" ColumnName="ar_sta_ind" />
+          <ScalarProperty Name="ar_sta_who" ColumnName="ar_sta_who" />
+          <ScalarProperty Name="ar_sta_dat" ColumnName="ar_sta_dat" />
+          <ScalarProperty Name="ar_rem_ind" ColumnName="ar_rem_ind" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_att_rem_ark2">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_att_rem_ark2">
+        <MappingFragment StoreEntitySet="ss_att_rem_ark2">
+          <ScalarProperty Name="ar_rec_num" ColumnName="ar_rec_num" />
+          <ScalarProperty Name="ar_emp_cod" ColumnName="ar_emp_cod" />
+          <ScalarProperty Name="ar_att_dat" ColumnName="ar_att_dat" />
+          <ScalarProperty Name="ar_sta_tus" ColumnName="ar_sta_tus" />
+          <ScalarProperty Name="ar_rem_ark" ColumnName="ar_rem_ark" />
+          <ScalarProperty Name="ar_sta_ind" ColumnName="ar_sta_ind" />
+          <ScalarProperty Name="ar_sta_who" ColumnName="ar_sta_who" />
+          <ScalarProperty Name="ar_sta_dat" ColumnName="ar_sta_dat" />
+          <ScalarProperty Name="ar_rem_ind" ColumnName="ar_rem_ind" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_att_sum_mary">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_att_sum_mary">
+        <MappingFragment StoreEntitySet="ss_att_sum_mary">
+          <ScalarProperty Name="as_emp_cod" ColumnName="as_emp_cod" />
+          <ScalarProperty Name="as_att_dat" ColumnName="as_att_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_buddy">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_buddy">
+        <MappingFragment StoreEntitySet="ss_buddy">
+          <ScalarProperty Name="sb_emp_cod" ColumnName="sb_emp_cod" />
+          <ScalarProperty Name="sb_bdy_cod" ColumnName="sb_bdy_cod" />
+          <ScalarProperty Name="sb_grp_cod" ColumnName="sb_grp_cod" />
+          <ScalarProperty Name="sb_sta_ind" ColumnName="sb_sta_ind" />
+          <ScalarProperty Name="sb_sta_who" ColumnName="sb_sta_who" />
+          <ScalarProperty Name="sb_sta_dat" ColumnName="sb_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_ccl_param">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_ccl_param">
+        <MappingFragment StoreEntitySet="ss_ccl_param">
+          <ScalarProperty Name="cp_rec_num" ColumnName="cp_rec_num" />
+          <ScalarProperty Name="cp_eff_dat" ColumnName="cp_eff_dat" />
+          <ScalarProperty Name="cp_srv_mth" ColumnName="cp_srv_mth" />
+          <ScalarProperty Name="cp_srv_ent" ColumnName="cp_srv_ent" />
+          <ScalarProperty Name="cp_sta_ind" ColumnName="cp_sta_ind" />
+          <ScalarProperty Name="cp_sta_who" ColumnName="cp_sta_who" />
+          <ScalarProperty Name="cp_sta_dat" ColumnName="cp_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_clm_det">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_clm_det">
+        <MappingFragment StoreEntitySet="ss_clm_det">
+          <ScalarProperty Name="cd_bat_num" ColumnName="cd_bat_num" />
+          <ScalarProperty Name="cd_itm_num" ColumnName="cd_itm_num" />
+          <ScalarProperty Name="cd_rec_dat" ColumnName="cd_rec_dat" />
+          <ScalarProperty Name="cd_rec_num" ColumnName="cd_rec_num" />
+          <ScalarProperty Name="cd_typ_cod" ColumnName="cd_typ_cod" />
+          <ScalarProperty Name="cd_grp_cod" ColumnName="cd_grp_cod" />
+          <ScalarProperty Name="cd_veh_num" ColumnName="cd_veh_num" />
+          <ScalarProperty Name="cd_clm_cod" ColumnName="cd_clm_cod" />
+          <ScalarProperty Name="cd_pay_cod" ColumnName="cd_pay_cod" />
+          <ScalarProperty Name="cd_pay_to" ColumnName="cd_pay_to" />
+          <ScalarProperty Name="cd_rec_amt" ColumnName="cd_rec_amt" />
+          <ScalarProperty Name="cd_clm_amt" ColumnName="cd_clm_amt" />
+          <ScalarProperty Name="cd_paid_amt" ColumnName="cd_paid_amt" />
+          <ScalarProperty Name="cd_rem_ark" ColumnName="cd_rem_ark" />
+          <ScalarProperty Name="cd_ver_by" ColumnName="cd_ver_by" />
+          <ScalarProperty Name="cd_ver_dat" ColumnName="cd_ver_dat" />
+          <ScalarProperty Name="cd_ver_remark" ColumnName="cd_ver_remark" />
+          <ScalarProperty Name="cd_app_by" ColumnName="cd_app_by" />
+          <ScalarProperty Name="cd_app_ind" ColumnName="cd_app_ind" />
+          <ScalarProperty Name="cd_app_dat" ColumnName="cd_app_dat" />
+          <ScalarProperty Name="cd_app_who" ColumnName="cd_app_who" />
+          <ScalarProperty Name="cd_app_remark" ColumnName="cd_app_remark" />
+          <ScalarProperty Name="cd_pay_ind" ColumnName="cd_pay_ind" />
+          <ScalarProperty Name="cd_pay_who" ColumnName="cd_pay_who" />
+          <ScalarProperty Name="cd_pay_dat" ColumnName="cd_pay_dat" />
+          <ScalarProperty Name="cd_ref_num" ColumnName="cd_ref_num" />
+          <ScalarProperty Name="cd_sta_ind" ColumnName="cd_sta_ind" />
+          <ScalarProperty Name="cd_sta_who" ColumnName="cd_sta_who" />
+          <ScalarProperty Name="cd_sta_dat" ColumnName="cd_sta_dat" />
+          <ScalarProperty Name="cd_clm_ind" ColumnName="cd_clm_ind" />
+          <ScalarProperty Name="cd_clm_dat" ColumnName="cd_clm_dat" />
+          <ScalarProperty Name="cd_pro_ind" ColumnName="cd_pro_ind" />
+          <ScalarProperty Name="cd_srv_num" ColumnName="cd_srv_num" />
+          <ScalarProperty Name="cd_sup_inv_num" ColumnName="cd_sup_inv_num" />
+          <ScalarProperty Name="cd_taxable" ColumnName="cd_taxable" />
+          <ScalarProperty Name="cd_gst_amt" ColumnName="cd_gst_amt" />
+          <ScalarProperty Name="cd_loc_cod" ColumnName="cd_loc_cod" />
+          <ScalarProperty Name="cd_clm_des" ColumnName="cd_clm_des" />
+          <ScalarProperty Name="cd_directpay_ind" ColumnName="cd_directpay_ind" />
+          <ScalarProperty Name="cd_directpay_ref_num" ColumnName="cd_directpay_ref_num" />
+          <ScalarProperty Name="cd_directpay_who" ColumnName="cd_directpay_who" />
+          <ScalarProperty Name="cd_directpay_dat" ColumnName="cd_directpay_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_clm_emp_mas">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_clm_emp_mas">
+        <MappingFragment StoreEntitySet="ss_clm_emp_mas">
+          <ScalarProperty Name="cm_ref_cod" ColumnName="cm_ref_cod" />
+          <ScalarProperty Name="cm_emp_cod" ColumnName="cm_emp_cod" />
+          <ScalarProperty Name="cm_clm_yr" ColumnName="cm_clm_yr" />
+          <ScalarProperty Name="cm_sta_ind" ColumnName="cm_sta_ind" />
+          <ScalarProperty Name="cm_sta_who" ColumnName="cm_sta_who" />
+          <ScalarProperty Name="cm_sta_dat" ColumnName="cm_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_clm_ent_mas">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_clm_ent_mas">
+        <MappingFragment StoreEntitySet="ss_clm_ent_mas">
+          <ScalarProperty Name="em_ent_cod" ColumnName="em_ent_cod" />
+          <ScalarProperty Name="em_ent_dat" ColumnName="em_ent_dat" />
+          <ScalarProperty Name="em_cat_cod" ColumnName="em_cat_cod" />
+          <ScalarProperty Name="em_sta_ind" ColumnName="em_sta_ind" />
+          <ScalarProperty Name="em_sta_who" ColumnName="em_sta_who" />
+          <ScalarProperty Name="em_sta_dat" ColumnName="em_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_clm_mas">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_clm_mas">
+        <MappingFragment StoreEntitySet="ss_clm_mas">
+          <ScalarProperty Name="cm_bat_num" ColumnName="cm_bat_num" />
+          <ScalarProperty Name="cm_bat_dat" ColumnName="cm_bat_dat" />
+          <ScalarProperty Name="cm_emp_cod" ColumnName="cm_emp_cod" />
+          <ScalarProperty Name="cm_sta_ind" ColumnName="cm_sta_ind" />
+          <ScalarProperty Name="cm_sta_who" ColumnName="cm_sta_who" />
+          <ScalarProperty Name="cm_sta_dat" ColumnName="cm_sta_dat" />
+          <ScalarProperty Name="cm_behalf_emp_cod" ColumnName="cm_behalf_emp_cod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_clm_typ">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_clm_typ">
+        <MappingFragment StoreEntitySet="ss_clm_typ">
+          <ScalarProperty Name="ct_clm_cod" ColumnName="ct_clm_cod" />
+          <ScalarProperty Name="ct_cat_cod" ColumnName="ct_cat_cod" />
+          <ScalarProperty Name="ct_clm_desc" ColumnName="ct_clm_desc" />
+          <ScalarProperty Name="ct_shr_nam" ColumnName="ct_shr_nam" />
+          <ScalarProperty Name="ct_gl_cod" ColumnName="ct_gl_cod" />
+          <ScalarProperty Name="ct_cri_teria" ColumnName="ct_cri_teria" />
+          <ScalarProperty Name="ct_ent_typ" ColumnName="ct_ent_typ" />
+          <ScalarProperty Name="ct_rem_ark" ColumnName="ct_rem_ark" />
+          <ScalarProperty Name="ct_sta_ind" ColumnName="ct_sta_ind" />
+          <ScalarProperty Name="ct_sta_who" ColumnName="ct_sta_who" />
+          <ScalarProperty Name="ct_sta_dat" ColumnName="ct_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_date_release">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_date_release">
+        <MappingFragment StoreEntitySet="ss_date_release">
+          <ScalarProperty Name="dr_ref_cod" ColumnName="dr_ref_cod" />
+          <ScalarProperty Name="dr_emp_cod" ColumnName="dr_emp_cod" />
+          <ScalarProperty Name="dr_typ_ind" ColumnName="dr_typ_ind" />
+          <ScalarProperty Name="dr_rel_dat" ColumnName="dr_rel_dat" />
+          <ScalarProperty Name="dr_sta_ind" ColumnName="dr_sta_ind" />
+          <ScalarProperty Name="dr_sta_who" ColumnName="dr_sta_who" />
+          <ScalarProperty Name="dr_sta_dat" ColumnName="dr_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_dept_det">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_dept_det">
+        <MappingFragment StoreEntitySet="ss_dept_det">
+          <ScalarProperty Name="dd_grp_cod" ColumnName="dd_grp_cod" />
+          <ScalarProperty Name="dd_dept_cod" ColumnName="dd_dept_cod" />
+          <ScalarProperty Name="dd_tel_num" ColumnName="dd_tel_num" />
+          <ScalarProperty Name="dd_fax_num" ColumnName="dd_fax_num" />
+          <ScalarProperty Name="dd_email" ColumnName="dd_email" />
+          <ScalarProperty Name="dd_old_dept_cod" ColumnName="dd_old_dept_cod" />
+          <ScalarProperty Name="dd_sta_ind" ColumnName="dd_sta_ind" />
+          <ScalarProperty Name="dd_sta_who" ColumnName="dd_sta_who" />
+          <ScalarProperty Name="dd_sta_dat" ColumnName="dd_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_ecard_mails">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_ecard_mails">
+        <MappingFragment StoreEntitySet="ss_ecard_mails">
+          <ScalarProperty Name="ec_mail_num" ColumnName="ec_mail_num" />
+          <ScalarProperty Name="ec_mail_typ" ColumnName="ec_mail_typ" />
+          <ScalarProperty Name="ec_ref_num" ColumnName="ec_ref_num" />
+          <ScalarProperty Name="ec_mail_from" ColumnName="ec_mail_from" />
+          <ScalarProperty Name="ec_mail_to" ColumnName="ec_mail_to" />
+          <ScalarProperty Name="ec_mail_sub" ColumnName="ec_mail_sub" />
+          <ScalarProperty Name="ec_mail_body" ColumnName="ec_mail_body" />
+          <ScalarProperty Name="ec_sta_ind" ColumnName="ec_sta_ind" />
+          <ScalarProperty Name="ec_sta_who" ColumnName="ec_sta_who" />
+          <ScalarProperty Name="ec_sta_dat" ColumnName="ec_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_email_alert">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_email_alert">
+        <MappingFragment StoreEntitySet="ss_email_alert">
+          <ScalarProperty Name="ea_rec_num" ColumnName="ea_rec_num" />
+          <ScalarProperty Name="ea_emp_cod" ColumnName="ea_emp_cod" />
+          <ScalarProperty Name="ea_cat_cod" ColumnName="ea_cat_cod" />
+          <ScalarProperty Name="ea_cat_val" ColumnName="ea_cat_val" />
+          <ScalarProperty Name="ea_alt_dat" ColumnName="ea_alt_dat" />
+          <ScalarProperty Name="ea_mail_count" ColumnName="ea_mail_count" />
+          <ScalarProperty Name="ea_sta_ind" ColumnName="ea_sta_ind" />
+          <ScalarProperty Name="ea_sta_who" ColumnName="ea_sta_who" />
+          <ScalarProperty Name="ea_sta_dat" ColumnName="ea_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_emp_address_book">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_emp_address_book">
+        <MappingFragment StoreEntitySet="ss_emp_address_book">
+          <ScalarProperty Name="ea_rec_num" ColumnName="ea_rec_num" />
+          <ScalarProperty Name="ea_emp_cod" ColumnName="ea_emp_cod" />
+          <ScalarProperty Name="ea_rec_nam" ColumnName="ea_rec_nam" />
+          <ScalarProperty Name="ea_rec_mail" ColumnName="ea_rec_mail" />
+          <ScalarProperty Name="ea_sta_ind" ColumnName="ea_sta_ind" />
+          <ScalarProperty Name="ea_sta_who" ColumnName="ea_sta_who" />
+          <ScalarProperty Name="ea_sta_dat" ColumnName="ea_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_emp_appoint_ment">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_emp_appoint_ment">
+        <MappingFragment StoreEntitySet="ss_emp_appoint_ment">
+          <ScalarProperty Name="ea_app_num" ColumnName="ea_app_num" />
+          <ScalarProperty Name="ea_emp_cod" ColumnName="ea_emp_cod" />
+          <ScalarProperty Name="ea_app_dat" ColumnName="ea_app_dat" />
+          <ScalarProperty Name="ea_typ_cod" ColumnName="ea_typ_cod" />
+          <ScalarProperty Name="ea_rem_ark" ColumnName="ea_rem_ark" />
+          <ScalarProperty Name="ea_sta_ind" ColumnName="ea_sta_ind" />
+          <ScalarProperty Name="ea_sta_who" ColumnName="ea_sta_who" />
+          <ScalarProperty Name="ea_sta_dat" ColumnName="ea_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_emp_category">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_emp_category">
+        <MappingFragment StoreEntitySet="ss_emp_category">
+          <ScalarProperty Name="ec_cat_cod" ColumnName="ec_cat_cod" />
+          <ScalarProperty Name="ec_cat_desc" ColumnName="ec_cat_desc" />
+          <ScalarProperty Name="ec_cat_ord" ColumnName="ec_cat_ord" />
+          <ScalarProperty Name="ec_sta_ind" ColumnName="ec_sta_ind" />
+          <ScalarProperty Name="ec_sta_who" ColumnName="ec_sta_who" />
+          <ScalarProperty Name="ec_sta_dat" ColumnName="ec_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_emp_grp_det">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_emp_grp_det">
+        <MappingFragment StoreEntitySet="ss_emp_grp_det">
+          <ScalarProperty Name="gd_grp_cod" ColumnName="gd_grp_cod" />
+          <ScalarProperty Name="gd_itm_num" ColumnName="gd_itm_num" />
+          <ScalarProperty Name="gd_grp_day" ColumnName="gd_grp_day" />
+          <ScalarProperty Name="gd_wrk_ind" ColumnName="gd_wrk_ind" />
+          <ScalarProperty Name="gd_beg_tim" ColumnName="gd_beg_tim" />
+          <ScalarProperty Name="gd_end_tim" ColumnName="gd_end_tim" />
+          <ScalarProperty Name="gd_hol_day" ColumnName="gd_hol_day" />
+          <ScalarProperty Name="gd_half_day" ColumnName="gd_half_day" />
+          <ScalarProperty Name="gd_alt_day" ColumnName="gd_alt_day" />
+          <ScalarProperty Name="gd_ot_ind" ColumnName="gd_ot_ind" />
+          <ScalarProperty Name="gd_ot_beg" ColumnName="gd_ot_beg" />
+          <ScalarProperty Name="gd_ot_end" ColumnName="gd_ot_end" />
+          <ScalarProperty Name="gd_ot_hrs" ColumnName="gd_ot_hrs" />
+          <ScalarProperty Name="gd_half_DayA" ColumnName="gd_half_DayA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_emp_grp_mas">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_emp_grp_mas">
+        <MappingFragment StoreEntitySet="ss_emp_grp_mas">
+          <ScalarProperty Name="gm_grp_cod" ColumnName="gm_grp_cod" />
+          <ScalarProperty Name="gm_grp_desc" ColumnName="gm_grp_desc" />
+          <ScalarProperty Name="gm_sta_ind" ColumnName="gm_sta_ind" />
+          <ScalarProperty Name="gm_sta_who" ColumnName="gm_sta_who" />
+          <ScalarProperty Name="gm_sta_dat" ColumnName="gm_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_emp_mas">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_emp_mas">
+        <MappingFragment StoreEntitySet="ss_emp_mas">
+          <ScalarProperty Name="em_emp_cod" ColumnName="em_emp_cod" />
+          <ScalarProperty Name="em_title" ColumnName="em_title" />
+          <ScalarProperty Name="em_initial" ColumnName="em_initial" />
+          <ScalarProperty Name="em_emp_nam" ColumnName="em_emp_nam" />
+          <ScalarProperty Name="em_alias_nam" ColumnName="em_alias_nam" />
+          <ScalarProperty Name="em_sht_nam" ColumnName="em_sht_nam" />
+          <ScalarProperty Name="em_emp_nation" ColumnName="em_emp_nation" />
+          <ScalarProperty Name="em_citizen_sta" ColumnName="em_citizen_sta" />
+          <ScalarProperty Name="em_nric_type" ColumnName="em_nric_type" />
+          <ScalarProperty Name="em_nric_no" ColumnName="em_nric_no" />
+          <ScalarProperty Name="em_birth_place" ColumnName="em_birth_place" />
+          <ScalarProperty Name="em_birth_dat" ColumnName="em_birth_dat" />
+          <ScalarProperty Name="em_emp_gender" ColumnName="em_emp_gender" />
+          <ScalarProperty Name="em_mar_sta" ColumnName="em_mar_sta" />
+          <ScalarProperty Name="em_emp_race" ColumnName="em_emp_race" />
+          <ScalarProperty Name="em_dialect_grp" ColumnName="em_dialect_grp" />
+          <ScalarProperty Name="em_emp_religion" ColumnName="em_emp_religion" />
+          <ScalarProperty Name="em_wrk_per" ColumnName="em_wrk_per" />
+          <ScalarProperty Name="em_fin_no" ColumnName="em_fin_no" />
+          <ScalarProperty Name="em_exp_dat" ColumnName="em_exp_dat" />
+          <ScalarProperty Name="em_pr_dat" ColumnName="em_pr_dat" />
+          <ScalarProperty Name="em_lic_sta" ColumnName="em_lic_sta" />
+          <ScalarProperty Name="em_lic_num" ColumnName="em_lic_num" />
+          <ScalarProperty Name="em_iss_dat" ColumnName="em_iss_dat" />
+          <ScalarProperty Name="em_lic_exp_dat" ColumnName="em_lic_exp_dat" />
+          <ScalarProperty Name="em_height" ColumnName="em_height" />
+          <ScalarProperty Name="em_weight" ColumnName="em_weight" />
+          <ScalarProperty Name="em_hea_con" ColumnName="em_hea_con" />
+          <ScalarProperty Name="em_ill_ness" ColumnName="em_ill_ness" />
+          <ScalarProperty Name="em_treat_ment" ColumnName="em_treat_ment" />
+          <ScalarProperty Name="em_ns_sta" ColumnName="em_ns_sta" />
+          <ScalarProperty Name="em_ns_voc" ColumnName="em_ns_voc" />
+          <ScalarProperty Name="em_ns_rank" ColumnName="em_ns_rank" />
+          <ScalarProperty Name="em_ns_ord" ColumnName="em_ns_ord" />
+          <ScalarProperty Name="em_child_dob" ColumnName="em_child_dob" />
+          <ScalarProperty Name="em_blk_no" ColumnName="em_blk_no" />
+          <ScalarProperty Name="em_str_nam" ColumnName="em_str_nam" />
+          <ScalarProperty Name="em_lvl_no" ColumnName="em_lvl_no" />
+          <ScalarProperty Name="em_unit_no" ColumnName="em_unit_no" />
+          <ScalarProperty Name="em_build_nam" ColumnName="em_build_nam" />
+          <ScalarProperty Name="em_zip_cod" ColumnName="em_zip_cod" />
+          <ScalarProperty Name="em_loc_home" ColumnName="em_loc_home" />
+          <ScalarProperty Name="em_loc_mob" ColumnName="em_loc_mob" />
+          <ScalarProperty Name="em_loc_pager" ColumnName="em_loc_pager" />
+          <ScalarProperty Name="em_loc_con" ColumnName="em_loc_con" />
+          <ScalarProperty Name="em_email" ColumnName="em_email" />
+          <ScalarProperty Name="em_con_person" ColumnName="em_con_person" />
+          <ScalarProperty Name="em_con_no" ColumnName="em_con_no" />
+          <ScalarProperty Name="em_con_mail" ColumnName="em_con_mail" />
+          <ScalarProperty Name="em_con_relation" ColumnName="em_con_relation" />
+          <ScalarProperty Name="em_category" ColumnName="em_category" />
+          <ScalarProperty Name="em_join_dat" ColumnName="em_join_dat" />
+          <ScalarProperty Name="em_emp_sta" ColumnName="em_emp_sta" />
+          <ScalarProperty Name="em_pro_period" ColumnName="em_pro_period" />
+          <ScalarProperty Name="em_cfm_dat" ColumnName="em_cfm_dat" />
+          <ScalarProperty Name="em_rsg_dat" ColumnName="em_rsg_dat" />
+          <ScalarProperty Name="em_rsg_reason" ColumnName="em_rsg_reason" />
+          <ScalarProperty Name="em_inc_tax" ColumnName="em_inc_tax" />
+          <ScalarProperty Name="em_cpf_sta" ColumnName="em_cpf_sta" />
+          <ScalarProperty Name="em_emp_cpf" ColumnName="em_emp_cpf" />
+          <ScalarProperty Name="em_con_sta" ColumnName="em_con_sta" />
+          <ScalarProperty Name="em_ot_sta" ColumnName="em_ot_sta" />
+          <ScalarProperty Name="em_lea_cat" ColumnName="em_lea_cat" />
+          <ScalarProperty Name="em_clm_cat" ColumnName="em_clm_cat" />
+          <ScalarProperty Name="em_ins_cat" ColumnName="em_ins_cat" />
+          <ScalarProperty Name="em_status" ColumnName="em_status" />
+          <ScalarProperty Name="em_pro_dat" ColumnName="em_pro_dat" />
+          <ScalarProperty Name="em_emp_typ" ColumnName="em_emp_typ" />
+          <ScalarProperty Name="em_sat_grp" ColumnName="em_sat_grp" />
+          <ScalarProperty Name="em_sat_dat" ColumnName="em_sat_dat" />
+          <ScalarProperty Name="em_con_pri" ColumnName="em_con_pri" />
+          <ScalarProperty Name="em_con_sec" ColumnName="em_con_sec" />
+          <ScalarProperty Name="em_did" ColumnName="em_did" />
+          <ScalarProperty Name="em_thumb_id" ColumnName="em_thumb_id" />
+          <ScalarProperty Name="em_smtp_id" ColumnName="em_smtp_id" />
+          <ScalarProperty Name="em_acc_lvl" ColumnName="em_acc_lvl" />
+          <ScalarProperty Name="em_usr_nam" ColumnName="em_usr_nam" />
+          <ScalarProperty Name="em_app_officer" ColumnName="em_app_officer" />
+          <ScalarProperty Name="em_alt_officer" ColumnName="em_alt_officer" />
+          <ScalarProperty Name="em_remarks" ColumnName="em_remarks" />
+          <ScalarProperty Name="em_pay_slip" ColumnName="em_pay_slip" />
+          <ScalarProperty Name="em_mob_bill" ColumnName="em_mob_bill" />
+          <ScalarProperty Name="em_sta_ind" ColumnName="em_sta_ind" />
+          <ScalarProperty Name="em_sta_who" ColumnName="em_sta_who" />
+          <ScalarProperty Name="em_sta_dat" ColumnName="em_sta_dat" />
+          <ScalarProperty Name="em_grp_cod" ColumnName="em_grp_cod" />
+          <ScalarProperty Name="em_dept_cod" ColumnName="em_dept_cod" />
+          <ScalarProperty Name="em_design_cod" ColumnName="em_design_cod" />
+          <ScalarProperty Name="em_child_nation" ColumnName="em_child_nation" />
+          <ScalarProperty Name="em_blk_typ" ColumnName="em_blk_typ" />
+          <ScalarProperty Name="em_loc_cod" ColumnName="em_loc_cod" />
+          <ScalarProperty Name="em_mgmt_ent_cod" ColumnName="em_mgmt_ent_cod" />
+          <ScalarProperty Name="em_letter_nam" ColumnName="em_letter_nam" />
+          <ScalarProperty Name="em_dept_grp_cod" ColumnName="em_dept_grp_cod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_emp_mas_add">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_emp_mas_add">
+        <MappingFragment StoreEntitySet="ss_emp_mas_add">
+          <ScalarProperty Name="ma_emp_cod" ColumnName="ma_emp_cod" />
+          <ScalarProperty Name="ma_lev_ent_ind" ColumnName="ma_lev_ent_ind" />
+          <ScalarProperty Name="ma_lev_auto_ind" ColumnName="ma_lev_auto_ind" />
+          <ScalarProperty Name="ma_lev_app_days" ColumnName="ma_lev_app_days" />
+          <ScalarProperty Name="ma_clm_ent_ind" ColumnName="ma_clm_ent_ind" />
+          <ScalarProperty Name="ma_clm_auto_ind" ColumnName="ma_clm_auto_ind" />
+          <ScalarProperty Name="ma_clm_app_days" ColumnName="ma_clm_app_days" />
+          <ScalarProperty Name="ma_sta_ind" ColumnName="ma_sta_ind" />
+          <ScalarProperty Name="ma_sta_who" ColumnName="ma_sta_who" />
+          <ScalarProperty Name="ma_sta_dat" ColumnName="ma_sta_dat" />
+          <ScalarProperty Name="ma_phone_ind" ColumnName="ma_phone_ind" />
+          <ScalarProperty Name="ma_pc_ind" ColumnName="ma_pc_ind" />
+          <ScalarProperty Name="ma_pc_sta" ColumnName="ma_pc_sta" />
+          <ScalarProperty Name="ma_rem_ark" ColumnName="ma_rem_ark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_emp_offday_det">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_emp_offday_det">
+        <MappingFragment StoreEntitySet="ss_emp_offday_det">
+          <ScalarProperty Name="od_ref_cod" ColumnName="od_ref_cod" />
+          <ScalarProperty Name="od_itm_num" ColumnName="od_itm_num" />
+          <ScalarProperty Name="od_off_dat" ColumnName="od_off_dat" />
+          <ScalarProperty Name="od_sta_ind" ColumnName="od_sta_ind" />
+          <ScalarProperty Name="od_sta_who" ColumnName="od_sta_who" />
+          <ScalarProperty Name="od_sta_dat" ColumnName="od_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_emp_offday_mas">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_emp_offday_mas">
+        <MappingFragment StoreEntitySet="ss_emp_offday_mas">
+          <ScalarProperty Name="om_ref_cod" ColumnName="om_ref_cod" />
+          <ScalarProperty Name="om_emp_cod" ColumnName="om_emp_cod" />
+          <ScalarProperty Name="om_off_yr" ColumnName="om_off_yr" />
+          <ScalarProperty Name="om_day_sta" ColumnName="om_day_sta" />
+          <ScalarProperty Name="om_sta_ind" ColumnName="om_sta_ind" />
+          <ScalarProperty Name="om_sta_who" ColumnName="om_sta_who" />
+          <ScalarProperty Name="om_sta_dat" ColumnName="om_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_emp_pic">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_emp_pic">
+        <MappingFragment StoreEntitySet="ss_emp_pic">
+          <ScalarProperty Name="ep_emp_code" ColumnName="ep_emp_code" />
+          <ScalarProperty Name="ep_pic_typ" ColumnName="ep_pic_typ" />
+          <ScalarProperty Name="ep_pic_byte" ColumnName="ep_pic_byte" />
+          <ScalarProperty Name="ep_sta_dat" ColumnName="ep_sta_dat" />
+          <ScalarProperty Name="ep_sta_who" ColumnName="ep_sta_who" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_exp_lev">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_exp_lev">
+        <MappingFragment StoreEntitySet="ss_exp_lev">
+          <ScalarProperty Name="el_ref_num" ColumnName="el_ref_num" />
+          <ScalarProperty Name="el_beg_dat" ColumnName="el_beg_dat" />
+          <ScalarProperty Name="el_end_dat" ColumnName="el_end_dat" />
+          <ScalarProperty Name="el_sta_ind" ColumnName="el_sta_ind" />
+          <ScalarProperty Name="el_sta_who" ColumnName="el_sta_who" />
+          <ScalarProperty Name="el_sta_dat" ColumnName="el_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_gentb_mails">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_gentb_mails">
+        <MappingFragment StoreEntitySet="ss_gentb_mails">
+          <ScalarProperty Name="gm_mail_num" ColumnName="gm_mail_num" />
+          <ScalarProperty Name="gm_mail_typ" ColumnName="gm_mail_typ" />
+          <ScalarProperty Name="gm_mail_to" ColumnName="gm_mail_to" />
+          <ScalarProperty Name="gm_mail_cc" ColumnName="gm_mail_cc" />
+          <ScalarProperty Name="gm_mail_subject" ColumnName="gm_mail_subject" />
+          <ScalarProperty Name="gm_mail_body" ColumnName="gm_mail_body" />
+          <ScalarProperty Name="gm_mail_bodycc" ColumnName="gm_mail_bodycc" />
+          <ScalarProperty Name="gm_sta_ind" ColumnName="gm_sta_ind" />
+          <ScalarProperty Name="gm_sta_who" ColumnName="gm_sta_who" />
+          <ScalarProperty Name="gm_sta_dat" ColumnName="gm_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_lev_det">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_lev_det">
+        <MappingFragment StoreEntitySet="ss_lev_det">
+          <ScalarProperty Name="ld_bat_num" ColumnName="ld_bat_num" />
+          <ScalarProperty Name="ld_itm_num" ColumnName="ld_itm_num" />
+          <ScalarProperty Name="ld_lev_dat" ColumnName="ld_lev_dat" />
+          <ScalarProperty Name="ld_lev_cod" ColumnName="ld_lev_cod" />
+          <ScalarProperty Name="ld_lev_urg" ColumnName="ld_lev_urg" />
+          <ScalarProperty Name="ld_lev_am" ColumnName="ld_lev_am" />
+          <ScalarProperty Name="ld_lev_pm" ColumnName="ld_lev_pm" />
+          <ScalarProperty Name="ld_rem_ark" ColumnName="ld_rem_ark" />
+          <ScalarProperty Name="ld_req_to" ColumnName="ld_req_to" />
+          <ScalarProperty Name="ld_app_by" ColumnName="ld_app_by" />
+          <ScalarProperty Name="ld_app_ind" ColumnName="ld_app_ind" />
+          <ScalarProperty Name="ld_app_dat" ColumnName="ld_app_dat" />
+          <ScalarProperty Name="ld_app_who" ColumnName="ld_app_who" />
+          <ScalarProperty Name="ld_cov_by" ColumnName="ld_cov_by" />
+          <ScalarProperty Name="ld_app_remark" ColumnName="ld_app_remark" />
+          <ScalarProperty Name="ld_mc_ind" ColumnName="ld_mc_ind" />
+          <ScalarProperty Name="ld_mc_num" ColumnName="ld_mc_num" />
+          <ScalarProperty Name="ld_sta_ind" ColumnName="ld_sta_ind" />
+          <ScalarProperty Name="ld_sta_who" ColumnName="ld_sta_who" />
+          <ScalarProperty Name="ld_sta_dat" ColumnName="ld_sta_dat" />
+          <ScalarProperty Name="ld_mail_ind" ColumnName="ld_mail_ind" />
+          <ScalarProperty Name="ld_edit_ind" ColumnName="ld_edit_ind" />
+          <ScalarProperty Name="ld_exp_ind" ColumnName="ld_exp_ind" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_lev_det_log">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_lev_det_log">
+        <MappingFragment StoreEntitySet="ss_lev_det_log">
+          <ScalarProperty Name="dl_bat_num" ColumnName="dl_bat_num" />
+          <ScalarProperty Name="dl_itm_num" ColumnName="dl_itm_num" />
+          <ScalarProperty Name="dl_lev_dat" ColumnName="dl_lev_dat" />
+          <ScalarProperty Name="dl_lev_cod" ColumnName="dl_lev_cod" />
+          <ScalarProperty Name="dl_lev_urg" ColumnName="dl_lev_urg" />
+          <ScalarProperty Name="dl_lev_am" ColumnName="dl_lev_am" />
+          <ScalarProperty Name="dl_lev_pm" ColumnName="dl_lev_pm" />
+          <ScalarProperty Name="dl_rem_ark" ColumnName="dl_rem_ark" />
+          <ScalarProperty Name="dl_req_to" ColumnName="dl_req_to" />
+          <ScalarProperty Name="dl_app_by" ColumnName="dl_app_by" />
+          <ScalarProperty Name="dl_app_ind" ColumnName="dl_app_ind" />
+          <ScalarProperty Name="dl_app_dat" ColumnName="dl_app_dat" />
+          <ScalarProperty Name="dl_app_who" ColumnName="dl_app_who" />
+          <ScalarProperty Name="dl_cov_by" ColumnName="dl_cov_by" />
+          <ScalarProperty Name="dl_app_remark" ColumnName="dl_app_remark" />
+          <ScalarProperty Name="dl_mc_ind" ColumnName="dl_mc_ind" />
+          <ScalarProperty Name="dl_mc_num" ColumnName="dl_mc_num" />
+          <ScalarProperty Name="dl_sta_ind" ColumnName="dl_sta_ind" />
+          <ScalarProperty Name="dl_sta_who" ColumnName="dl_sta_who" />
+          <ScalarProperty Name="dl_sta_dat" ColumnName="dl_sta_dat" />
+          <ScalarProperty Name="dl_mail_ind" ColumnName="dl_mail_ind" />
+          <ScalarProperty Name="dl_edit_ind" ColumnName="dl_edit_ind" />
+          <ScalarProperty Name="dl_exp_ind" ColumnName="dl_exp_ind" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_lev_emp_mas">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_lev_emp_mas">
+        <MappingFragment StoreEntitySet="ss_lev_emp_mas">
+          <ScalarProperty Name="sm_ref_cod" ColumnName="sm_ref_cod" />
+          <ScalarProperty Name="sm_emp_cod" ColumnName="sm_emp_cod" />
+          <ScalarProperty Name="sm_lev_yr" ColumnName="sm_lev_yr" />
+          <ScalarProperty Name="sm_sta_ind" ColumnName="sm_sta_ind" />
+          <ScalarProperty Name="sm_sta_who" ColumnName="sm_sta_who" />
+          <ScalarProperty Name="sm_sta_dat" ColumnName="sm_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_lev_ent_mas">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_lev_ent_mas">
+        <MappingFragment StoreEntitySet="ss_lev_ent_mas">
+          <ScalarProperty Name="em_ent_cod" ColumnName="em_ent_cod" />
+          <ScalarProperty Name="em_ent_dat" ColumnName="em_ent_dat" />
+          <ScalarProperty Name="em_cat_cod" ColumnName="em_cat_cod" />
+          <ScalarProperty Name="em_sta_ind" ColumnName="em_sta_ind" />
+          <ScalarProperty Name="em_sta_who" ColumnName="em_sta_who" />
+          <ScalarProperty Name="em_sta_dat" ColumnName="em_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_lev_mas">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_lev_mas">
+        <MappingFragment StoreEntitySet="ss_lev_mas">
+          <ScalarProperty Name="lm_bat_num" ColumnName="lm_bat_num" />
+          <ScalarProperty Name="lm_bat_dat" ColumnName="lm_bat_dat" />
+          <ScalarProperty Name="lm_emp_cod" ColumnName="lm_emp_cod" />
+          <ScalarProperty Name="lm_sta_ind" ColumnName="lm_sta_ind" />
+          <ScalarProperty Name="lm_sta_who" ColumnName="lm_sta_who" />
+          <ScalarProperty Name="lm_sta_dat" ColumnName="lm_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_lev_typ">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_lev_typ">
+        <MappingFragment StoreEntitySet="ss_lev_typ">
+          <ScalarProperty Name="lt_lev_cod" ColumnName="lt_lev_cod" />
+          <ScalarProperty Name="lt_lev_desc" ColumnName="lt_lev_desc" />
+          <ScalarProperty Name="lt_shr_nam" ColumnName="lt_shr_nam" />
+          <ScalarProperty Name="lt_cri_teria" ColumnName="lt_cri_teria" />
+          <ScalarProperty Name="lt_sta_ind" ColumnName="lt_sta_ind" />
+          <ScalarProperty Name="lt_sta_who" ColumnName="lt_sta_who" />
+          <ScalarProperty Name="lt_sta_dat" ColumnName="lt_sta_dat" />
+          <ScalarProperty Name="lt_yr_cod" ColumnName="lt_yr_cod" />
+          <ScalarProperty Name="lt_att_aws" ColumnName="lt_att_aws" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_mail_cclist">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_mail_cclist">
+        <MappingFragment StoreEntitySet="ss_mail_cclist">
+          <ScalarProperty Name="ml_emp_cod" ColumnName="ml_emp_cod" />
+          <ScalarProperty Name="ml_cat_cod" ColumnName="ml_cat_cod" />
+          <ScalarProperty Name="ml_cc_emp" ColumnName="ml_cc_emp" />
+          <ScalarProperty Name="ml_cc_rmk_emp" ColumnName="ml_cc_rmk_emp" />
+          <ScalarProperty Name="ml_cc_dept" ColumnName="ml_cc_dept" />
+          <ScalarProperty Name="ml_sta_ind" ColumnName="ml_sta_ind" />
+          <ScalarProperty Name="ml_sta_who" ColumnName="ml_sta_who" />
+          <ScalarProperty Name="ml_sta_dat" ColumnName="ml_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_main_menus">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_main_menus">
+        <MappingFragment StoreEntitySet="ss_main_menus">
+          <ScalarProperty Name="mm_mnu_id" ColumnName="mm_mnu_id" />
+          <ScalarProperty Name="mm_mnu_des" ColumnName="mm_mnu_des" />
+          <ScalarProperty Name="mm_mnu_val" ColumnName="mm_mnu_val" />
+          <ScalarProperty Name="mm_mnu_ord" ColumnName="mm_mnu_ord" />
+          <ScalarProperty Name="mm_mnu_lnk" ColumnName="mm_mnu_lnk" />
+          <ScalarProperty Name="mm_mnu_img" ColumnName="mm_mnu_img" />
+          <ScalarProperty Name="mm_sta_ind" ColumnName="mm_sta_ind" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_ot_det">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_ot_det">
+        <MappingFragment StoreEntitySet="ss_ot_det">
+          <ScalarProperty Name="od_bat_num" ColumnName="od_bat_num" />
+          <ScalarProperty Name="od_itm_num" ColumnName="od_itm_num" />
+          <ScalarProperty Name="od_ot_dat" ColumnName="od_ot_dat" />
+          <ScalarProperty Name="od_otf_tim" ColumnName="od_otf_tim" />
+          <ScalarProperty Name="od_ott_tim" ColumnName="od_ott_tim" />
+          <ScalarProperty Name="od_tot_hrs" ColumnName="od_tot_hrs" />
+          <ScalarProperty Name="od_ot_meal" ColumnName="od_ot_meal" />
+          <ScalarProperty Name="od_ot_trans" ColumnName="od_ot_trans" />
+          <ScalarProperty Name="od_ot_night" ColumnName="od_ot_night" />
+          <ScalarProperty Name="od_rem_ark" ColumnName="od_rem_ark" />
+          <ScalarProperty Name="od_ver_by" ColumnName="od_ver_by" />
+          <ScalarProperty Name="od_ver_dat" ColumnName="od_ver_dat" />
+          <ScalarProperty Name="od_ver_remark" ColumnName="od_ver_remark" />
+          <ScalarProperty Name="od_app_by" ColumnName="od_app_by" />
+          <ScalarProperty Name="od_app_ind" ColumnName="od_app_ind" />
+          <ScalarProperty Name="od_app_dat" ColumnName="od_app_dat" />
+          <ScalarProperty Name="od_app_who" ColumnName="od_app_who" />
+          <ScalarProperty Name="od_app_remark" ColumnName="od_app_remark" />
+          <ScalarProperty Name="od_pay_ind" ColumnName="od_pay_ind" />
+          <ScalarProperty Name="od_pay_who" ColumnName="od_pay_who" />
+          <ScalarProperty Name="od_pay_dat" ColumnName="od_pay_dat" />
+          <ScalarProperty Name="od_ref_num" ColumnName="od_ref_num" />
+          <ScalarProperty Name="od_sta_ind" ColumnName="od_sta_ind" />
+          <ScalarProperty Name="od_sta_who" ColumnName="od_sta_who" />
+          <ScalarProperty Name="od_sta_dat" ColumnName="od_sta_dat" />
+          <ScalarProperty Name="od_clm_ind" ColumnName="od_clm_ind" />
+          <ScalarProperty Name="od_clm_dat" ColumnName="od_clm_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_ot_mas">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_ot_mas">
+        <MappingFragment StoreEntitySet="ss_ot_mas">
+          <ScalarProperty Name="om_bat_num" ColumnName="om_bat_num" />
+          <ScalarProperty Name="om_bat_dat" ColumnName="om_bat_dat" />
+          <ScalarProperty Name="om_emp_cod" ColumnName="om_emp_cod" />
+          <ScalarProperty Name="om_sta_ind" ColumnName="om_sta_ind" />
+          <ScalarProperty Name="om_sta_who" ColumnName="om_sta_who" />
+          <ScalarProperty Name="om_sta_dat" ColumnName="om_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_par_ams">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_par_ams">
+        <MappingFragment StoreEntitySet="ss_par_ams">
+          <ScalarProperty Name="pa_par_num" ColumnName="pa_par_num" />
+          <ScalarProperty Name="pa_par_typ" ColumnName="pa_par_typ" />
+          <ScalarProperty Name="pa_par_desc" ColumnName="pa_par_desc" />
+          <ScalarProperty Name="pa_str_val" ColumnName="pa_str_val" />
+          <ScalarProperty Name="pa_num_val" ColumnName="pa_num_val" />
+          <ScalarProperty Name="pa_dat_val" ColumnName="pa_dat_val" />
+          <ScalarProperty Name="pa_sta_ind" ColumnName="pa_sta_ind" />
+          <ScalarProperty Name="pa_sta_who" ColumnName="pa_sta_who" />
+          <ScalarProperty Name="pa_sta_dat" ColumnName="pa_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_para_meter">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_para_meter">
+        <MappingFragment StoreEntitySet="ss_para_meter">
+          <ScalarProperty Name="pm_grp_cod" ColumnName="pm_grp_cod" />
+          <ScalarProperty Name="pm_par_cod" ColumnName="pm_par_cod" />
+          <ScalarProperty Name="pm_par_desc" ColumnName="pm_par_desc" />
+          <ScalarProperty Name="pm_rec_rnk" ColumnName="pm_rec_rnk" />
+          <ScalarProperty Name="pm_sta_ind" ColumnName="pm_sta_ind" />
+          <ScalarProperty Name="pm_sta_who" ColumnName="pm_sta_who" />
+          <ScalarProperty Name="pm_sta_dat" ColumnName="pm_sta_dat" />
+          <ScalarProperty Name="pm_shr_nam" ColumnName="pm_shr_nam" />
+          <ScalarProperty Name="pm_add_info" ColumnName="pm_add_info" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_rep_officer">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_rep_officer">
+        <MappingFragment StoreEntitySet="ss_rep_officer">
+          <ScalarProperty Name="ro_id" ColumnName="ro_id" />
+          <ScalarProperty Name="ro_emp_type" ColumnName="ro_emp_type" />
+          <ScalarProperty Name="ro_emp_cod" ColumnName="ro_emp_cod" />
+          <ScalarProperty Name="ro_repoff_type" ColumnName="ro_repoff_type" />
+          <ScalarProperty Name="ro_repoff_cod" ColumnName="ro_repoff_cod" />
+          <ScalarProperty Name="ro_sta_ind" ColumnName="ro_sta_ind" />
+          <ScalarProperty Name="ro_sta_who" ColumnName="ro_sta_who" />
+          <ScalarProperty Name="ro_sta_dat" ColumnName="ro_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_req_mas">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_req_mas">
+        <MappingFragment StoreEntitySet="ss_req_mas">
+          <ScalarProperty Name="rm_req_num" ColumnName="rm_req_num" />
+          <ScalarProperty Name="rm_req_dat" ColumnName="rm_req_dat" />
+          <ScalarProperty Name="rm_emp_cod" ColumnName="rm_emp_cod" />
+          <ScalarProperty Name="rm_blk_no" ColumnName="rm_blk_no" />
+          <ScalarProperty Name="rm_str_nam" ColumnName="rm_str_nam" />
+          <ScalarProperty Name="rm_lvl_no" ColumnName="rm_lvl_no" />
+          <ScalarProperty Name="rm_unit_no" ColumnName="rm_unit_no" />
+          <ScalarProperty Name="rm_build_nam" ColumnName="rm_build_nam" />
+          <ScalarProperty Name="rm_zip_cod" ColumnName="rm_zip_cod" />
+          <ScalarProperty Name="rm_loc_home" ColumnName="rm_loc_home" />
+          <ScalarProperty Name="rm_loc_mob" ColumnName="rm_loc_mob" />
+          <ScalarProperty Name="rm_loc_con" ColumnName="rm_loc_con" />
+          <ScalarProperty Name="rm_email" ColumnName="rm_email" />
+          <ScalarProperty Name="rm_con_person" ColumnName="rm_con_person" />
+          <ScalarProperty Name="rm_con_no" ColumnName="rm_con_no" />
+          <ScalarProperty Name="rm_con_mail" ColumnName="rm_con_mail" />
+          <ScalarProperty Name="rm_con_relation" ColumnName="rm_con_relation" />
+          <ScalarProperty Name="rm_sta_ind" ColumnName="rm_sta_ind" />
+          <ScalarProperty Name="rm_sta_who" ColumnName="rm_sta_who" />
+          <ScalarProperty Name="rm_sta_dat" ColumnName="rm_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_sop_dept_mas">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_sop_dept_mas">
+        <MappingFragment StoreEntitySet="ss_sop_dept_mas">
+          <ScalarProperty Name="dm_dept_cod" ColumnName="dm_dept_cod" />
+          <ScalarProperty Name="dm_file_path" ColumnName="dm_file_path" />
+          <ScalarProperty Name="dm_sta_ind" ColumnName="dm_sta_ind" />
+          <ScalarProperty Name="dm_sta_who" ColumnName="dm_sta_who" />
+          <ScalarProperty Name="dm_sta_dat" ColumnName="dm_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_sop_file_mas">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_sop_file_mas">
+        <MappingFragment StoreEntitySet="ss_sop_file_mas">
+          <ScalarProperty Name="fm_rec_num" ColumnName="fm_rec_num" />
+          <ScalarProperty Name="fm_dept_cod" ColumnName="fm_dept_cod" />
+          <ScalarProperty Name="fm_eff_dat" ColumnName="fm_eff_dat" />
+          <ScalarProperty Name="fm_doc_nam" ColumnName="fm_doc_nam" />
+          <ScalarProperty Name="fm_file_nam" ColumnName="fm_file_nam" />
+          <ScalarProperty Name="fm_file_desc" ColumnName="fm_file_desc" />
+          <ScalarProperty Name="fm_sta_ind" ColumnName="fm_sta_ind" />
+          <ScalarProperty Name="fm_sta_who" ColumnName="fm_sta_who" />
+          <ScalarProperty Name="fm_sta_dat" ColumnName="fm_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_sub_menus">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_sub_menus">
+        <MappingFragment StoreEntitySet="ss_sub_menus">
+          <ScalarProperty Name="sm_sub_id" ColumnName="sm_sub_id" />
+          <ScalarProperty Name="sm_mnu_id" ColumnName="sm_mnu_id" />
+          <ScalarProperty Name="sm_mnu_des" ColumnName="sm_mnu_des" />
+          <ScalarProperty Name="sm_mnu_val" ColumnName="sm_mnu_val" />
+          <ScalarProperty Name="sm_mnu_ord" ColumnName="sm_mnu_ord" />
+          <ScalarProperty Name="sm_mnu_lnk" ColumnName="sm_mnu_lnk" />
+          <ScalarProperty Name="sm_mnu_img" ColumnName="sm_mnu_img" />
+          <ScalarProperty Name="sm_sta_ind" ColumnName="sm_sta_ind" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_swap_mas">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_swap_mas">
+        <MappingFragment StoreEntitySet="ss_swap_mas">
+          <ScalarProperty Name="ss_bat_num" ColumnName="ss_bat_num" />
+          <ScalarProperty Name="ss_bat_dat" ColumnName="ss_bat_dat" />
+          <ScalarProperty Name="ss_emp_cod" ColumnName="ss_emp_cod" />
+          <ScalarProperty Name="ss_swap_from" ColumnName="ss_swap_from" />
+          <ScalarProperty Name="ss_swap_to" ColumnName="ss_swap_to" />
+          <ScalarProperty Name="ss_swap_typ" ColumnName="ss_swap_typ" />
+          <ScalarProperty Name="ss_swap_with" ColumnName="ss_swap_with" />
+          <ScalarProperty Name="ss_rem_ark" ColumnName="ss_rem_ark" />
+          <ScalarProperty Name="ss_app_ind" ColumnName="ss_app_ind" />
+          <ScalarProperty Name="ss_acc_dat" ColumnName="ss_acc_dat" />
+          <ScalarProperty Name="ss_acc_who" ColumnName="ss_acc_who" />
+          <ScalarProperty Name="ss_sta_ind" ColumnName="ss_sta_ind" />
+          <ScalarProperty Name="ss_sta_who" ColumnName="ss_sta_who" />
+          <ScalarProperty Name="ss_sta_dat" ColumnName="ss_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_usr_access">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_usr_access">
+        <MappingFragment StoreEntitySet="ss_usr_access">
+          <ScalarProperty Name="ua_emp_cod" ColumnName="ua_emp_cod" />
+          <ScalarProperty Name="ua_main_mnu" ColumnName="ua_main_mnu" />
+          <ScalarProperty Name="ua_sub_mnu" ColumnName="ua_sub_mnu" />
+          <ScalarProperty Name="ua_rpt_ind" ColumnName="ua_rpt_ind" />
+          <ScalarProperty Name="ua_rpt_dept" ColumnName="ua_rpt_dept" />
+          <ScalarProperty Name="ua_abs_ind" ColumnName="ua_abs_ind" />
+          <ScalarProperty Name="ua_abs_dept" ColumnName="ua_abs_dept" />
+          <ScalarProperty Name="ua_offday_ind" ColumnName="ua_offday_ind" />
+          <ScalarProperty Name="ua_offday_dept" ColumnName="ua_offday_dept" />
+          <ScalarProperty Name="ua_bdy_ind" ColumnName="ua_bdy_ind" />
+          <ScalarProperty Name="ua_bdy_dept" ColumnName="ua_bdy_dept" />
+          <ScalarProperty Name="ua_sta_ind" ColumnName="ua_sta_ind" />
+          <ScalarProperty Name="ua_sta_who" ColumnName="ua_sta_who" />
+          <ScalarProperty Name="ua_sta_dat" ColumnName="ua_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_vacant_mas">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_vacant_mas">
+        <MappingFragment StoreEntitySet="ss_vacant_mas">
+          <ScalarProperty Name="vm_id" ColumnName="vm_id" />
+          <ScalarProperty Name="vm_emp_cod" ColumnName="vm_emp_cod" />
+          <ScalarProperty Name="vm_emp_nam" ColumnName="vm_emp_nam" />
+          <ScalarProperty Name="vm_sta_ind" ColumnName="vm_sta_ind" />
+          <ScalarProperty Name="vm_sta_who" ColumnName="vm_sta_who" />
+          <ScalarProperty Name="vm_sta_dat" ColumnName="vm_sta_dat" />
+          <ScalarProperty Name="vm_dept_cod" ColumnName="vm_dept_cod" />
+          <ScalarProperty Name="vm_loc_cod" ColumnName="vm_loc_cod" />
+          <ScalarProperty Name="vm_dept_grp_cod" ColumnName="vm_dept_grp_cod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_ver_officer">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_ver_officer">
+        <MappingFragment StoreEntitySet="ss_ver_officer">
+          <ScalarProperty Name="vo_emp_cod" ColumnName="vo_emp_cod" />
+          <ScalarProperty Name="vo_cat_cod" ColumnName="vo_cat_cod" />
+          <ScalarProperty Name="vo_pri_cod" ColumnName="vo_pri_cod" />
+          <ScalarProperty Name="vo_sec_cod" ColumnName="vo_sec_cod" />
+          <ScalarProperty Name="vo_sta_ind" ColumnName="vo_sta_ind" />
+          <ScalarProperty Name="vo_sta_who" ColumnName="vo_sta_who" />
+          <ScalarProperty Name="vo_sta_dat" ColumnName="vo_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_yr_period">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_yr_period">
+        <MappingFragment StoreEntitySet="ss_yr_period">
+          <ScalarProperty Name="yp_ref_cod" ColumnName="yp_ref_cod" />
+          <ScalarProperty Name="yp_yr_val" ColumnName="yp_yr_val" />
+          <ScalarProperty Name="yp_par_cod" ColumnName="yp_par_cod" />
+          <ScalarProperty Name="yp_from_dat" ColumnName="yp_from_dat" />
+          <ScalarProperty Name="yp_to_dat" ColumnName="yp_to_dat" />
+          <ScalarProperty Name="yp_sta_ind" ColumnName="yp_sta_ind" />
+          <ScalarProperty Name="yp_sta_who" ColumnName="yp_sta_who" />
+          <ScalarProperty Name="yp_sta_dat" ColumnName="yp_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_att_det">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_att_det">
+        <MappingFragment StoreEntitySet="ss_att_det">
+          <ScalarProperty Name="ad_rec_num" ColumnName="ad_rec_num" />
+          <ScalarProperty Name="ad_ter_num" ColumnName="ad_ter_num" />
+          <ScalarProperty Name="ad_thm_num" ColumnName="ad_thm_num" />
+          <ScalarProperty Name="ad_emp_cod" ColumnName="ad_emp_cod" />
+          <ScalarProperty Name="ad_att_dat" ColumnName="ad_att_dat" />
+          <ScalarProperty Name="ad_sta_ind" ColumnName="ad_sta_ind" />
+          <ScalarProperty Name="ad_sta_who" ColumnName="ad_sta_who" />
+          <ScalarProperty Name="ad_sta_dat" ColumnName="ad_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_clm_emp_det">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_clm_emp_det">
+        <MappingFragment StoreEntitySet="ss_clm_emp_det">
+          <ScalarProperty Name="cd_ref_cod" ColumnName="cd_ref_cod" />
+          <ScalarProperty Name="cd_clm_cod" ColumnName="cd_clm_cod" />
+          <ScalarProperty Name="cd_clm_bf" ColumnName="cd_clm_bf" />
+          <ScalarProperty Name="cd_clm_ent" ColumnName="cd_clm_ent" />
+          <ScalarProperty Name="cd_cur_ent" ColumnName="cd_cur_ent" />
+          <ScalarProperty Name="cd_clm_add" ColumnName="cd_clm_add" />
+          <ScalarProperty Name="cd_clm_tot" ColumnName="cd_clm_tot" />
+          <ScalarProperty Name="cd_clm_tak" ColumnName="cd_clm_tak" />
+          <ScalarProperty Name="cd_clm_bal" ColumnName="cd_clm_bal" />
+          <ScalarProperty Name="cd_sys_sta" ColumnName="cd_sys_sta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_dept_chd">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_dept_chd">
+        <MappingFragment StoreEntitySet="ss_dept_chd">
+          <ScalarProperty Name="dc_grp_cod" ColumnName="dc_grp_cod" />
+          <ScalarProperty Name="dc_dept_cod" ColumnName="dc_dept_cod" />
+          <ScalarProperty Name="dc_dept_grp_cod" ColumnName="dc_dept_grp_cod" />
+          <ScalarProperty Name="dc_sta_ind" ColumnName="dc_sta_ind" />
+          <ScalarProperty Name="dc_sta_who" ColumnName="dc_sta_who" />
+          <ScalarProperty Name="dc_sta_dat" ColumnName="dc_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_lev_emp_det">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_lev_emp_det">
+        <MappingFragment StoreEntitySet="ss_lev_emp_det">
+          <ScalarProperty Name="sd_ref_cod" ColumnName="sd_ref_cod" />
+          <ScalarProperty Name="sd_lev_cod" ColumnName="sd_lev_cod" />
+          <ScalarProperty Name="sd_lev_bf" ColumnName="sd_lev_bf" />
+          <ScalarProperty Name="sd_lev_ent" ColumnName="sd_lev_ent" />
+          <ScalarProperty Name="sd_cur_ent" ColumnName="sd_cur_ent" />
+          <ScalarProperty Name="sd_lev_add" ColumnName="sd_lev_add" />
+          <ScalarProperty Name="sd_lev_tot" ColumnName="sd_lev_tot" />
+          <ScalarProperty Name="sd_lev_tak" ColumnName="sd_lev_tak" />
+          <ScalarProperty Name="sd_lev_bal" ColumnName="sd_lev_bal" />
+          <ScalarProperty Name="sd_hd_max" ColumnName="sd_hd_max" />
+          <ScalarProperty Name="sd_sys_sta" ColumnName="sd_sys_sta" />
+          <ScalarProperty Name="sd_prd_cod" ColumnName="sd_prd_cod" />
+          <ScalarProperty Name="recordno" ColumnName="recordno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_lev_emp_det_his">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_lev_emp_det_his">
+        <MappingFragment StoreEntitySet="ss_lev_emp_det_his">
+          <ScalarProperty Name="dh_ref_cod" ColumnName="dh_ref_cod" />
+          <ScalarProperty Name="dh_lev_cod" ColumnName="dh_lev_cod" />
+          <ScalarProperty Name="dh_itm_num" ColumnName="dh_itm_num" />
+          <ScalarProperty Name="dh_eff_dat" ColumnName="dh_eff_dat" />
+          <ScalarProperty Name="dh_prev_lev_bf" ColumnName="dh_prev_lev_bf" />
+          <ScalarProperty Name="dh_prev_lev_ent" ColumnName="dh_prev_lev_ent" />
+          <ScalarProperty Name="dh_prev_cur_ent" ColumnName="dh_prev_cur_ent" />
+          <ScalarProperty Name="dh_prev_lev_add" ColumnName="dh_prev_lev_add" />
+          <ScalarProperty Name="dh_lev_bf" ColumnName="dh_lev_bf" />
+          <ScalarProperty Name="dh_lev_ent" ColumnName="dh_lev_ent" />
+          <ScalarProperty Name="dh_cur_ent" ColumnName="dh_cur_ent" />
+          <ScalarProperty Name="dh_lev_add" ColumnName="dh_lev_add" />
+          <ScalarProperty Name="dh_rem_ark" ColumnName="dh_rem_ark" />
+          <ScalarProperty Name="dh_sta_ind" ColumnName="dh_sta_ind" />
+          <ScalarProperty Name="dh_sta_who" ColumnName="dh_sta_who" />
+          <ScalarProperty Name="dh_sta_dat" ColumnName="dh_sta_dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ss_lev_emp_det_temp">
+      <EntityTypeMapping TypeName="ORIX_ESS_DB_DevModel.ss_lev_emp_det_temp">
+        <MappingFragment StoreEntitySet="ss_lev_emp_det_temp">
+          <ScalarProperty Name="sd_ref_cod" ColumnName="sd_ref_cod" />
+          <ScalarProperty Name="sd_lev_cod" ColumnName="sd_lev_cod" />
+          <ScalarProperty Name="sd_lev_bf" ColumnName="sd_lev_bf" />
+          <ScalarProperty Name="sd_lev_ent" ColumnName="sd_lev_ent" />
+          <ScalarProperty Name="sd_cur_ent" ColumnName="sd_cur_ent" />
+          <ScalarProperty Name="sd_lev_add" ColumnName="sd_lev_add" />
+          <ScalarProperty Name="sd_lev_tot" ColumnName="sd_lev_tot" />
+          <ScalarProperty Name="sd_lev_tak" ColumnName="sd_lev_tak" />
+          <ScalarProperty Name="sd_lev_bal" ColumnName="sd_lev_bal" />
+          <ScalarProperty Name="sd_hd_max" ColumnName="sd_hd_max" />
+          <ScalarProperty Name="sd_sys_sta" ColumnName="sd_sys_sta" />
+          <ScalarProperty Name="sd_prd_cod" ColumnName="sd_prd_cod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

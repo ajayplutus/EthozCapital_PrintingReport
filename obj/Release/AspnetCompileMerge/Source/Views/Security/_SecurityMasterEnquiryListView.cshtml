@@ -1,0 +1,90 @@
+﻿@model EthozCapital.Models.ViewModels.SecurityMasterInqListViewModel
+
+<legend class="pull-left col-md-10 col-sm-8 col-xs-8">Security Item(s) List</legend>
+<legend class="btn pull-right col-md-1 col-sm-4 col-xs-4 text-center collapseBtn" data-toggle="collapse" data-target="#DivSecurityInquiryList">
+    <span class="if-collapsed"><i class="fa fa-plus" aria-hidden="true"></i></span>
+    <span class="if-not-collapsed"><i class="fa fa-minus" aria-hidden="true"></i></span>
+</legend>
+<div id="DivSecurityInquiryList" class="collapse in col-md-10 col-sm-8 col-xs-8">
+    <table id="tblSecurityInquiryList" class="display table table-bordered dataTable table-hover" cellspacing="0">
+        <thead>
+            <tr>
+                <th class="tbl-w-95">View Contract(s)</th>
+                @if (Model.Action == "ViewAndUpdate")
+                {
+                    <th class="tbl-w-95">View/Update Security Master</th>
+                }
+                else
+                {
+                    <th class="tbl-w-95">View Security Master</th>
+                }
+                <th class="tbl-w-150">Security Type 1st Level</th>
+                <th class="tbl-w-150">Security Type 2nd Level</th>
+                <th class="tbl-w-100">Security System ID</th>
+                <th class="tbl-w-85">Security Item Status</th>
+                <th class="tbl-w-85">Contract Number</th>
+                <th class="tbl-w-100">Contract Rollover Number</th>
+                <th class="tbl-w-200">Contract Customer</th>
+                <th class="tbl-w-100">Contract Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{int i = 0;}
+            @foreach (var item in Model.SecurityMasterInqList)
+            {
+                <tr>
+                    <td class="align-center">
+                        <a onclick="showSecurityContractsPopup('@item.SecurityID','@item.SecurityListLevel2Code',this)">View Contract(s)</a>
+                    </td>
+                    <td class="align-center">
+                        @if (Model.Action == "ViewAndUpdate")
+                        {
+                            <a href="@Url.Action(@item.ActionName, @item.ControllerName,new { SecurityId = @item.SecurityID})" class="@(@item.SecurityListLevel2Code == "SLL2-1000" ? "isdisabledLink" : null) redirectUrl">View/Update Security Master</a>
+
+                        }
+                        else
+                        {
+                            <a href="@Url.Action(@item.ActionName, @item.ControllerName,new { SecurityId = @item.SecurityID})" class="@(@item.SecurityListLevel2Code == "SLL2-1000" ? "isdisabledLink" : null) redirectUrl">View Security Master</a>
+                        }
+                    </td>
+                    <td>
+                        @item.SecurityListLevel1
+                    </td>
+                    <td>
+                        @item.SecurityListLevel2
+                    </td>
+                    <td>
+                        @item.SecurityID
+                    </td>
+                    <td>
+                        @item.SecurityStatus
+                    </td>
+                    <td>
+                        @item.ContractNumber
+                    </td>
+                    <td class="align-right">
+                        @item.RolloverNumber
+                    </td>
+                    <td>
+                        @item.ContractCustomerName
+                    </td>
+                    <td>
+                        @item.ContractStatus
+                    </td>
+                </tr>
+                i++;
+            }
+
+        </tbody>
+    </table>
+</div>
+<div id="dialog" style="display: none" align="center">
+    <div class="modal-header modal-header-confirm">
+        <h4 class="modal-title ng-binding">
+            <span class="glyphicon glyphicon-indent-left"></span>{{modalOptions.headerText}}
+            <a title="Close"><i ng-click="CloseModal()" class="glyphicon glyphicon-remove icon-arrow-right pull-right"></i></a>
+        </h4>
+    </div>
+</div>
+
+

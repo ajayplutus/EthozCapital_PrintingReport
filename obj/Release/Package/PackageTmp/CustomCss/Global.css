@@ -1,0 +1,204 @@
+﻿#mainForm {
+                margin-top: 15px;
+            }
+
+td.sorting_1 span.select2.select2-container {
+                max-width: 140px;
+            }
+
+.align-center {
+    text-align: center !important;
+}
+
+.align-right {
+    text-align: right !important;
+}
+
+.help-block {
+    display: none !important;
+}
+
+.fieldsetCss {
+    margin: -5px !important;
+}
+
+.has-error .rate_value {
+    padding-right: 30px !important;
+}
+
+.activeRow {    
+    color: black;
+}
+
+.activeRow .editor {
+    display: block;
+    height: 34px;
+}
+
+.editor {
+    display: none;
+    border-radius: 4px;
+}
+
+.edited {
+    display: block;
+}
+
+.activeRow .edited {
+    display: none;
+}
+
+.alert-danger-table {
+      border: 3px solid #ff0000;
+    }
+
+.alert-danger-Column {
+                border: 3px solid #ff0000;
+            }
+
+.collapsing {
+    display: none;
+}
+
+.collapseBtn {
+                margin-right: 5px;
+                width: 36px;
+            }
+
+.select2-results {
+    border: 1px solid #bbb;
+}
+
+#accountForm {
+                margin-top: 15px;
+            }
+
+#selectionbox .row {
+                display: inline-block;
+                width: 100%;
+            }
+
+#generalbox .row {
+                display: inline-block;
+                width: 100%;
+            }
+
+*:disabled {
+      cursor: no-drop !important;
+    }
+
+.color_blue {
+                background: #004092;
+                color: #fff !important;
+            }
+
+.widthauto {
+    width: auto;
+}
+
+.tbl_wrapper {
+      width: 100%;
+      overflow-x: scroll;
+}
+
+span.edited {
+                font-size: 14px;
+            }
+
+[data-toggle="collapse"].collapsed .if-not-collapsed {
+      display: none;
+    }
+
+[data-toggle="collapse"]:not(.collapsed) .if-collapsed {
+      display: none;
+    }    
+
+.hideColumn {
+                display: none;
+            }
+
+.selection-danger {
+                background-color: #ebccd1 !important;
+            }
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    box-sizing: inherit;
+    display: inherit;
+    min-width: 1.5em;
+    padding: 5px;
+    margin-left: 0px;
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover, .dataTables_wrapper .dataTables_paginate .paginate_button:focus {
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:focus, .dataTables_wrapper .dataTables_paginate .paginate_button:active {
+        box-shadow: none;
+        outline: none;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button a {
+        margin: 0px;
+    }
+
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+    background: #004092 !important;
+    border-color: #004092 !important;
+}
+
+.swal-button--confirm {
+    background-color: #DD6B55;
+}
+
+.rate_value {
+    text-align: right !important;
+    font-size: 14px !important;
+    padding: 6px 12px !important;
+}
+
+.has-success .rate_value {
+    padding-right: 30px !important;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+.margin-15 {
+    margin: -50px 10px 0 10px;
+}
+
+.margin-top-15 {
+    margin-top: -15px;
+}
+
+.view-header-title {
+    margin-left: 10px;
+    margin-top: 30px;
+    overflow: auto;
+}
+
+.new-header-title {
+    margin-left: 10px;
+    margin-top: -20px;
+    overflow: auto;
+}
+
+#ui-id-1.ui-autocomplete {
+    max-height: 140px !important;
+    overflow-x: hidden !important;
+    max-width: 336px !important;
+    width: 100% !important;
+}
+.float-right {
+    float: right !important;
+}
+.no-margin{
+    margin:0 !important;
+}

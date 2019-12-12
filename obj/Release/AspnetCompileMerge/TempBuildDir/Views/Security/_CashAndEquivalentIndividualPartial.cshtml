@@ -1,0 +1,241 @@
+﻿@model EthozCapital.Models.ViewModels.CashEquivalentModel
+
+
+<form id="mainForm" method="post">
+    <div class="tab-content">
+        <div class="tab-pane active in" id="nav-tab2-1">
+            <h3 class="m-t-10"></h3>
+            <fieldset>
+                <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Main</legend>
+                <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#main">
+                    <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                    <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                </legend>
+                <div id="selectionbox" class="selectionbox ">
+                    <div id="main" class="collapse in">
+                        <div class="row collapse in">
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <div>
+                                        <label>Security System ID </label>
+                                        @Html.TextBoxFor(model => model.Id, new { id = "Id", @class = "form-control", @disabled = "disabled" })
+                                        <i></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <div>
+                                        <label>Refundable *</label>
+                                        @Html.DropDownListFor(model=>model.Refundable, new List<SelectListItem>
+                                        {
+                                            new SelectListItem{ Text="Yes", Value = "Yes" },
+                                            new SelectListItem{ Text="No", Value = "No" },
+                                        }, "--Select--",
+                                        new { @class = "form-control Refundable required", @id = "Refundable" })
+                                        <i></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <div>
+                                        <label>Guarantee/ Bonds Type *</label>
+                                        @Html.DropDownListFor(model => model.GuaranteeBondsType, ViewBag.GuaranteeBondsTypeList as SelectList, "--Select--", new { @class = "form-control js-example-basic-single3 Guarantee/ BondsType required", @id = "GuaranteeBondsType", @style = "font-size:14px;" })
+                                        <i></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row collapse in">
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <div>
+                                        <label>Amount *</label>
+                                        @Html.TextBoxFor(model => model.Amount, new { @class = "form-control money Amount required", @id = "txtAmount", @style = "text-align:right;font-size:14px;", @maxlength = "20", @autocomplete = "off" })
+                                        <i></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="tab-pane active in" id="nav-tab2-1">
+            <h3 class="m-t-10"></h3>
+            <fieldset>
+                <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Bill To</legend>
+                <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#BillTo">
+                    <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                    <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                </legend>
+                <div id="selectionbox" class="selectionbox">
+                    <div id="BillTo" class="collapse in">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <label>Customer *</label>
+                                    @Html.TextBoxFor(model => model.BillToModel.CustomerName, new { id = "txtCustomer", @name = "Customer", @class = "form-control Customer required", @placeholder = "Customer", @autocomplete = "off", @style = "text-align:left;font-size:14px;" })
+                                    @*<input type="text" id="txtCustomer" style="text-align:left;font-size:14px;" name="Customer" class="form-control Customer required" placeholder="Customer" required autocomplete="off" />*@
+                                    @Html.HiddenFor(model => model.BillToModel.Customer, new { @id = "customerId" })
+                                    <i></i>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <label>NRIC/ FIN/ PASSPORT</label>
+                                    @Html.TextBoxFor(model => model.BillToModel.NricFinPassport, new { id = "txtNRICFINPASSPORT", @name = "NRIC_FIN_PASSPORT", @class = "form-control NRICFINPASSPORT", @placeholder = "NRIC/ FIN/ PASSPORT", @autocomplete = "off", @style = "font-size:14px;", @readonly = "readonly" })
+                                    @*<input type="text" id="txtNRICFINPASSPORT" name="NRIC_FIN_PASSPORT" class="form-control NRICFINPASSPORT" placeholder="NRIC/ FIN/ PASSPORT" style="font-size:14px;" readonly="readonly" />*@
+                                    <i></i>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <label>Address *</label>
+                                    @Html.DropDownListFor(model => model.BillToModel.Address, ViewBag.AddressList as SelectList, "--Select--", new { @class = "form-control js-example-basic-single3 ddAddress required", @id = "Address", @style = "font-size:14px;", @onchange = "getDepartment($(this).val())" })
+                                    <i></i>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <label>Department</label>
+                                    @Html.DropDownListFor(model => model.BillToModel.Department, ViewBag.DepartmentList as SelectList, "--Select--", new { @class = "form-control js-example-basic-single3 ddDepartment", @id = "Department", @style = "font-size:14px;", @onchange = "getContactPerson($(this).val())" })
+                                    <i></i>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group block1">
+                                    <label>Contact Person</label>
+                                    @Html.DropDownListFor(model => model.BillToModel.ContactPerson, ViewBag.Contact as SelectList, "--Select--", new { @class = "form-control js-example-basic-single3 ddlContactPerson", @id = "ContactPerson", @style = "font-size:14px;" })
+                                    <i></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        @{Html.RenderPartial("_Customer", Model.CustomerToAccess);}
+
+        <div class="tab-pane active in" id="nav-tab2-1">
+            <h3 class="m-t-10"></h3>
+            <fieldset>
+                <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Creation & Modification Info </legend>
+
+                <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#creationInfoBox">
+                    <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                    <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                </legend>
+
+
+                <div id="creationInfoBox" class="mortgagorList collapse in">
+                    <div class="row">
+                        <div class="col-md-4" id="dtpCreatedDateDiv">
+                            <div class="form-group block1">
+                                <label>Created Date </label>
+                                @Html.TextBoxFor(model => model.CreatedDate, new { id = "dtpCreatedDate", @class = "form-control", @disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="col-md-4" id="cdreatedBy">
+                            <div class="form-group block1">
+                                <label>Created by </label>
+                                @Html.TextBoxFor(model => model.CreatedBy, new { @class = "form-control", @disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group block1">
+                                <label>Last Updated Date </label>
+                                @Html.TextBoxFor(model => model.UpdatedDate, new { id = "dtpUpdatedDate", @class = "form-control", @disabled = "disabled" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4" id="UpdatedBy">
+                            <div class="form-group block1">
+                                <label>Last Updated By </label>
+                                @Html.TextBoxFor(model => model.UpdatedBy, new { @class = "form-control", @disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="col-md-4" id="status">
+                            <div class="form-group block1">
+                                <label>Status </label>
+                                @Html.DropDownListFor(model => model.Status, ViewBag.StatusList as SelectList, "--Select--", new { @class = "form-control Property_Level_2", @id = "Status", @readonly = "readonly", @tabindex = "2", @style = "font-size:14px;" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="tab-pane active in" id="nav-tab2-1">
+            <h3 class="m-t-10"></h3>
+            <fieldset>
+                <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Contract Related</legend>
+                <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#contractRelated">
+                    <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+                    <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+                </legend>
+                <!-- begin row -->
+                <div id="contractRelated" class="collapse in">
+                    @{Html.RenderPartial("_SecurityContractsListView", Model.ContractDetails);}
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</form>
+<div class="col-md-10 margin-bottom-25">
+    <div class="nav navbar-nav navbar-left">
+        <div class="row">
+            @if (!ViewBag.Viewable)
+            {
+                <button type="button" id="SaveEquivalentIndividual" onclick="SaveNewCashandEquivalent('@Url.Action("GetCashAndEquivalentIndividual","Security", new { SecurityId=Model.Id ,IsView=false})')" class="btn">Save</button>
+                <button type="button" class="btn" id="DischargeOrCancel" onclick="UpdateStatus('@Url.Action("GetCashAndEquivalentIndividual","Security", new { SecurityId=Model.Id ,IsView=false})')">Discharge/ Cancel</button>
+                <button type="button" class="btn" id="ResetEdit" onclick="ResetView('@Url.Action("GetCashAndEquivalentIndividual","Security", new { SecurityId=Model.Id ,IsView=false})')">Reset</button>
+                <button type="button" class="btn deleting" onclick="onViewClick('@Url.Action("SecurityMasterModification", "Security", new { CTGroupCode = DBNull.Value, SubConGroupCode = DBNull.Value, SubMenuId =  @HttpContext.Current.Session["SubMenuIdEdit"] }, Request.Url.Scheme)')">Back</button>
+            }
+            else
+            {
+                <button type="button" class="btn deleting" onclick="onViewClick('@Url.Action("SecurityMasterEnquiry", "Security", new { CTGroupCode = DBNull.Value, SubConGroupCode = DBNull.Value, SubMenuId =  @HttpContext.Current.Session["SubMenuId"] }, Request.Url.Scheme)')">Back</button>
+            }
+        </div>
+    </div>
+</div>
+<script src="~/CustomScript/Security/Customer.js"></script>
+<script src="~/CustomScript/Security/cash-equivalent-individual.js"></script>
+<script>
+    $(document).ready(function () {
+        if ('@Html.Raw(@Model)' != null) {
+            if ('@Html.Raw(ViewBag.Viewable)' == 'True') {
+                $("#mainForm input,textarea,select").prop("disabled", true);
+                $(".chargeDate").css("background-color", "#eee")
+                $(".btnAction").prop("disabled", true);
+                $(".input-sm").removeAttr("disabled");
+            }
+            else {
+                if ('@Html.Raw(@Model.Status)' != 'O') {
+                    $("#mainForm input,textarea,select").prop("disabled", true);
+                    swal(swalGlobal.SwalTitle_Warning, "Security item already discharged/cancelled, modification is not allowed.", swalGlobal.SwalType_Warning);
+                    $("#SaveEquivalentIndividual").prop("disabled", true);
+                    $("#DischargeOrCancel").prop("disabled", true);
+                    $("#ResetEdit").prop("disabled", true);
+                    $(".chargeDate").css("background-color", "#eee")
+                    $(".btnAction").prop("disabled", true);
+                    $("#btnCustomerToAccessList").css('display', 'none');
+                    $(".input-sm").removeAttr("disabled");
+                }
+                else {
+                    $("#Id").prop("disabled", true);
+                }
+            }
+        }
+        else {
+            swal(swalGlobal.SwalTitle_Error, "No record found!", swalGlobal.SwalType_Error);
+        }
+        if ('@Html.Raw(@Model.Id)' != null) {
+            SetNavigationforSecurity();
+        }
+    });
+</script>

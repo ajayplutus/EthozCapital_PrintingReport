@@ -1,0 +1,23 @@
+﻿@using System.Security.Claims;
+@{
+    var username = User.Identity.Name;
+    var jobtitle = ((ClaimsIdentity)User.Identity).FindFirst("JobTitle").Value;
+}
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOut", "User", FormMethod.Post, new { id = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @username
+        <small>
+            @jobtitle
+        </small>
+    }
+}
+else
+{
+    <script>
+        window.location.href = '@ViewBag.URL';
+    </script>
+}

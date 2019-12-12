@@ -1,0 +1,50 @@
+﻿@model List<EthozCapital.Models.ViewModels.FieldChangeHistoryModel>
+@using EthozCapital.CustomLibraries;
+@{
+    var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+    ViewBag.Title = "Home Page";
+}
+<div class="tab-pane active in" id="nav-tab2-1">
+    <h3 class="m-t-10"></h3>
+    <fieldset>
+        <legend class="pull-left col-md-10 col-sm-8 col-xs-8">Modification History</legend>
+        <legend class="btn pull-right col-xs-2 text-center collapseBtn" data-toggle="collapse" data-target="#modificationHistory">
+            <span class="if-collapsed"><i class="fa fa-plus"></i></span>
+            <span class="if-not-collapsed"><i class="fa fa-minus"></i></span>
+        </legend>
+        <!-- begin row -->
+        <div id="selectionbox1" class="selectionbox ">
+            <div id="modificationHistory" class="collapse in">
+                <table id="tblModificationHistory" class="dtCutomStyle table table-bordered dataTable table-hover">
+                    <thead>
+                        <tr>
+                            <th autowrap class="tbl-w-85" style="text-align:center;">Field Name</th>
+                            <th autowrap class="tbl-w-85" style="text-align:center;">Value</th>
+                            <th autowrap class="tbl-w-85" style="text-align:center;">Modification Date </th>
+                            <th autowrap class="tbl-w-85" style="text-align:center;">Modification By </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (@Model != null)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.FieldName</td>
+                                    <td>@item.FieldValue</td>
+                                    <td>@item.UpdatedDate</td>
+                                    <td>@item.UpdatedBy</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </fieldset>
+</div>
+@section Styles
+        {
+    <link href="~/CustomCss/Security/Mortgag_Customer.css" rel="stylesheet" />
+    <link href="~/Content/common.css" rel="stylesheet" />
+}
