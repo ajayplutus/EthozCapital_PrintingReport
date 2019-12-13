@@ -782,7 +782,7 @@ namespace EthozCapital.Controllers
 				{
 					if ((ModelData.ContractDetails.ContractNumber.Contains("LCP") || ModelData.ContractDetails.ContractNumber.Contains("ISS")) && strFirstThirdParty == "First Party")
 					{
-						strpopulatedynamicallyclause = "Copy of the Mortgagor's Board and Shareholder's resolution, if it is a corporate, duly certified as a true copy by two Directors or a Director and the Company Secretary;"+Environment.NewLine;
+						strpopulatedynamicallyclause = "Copy of the Mortgagor's Board and Shareholder's resolution, if it is a corporate, duly certified as a true copy by two Directors or a Director and the Company Secretary;";
 					}
 				}
 				#endregion
@@ -795,7 +795,7 @@ namespace EthozCapital.Controllers
 					{
 						strTitlewithdrawSuitInd = "Evidence of withdrawal for bankruptcy suit no. " + (ModelData.WithdrawSuitIndDetails.WSuitNo != null ? ModelData.WithdrawSuitIndDetails.WSuitNo : "") + " of " + (ModelData.WithdrawSuitIndDetails.WSuitYear != null ? ModelData.WithdrawSuitIndDetails.WSuitYear : "") + " on ";
 						listwithdrawSuitInd = lstWithdrawSuitIndGuarantorList;
-						strAEComma = ";" + Environment.NewLine;
+						strAEComma = ";";
 
 					}
 				}
@@ -804,7 +804,7 @@ namespace EthozCapital.Controllers
 				{
 					if (ModelData.DiscontSuitIndDetails.DiscontSuitInd == "Y")
 					{
-						discont_SuitInd = "Notice of discontinuance for Suit No. " + (ModelData.DiscontSuitIndDetails.DSuitNo != null ? ModelData.DiscontSuitIndDetails.DSuitNo : "") + " of " + (ModelData.DiscontSuitIndDetails.DSuitYear != null ? ModelData.DiscontSuitIndDetails.DSuitYear : "") + ";" + Environment.NewLine;
+						discont_SuitInd = "Notice of discontinuance for Suit No. " + (ModelData.DiscontSuitIndDetails.DSuitNo != null ? ModelData.DiscontSuitIndDetails.DSuitNo : "") + " of " + (ModelData.DiscontSuitIndDetails.DSuitYear != null ? ModelData.DiscontSuitIndDetails.DSuitYear : "") + ";";
 					}
 				}
 				// CaveatInd
@@ -812,7 +812,7 @@ namespace EthozCapital.Controllers
 				{
 					if (ModelData.CaveatIndDetails.CaveatInd == "Y")
 					{
-						caveat_Ind = "Evidence of removal of the caveat " + (ModelData.CaveatIndDetails.CaveatNo != null ? ModelData.CaveatIndDetails.CaveatNo : "") + " by " + (ModelData.CaveatIndDetails.CaveatCompany != null ? ModelData.CaveatIndDetails.CaveatCompany : "") + ";" + Environment.NewLine;
+						caveat_Ind = "Evidence of removal of the caveat " + (ModelData.CaveatIndDetails.CaveatNo != null ? ModelData.CaveatIndDetails.CaveatNo : "") + " by " + (ModelData.CaveatIndDetails.CaveatCompany != null ? ModelData.CaveatIndDetails.CaveatCompany : "") + ";";
 					}
 				}
 				//AddOnLoanInd
@@ -872,16 +872,16 @@ namespace EthozCapital.Controllers
 							{
 								strADeed = ") and deed of assignment of rental proceeds in respect of the property dated ";
 								strBoldDeedDate = (ModelData.AddOnLoanIndDetails.DeedOfAssignDate != null ? String.Format("{0:dd MMMM yyyy}", ModelData.AddOnLoanIndDetails.DeedOfAssignDate) : "");
-								strAdComEnd = ";" + Environment.NewLine;
+								strAdComEnd = ";";
 							}
 						}
 						else
 						{
-							strAdComEnd = ";" + Environment.NewLine;
+							strAdComEnd = ";";
 						}
 						if (ModelData.AddOnLoanIndDetails.DeedOfSuborDate != null)
 						{
-							strExistingDeed ="Existing deed of subordination dated " + (ModelData.AddOnLoanIndDetails.DeedOfSuborDate != null ? String.Format("{0:dd MMMM yyyy}", ModelData.AddOnLoanIndDetails.DeedOfSuborDate) : "") + ";" + Environment.NewLine;
+							strExistingDeed ="Existing deed of subordination dated " + (ModelData.AddOnLoanIndDetails.DeedOfSuborDate != null ? String.Format("{0:dd MMMM yyyy}", ModelData.AddOnLoanIndDetails.DeedOfSuborDate) : "") + ";";
 						}
 					}
 
@@ -893,14 +893,14 @@ namespace EthozCapital.Controllers
 				{
 					strTitleMentalCapacityInd = "Certificate of Mental Capacity for ";
 					listMentalCapacityInd = lstMentalCapacityGuarantor;
-					strComEnd = ";" + Environment.NewLine;
+					strComEnd = ";";
 				}
 				#endregion
 
 				#region CPFDischargeInd
 				if (ModelData.strCPFDischargeInd == "Y")
 				{
-					cPF_DischargeInd = strFirstThirdParty + " Mortgagor(s) to provide documentary evidence of CPF Discharge for the property referred to in Clause 6;" + Environment.NewLine;
+					cPF_DischargeInd = strFirstThirdParty + " Mortgagor(s) to provide documentary evidence of CPF Discharge for the property referred to in Clause 6;";
 				}
 				#endregion
 
@@ -937,9 +937,9 @@ namespace EthozCapital.Controllers
 				{
 					if (ModelData.ContractDetails.ContractNumber.Contains("LCP"))
 					{
-						strOnePopulateLCPClause = "All title deeds and documents relating to the property referred to in Clause 6 including the duly stamped sale and purchase agreement in respect of the said property and the ad valorem Certificate of Stamp Duty;" + Environment.NewLine;
+						strOnePopulateLCPClause = "All title deeds and documents relating to the property referred to in Clause 6 including the duly stamped sale and purchase agreement in respect of the said property and the ad valorem Certificate of Stamp Duty;";
 
-						strTwoPopulateLCPClause = "Documentary evidence that the difference between the purchase price and the amount of the Facility has been paid to the vendor of the property before any disbursement of the Facility or any part thereof;" + Environment.NewLine;
+						strTwoPopulateLCPClause = "Documentary evidence that the difference between the purchase price and the amount of the Facility has been paid to the vendor of the property before any disbursement of the Facility or any part thereof;";
 					}
 				}
 				newDoc.ReplaceText("onepopulatelcpclause", strOnePopulateLCPClause);
@@ -954,7 +954,7 @@ namespace EthozCapital.Controllers
 				var intcommitfee = "S$" + (ModelData.ContractDetails != null ? String.Format("{0:n}", ModelData.ContractDetails.CommitFee) : "0");
 				var strAndPayment = " and payment of the facility fee of ";
 				var intfacilityfee = "S$" + (ModelData.ContractScheduleDetails != null ? (String.Format("{0:n}", ModelData.ContractDetails.FacilityFee) == "" ? "0" : String.Format("{0:n}", ModelData.ContractDetails.FacilityFee)) : "0");
-				var strSemecolumn = ";" + Environment.NewLine;
+				var strSemecolumn = ";";
 
 				if (ModelData.ContractDetails != null)
 				{
@@ -964,7 +964,7 @@ namespace EthozCapital.Controllers
 					}
 					else if (ModelData.ContractDetails.ContractNumber.Contains("LCP"))
 					{
-						strSemecolumn = "; and all other fees (including legal fees) and costs and disbursements incurred by " + ModelData.strCompanyClientName + " in connection with this facility letter, the Secured Term Loan Facility Agreement or the Facility have been paid ;" + Environment.NewLine;
+						strSemecolumn = "; and all other fees (including legal fees) and costs and disbursements incurred by " + ModelData.strCompanyClientName + " in connection with this facility letter, the Secured Term Loan Facility Agreement or the Facility have been paid ;";
 					}
 				}
 				newDoc.ReplaceText("strFirstInstalment", strFirstInstalment);
