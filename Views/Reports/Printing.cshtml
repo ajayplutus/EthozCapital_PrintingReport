@@ -150,19 +150,20 @@ else
                             backdrop: 'static',
                             keyboard: false
                         });
-                        startTimer();
-                         var a = window.open("@Url.RouteUrl(new { Controller = "Reports", Action = "FnPrepareContractData" })/?strContractNumber=" + strContractNumber + "&blIsLetterOfOfferChecked=" + blIsLetterOfOfferChecked + "&fnSubContractTypeByPreContractNumber=" + fnSubContractTypeByPreContractNumber+"", "_blank");
-                         a.focus();
-                         a.addEventListener('load', function () {
-                             resetTimer();
-                             $('#myModal').modal("hide");
-                              swal(swalGlobal.SwalTitle_Error, "Please contact MIS, error", swalGlobal.SwalType_Error);
-                              return false;
-                         }, true);
-                         setTimeout(function () {
-                            resetTimer();
-                            $('#myModal').modal("hide");
-                        }, 12000);
+                      startTimer();
+                      var newTAB= window.open("@Url.RouteUrl(new { Controller = "Reports", Action = "FnPrepareContractData" })/?strContractNumber=" + strContractNumber + "&blIsLetterOfOfferChecked=" + blIsLetterOfOfferChecked + "&fnSubContractTypeByPreContractNumber=" + fnSubContractTypeByPreContractNumber+"", "_blank");
+                         window.setTimeout(function () {
+                             newTAB.addEventListener('load', function () {
+                                 resetTimer();
+                                 $('#myModal').modal("hide");
+                                 swal(swalGlobal.SwalTitle_Error, "Please contact MIS, error", swalGlobal.SwalType_Error);
+                                 return false;
+                             }, false);
+                             newTAB.addEventListener('beforeunload', function (e) {
+                                 resetTimer();
+                                 $('#myModal').modal("hide");
+                             }, false);
+                         }, 0);
                     } catch (e) {
                         $('#myModal').modal("hide");
                         swal(swalGlobal.SwalTitle_Error, e, swalGlobal.SwalType_Error);
