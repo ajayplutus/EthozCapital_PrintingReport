@@ -150,13 +150,21 @@ else
                             backdrop: 'static',
                             keyboard: false
                         });
-                      startTimer();
-                      var newTAB= window.open("@Url.RouteUrl(new { Controller = "Reports", Action = "FnPrepareContractData" })/?strContractNumber=" + strContractNumber + "&blIsLetterOfOfferChecked=" + blIsLetterOfOfferChecked + "&fnSubContractTypeByPreContractNumber=" + fnSubContractTypeByPreContractNumber+"", "_blank");
+                         startTimer();
+                      var newTAB= window.open("@Url.RouteUrl(new { Controller = "Reports", Action = "FnPrepareContractData" })/?strContractNumber=" + strContractNumber + "&blIsLetterOfOfferChecked=" + blIsLetterOfOfferChecked + "&fnSubContractTypeByPreContractNumber=" + fnSubContractTypeByPreContractNumber+"","newTAB","width=400,height=150");
                          window.setTimeout(function () {
-                             newTAB.addEventListener('load', function () {
-                                 resetTimer();
-                                 $('#myModal').modal("hide");
-                                 swal(swalGlobal.SwalTitle_Error, "Please contact MIS, error", swalGlobal.SwalType_Error);
+                             newTAB.onblur = function(e) { newTAB.close()};
+                             newTAB.addEventListener('load', function (e) {
+                                  resetTimer();
+                                  $('#myModal').modal("hide");
+                                 if (newTAB.document.body.innerText.indexOf("Invalid contract number inputted, please try another contract number!") != -1) {
+                                     swal(swalGlobal.SwalTitle_Error, "Invalid contract number inputted, please try another contract number!", swalGlobal.SwalType_Error);
+                                     newTAB.close();
+                                 }
+                                 else {
+                                     swal(swalGlobal.SwalTitle_Error, "Please contact MIS, error " + newTAB.document.body.innerText.toString(), swalGlobal.SwalType_Error);
+                                     newTAB.close();
+                                 }
                                  return false;
                              }, false);
                              newTAB.addEventListener('beforeunload', function (e) {

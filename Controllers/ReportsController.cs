@@ -122,6 +122,14 @@ namespace EthozCapital.Controllers
 
 				_model.strContractNumber = strContractNumber;
 
+				#region  Checked Valid Contract Number
+				var IsContractValid = _clsContractGeneral.GetIsContractNumberValid(strContractNumber);
+				if (IsContractValid == 0)
+				{
+					return Json("Invalid contract number inputted, please try another contract number!", JsonRequestBehavior.AllowGet);
+				}
+				#endregion
+
 				if (strContractNumber.StartsWith("T"))
 				{
 					_model.ContractDetails = _clsContractGeneral.GetPreContractDetailsByContractNumber(strContractNumber);

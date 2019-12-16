@@ -554,6 +554,31 @@ namespace EthozCapital.CustomLibraries
 
 		#region Printing Report 
 
+		#region Get Contract Number Is Valid Or not
+		public int GetIsContractNumberValid(string strContractNumber)
+		{
+			glog.Debug("GetIsContractNumberValid: Entry");
+			try
+			{
+				using (var db = new MainDbContext())
+				{
+					var result = db.Database.SqlQuery<int>(
+						"exec GetIsContractNumberValid @ContractNumber",
+						new SqlParameter("@ContractNumber", string.IsNullOrWhiteSpace(strContractNumber) ? "" : strContractNumber)).FirstOrDefault();
+					glog.Debug("GetIsContractNumberValid: Exit");
+					return result;
+				}
+			}
+			catch (Exception Ex)
+			{
+				glog.Error("GetIsContractNumberValid Exception: " + Ex.Message);
+				throw;
+			}
+
+		}
+
+		#endregion
+
 		#region Get GroupCode By Group Member Desc
 		public string GetGroupCodeByGroupMemberDesc(string strGroupMemberDesc)
 		{
