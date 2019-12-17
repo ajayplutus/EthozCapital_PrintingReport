@@ -77,11 +77,40 @@ namespace EthozCapital.Controllers
 		}
 		#endregion
 
+		#region Funtion GetIsContractNumberValid
+		[HttpGet]
+		public ActionResult FnGetIsContractNumberValid(string strContractNumber)
+		{
+			glog.Debug("HttpGet FnGetIsContractNumberValid: Entry");
+			try
+			{
+				var IsContractValid = _clsContractGeneral.GetIsContractNumberValid(strContractNumber);
+				if (IsContractValid == 0)
+				{
+					glog.Debug("HttpGet FnGetIsContractNumberValid: Exit");
+					return Json("Invalid contract number inputted, please try another contract number!", JsonRequestBehavior.AllowGet);
+				}
+				else
+				{
+					glog.Debug("HttpGet FnGetIsContractNumberValid: Exit");
+					return Json("Sucessfully Checked Valid Contract Number!", JsonRequestBehavior.AllowGet);
+				}
+			}
+			catch (Exception ex)
+			{
+				glog.Error("Please contact MIS, error:" + ex.Message);
+				var strError = "Please contact MIS, error:" + ex.Message;
+				return Json(strError, JsonRequestBehavior.AllowGet);
+			}
+			
+		}
+		#endregion
+
 		#region FnPrepareContractData
 		[HttpGet]
 		public ActionResult FnPrepareContractData(string strContractNumber, bool blIsLetterOfOfferChecked,bool fnSubContractTypeByPreContractNumber)
 		{
-			glog.Debug("HttpPost FnPrepareContractData: Entry");
+			glog.Debug("HttpGet FnPrepareContractData: Entry");
 			string strSubContractType = "";
 			string strLogicCode = "";
 			try
@@ -121,15 +150,6 @@ namespace EthozCapital.Controllers
 				#endregion
 
 				_model.strContractNumber = strContractNumber;
-
-				#region  Checked Valid Contract Number
-				var IsContractValid = _clsContractGeneral.GetIsContractNumberValid(strContractNumber);
-				if (IsContractValid == 0)
-				{
-					return Json("Invalid contract number inputted, please try another contract number!", JsonRequestBehavior.AllowGet);
-				}
-				#endregion
-
 				if (strContractNumber.StartsWith("T"))
 				{
 					_model.ContractDetails = _clsContractGeneral.GetPreContractDetailsByContractNumber(strContractNumber);
@@ -258,7 +278,7 @@ namespace EthozCapital.Controllers
 				_model.strPreparedBy = User.Identity.Name;
 				_model.strPreparedDate = String.Format("{0:dd MMMM yyyy}", DateTime.UtcNow);
 				_model.IsLetterOfOfferChecked = blIsLetterOfOfferChecked;
-				glog.Debug("HttpPost FnPrepareContractData: Exit");
+				glog.Debug("HttpGet FnPrepareContractData: Exit");
 				return FnGenerateTermLoanLOF(_model);
 			}
 			catch (Exception ex)

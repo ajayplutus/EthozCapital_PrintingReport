@@ -139,39 +139,57 @@ else
                 if ($('input:checkbox:checked').length > 0) {
                     var blIsLetterOfOfferChecked = false;
                     if ($("#chkPrint_CRT-1004").prop('checked')) {
-                            blIsLetterOfOfferChecked = true;
+                        blIsLetterOfOfferChecked = true;
                     }
                     var fnSubContractTypeByPreContractNumber = false;
                     if (strContractNumber.startsWith("T")) {
                         fnSubContractTypeByPreContractNumber = true;
                     }
-                     try {
-                        $('#myModal').modal({
-                            backdrop: 'static',
-                            keyboard: false
+                    try {
+                        $.ajax({
+                            url: '@Url.Action("FnGetIsContractNumberValid")',
+                            data: { strContractNumber: strContractNumber },
+                            type: 'GET',
+                            cache: false,
+                            dataType: 'json',
+                            global: false,
+                            success: function (json) {
+                                if (json.indexOf("Invalid contract number inputted, please try another contract number!") != -1) {
+                                    swal(swalGlobal.SwalTitle_Error, "Invalid contract number inputted, please try another contract number!", swalGlobal.SwalType_Error);
+                                    return false;
+                                }
+                                else {
+                                    try {
+                                        $('#myModal').modal({
+                                            backdrop: 'static',
+                                            keyboard: false
+                                        });
+                                        startTimer();
+                                        var newTAB = window.open("@Url.RouteUrl(new { Controller = "Reports", Action = "FnPrepareContractData" })/?strContractNumber=" + strContractNumber + "&blIsLetterOfOfferChecked=" + blIsLetterOfOfferChecked + "&fnSubContractTypeByPreContractNumber=" + fnSubContractTypeByPreContractNumber + "", "newTAB", "width=400,height=150");
+                                        window.setTimeout(function () {
+                                            newTAB.onblur = function (e) { newTAB.close() };
+                                            newTAB.addEventListener('load', function (e) {
+                                                resetTimer();
+                                                $('#myModal').modal("hide");
+                                                swal(swalGlobal.SwalTitle_Error,newTAB.document.body.innerText.toString(), swalGlobal.SwalType_Error);
+                                                newTAB.close();
+                                                return false;
+                                            }, false);
+                                            newTAB.addEventListener('beforeunload', function (e) {
+                                                resetTimer();
+                                                $('#myModal').modal("hide");
+                                            }, false);
+                                        }, 0);
+
+                                    } catch (e) {
+                                        $('#myModal').modal("hide");
+                                        swal(swalGlobal.SwalTitle_Error,e, swalGlobal.SwalType_Error);
+                                        return false;
+                                    }
+                                }
+                            }
                         });
-                         startTimer();
-                      var newTAB= window.open("@Url.RouteUrl(new { Controller = "Reports", Action = "FnPrepareContractData" })/?strContractNumber=" + strContractNumber + "&blIsLetterOfOfferChecked=" + blIsLetterOfOfferChecked + "&fnSubContractTypeByPreContractNumber=" + fnSubContractTypeByPreContractNumber+"","newTAB","width=400,height=150");
-                         window.setTimeout(function () {
-                             newTAB.onblur = function(e) { newTAB.close()};
-                             newTAB.addEventListener('load', function (e) {
-                                  resetTimer();
-                                  $('#myModal').modal("hide");
-                                 if (newTAB.document.body.innerText.indexOf("Invalid contract number inputted, please try another contract number!") != -1) {
-                                     swal(swalGlobal.SwalTitle_Error, "Invalid contract number inputted, please try another contract number!", swalGlobal.SwalType_Error);
-                                     newTAB.close();
-                                 }
-                                 else {
-                                     swal(swalGlobal.SwalTitle_Error, "Please contact MIS, error " + newTAB.document.body.innerText.toString(), swalGlobal.SwalType_Error);
-                                     newTAB.close();
-                                 }
-                                 return false;
-                             }, false);
-                             newTAB.addEventListener('beforeunload', function (e) {
-                                 resetTimer();
-                                 $('#myModal').modal("hide");
-                             }, false);
-                         }, 0);
+
                     } catch (e) {
                         $('#myModal').modal("hide");
                         swal(swalGlobal.SwalTitle_Error, e, swalGlobal.SwalType_Error);
