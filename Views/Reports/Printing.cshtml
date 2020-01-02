@@ -165,9 +165,6 @@ else
                                             keyboard: false
                                         });
                                         startTimer();
-                                        $(window).on('load', function () {
-                                             $('#myModal').modal("hide");
-                                        });
                                         var url = varSitePath + "/Reports/FnPrepareContractData?strContractNumber=" + strContractNumber + "&blIsLetterOfOfferChecked=" + blIsLetterOfOfferChecked + "&fnSubContractTypeByPreContractNumber=" + fnSubContractTypeByPreContractNumber;
                                         var xhr = new XMLHttpRequest();
                                         xhr.open('Get', url, true);
@@ -195,7 +192,7 @@ else
 
                                                 if (typeof window.navigator.msSaveBlob !== 'undefined') {
                                                     // IE workaround for "HTML7007: One or more blob URLs were revoked by closing the blob for which they were created. These URLs will no longer resolve as the data backing the URL has been freed."
-                                                    window.navigator.msSaveBlob(blob, filename);
+                                                      window.navigator.msSaveBlob(blob, filename);
                                                 } else {
                                                     var URL = window.URL || window.webkitURL;
                                                     var downloadUrl = URL.createObjectURL(blob);
@@ -211,25 +208,30 @@ else
                                                             a.download = filename;
                                                             document.body.appendChild(a);
                                                             a.click();
+                                                            resetTimer();
                                                             $('#myModal').modal("hide");
                                                         }
                                                     } else {
-                                                        window.location = downloadUrl;
+                                                        //  window.location = downloadUrl;
+                                                        resetTimer();
+                                                        $('#myModal').modal("hide");
                                                     }
 
                                                     setTimeout(function () { URL.revokeObjectURL(downloadUrl); $('#myModal').modal("hide"); }, 100); // cleanup
                                                 }
                                             }
                                             else {
-                                                swal(swalGlobal.SwalTitle_Error,"error", swalGlobal.SwalType_Error);
-                                                 $('#myModal').modal("hide");
+                                                swal(swalGlobal.SwalTitle_Error, "error", swalGlobal.SwalType_Error);
+                                                resetTimer();
+                                                $('#myModal').modal("hide");
                                             }
                                         };
                                         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                                        xhr.send($.param({strContractNumber: strContractNumber, blIsLetterOfOfferChecked: blIsLetterOfOfferChecked, fnSubContractTypeByPreContractNumber: fnSubContractTypeByPreContractNumber}));
+                                        xhr.send($.param({ strContractNumber: strContractNumber, blIsLetterOfOfferChecked: blIsLetterOfOfferChecked, fnSubContractTypeByPreContractNumber: fnSubContractTypeByPreContractNumber }));
                                     } catch (e) {
+                                        resetTimer();
                                         $('#myModal').modal("hide");
-                                        swal(swalGlobal.SwalTitle_Error,e, swalGlobal.SwalType_Error);
+                                        swal(swalGlobal.SwalTitle_Error, e, swalGlobal.SwalType_Error);
                                         return false;
                                     }
                                 }
