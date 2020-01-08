@@ -212,7 +212,7 @@ else
                                                             $('#myModal').modal("hide");
                                                         }
                                                     } else {
-                                                        //  window.location = downloadUrl;
+                                                        swal(swalGlobal.SwalTitle_Error, xhr.statusText, swalGlobal.SwalType_Error);
                                                         resetTimer();
                                                         $('#myModal').modal("hide");
                                                     }
@@ -221,12 +221,17 @@ else
                                                 }
                                             }
                                             else {
-                                                swal(swalGlobal.SwalTitle_Error, "error", swalGlobal.SwalType_Error);
-                                                resetTimer();
-                                                $('#myModal').modal("hide");
+                                                swal(swalGlobal.SwalTitle_Error, xhr.statusText, swalGlobal.SwalType_Error);
+                                                    resetTimer();
+                                                    $('#myModal').modal("hide");
                                             }
                                         };
                                         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                                        xhr.onerror = function () {
+                                            swal(swalGlobal.SwalTitle_Error, xhr.statusText, swalGlobal.SwalType_Error);
+                                            resetTimer();
+                                            $('#myModal').modal("hide");
+                                        };
                                         xhr.send($.param({ strContractNumber: strContractNumber, blIsLetterOfOfferChecked: blIsLetterOfOfferChecked, fnSubContractTypeByPreContractNumber: fnSubContractTypeByPreContractNumber }));
                                     } catch (e) {
                                         resetTimer();
